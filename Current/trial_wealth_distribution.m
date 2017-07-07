@@ -98,7 +98,7 @@ non_norm_prime_real_age__prime_age_weight = real_age__age_weight( real_age__age_
 % renormalizing weights to sum to 1 over prime age
 prime_real_age__prime_age_weight(:,2) = non_norm_prime_real_age__prime_age_weight(:,2)/sum(non_norm_prime_real_age__prime_age_weight(:,2));
 
-age_cut_offs = ceil(agents*cumsum(prime_real_age__prime_age_weight(:,2)));
+age_cut_offs = ceil(pop_size*cumsum(prime_real_age__prime_age_weight(:,2)));
 % age cut off = total number of wages times total nr of agents -> cumsum,
 % s.t the differences between weights are deciding 
 
@@ -114,7 +114,7 @@ a_i_t = X_t;
 % 26 - 55 years old 
 % creating a synthetic population at the time of survey
 % taking into account the age weights and the rate of deterministic income growth
-a_pop_synth = NaN*zeros(agents,1);
+a_pop_synth = NaN*zeros(pop_size,1);
 istartcohort = 1;
 for jcohort = 1:max(size(age_cut_offs)); 
     
@@ -144,9 +144,9 @@ non_norm_brime_real_age__brime_age_weight = real_age__age_weight( real_age__age_
 brime_real_age__brime_age_weight(:,2) = non_norm_brime_real_age__brime_age_weight(:,2)/sum(non_norm_brime_real_age__brime_age_weight(:,2));
 
 % determining indexes of cut-offs between age groups in the population of given size
-age_cut_offs_brime = min(agents,ceil(agents*cumsum(brime_real_age__brime_age_weight(:,2))));
+age_cut_offs_brime = min(pop_size,ceil(pop_size*cumsum(brime_real_age__brime_age_weight(:,2))));
 
-a_pop_synth_brime = NaN*zeros(agents,1);
+a_pop_synth_brime = NaN*zeros(pop_size,1);
 istartcohort = 1;
 for jcohort = 1:max(size(age_cut_offs_brime));
     
@@ -176,9 +176,9 @@ non_norm_brime_real_age__brime_age_weight = real_age__age_weight( real_age__age_
 brime_real_age__brime_age_weight(:,2) = non_norm_brime_real_age__brime_age_weight(:,2)/sum(non_norm_brime_real_age__brime_age_weight(:,2));
 
 % determining indexes of cut-offs between age groups in the population of given size
-age_cut_offs_brime = min(agents,ceil(agents*cumsum(brime_real_age__brime_age_weight(:,2))));
+age_cut_offs_brime = min(pop_size,ceil(pop_size*cumsum(brime_real_age__brime_age_weight(:,2))));
 
-a_pop_synth_brime = NaN*zeros(agents,1);
+a_pop_synth_brime = NaN*zeros(pop_size,1);
 istartcohort = 1;
 for jcohort = 1:max(size(age_cut_offs_brime));
     
@@ -208,9 +208,9 @@ non_norm_brime_real_age__brime_age_weight = real_age__age_weight( real_age__age_
 brime_real_age__brime_age_weight(:,2) = non_norm_brime_real_age__brime_age_weight(:,2)/sum(non_norm_brime_real_age__brime_age_weight(:,2));
 
 % determining indexes of cut-offs between age groups in the population of given size
-age_cut_offs_brime = min(agents,ceil(agents*cumsum(brime_real_age__brime_age_weight(:,2))));
+age_cut_offs_brime = min(pop_size,ceil(pop_size*cumsum(brime_real_age__brime_age_weight(:,2))));
 
-a_pop_synth_brime = NaN*zeros(agents,1);
+a_pop_synth_brime = NaN*zeros(pop_size,1);
 istartcohort = 1;
 for jcohort = 1:max(size(age_cut_offs_brime));
     

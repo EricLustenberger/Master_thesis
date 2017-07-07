@@ -47,10 +47,10 @@ gamma_ = 0.95;        % seizable fraction of minimum income
 
 % rhoAR = 0.95;      % autocorrelation of income
 
-nz = 5;            % number of markov states
+% nz = 5;            % number of markov states
 
-SCF_net_income_moments;
-useSigLog = SigLog;
+% SCF_net_income_moments;
+% useSigLog = SigLog;
 
 %Tauchen;
 %y_z_ = exp(y_logCASE);  % endowment conditional on markov state
@@ -101,7 +101,7 @@ end; % of for over markov states
 tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
-policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),maxit_pol,1); % initialize array to store policies
+policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
 
 for pol_iter = 1:size(Y_ms_j,2);
 
@@ -187,10 +187,10 @@ end; % of for over markov states
 c_pol = c_pol_new;
 
 % store policies in struct array after each period to recall during simulation
-policies(maxit_pol + 1 - pol_iter).c_pol = c_pol_new; % indexing acording to age
-policies(maxit_pol + 1 - pol_iter).a_prime = a_prime;
-policies(maxit_pol + 1 - pol_iter).x_prime = x_prime;
-policies(maxit_pol + 1 - pol_iter).d_prime = d_prime; 
+policies(size(Y_ms_j,2) + 1 - pol_iter).c_pol = c_pol_new; % indexing acording to age
+policies(size(Y_ms_j,2) + 1 - pol_iter).a_prime = a_prime;
+policies(size(Y_ms_j,2) + 1 - pol_iter).x_prime = x_prime;
+policies(size(Y_ms_j,2) + 1 - pol_iter).d_prime = d_prime; 
 
 s1= sprintf('===================================================\n');
 s2= sprintf('Iteration (on policy function):%5.0d     \n', pol_iter);
@@ -209,4 +209,4 @@ end; % ending the for loop on pol_iter
 toc
 
 % simulate agents 
-trial_simulation2; 
+trial_simulation; 

@@ -5,10 +5,10 @@
 % 
 % Simulation parameters
 % =====================
-T = maxit_pol;           % total sample size of simulation
+T = size(Y_ms_j,2);           % total sample size of simulation
 %drop_obs = 10001;     % number of observations discarded so that initial conditions do not matter
 %ext_val = -1000000;   % value assigned in 2-dimensional interpolation if extrapolation is necessary
-z_0 = 3;              % initial Markov state for simulation
+% z_0 = 3;              % initial Markov state for simulation
 %plot_histograms_ = 1; % option for histogram plots if ==1
 plot_time = (1:T);  % selection of time period for simulation-series plots
 
@@ -17,16 +17,16 @@ pause(0.01);
 
 % Drawing a sequence of labor income realizations
 % ===============================================
-agents = 200; 
+% agents = 200; 
 
 seed_rand = 112; % the European emergency call number
 rand('twister',seed_rand);
 
-for i = 1:agents; 
+for i = 1:pop_size; 
 
-[y_t,state]=markovc3(P_,T+1,z_0,y_z_);
-y_t=y_t';
-z=state'*(1:max(size(P_)))';
+% [y_t,state]=markovc3(P_,T+1,z_0,y_z_);
+% y_t=y_t';
+% z=state'*(1:max(size(P_)))';
 
 % Initializations for the simulations
 % =====================================
@@ -116,10 +116,10 @@ for t = 1:T; % note the last policy fct in the array is the first one for the ag
 %    d_t(t+1)     = interp2(MeshX_sel,MeshD_sel,d_prime_sel(:,:,z(t)),x_t(t),d_t(t),'linear',ext_val);
    
 % OR: instead of all the above just the following 2 lines of code which need, however, MUCH more computing time    
-   a_t(t+1)     = interp2(MeshX,MeshD,a_prime(:,:,z(t)),x_t(t),d_t(t));
-   d_t(t+1)     = interp2(MeshX,MeshD,d_prime(:,:,z(t)),x_t(t),d_t(t));
+   a_t(t+1)     = interp2(MeshX,MeshD,a_prime(:,:,s_i_t(i,t)),x_t(t),d_t(t));
+   d_t(t+1)     = interp2(MeshX,MeshD,d_prime(:,:,s_i_t(i,t)),x_t(t),d_t(t));
 
-   c_t(t)   =   x_t(t) + y_t(t) - a_t(t+1) - d_t(t+1);
+   c_t(t)   =   x_t(t) + Y_i_t(i,t) - a_t(t+1) - d_t(t+1);
    invd_t(t) = 	d_t(t+1) - (1-delta_)*d_t(t);
   
    A_t{i} = a_t;
@@ -127,7 +127,7 @@ for t = 1:T; % note the last policy fct in the array is the first one for the ag
    C_t{i} = c_t;
    Invd_t{i} = invd_t;
    X_t{i} = x_t;
-   Y_t{i} = y_t;
+   %Y_t{i} = y_t;
    
 end; % of for in simulation over t
 end; % of for in simulation over i 
@@ -138,9 +138,9 @@ D_t = vertcat(D_t{:});
 C_t = vertcat(C_t{:});
 Invd_t = vertcat(Invd_t{:});
 X_t = vertcat(X_t{:});
-Y_t = horzcat(Y_t{:});
+%Y_t = horzcat(Y_t{:});
 
-trial_wealth_distribution
+% trial_wealth_distribution
 
 % plotting means of agents 
 a_t = mean(A_t,1);
@@ -148,7 +148,7 @@ d_t = mean(D_t,1);
 c_t = mean(C_t,1);
 invd_t = mean(Invd_t,1);
 x_t = mean(X_t,1);
-y_t = mean(Y_t,2);
+y_t = mean(Y_i_t,1);
 
 
 figure(51);
