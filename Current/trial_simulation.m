@@ -112,8 +112,8 @@ for t = 1:T; % note the last policy fct in the array is the first one for the ag
 %    pause;
 %    end;
 % 
-%    a_t(t+1)     = interp2(MeshX_sel,MeshD_sel,a_prime_sel(:,:,z(t)),x_t(t),d_t(t),'linear',ext_val);
-%    d_t(t+1)     = interp2(MeshX_sel,MeshD_sel,d_prime_sel(:,:,z(t)),x_t(t),d_t(t),'linear',ext_val);
+%    a_t(t+1)     = interp2(MeshX_sel,MeshD_sel,a_prime_sel(:,:,s_i_t(i,t)),x_t(t),d_t(t),'linear',ext_val);
+%    d_t(t+1)     = interp2(MeshX_sel,MeshD_sel,d_prime_sel(:,:,s_i_t(i,t)),x_t(t),d_t(t),'linear',ext_val);
    
 % OR: instead of all the above just the following 2 lines of code which need, however, MUCH more computing time    
    a_t(t+1)     = interp2(MeshX,MeshD,a_prime(:,:,s_i_t(i,t)),x_t(t),d_t(t));
@@ -140,7 +140,7 @@ Invd_t = vertcat(Invd_t{:});
 X_t = vertcat(X_t{:});
 %Y_t = horzcat(Y_t{:});
 
-% trial_wealth_distribution
+trial_wealth_distribution
 
 % plotting means of agents 
 a_t = mean(A_t,1);
