@@ -913,7 +913,7 @@ end; % of for over entries of initial values
 
 a_init__weight_init(:,2) = tot_h_adj__weight(:,2)/sum(tot_h_adj__weight(:,2));
 
-pop_size = 100;
+pop_size = 1000;
 
 seed_rand = 112; % the European emergency call number
 rand('twister',seed_rand);
