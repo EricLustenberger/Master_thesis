@@ -5,20 +5,14 @@
 % 
 %% Simulating agents 
 % ===============================================
-
-tic
-
-% Simulation parameters
-% =====================
-T = size(Y_ms_j,2);           % time periods 
-
 disp('Simulating ...');
 pause(0.01); 
 
+tic
+
 % Initializations for the simulations
-% =====================================
-init_mat_cxinvd = NaN*zeros(T,1)'; % initializing matrix for consumption and net worth and invd_t
-init_mat_ad =  NaN*zeros(T+1,1)'; % initializing matrix for future choices 
+init_mat_cxinvd = NaN*zeros(size(Y_ms_j,2),1)'; % initializing matrix for consumption and net worth and invd_t
+init_mat_ad =  NaN*zeros(size(Y_ms_j,2)+1,1)'; % initializing matrix for future choices 
 
 lifetime_choices_i = repmat(struct('c_j',init_mat_cxinvd,'x_j',init_mat_cxinvd,'invd_j',init_mat_cxinvd,'d_j',init_mat_ad,'a_j',init_mat_ad),pop_size,1); % initialize array to store policies
 
@@ -29,7 +23,7 @@ for i = 1:pop_size;
 lifetime_choices_i(i).a_j(1) = 1;
 lifetime_choices_i(i).d_j(1) = 1;
 
-for t = 1:T; % note the last policy fct in the array is the first one for the agents
+for t = 1:size(Y_ms_j,2); % note the last policy fct in the array is the first one for the agents
        
    lifetime_choices_i(i).x_j(t)         = (1+r)*lifetime_choices_i(i).a_j(t) + (1-delta_)*lifetime_choices_i(i).d_j(t);
       
@@ -47,7 +41,7 @@ toc
 
 %% Plotting lifetime behavior of mean agent 
 
-plot_j = (1:T);  % selection of time period for simulation-series plots
+plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series plots
 
 % calculating means 
 mean_a_j = mean(vertcat(lifetime_choices_i.a_j),1);

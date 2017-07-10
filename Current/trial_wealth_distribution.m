@@ -1,5 +1,6 @@
-%% starting constructing the wealth distribution 
-
+%%constructing the wealth distribution  
+% % Note: This requires calibration and simulated agents
+% % to be already available in workspace.
 
 % 26 - 55 years old 
 % creating a synthetic population at the time of survey
@@ -120,27 +121,21 @@ for iperc = 1:99;
 end; % of for over percentiles
 
 
-% this_run_time = etime(clock,t0);
-
-% if good_file_ == 0;
-% life_save;
-% end;
-
 %% plot wealth distribution 
 
 % plot synthetic population at the time of survey
 figure(53);
-plot (linspace(1,99,99),a_perc,'LineWidth',2), xlabel('percentiles'), ylabel('a_t')
+plot (linspace(1,99,99),a_perc,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
 title('26-55')
 
 figure(54) 
-plot (linspace(1,99,99),a_perc_26_35,'LineWidth',2), xlabel('percentiles'), ylabel('a_t')
+plot (linspace(1,99,99),a_perc_26_35,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
 title('26-35')
 
 figure(55) 
-plot (linspace(1,99,99),a_perc_36_45,'LineWidth',2), xlabel('percentiles'), ylabel('a_t')
+plot (linspace(1,99,99),a_perc_36_45,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
 title('36-45')
 
 figure(56) 
-plot (linspace(1,99,99),a_perc_46_55,'LineWidth',2), xlabel('percentiles'), ylabel('a_t')
+plot (linspace(1,99,99),a_perc_46_55,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
 title('46-55')

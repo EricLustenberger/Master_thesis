@@ -25,10 +25,9 @@ life_2004_calibration
 
 %% Algorithm parameters
 % ====================
-% maxit_pol  = 64;     % maximum  number of iterations
 
-% Model parameters
-% ================
+% Additional Model parameters for JEDC Model
+% ==========================================
 r = 0.03;          % interest rate on savings
 
 delta_ = 0.02;     % depreciation rate durable good
@@ -44,18 +43,6 @@ epsdur = 0.000001; % autonomous durable consumption
 miu = 0.97;        % loan-to-value ratio
 
 gamma_ = 0.95;        % seizable fraction of minimum income
-
-% rhoAR = 0.95;      % autocorrelation of income
-
-% nz = 5;            % number of markov states
-
-% SCF_net_income_moments;
-% useSigLog = SigLog;
-
-%Tauchen;
-%y_z_ = exp(y_logCASE);  % endowment conditional on markov state
-% P_ = P_matCASEout;      % transition probability  matrix
-
 
 % Create the grid on the state space
 % % ==================================
@@ -107,7 +94,7 @@ tic;
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
 policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
 
-for pol_iter = 1:size(Y_ms_j,2);
+for jage = (size(Y_ms_j,2)-1):-1:1;
 
 % initialize policies 
 a_prime   = init_mat; 
@@ -119,8 +106,13 @@ c_pol_new = init_mat;
 MUc          =     theta  * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^(1-theta) .* c_pol.^(theta-1);
 MUd          =  (1-theta) * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^( -theta) .* c_pol.^(theta  );
 
-v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+% without death probability 
+% v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+% v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+% considering death probability
+v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+
 
 diff_Der = v_hat_dprime -(r + delta_)*v_hat_xprime; % evaluating FOC on the interior
 
@@ -137,7 +129,7 @@ for ixp = 1: size(MeshX,2);
     
     d_prime_xy_cand = interp1(diff_Der(:,ixp,ims),MeshD(:,ixp),0,'linear','extrap');
     
-    if d_prime_xy_cand > d_min && d_prime_xy_cand < (MeshX(1,ixp) + y_gam_j(size(Y_ms_j,2)+1-pol_iter))/((1 - miu)*(1 - delta_));
+    if d_prime_xy_cand > d_min && d_prime_xy_cand < (MeshX(1,ixp) + y_gam_j(jage))/((1 - miu)*(1 - delta_));
         
     dprime_xy(1,ixp,ims) = d_prime_xy_cand;
     v_hat_xprimeopt(1,ixp,ims) = exp(interp1(MeshD(:,ixp),log(v_hat_xprime(:,ixp,ims)'),dprime_xy(1,ixp,ims),'linear','extrap'));    
@@ -148,7 +140,7 @@ for ixp = 1: size(MeshX,2);
         v_hat_xprimeopt(1,ixp,ims) = v_hat_xprime(1,ixp,ims);
         
         else                         % corner solution at collateral constraint
-        dprime_xy(1,ixp,ims) = (MeshX(1,ixp) + y_gam_j(size(Y_ms_j,2)+1-pol_iter))/((1 - miu)*(1 - delta_));
+        dprime_xy(1,ixp,ims) = (MeshX(1,ixp) + y_gam_j(jage))/((1 - miu)*(1 - delta_));
         v_hat_xprimeopt(1,ixp,ims) = exp(interp1(MeshD(:,ixp),log(v_hat_xprime(:,ixp,ims)'),dprime_xy(1,ixp,ims),'linear','extrap'));
         v_hat_dprimeopt            = exp(interp1(MeshD(:,ixp),log(v_hat_dprime(:,ixp,ims)'),dprime_xy(1,ixp,ims),'linear','extrap'));
         kappa_xy(1,ixp,ims) =  (1/(1 + r - miu*(1 - delta_)))*(v_hat_dprimeopt - (r + delta_)*v_hat_xprimeopt(1,ixp,ims));            
@@ -159,7 +151,7 @@ for ixp = 1: size(MeshX,2);
 end; % of for over xprime
 end; % of for over markov states
 
-% figure(1);
+figure(1);
 dplot = reshape(dprime_xy,size(dprime_xy,2),size(dprime_xy,3));
 plot(MeshX(1,:),dplot(:,:));
 title('next period combinations, d´(x´)');
@@ -173,7 +165,7 @@ d_this = d_grid_(id);
 
 c_EGM = ((1 + r)/theta*(v_hat_xprimeopt(1,:,ims) + kappa_xy(1,:,ims))*(d_this + epsdur).^((theta - 1)*(1-sigma_))).^(1/(theta*(1 - sigma_) - 1));
 a_prime_EGM = (MeshX(1,:)- (1 - delta_)*dprime_xy(1,:,ims))/(1 + r);
-x_EGM = c_EGM + a_prime_EGM + dprime_xy(1,:,ims) - Y_ms_j(ims,size(Y_ms_j,2)+1-pol_iter);
+x_EGM = c_EGM + a_prime_EGM + dprime_xy(1,:,ims) - Y_ms_j(ims,jage);
 
 % for x on the grid < minimum of endogenous x, know that consume total wealth (both collateral constraint and dprime=d_min are binding)
 c_pol_new(id,MeshX(1,:) < min(x_EGM),ims) = min(c_EGM) - ( min(x_EGM) - MeshX(1,MeshX(1,:) < min(x_EGM)) );
@@ -182,7 +174,7 @@ c_pol_new(id,MeshX(1,:) >= min(x_EGM),ims) = interp1(x_EGM',c_EGM',MeshX(1,MeshX
 
 d_prime(id,:,ims)   = max(d_min,interp1(x_EGM',dprime_xy(1,:,ims)',MeshX(1,:),'linear','extrap'));
 
-a_prime(id,:,ims)   = MeshX(1,:) + Y_ms_j(ims,size(Y_ms_j,2)+1-pol_iter) - c_pol_new(id,:,ims) - d_prime(id,:,ims);
+a_prime(id,:,ims)   = MeshX(1,:) + Y_ms_j(ims,jage) - c_pol_new(id,:,ims) - d_prime(id,:,ims);
 x_prime(id,:,ims)   = (1+r)*a_prime(id,:,ims)+(1-delta_)*d_prime(id,:,ims);
 
 end; % of for over durable gridpoints today
@@ -191,23 +183,18 @@ end; % of for over markov states
 c_pol = c_pol_new;
 
 % store policies in struct array after each period to recall during simulation
-policies(size(Y_ms_j,2) + 1 - pol_iter).c_pol = c_pol_new; % indexing acording to age
-policies(size(Y_ms_j,2) + 1 - pol_iter).a_prime = a_prime;
-policies(size(Y_ms_j,2) + 1 - pol_iter).x_prime = x_prime;
-policies(size(Y_ms_j,2) + 1 - pol_iter).d_prime = d_prime; 
+policies(jage).c_pol = c_pol_new; % indexing acording to age
+policies(jage).a_prime = a_prime;
+policies(jage).x_prime = x_prime;
+policies(jage).d_prime = d_prime; 
 
 s1= sprintf('===================================================\n');
-s2= sprintf('Iteration (on policy function):%5.0d     \n', pol_iter);
-%s3= sprintf('---------------------------------------------------\n');
-%s4= sprintf('Difference in: \n');
-%s5= sprintf('_pol              ');
-%s6= sprintf('%-16.7d   \n',diff_pol_max);
-%s=[s1 s2 s3 s4 s5 s6 s1];
+s2= sprintf('Iteration (on policy function):%5.0d     \n', jage);
 s=[s1 s2 s1];
 disp(s);
 pause(0.001);
    
-end; % ending the for loop on pol_iter
+end; % ending the for loop on jage
 %===================   End of time iteration   =====================
 
 toc
