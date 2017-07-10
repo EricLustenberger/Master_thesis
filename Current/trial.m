@@ -93,6 +93,8 @@ tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
 policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
+% % for trial_simulation3
+% policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat,'a_prime_sel',init_mat,'d_prime_sel',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
 
 for jage = (size(Y_ms_j,2)-1):-1:1;
 
@@ -201,3 +203,4 @@ toc
 
 % simulate agents 
 trial_simulation; 
+% trial_simulation3;
