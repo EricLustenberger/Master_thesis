@@ -127,6 +127,10 @@ end; % of for over percentiles
 figure(53);
 plot (linspace(1,99,99),a_perc,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
 title('26-55')
+hold on
+plot(SCF_prime_age_pctiles(:,1),SCF_prime_age_pctiles(:,2));
+%title('net worth distribution, prime age, SCF');
+hold off
 
 figure(54) 
 plot (linspace(1,99,99),a_perc_26_35,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')

@@ -21,7 +21,8 @@ clear all;
 
 %% Call Calibration 
  
-life_2004_calibration
+%life_2004_calibration
+life_1983_calibration
 
 %% Algorithm parameters
 % ====================
@@ -92,9 +93,9 @@ end; % of for over markov states
 tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
-policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
+policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
 % % for trial_simulation3
-% policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat,'a_prime_sel',init_mat,'d_prime_sel',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
+% policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat,'a_prime_sel',init_mat,'d_prime_sel',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
 
 for jage = (size(Y_ms_j,2)-1):-1:1;
 
@@ -107,11 +108,6 @@ c_pol_new = init_mat;
 % calculate derivatives of the value function
 MUc          =     theta  * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^(1-theta) .* c_pol.^(theta-1);
 MUd          =  (1-theta) * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^( -theta) .* c_pol.^(theta  );
-
-% without death probability 
-% v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-% v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-% considering death probability
 
 if jage < T_ret;
     v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
