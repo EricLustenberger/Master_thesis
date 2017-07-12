@@ -33,9 +33,17 @@ r = 0.03;          % interest rate on savings
 
 delta_ = 0.02;     % depreciation rate durable good
 
-beta_ = 0.9391;    % discount factor 
+% beta_ = 0.9391;    % discount factor 
+% 
+% sigma_ = 2;        % overall risk aversion
 
-sigma_ = 2;        % overall risk aversion
+% =================================================
+% As estimated in JEDC Paper for 1983
+
+beta_     = 0.9845;	
+sigma_    = 1.08;	
+
+% =================================================
 
 theta = 0.8092;     % Cobb-Douglas weight on non-durable consumption
 
@@ -154,10 +162,10 @@ for ixp = 1: size(MeshX,2);
 end; % of for over xprime
 end; % of for over markov states
 
-figure(1);
-dplot = reshape(dprime_xy,size(dprime_xy,2),size(dprime_xy,3));
-plot(MeshX(1,:),dplot(:,:));
-title('next period combinations, d´(x´)');
+% figure(1);
+% dplot = reshape(dprime_xy,size(dprime_xy,2),size(dprime_xy,3));
+% plot(MeshX(1,:),dplot(:,:));
+% title('next period combinations, d´(x´)');
 
 % Step 2: the loop conditioning on today's durable stock
 % ======================================================

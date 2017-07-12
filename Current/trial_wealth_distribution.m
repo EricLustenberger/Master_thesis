@@ -123,23 +123,40 @@ end; % of for over percentiles
 
 %% plot wealth distribution 
 
-% plot synthetic population at the time of survey
-figure(53);
-plot (linspace(1,99,99),a_perc,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
-title('26-55')
-hold on
-plot(SCF_prime_age_pctiles(:,1),SCF_prime_age_pctiles(:,2));
-%title('net worth distribution, prime age, SCF');
-hold off
+% import empirical data for comparison
+% trial_data_2004
+trial_data_1983
 
-figure(54) 
-plot (linspace(1,99,99),a_perc_26_35,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
-title('26-35')
-
-figure(55) 
-plot (linspace(1,99,99),a_perc_36_45,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
-title('36-45')
+%Figures
+%=======
 
 figure(56) 
-plot (linspace(1,99,99),a_perc_46_55,'LineWidth',2), xlabel('percentiles'), ylabel('Net worth')
-title('46-55')
+plot(SCF_agedetail_pctiles(10:90,1),SCF_prime_age_pctiles(10:90,2),(10:90),a_perc(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+title('Age 26-55','fontsize',14);
+legend('SCF data','Model','Location','NorthWest')
+set(gca,'XTick',10:10:90)
+set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+axis([10,90,0,18]);
+
+figure(57);
+subplot(1,3,1);
+plot(SCF_agedetail_pctiles(10:90,1),SCF_agedetail_pctiles(10:90,2),(10:90),a_perc_26_35(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+title('Age 26-35','fontsize',14);
+legend('SCF data','Model','Location','NorthWest')
+set(gca,'XTick',10:10:90)
+set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+axis([10,90,0,18]);
+subplot(1,3,2);
+plot(SCF_agedetail_pctiles(10:90,1),SCF_agedetail_pctiles(10:90,3),(10:90),a_perc_36_45(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+title('Age 36-45','fontsize',14);
+legend('SCF data','Model','Location','NorthWest')
+set(gca,'XTick',10:10:90)
+set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+axis([10,90,0,18]);
+subplot(1,3,3);
+plot(SCF_agedetail_pctiles(10:90,1),SCF_agedetail_pctiles(10:90,4),(10:90),a_perc_46_55(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+title('Age 46-55','fontsize',14);
+legend('SCF data','Model','Location','NorthWest')
+set(gca,'XTick',10:10:90)
+set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+axis([10,90,0,18]);

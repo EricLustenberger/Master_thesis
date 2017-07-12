@@ -714,9 +714,9 @@ SCF_prime_age_pctiles = [...
  98.   34.58635 ;
  99.   54.47119 ];
 
-figure(444);
-plot(SCF_prime_age_pctiles(:,2),SCF_prime_age_pctiles(:,1));
-title('net worth distribution, prime age, SCF');
+% figure(444);
+% plot(SCF_prime_age_pctiles(:,2),SCF_prime_age_pctiles(:,1));
+% title('net worth distribution, prime age, SCF');
 
 s_i_t = NaN*zeros(pop_size,size(Y_ms_j,2));
 Y_i_t = NaN*zeros(pop_size,size(Y_ms_j,2));

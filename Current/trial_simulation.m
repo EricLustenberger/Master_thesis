@@ -20,8 +20,8 @@ lifetime_choices_i = repmat(struct('c_j',init_mat_cxinvd,'x_j',init_mat_cxinvd,'
 for i = 1:pop_size; 
 
 % initializing wealth holdings 
-lifetime_choices_i(i).a_j(1) = 1;
-lifetime_choices_i(i).d_j(1) = 1;
+lifetime_choices_i(i).a_j(1) = a_initial(i);
+lifetime_choices_i(i).d_j(1) = 0;
 
 for t = 1:(size(Y_ms_j,2)-1); 
        
