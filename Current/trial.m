@@ -38,7 +38,7 @@ delta_ = 0.02;     % depreciation rate durable good
 % sigma_ = 2;        % overall risk aversion
 
 % =================================================
-% As estimated in JEDC Paper for 1983
+% As estimated in RED Paper for 1983
 
 beta_     = 0.9845;	
 sigma_    = 1.08;	
@@ -102,6 +102,7 @@ tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
 policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
+
 % % for trial_simulation3
 % policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat,'a_prime_sel',init_mat,'d_prime_sel',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
 
@@ -211,5 +212,6 @@ end; % ending the for loop on jage
 toc
 
 % simulate agents 
-trial_simulation; 
+% trial_simulation; 
+trial_simulation2;
 % trial_simulation3;
