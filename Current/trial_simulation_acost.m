@@ -16,7 +16,7 @@ ac_i_j    = NaN*zeros(pop_size,size(Y_ms_j,2));
 invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
 
 % initial d and a 
-d_initial     = 0;
+d_initial     = d_min;
 a_i_j(:,1) = a_initial; 
 d_i_j(:,1)  = d_initial;
 
@@ -39,9 +39,9 @@ d_i_j(:,1)  = d_initial;
                 end; % of if on Markov state being reached by some individual
             end; % of for over Markov states
             
-              c_i_j(:,t)   =   x_i_j(:,t) + Y_i_t(:,t) - a_i_j(:,t+1) - d_i_j(:,t+1)- 0.5*alpha_*((d_i_j(:,t+1) - (1 - delta_)*d_i_j(:,t)).^2)/d_i_j(:,t);
+              c_i_j(:,t)   =   x_i_j(:,t) + Y_i_t(:,t) - a_i_j(:,t+1) - d_i_j(:,t+1) - 0.5*alpha_*((d_i_j(:,t+1) - (1 - delta_)*d_i_j(:,t)).^2)./d_i_j(:,t);
               invd_i_j(:,t) = 	d_i_j(:,t+1) - (1-delta_)*d_i_j(:,t);
-              ac_i_j(:,t)   =  0.5*alpha_*((d_i_j(:,t+1) - (1 - delta_)*d_i_j(:,t)).^2)/d_i_j(:,t);
+              ac_i_j(:,t)   =  0.5*alpha_*((d_i_j(:,t+1) - (1 - delta_)*d_i_j(:,t)).^2)./d_i_j(:,t);
 
         end; % of for in simulation over t
 

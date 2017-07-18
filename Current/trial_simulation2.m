@@ -15,7 +15,7 @@ d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
 invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
 
 % initial d and a 
-d_initial     = 0;
+d_initial     = d_min;
 a_i_j(:,1) = a_initial; 
 d_i_j(:,1)  = d_initial;
 

@@ -61,7 +61,7 @@ end;
 % Create the grid on the state space
 % ==================================
 % state space: x, d, markov_state
-y_gam_j = gamma_*min(Y_ms_j,[],1);  % seizable income
+y_gam_j = gamma_*min(Y_ms_j(:));  % seizable income
 
 % d is durable holdings
 d_add = 0.01;
@@ -71,7 +71,7 @@ d_max = 200;
 numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
-x_min = -y_gam_j(1,1) + (1 - miu)*(1 - delta_)*d_min;
+x_min = -y_gam_j+ (1 - miu)*(1 - delta_)*d_min;
 x_max = 250;
 % x_max =  60;
 numb_x_gridpoints = 225; 
@@ -86,7 +86,7 @@ d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_grid
 % d_grid_ = (exp(linspace(0,log(d_max - d_min+1),numb_d_gridpoints))-1+d_min)';  % set up single exponential grid
 
 [MeshX,MeshD] = meshgrid(x_grid_,d_grid_);
-ind_triang = MeshD <= (MeshX + y_gam_j(1,1))/((1 - miu)*(1 - delta_));
+ind_triang = MeshD <= (MeshX + y_gam_j)/((1 - miu)*(1 - delta_));
 ind_triangnz = reshape(repmat(ind_triang,1,nz),size(MeshD,1),size(MeshD,2),nz);
 MeshDnz =      reshape(repmat(MeshD,1,nz),size(MeshD,1),size(MeshD,2),nz);
 
@@ -126,9 +126,13 @@ x_prime      = init_mat;
 MUc          =     theta  * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^(1-theta) .* c_pol.^(theta-1);
 MUd          =  (1-theta) * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^( -theta) .* c_pol.^(theta  ) ...
                   - 0.5*alpha_*MUc.*((1 - delta_)^2 - (d_prime./MeshDnz).^2);
-
-v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+if jage < T_ret;
+    v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+    v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+else 
+    v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+    v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+end
 
 RHS_crit_Der = (v_hat_dprime + (alpha_*(1 - delta_)*(1 + r) -(r + delta_))*v_hat_xprime)./(MeshDnz.*v_hat_xprime); % evaluating FOC on the interior
 
@@ -156,7 +160,7 @@ for ixp = 1: size(MeshX,2);
     ind_cc = false(size(MeshD,1),1);
     for id = 1:size(MeshD,1);
     
-      if d_prime_xy_cand(id) > d_min && d_prime_xy_cand(id) < (MeshX(id,ixp) + y_gam_j(jage))/((1 - miu)*(1 - delta_));
+      if d_prime_xy_cand(id) > d_min && d_prime_xy_cand(id) < (MeshX(id,ixp) + y_gam_j)/((1 - miu)*(1 - delta_));
         
       dprime_xy(id,ixp,ims) = d_prime_xy_cand(id);
               
@@ -165,7 +169,7 @@ for ixp = 1: size(MeshX,2);
           dprime_xy(id,ixp,ims) = d_min;
                   
           else                              % corner solution at collateral constraint
-          dprime_xy(id,ixp,ims) = (MeshX(id,ixp) + y_gam_j(jage))/((1 - miu)*(1 - delta_));
+          dprime_xy(id,ixp,ims) = (MeshX(id,ixp) + y_gam_j)/((1 - miu)*(1 - delta_));
           ind_cc(id) = true;
           end;      
         
@@ -215,7 +219,7 @@ dprime_xy_sel = dprime_xy(id,~isnan(c_EGM) & ~isnan(x_EGM),ims);
 
 % for x on the grid < minimum of endogenous x, know that consume total wealth (both collateral constraint and dprime=d_min are binding)
 c_pol_new(id,:,ims)   = min(interp1(x_EGM_sel',c_EGM_sel',MeshX(id,:),'linear','extrap'), ...
-                            MeshX(id,:) + Y_ms_j(ims,jage) + (y_gam_j(jage) + miu*(1 - delta_)*d_min)/(1 + r) - d_min - 0.5*alpha_*((d_min - (1 - delta_)*d_this).^2)/d_this);
+                            MeshX(id,:) + Y_ms_j(ims,jage) + (y_gam_j + miu*(1 - delta_)*d_min)/(1 + r) - d_min - 0.5*alpha_*((d_min - (1 - delta_)*d_this).^2)/d_this);
 
 d_prime_new(id,:,ims) = max(d_min,interp1(x_EGM_sel',dprime_xy_sel',MeshX(id,:),'linear','extrap'));
 
