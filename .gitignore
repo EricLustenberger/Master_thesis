@@ -2,6 +2,9 @@
 ## Eclipse
 #################
 
+# STATA Data
+*.dta
+
 *.pydevproject
 .project
 .metadata
