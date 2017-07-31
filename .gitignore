@@ -2,8 +2,13 @@
 ## Eclipse
 #################
 
-# STATA Data
+# STATA Data and output files 
 *.dta
+*.eps
+*.raw
+*.txt
+*.log
+*.gph 
 
 *.pydevproject
 .project
