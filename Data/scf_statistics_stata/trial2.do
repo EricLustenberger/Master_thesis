@@ -14,6 +14,11 @@ pause on;
 drop _all;			/* drops any data in memory */
 set matsize 500;
 
+
+gl base "/Users/Eric/Desktop/Uni/MSc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Data/scf_statistics_stata";
+cd "${base}";
+
+
 log using gen_scfstats_2004_debt_rev_aej.log, replace;
 
 
@@ -30,9 +35,9 @@ complemented with variables obtained by feeding SCF micro data into the NBER tax
  
 
 /* Need to rename all variables to lower case for this stata version */
- foreach var of varlist * {;
+ /*foreach var of varlist * {;
   rename `var' `=strupper("`var'")';
-};
+};*/
 
 
 foreach var of varlist * {;
@@ -1558,18 +1563,26 @@ gen weight_age_2325 = x42001/sum_weight_age_2325;
 /*
 sort age weight_age_2325 durable_primres_adj netfinworth_primres_adj;  /* make sure that output always sorted in the same way */
 list weight_age_2325 durable_primres_adj netfinworth_primres_adj if age >=23 & age <=25;
+export excel age weight_age_2325 durable_primres_adj netfinworth_primres_adj using "initial_cond_adj" if age >=23 & age <=25, replace;
 */
 /* Do adjustment in Matlab. More flexible in calibration of growth-factor */
 sort age weight_age_2325 durable_primres netfinworth_primres;  /* make sure that output always sorted in the same way */
 list age weight_age_2325 durable_primres netfinworth_primres if age >=23 & age <=25;
+export excel age weight_age_2325 durable_primres netfinworth_primres using "initial_cond" if age >=23 & age <=25, replace;
 
-/*
+
 histogram totworth  if age>=23 & age <=25 [fweight=x42001], normal
   color(gs0) graphregion(fcolor(gs16))
   xlabel(0(5)10) ytitle("Density") xtitle("Net worth for age 23-25")
   legend(off)
-saving(c:\tw_age2325_2004.gph, replace);
+saving(tw_age2325_2004.gph, replace);
 graph export "c:\tw_age2325_2004.eps", replace as(eps) preview(off);
+
+/* Save initial distribution */
+/* 
+keep age weight_age_2325 durable_primres netfinworth_primres;
+keep if age >=23 & age <=25;
+export excel "using initial_distributions"
 */
 
 
@@ -2008,9 +2021,9 @@ list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durabl
 
 */
 
-  
+/*  
 /*
- /* save weights for 3-year age cells for simulating profiles in the model */
+  save weights for 3-year age cells for simulating profiles in the model */
   sort age_group_earn;
   by age_group_earn: egen sum_weight_by_age_earn = total(x42001);
   egen sum_weight_earn = total(x42001);
@@ -2029,7 +2042,7 @@ list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durabl
 
 /*
  save weights for 3-year age cells for simulating profiles in the model */
-  sort age_group_wealth;
+   sort age_group_wealth;
   by age_group_wealth: egen sum_weight_by_age_wealth = total(x42001);
   egen sum_weight_wealth = total(x42001);
   gen sum_weight_by_age_norm_wealth = sum_weight_by_age_wealth/sum_weight_wealth;
@@ -2042,7 +2055,7 @@ list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durabl
   sort age;
   gen year = 2004;
   
-  save wealth_agecell_weights_2004, replace;
+  save wealth_agecell_weights_2004, replace; 
 
 
 
