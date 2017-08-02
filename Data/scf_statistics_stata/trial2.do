@@ -554,6 +554,13 @@ drop x4022c x4026c x4030c;
 gen finworth     = liqasset + cdep +mfunds + stocks + bonds + penacc + thrift + futpen + currpen
 	          + savbonds + cvallife + manfunds + othfina;
 
+/* Gross financial assets in H&K 2010: money in checking accounts (checking) + saving accounts (savings) + money-market accounts (mmacc) + money-market mutual funds (mmfunds) + call accounts in brokerages (cacc)
++ certificates of deposit (cdep) + bonds  (bonds) + account-type pension plans (penacc + currpen + futpen) + thrift accounts (thrift) + current value of life insurance (cvallife) + savings bonds (savbonds) + other managed funds (manfunds) + other financial assets (othfina)
++ stock (stocks) + mutual funds (mfunds) + owned non-financial business assets + jewelry, antiques or small durables */
+
+/*liqasset= checking + savings + mmacc + mmfunds + cacc;*/
+
+/* missing from the above definition: ownded non-financial business assets + jewelry, antiques or small durables */
 
 /***************** NON-FINANCIAL WORTH *****************/
 
@@ -742,13 +749,10 @@ gen othnfin= x4022+x4026+x4030 -othfina +x4018; /* other durables like gold, jew
 /**************************************************/
 gen non_finworth      = vehicl + primres + othres + othnres + othnfin +buseq ;
 /* vehicles + homes + other durables + non-residential property + business assets*/
-gen durable           = vehicl + primres + othres + othnres; 
-gen durable_noveh     =          primres + othres + othnres; 
-gen durable_primres   =          primres; 
+gen durable           = vehicl + primres + othres + othnres; /* durables according to H&K 2010 (value of homes, residential and non-residential property and vehicles*/
 
-/* durables according to H&K 2010 (value of homes, residential and non-residential property and vehicles*/
-
-
+/* Change gross financial worth to fit the definition of H&K 2010 */
+replace finworth = finworth + othnfin + buseq;
 
 /********** TOTAL DEBT ***************/
 
@@ -905,27 +909,15 @@ drop penloan1  penloan2 penloan3 penloan4 penloan5 penloan6 x4010c x4032c marglo
 
 /* debt */
 /********/
-gen totdebt           = morthel + othloc + othresnresdebt + otherdebt + ccbal + install + odebt +busdebt;
-gen secdebt_dur       = morthel + othresnresdebt + veh_install;
-gen secdebt_noveh     = morthel + othresnresdebt;
-gen secdebt_primres   = morthel;
-
+gen totdebt           = morthel + othloc + othresnresdebt + otherdebt + ccbal + install + odebt +busdebt;/* Debt in H&K 2011: mortgage and housing debt (morthel) + other lines of credit (othloc) and debt on residential (otherdebt) and non-residential property (othresnresdebt) + debt on non-financial business assets (busdebt)
++ credit-card debt (ccbal) + installment loans (install) + pension loans and margin loans (odebt) */
 
 /* generate remaining variables */
 /*********************************/
 
 gen netfinworth             = finworth - totdebt;
-gen totworth                = netfinworth + non_finworth;
-gen netfinworth_dur         = totworth - durable;
-gen netfinworth_noveh       = totworth - durable_noveh;
-gen netfinworth_primres     = totworth - durable_primres;
+gen totworth                = netfinworth + durable;
 
-
-gen netfinworth_primres_alt = totworth - durable_primres - (vehicl + penacc + thrift + futpen + currpen + cvallife); /* subtract assets which may be exempt */
-/*
-gen netfinworth_primres_alt = totworth - durable_primres - (         penacc + thrift + futpen + currpen + cvallife); /* subtract assets which may be exempt */
-gen netfinworth_primres_alt = totworth - durable_primres - (         penacc + thrift + futpen + currpen           ); /* subtract assets which may be exempt */
-*/
 
 /* SELECTION of final sample */
 /******************************/
@@ -936,20 +928,12 @@ gen netfinworth_primres_alt = totworth - durable_primres - (         penacc + th
 replace finworth                = finworth    /(mean_earn_trans*hhsize);
 replace non_finworth            = non_finworth/(mean_earn_trans*hhsize);
 replace durable                 = durable/(mean_earn_trans*hhsize);
-replace durable_noveh           = durable_noveh/(mean_earn_trans*hhsize);
-replace durable_primres         = durable_primres/(mean_earn_trans*hhsize);
-replace secdebt_dur             = secdebt_dur/(mean_earn_trans*hhsize);
-replace secdebt_noveh           = secdebt_noveh/(mean_earn_trans*hhsize);
-replace secdebt_primres         = secdebt_primres/(mean_earn_trans*hhsize);
 replace totdebt                 = totdebt/(mean_earn_trans*hhsize);
 replace netfinworth             = netfinworth/(mean_earn_trans*hhsize);
+
 /* take out pensions as check how much switch from defined benefits to defined contributions matters */
 gen     totworth_np             = (totworth-penacc-thrift-futpen-currpen)/(mean_earn_trans*hhsize);
 replace totworth                = totworth/(mean_earn_trans*hhsize);
-replace netfinworth_dur         = netfinworth_dur/(mean_earn_trans*hhsize);
-replace netfinworth_noveh       = netfinworth_noveh/(mean_earn_trans*hhsize);
-replace netfinworth_primres     = netfinworth_primres/(mean_earn_trans*hhsize);
-replace netfinworth_primres_alt = netfinworth_primres_alt/(mean_earn_trans*hhsize);
 gen ccdebt_dur                  = ccbal/(mean_earn_trans*hhsize);
 
 
@@ -968,12 +952,14 @@ see Chatterjee et al. */
 drop if totworth<-1.2;
 count;
 
+/*
+
 /*  drop outliers of unsecured debt */
 
 gen oth_equity_check = netfinworth_primres + secdebt_primres; /* =unsecured debt if other equity<0 */
 drop if oth_equity_check<-10;
 count;
-drop oth_equity_check;
+drop oth_equity_check; */
 
 
 /* drop if no age information */
@@ -1013,19 +999,10 @@ replace labearn_trans           = labearn_trans*factor_re;
 replace finworth                = finworth*factor_re;
 replace non_finworth            = non_finworth*factor_re;
 replace durable                 = durable*factor_re;
-replace durable_noveh           = durable_noveh*factor_re;
-replace durable_primres         = durable_primres*factor_re;
-replace secdebt_dur             = secdebt_dur*factor_re;
-replace secdebt_noveh           = secdebt_noveh*factor_re;
-replace secdebt_primres         = secdebt_primres*factor_re;
 replace totdebt                 = totdebt*factor_re;
 replace netfinworth             = netfinworth*factor_re;
 replace totworth_np             = totworth_np*factor_re;
 replace totworth                = totworth*factor_re;
-replace netfinworth_dur         = netfinworth_dur*factor_re;
-replace netfinworth_noveh       = netfinworth_noveh*factor_re;
-replace netfinworth_primres     = netfinworth_primres*factor_re;
-replace netfinworth_primres_alt = netfinworth_primres_alt*factor_re;
 replace ccdebt_dur              = ccbal*factor_re;
 
 sum labearn_trans [fweight=x42001], detail;
@@ -1037,7 +1014,7 @@ sort age_group_wealth;
 by age_group_wealth: egen num_obs_w = count(age_group_wealth) if totworth<=tw_90; /* sample size by age group for wealth<=90th percentile */
 replace num_obs_w = num_obs_w/5;
 
-/*COMPUTE percentiles for income, total wealth and housing wealth to be used below */
+/*COMPUTE percentiles for income, total wealth and durables to be used below */
 
 sum labearn_trans [fweight=x42001] if age>=27 & age<=56 & totworth<=tw_90, detail;
 scalar le_25_cond_tw90 = r(p25);
@@ -1055,7 +1032,7 @@ display tw_50_cond_tw90;
 scalar tw_75_cond_tw90 = r(p75);
 display tw_75_cond_tw90;
 
-sum durable_primres [fweight=x42001] if age>=26 & age<=55 & totworth<=tw_90, detail;
+sum durable [fweight=x42001] if age>=26 & age<=55 & totworth<=tw_90, detail;
 scalar dp_25_cond_tw90 = r(p25);
 display dp_25_cond_tw90;
 scalar dp_50_cond_tw90 = r(p50);
@@ -1130,432 +1107,6 @@ sort rep;
 by rep: reg log_labearn age age2 age3 age4 [fweight=x42001];
 
 
-/* COMPUTE unsecured debt a_u<0, net assets a_u>0, a_s, durable equity and other equity */
-/****************************************************************************************/
-
-
-gen unsec_debt_primres     = netfinworth_primres + secdebt_primres; /* right-hand side corresponds to other equity */
-replace unsec_debt_primres = 0 if unsec_debt_primres>0;
-gen y_pos_primres          = netfinworth_primres + secdebt_primres;
-replace y_pos_primres      = 0 if y_pos_primres<0;
-gen a_s_primres            = y_pos_primres - secdebt_primres;
-replace a_s_primres        = 0 if a_s_primres >0;
-gen a_u_pos_primres        = y_pos_primres - secdebt_primres;
-replace a_u_pos_primres    = 0 if a_u_pos_primres <0;
-
-gen dur_equity_primres     =     durable_primres     - secdebt_primres;
-gen oth_equity_primres     = netfinworth_primres     + secdebt_primres;
-gen oth_equity_primres_alt = netfinworth_primres_alt + secdebt_primres;
-
-sum unsec_debt_primres a_u_pos_primres a_s_primres netfinworth_primres netfinworth_primres_alt secdebt_primres dur_equity_primres oth_equity_primres oth_equity_primres_alt [fweight=x42001] if totworth<=tw_90;
-sum unsec_debt_primres a_u_pos_primres a_s_primres netfinworth_primres netfinworth_primres_alt secdebt_primres dur_equity_primres oth_equity_primres oth_equity_primres_alt [fweight=x42001] if totworth<=tw_90 & unsec_debt_primres<0;
-sum unsec_debt_primres a_u_pos_primres a_s_primres netfinworth_primres netfinworth_primres_alt secdebt_primres dur_equity_primres oth_equity_primres oth_equity_primres_alt [fweight=x42001] if totworth<=tw_90 & bankrupt==1;
-sum unsec_debt_primres a_u_pos_primres a_s_primres netfinworth_primres netfinworth_primres_alt secdebt_primres dur_equity_primres oth_equity_primres oth_equity_primres_alt [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 ; /* for assets corresponds to prime-age 26-55 */
-sum unsec_debt_primres a_u_pos_primres a_s_primres netfinworth_primres netfinworth_primres_alt secdebt_primres dur_equity_primres oth_equity_primres oth_equity_primres_alt [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0;
-sum unsec_debt_primres a_u_pos_primres a_s_primres netfinworth_primres netfinworth_primres_alt secdebt_primres dur_equity_primres oth_equity_primres oth_equity_primres_alt [fweight=x42001] if totworth<=tw_90 & bankrupt==1 & age>=26 & age<=55 & unsec_debt_primres<0;
-
-
-/* Provide evidence that those with unsecured debt have lower durable equity */
-/*****************************************************************************/
-
-gen dummy_unsecdebt = 0;
-replace dummy_unsecdebt =1 if unsec_debt_primres<0;
-gen unsec_sq = unsec_debt_primres^2;
-
-reg dur_equity_primres  dummy_unsecdebt [fweight=x42001] ;
-reg dur_equity_primres  unsec_debt_primres unsec_sq dummy_unsecdebt [fweight=x42001];
-
-reg dur_equity_primres  dummy_unsecdebt [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
-reg dur_equity_primres  unsec_debt_primres unsec_sq dummy_unsecdebt [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
-
-/* CDF of durable equity */
-
-cumul dur_equity_primres  [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0 , generate(cdf_dureq_unsec);
-cumul dur_equity_primres  [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0, generate(cdf_dureq_nounsec);
-
-sort cdf_dureq_nounsec dur_equity_primres;
-label var cdf_dureq_nounsec "Not unsecured debtors";
-label var cdf_dureq_unsec       "Unsecured debtors";
-
-graph twoway line cdf_dureq_unsec dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & (dur_equity_primres>=0 & dur_equity_primres<=10), lc(red) lp(-####) lw(thick) color(gs0)
-        || line cdf_dureq_nounsec dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0 & (dur_equity_primres>=0 & dur_equity_primres<=10),         lp(solid) lw(thick) color(gs0)
-ytitle("Cumulative distribution function", justification(left)) xtitle("Home equity") 
- graphregion(fcolor(gs16)) legend(on) saving(cdf_dureq.gph, replace);
-
-graph export "c:\cdf_dureq_2004.eps", replace as(eps) preview(off);
-
-/* CDF of durable equity net of adjustment costs */
-
-gen dur_equity_primres_ac     =  (1-0.025)*durable_primres - secdebt_primres;
-
-cumul dur_equity_primres_ac  [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0 , generate(cdf_dureq_unsec_ac);
-cumul dur_equity_primres_ac  [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0, generate(cdf_dureq_nounsec_ac);
-
-sort cdf_dureq_nounsec_ac dur_equity_primres_ac;
-label var cdf_dureq_nounsec_ac "Not unsecured debtors";
-label var cdf_dureq_unsec_ac       "Unsecured debtors";
-
-graph twoway line cdf_dureq_unsec_ac dur_equity_primres_ac if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & (dur_equity_primres_ac>=0 & dur_equity_primres_ac<=10), lc(red) lp(-####) lw(thick) color(gs0)
-           || line cdf_dureq_nounsec dur_equity_primres    if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0 & (dur_equity_primres_ac>=0 & dur_equity_primres_ac<=10),         lp(solid) lw(thick) color(gs0)
-ytitle("Cumulative distribution function", justification(left)) xtitle("Home equity net of adj. costs") 
- graphregion(fcolor(gs16)) legend(on) saving(cdf_dureq_ac.gph, replace);
-
-graph export "c:\cdf_dureq_ac_2004.eps", replace as(eps) preview(off);
-
-/* CDF of durable equity for agents with both types of debt*/
-
-cumul dur_equity_primres     [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & durable_primres>0 , generate(cdf_dureq_unsec_ownhome);
-cumul dur_equity_primres     [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0 & durable_primres>0 , generate(cdf_dureq_nounsec_ownhome);
-
-sort cdf_dureq_unsec_ownhome   dur_equity_primres;
-sort cdf_dureq_nounsec_ownhome dur_equity_primres;
-
-label var cdf_dureq_nounsec_ownhome     "No unsecured debt";
-label var cdf_dureq_unsec_ownhome       "Unsecured debt";
-
-graph twoway line cdf_dureq_unsec_ownhome dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & durable_primres>0 & (dur_equity_primres>=0 & dur_equity_primres<=10), lc(red)    lp(-####) lw(thick) color(gs0)
-       || line cdf_dureq_nounsec_ownhome  dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0 & durable_primres>0 & (dur_equity_primres>=0 & dur_equity_primres<=10),            lp(solid) lw(thick) color(gs0)
-ytitle("Cumulative distribution function", justification(left)) xtitle("Home equity of homeowners") 
- graphregion(fcolor(gs16)) legend(on) saving(cdf_dureq_bdebt.gph, replace);
-
-graph export "c:\cdf_dureq_ownhome_2004.eps", replace as(eps) preview(off);
-
-/* CDF of durable equity for agents with both types of debt and less than median net-labor earnings*/
-
-gen frac_bothdebt_me       = 0;
-replace frac_bothdebt_me   = 1        if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & durable_primres>0 & labearn_trans<=le_50_cond_tw90;
-sum frac_bothdebt_me [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
-
-
-cumul dur_equity_primres     [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & durable_primres>0 & labearn_trans<=le_50_cond_tw90, generate(cdf_dureq_unsec_ownhome_me);
-cumul dur_equity_primres     [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0 & durable_primres>0 & labearn_trans<=le_50_cond_tw90, generate(cdf_dureq_nounsec_ownhome_me);
-
-sort dur_equity_primres;
-egen sum_wght_me  = total( x42001)                                          if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0 & durable_primres>0 & labearn_trans<=le_50_cond_tw90;
-egen sum_udebt_me = total((x42001/sum_wght)* unsec_debt_primres)            if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0 & durable_primres>0 & labearn_trans<=le_50_cond_tw90;
-gen udebt_cumf_me = sum(  (x42001/sum_wght)*(unsec_debt_primres/sum_udebt)) if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0 & durable_primres>0 & labearn_trans<=le_50_cond_tw90;
-drop sum_wght_me sum_udebt_me;
-
-sort cdf_dureq_unsec_ownhome_me   dur_equity_primres;
-sort cdf_dureq_nounsec_ownhome_me dur_equity_primres;
-
-label var cdf_dureq_nounsec_ownhome_me     "CDF if no unsec. debt";
-label var cdf_dureq_unsec_ownhome_me       "CDF if unsec. debt";
-label var udebt_cumf_me                    "Cumul. fraction of unsec. debt";
-
-graph twoway line cdf_dureq_unsec_ownhome_me dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & durable_primres>0 & labearn_trans<=le_50_cond_tw90 & (dur_equity_primres>=0 & dur_equity_primres<=5), lc(red)    lp(-####) lw(thick) color(gs0)
-       || line cdf_dureq_nounsec_ownhome_me  dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres>=0 & durable_primres>0 & labearn_trans<=le_50_cond_tw90 & (dur_equity_primres>=0 & dur_equity_primres<=5),            lp(solid) lw(thick) color(gs0)
-       || line udebt_cumf_me                 dur_equity_primres if totworth<=tw_90 & age>=26 & age<=55 & unsec_debt_primres<0  & durable_primres>0 & labearn_trans<=le_50_cond_tw90 & (dur_equity_primres>=0 & dur_equity_primres<=5), lc(blue)   lp(solid) lw(thick) color(gs0)
-ytitle("Cumulative distribution function", justification(left)) xtitle("Home equity of homeowners with less than median earnings", justification(center)) 
- graphregion(fcolor(gs16)) legend(on) saving(cdf_dureq_bdebt_me.gph, replace);
-
-graph export "c:\cdf_dureq_ownhome_me_2004.eps", replace as(eps) preview(off);
-
-/* compute interest rates and check how they depend on durables*/
-/***************************************************************/
-
-/*tab x816;
-tab x916;
-tab x1016;*/
-
-
-gen int_first_mortg = .;
-replace int_first_mortg = x816/100 if x816>0;
-gen int_sec_mortg = .;
-replace int_sec_mortg = x916/100 if x916>0;
-gen int_th_mortg = .;
-replace int_th_mortg = x1016/100 if x1016>0;
-
-/*tab x1045;
-tab x1726;
-tab x1826;
-tab x1926;*/
-
-gen int_mortg_oth_prop1 = .;
-replace int_mortg_oth_prop1 = x1045/100 if x1045>0;
-gen int_mortg_oth_prop2 = .;
-replace int_mortg_oth_prop2 = x1726/100 if x1726>0;
-gen int_mortg_oth_prop3 = .;
-replace int_mortg_oth_prop3 = x1826/100 if x1826>0;
-gen int_mortg_oth_prop4 = .;
-replace int_mortg_oth_prop4 = x1926/100 if x1926>0;
-
-
-/*tab x1111;
-tab x1122;
-tab x1133;*/
-
-gen int_loc1 = .; /* including home-equity lines of credit */
-replace int_loc1 = x1111/100 if x1111>0;
-gen int_loc2 = .;
-replace int_loc2 = x1122/100 if x1122>0;
-gen int_loc3 = .;
-replace int_loc3 = x1133/100 if x1133>0;
-
-
-
-/* tab x7132;*/
-
-gen int_ccard = .;
-replace int_ccard = x7132/100 if x7132>0;
-
-
-
-/* interest on consumer loans for education */
-
-/*tab x7822;
-tab x7845;
-tab x7868;
-tab x7922;
-tab x7945;
-tab x7968;*/
-
-gen int_eduloan1 = .;
-replace int_eduloan1 = x7822/100 if x7822>0;
-gen int_eduloan2 = .;
-replace int_eduloan2 = x7845/100 if x7845>0;
-gen int_eduloan3 = .;
-replace int_eduloan3 = x7868/100 if x7868>0;
-gen int_eduloan4 = .;
-replace int_eduloan4 = x7922/100 if x7922>0;
-gen int_eduloan5 = .;
-replace int_eduloan5 = x7945/100 if x7945>0;
-gen int_eduloan6 = .;
-replace int_eduloan6 = x7968/100 if x7968>0;
-
-sum int_eduloan1 int_eduloan2 int_eduloan3 int_eduloan4 int_eduloan5 int_eduloan6 [fweight=x42001];
-
-gen count_nonmiss = 0;
-replace count_nonmiss = count_nonmiss+1 if int_eduloan1!=.;
-replace count_nonmiss = count_nonmiss+1 if int_eduloan2!=.;
-replace count_nonmiss = count_nonmiss+1 if int_eduloan3!=.;
-replace count_nonmiss = count_nonmiss+1 if int_eduloan4!=.;
-replace count_nonmiss = count_nonmiss+1 if int_eduloan5!=.;
-replace count_nonmiss = count_nonmiss+1 if int_eduloan6!=.;
-
-replace int_eduloan1=0 if int_eduloan1==.;
-replace int_eduloan2=0 if int_eduloan2==.;
-replace int_eduloan3=0 if int_eduloan3==.;
-replace int_eduloan4=0 if int_eduloan4==.;
-replace int_eduloan5=0 if int_eduloan5==.;
-replace int_eduloan6=0 if int_eduloan6==.;
-
-gen int_eduloan = (int_eduloan1 + int_eduloan2 + int_eduloan3 + int_eduloan4 + int_eduloan5 + int_eduloan6)/count_nonmiss;
-
-drop count_nonmiss int_eduloan1 int_eduloan2 int_eduloan3 int_eduloan4 int_eduloan5 int_eduloan6;
-
-
-/* interest on consumer loans for home improvement, vehicles */
-
-/*tab x1216;
-tab x2219;
-tab x2319;
-tab x2419;
-tab x7170;
-tab x2520;
-tab x2620;*/
-
-gen int_cloan1_dur = .;
-replace int_cloan1_dur = x1216/100 if x1216>0;
-gen int_cloan2_dur = .;
-replace int_cloan2_dur = x2219/100 if x2219>0;
-gen int_cloan3_dur = .;
-replace int_cloan3_dur = x2319/100 if x2319>0;
-gen int_cloan4_dur = .;
-replace int_cloan4_dur = x2419/100 if x2419>0;
-gen int_cloan5_dur = .;
-replace int_cloan5_dur = x7170/100 if x7170>0;
-gen int_cloan6_dur = .;
-replace int_cloan6_dur = x2520/100 if x2520>0;
-gen int_cloan7_dur = .;
-replace int_cloan7_dur = x2620/100 if x2620>0;
-
-sum int_cloan1_dur int_cloan2_dur int_cloan3_dur int_cloan4_dur int_cloan5_dur int_cloan6_dur int_cloan7_dur [fweight=x42001];
-
-gen count_nonmiss = 0;
-replace count_nonmiss = count_nonmiss+1 if int_cloan1_dur!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan2_dur!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan3_dur!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan4_dur!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan5_dur!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan6_dur!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan7_dur!=.;
-
-replace int_cloan1_dur=0 if int_cloan1_dur==.;
-replace int_cloan2_dur=0 if int_cloan2_dur==.;
-replace int_cloan3_dur=0 if int_cloan3_dur==.;
-replace int_cloan4_dur=0 if int_cloan4_dur==.;
-replace int_cloan5_dur=0 if int_cloan5_dur==.;
-replace int_cloan6_dur=0 if int_cloan6_dur==.;
-replace int_cloan7_dur=0 if int_cloan7_dur==.;
-
-gen int_cloan_dur = (int_cloan1_dur + int_cloan2_dur + int_cloan3_dur + int_cloan4_dur + int_cloan5_dur + int_cloan6_dur + int_cloan7_dur)/count_nonmiss;
-
-drop count_nonmiss int_cloan1_dur int_cloan2_dur int_cloan3_dur int_cloan4_dur int_cloan5_dur int_cloan6_dur int_cloan7_dur;
-
-
-/* interest on consumer loans non-vehicle/non-real-estate */
-
-/*tab x2724;
-tab x2741;
-tab x2824;
-tab x2841;
-tab x2924;
-tab x2941;*/
-
-gen int_cloan1 = .;
-replace int_cloan1 = x2724/100 if x2724>0 & x2724<10000; /*drop 1 outlier */;
-gen int_cloan2 = .;
-replace int_cloan2 = x2741/100 if x2741>0;
-gen int_cloan3 = .;
-replace int_cloan3 = x2824/100 if x2824>0;
-gen int_cloan4 = .;
-replace int_cloan4 = x2841/100 if x2841>0;
-gen int_cloan5 = .;
-replace int_cloan5 = x2924/100 if x2924>0;
-gen int_cloan6 = .;
-replace int_cloan6 = x2941/100 if x2941>0;
-
-sum int_cloan1 int_cloan2 int_cloan3 int_cloan4 int_cloan5 int_cloan6 [fweight=x42001];
-
-gen count_nonmiss = 0;
-replace count_nonmiss = count_nonmiss+1 if int_cloan1!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan2!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan3!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan4!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan5!=.;
-replace count_nonmiss = count_nonmiss+1 if int_cloan6!=.;
-
-replace int_cloan1=0 if int_cloan1==.;
-replace int_cloan2=0 if int_cloan2==.;
-replace int_cloan3=0 if int_cloan3==.;
-replace int_cloan4=0 if int_cloan4==.;
-replace int_cloan5=0 if int_cloan5==.;
-replace int_cloan6=0 if int_cloan6==.;
-
-gen int_cloan = (int_cloan1 + int_cloan2 + int_cloan3 + int_cloan4 + int_cloan5 + int_cloan6)/count_nonmiss;
-
-drop count_nonmiss int_cloan1 int_cloan2 int_cloan3 int_cloan4 int_cloan5 int_cloan6;
-
-
-
-/* interest on loans against life insurance */
-
-/*tab x4013;*/
-
-gen int_life = .;
-replace int_life = x4013/100 if x4013>0;
-
-
-
-sum int_first_mortg int_sec_mortg int_th_mortg int_mortg_oth_prop1 int_mortg_oth_prop2 int_mortg_oth_prop3 int_mortg_oth_prop4
-     int_loc1 int_loc2 int_loc3 int_eduloan int_life int_cloan_dur int_cloan int_ccard [fweight=x42001];
-    
-    
-sum int_cloan_dur int_cloan int_ccard [fweight=x42001] if primres>0; /* homeowner: positive value of primary residence */
-sum int_cloan_dur int_cloan int_ccard [fweight=x42001] if primres<=0;
-
-pwcorr int_first_mortg int_sec_mortg int_cloan_dur int_cloan int_ccard durable_primres [fweight=x42001], sig;
-
-gen durable2 = durable_primres^2;
-reg int_ccard durable_primres;
-reg int_cloan durable_primres;
-reg int_ccard durable_primres durable2;
-reg int_cloan durable_primres durable2;
-
-gen home_own = 0;
-replace home_own =1 if primres>0;
-
-reg int_ccard home_own durable_primres dur_equity_primres unsec_debt_primres labearn_trans [fweight=x42001];
-reg int_ccard home_own durable_primres dur_equity_primres [fweight=x42001];
-reg int_cloan home_own durable_primres dur_equity_primres unsec_debt_primres labearn_trans [fweight=x42001]; 
-reg int_cloan home_own durable_primres dur_equity_primres [fweight=x42001]; 
-
-
-reg int_ccard home_own durable_primres dur_equity_primres unsec_debt_primres labearn_trans [fweight=x42001] if  totworth<=tw_90 & age>=26 & age<=55;
-reg int_ccard home_own durable_primres dur_equity_primres [fweight=x42001] if  totworth<=tw_90 & age>=26 & age<=55;
-reg int_cloan home_own durable_primres dur_equity_primres unsec_debt_primres labearn_trans [fweight=x42001] if  totworth<=tw_90 & age>=26 & age<=55; 
-reg int_cloan home_own durable_primres dur_equity_primres [fweight=x42001] if  totworth<=tw_90 & age>=26 & age<=55; 
-
-
-
-/* compute fraction of borrowers and durable owners */
-/****************************************************/
-gen frac_debt       = 0;
-gen frac_sdebt      = 0;
-gen frac_udebt      = 0;
-gen frac_udebt_own  = 0;
-gen frac_home       = 0;
-gen frac_durs       = 0;
-gen frac_nodebt     = 0;
-gen frac_bothdebt   = 0;
-gen frac_sdebt_only = 0;
-gen frac_udebt_only = 0;
-
-
-replace frac_debt       = 1 if a_s_primres<0  | unsec_debt_primres<0;
-replace frac_bothdebt   = 1 if a_s_primres<0  & unsec_debt_primres<0;
-replace frac_nodebt     = 1 if a_s_primres==0 & unsec_debt_primres==0;
-replace frac_sdebt      = 1 if a_s_primres<0;
-replace frac_sdebt_only = 1 if a_s_primres<0  & unsec_debt_primres==0;
-replace frac_udebt      = 1 if unsec_debt_primres<0;
-replace frac_udebt_only = 1 if unsec_debt_primres<0 & a_s_primres==0;
-replace frac_udebt_own  = 1 if unsec_debt_primres<0 & primres>0;
-replace frac_durs       = 1 if durable>0;
-replace frac_home       = 1 if primres>0;
-
-sum frac_debt frac_bothdebt frac_nodebt frac_sdebt frac_sdebt_only frac_udebt frac_udebt_only frac_udebt_own frac_durs frac_home [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
-
-
-/* means for age 26 until 55: all consumers versus those with unsecured debt */
-
-sum age paydiff_cum bankrupt bankrupt_per_person frac_durs frac_home totworth netfinworth_primres durable_primres secdebt_primres unsec_debt_primres
-    a_u_pos_primres a_s_primres dur_equity_primres oth_equity_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55, detail;
-sum age paydiff_cum bankrupt bankrupt_per_person frac_durs frac_home totworth netfinworth_primres durable_primres secdebt_primres unsec_debt_primres
-    a_u_pos_primres a_s_primres dur_equity_primres oth_equity_primres [fweight=x42001] if unsec_debt_primres<0 & totworth<=tw_90 & age>=26 & age<=55, detail;
-
-sum labearn_trans [fweight=x42001] if                        age>=27 & age<=56, detail;
-sum labearn_trans [fweight=x42001] if unsec_debt_primres<0 & age>=27 & age<=56, detail;
-sum labearn_trans [fweight=x42001] if bankrupt==1          & age>=27 & age<=56, detail;
-gen le_bankr = r(mean);
-outfile le_bankr using le_bankr_2004 if _n==1, replace;
-drop le_bankr;
-
-/* fraction and mean debt: for quartiles of age, income, wealth, and housing wealth  */
-
-/* Age */
-
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=35;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=36 & age<=45;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=46 & age<=55;
-
-
-/* Labor earnings */
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & labearn_trans<=le_25_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & labearn_trans> le_25_cond_tw90 & labearn_trans<=le_50_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & labearn_trans> le_50_cond_tw90 & labearn_trans<=le_75_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & labearn_trans> le_75_cond_tw90;
-
-/* Total wealth */
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & totworth<=tw_25_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & totworth> tw_25_cond_tw90 & totworth<=tw_50_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & totworth> tw_50_cond_tw90 & totworth<=tw_75_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & totworth> tw_75_cond_tw90;
-
-/* Housing wealth */
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & durable_primres<=dp_25_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & durable_primres> dp_25_cond_tw90 & durable_primres<=dp_50_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & durable_primres> dp_50_cond_tw90 & durable_primres<=dp_75_cond_tw90;
-sum frac_sdebt frac_udebt frac_home unsec_debt_primres a_s_primres durable_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55 & durable_primres> dp_75_cond_tw90;
-
-
-/*
-/* check whether debt mostly held by households up to the 90th percentile of the wealth distribution */
-sum age paydiff_cum bankrupt bankrupt_per_person frac_durs frac_home totworth netfinworth_primres durable_primres secdebt_primres unsec_debt_primres
-    a_u_pos_primres a_s_primres dur_equity_primres oth_equity_primres [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
-sum age paydiff_cum bankrupt bankrupt_per_person frac_durs frac_home totworth netfinworth_primres durable_primres secdebt_primres unsec_debt_primres
-    a_u_pos_primres a_s_primres dur_equity_primres oth_equity_primres [fweight=x42001] if totworth> tw_90 & age>=26 & age<=55;
-*/
 
 /* GINIS */
 
@@ -1569,15 +1120,8 @@ inequal7 totworth      [fweight=x42001] if (age>=26 & age<=55); /* prime-age per
 gen totworth_adj             = totworth            *1.01^(age-20);
 gen totworth_np_adj          = totworth_np         *1.01^(age-20);
 gen labearn_trans_adj        = labearn_trans       *1.01^(age-20);
-gen durable_primres_adj      = durable_primres     *1.01^(age-20);
-gen netfinworth_primres_adj  = netfinworth_primres *1.01^(age-20);
-gen secdebt_primres_adj      = secdebt_primres     *1.01^(age-20);
-gen unsec_debt_primres_adj   = unsec_debt_primres  *1.01^(age-20);
-gen a_u_pos_primres_adj      = a_u_pos_primres     *1.01^(age-20);
-gen a_s_primres_adj          = a_s_primres         *1.01^(age-20);
-gen dur_equity_primres_adj   = dur_equity_primres  *1.01^(age-20);
-gen oth_equity_primres_adj   = oth_equity_primres  *1.01^(age-20);
-
+gen durable_adj				 = durable 			   *1.01^(age-20);
+gen netfinworth_adj			 = netfinworth		   *1.01^(age-20);
 
 /* LIST of initial conditions */
 /******************************/
@@ -1586,7 +1130,7 @@ count if age>=23 & age <=25;
 
 /* Net-worth distribution of 23-25 year olds as initial distribution */
 
-sum durable_primres_adj netfinworth_primres_adj totworth_adj if age >=23 & age <=25 [fweight=x42001];
+sum durable_adj netfinworth_adj totworth_adj if age >=23 & age <=25 [fweight=x42001];
 
 egen sum_weight_age_2325 = total(x42001) if age>=23 & age <=25;
 gen weight_age_2325 = x42001/sum_weight_age_2325;
@@ -1597,9 +1141,9 @@ list weight_age_2325 durable_primres_adj netfinworth_primres_adj if age >=23 & a
 export excel age weight_age_2325 durable_primres_adj netfinworth_primres_adj using "initial_cond_adj" if age >=23 & age <=25, replace;
 */
 /* Do adjustment in Matlab. More flexible in calibration of growth-factor */
-sort age weight_age_2325 durable_primres netfinworth_primres;  /* make sure that output always sorted in the same way */
-list age weight_age_2325 durable_primres netfinworth_primres if age >=23 & age <=25;
-export excel age weight_age_2325 durable_primres netfinworth_primres using "initial_cond" if age >=23 & age <=25, replace;
+sort age weight_age_2325 durable netfinworth;  /* make sure that output always sorted in the same way */
+list age weight_age_2325 durable netfinworth if age >=23 & age <=25;
+export excel age weight_age_2325 durable netfinworth using "initial_cond" if age >=23 & age <=25, replace;
 
 
 histogram totworth  if age>=23 & age <=25 [fweight=x42001], normal
@@ -1623,7 +1167,7 @@ export excel "using initial_distributions"
 
 sort age_group_wealth;
 
-collapse netfinworth_primres_adj durable_primres_adj [fweight=x42001], by (age_group_wealth); 
+collapse totworth_adj netfinworth_adj durable_adj totworth netfinworth durable [fweight=x42001], by (age_group_wealth); 
 
 gen     age = 21 if age_group_wealth ==1;
 replace age = 24 if age_group_wealth ==2;
@@ -1650,17 +1194,35 @@ replace age = 84 if age_group_wealth ==22;
 replace age = 87 if age_group_wealth ==23;
 replace age = 90 if age_group_wealth ==24;
 
-/* RAW */
+/**** Adjusted ****/ 
+/* With primres variables */
+/*
+label var durable_primres_adj "Housing Adjusted";
+label var netfinworth_primres_adj "Net Financial (Housing) Worth Adjusted ";
 
-label var durable_primres_adj "Durables Adjusted";
-label var netfinworth_primres_adj "Net Financial Worth Adjusted";
-
-graph twoway line durable_primres age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)86) ylabel(0(5)30)
-|| line  netfinworth_primres_adj age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue) color(gs0) 
+graph twoway line durable_primres_adj age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)86) ylabel(0(5)30)
+|| line  netfinworth_primres_adj age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue) color(gs0)
+|| line  totworth_adj age if age_group_wealth>2 & age_group_wealth<24, lp(dash_dot) lw(thick) lc(red) color(gs0)
    title("Life Cycle Profiles") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(on) saving(life_cycles_raw.gph, replace);
 
 graph export "Figures/life_cycles_raw.eps", replace as(eps) preview(off);
+*/
+
+/* With durables and net-fin worth */ 
+label var durable_adj "Durables Adjusted";
+label var netfinworth_adj "Net Financial Wealth Adjusted";
+label var totworth_adj "Total Wealth Adjusted";
+
+graph twoway line durable_adj age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)86) ylabel(0(5)30)
+|| line  netfinworth_adj age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue) color(gs0) 
+|| line  totworth_adj age if age_group_wealth>2 & age_group_wealth<24, lp(dash_dot) lw(thick) lc(red) color(gs0)
+   title("Life Cycle Profiles") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
+ graphregion(fcolor(gs16)) legend(on) saving(life_cycles_raw_durables.gph, replace);
+
+graph export "Figures/life_cycles_raw_durables.eps", replace as(eps) preview(off);
+
+
 
 ********* END LIFE CYCLE PROFILES ***********
 
