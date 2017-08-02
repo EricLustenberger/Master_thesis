@@ -1135,16 +1135,17 @@ sum durable_adj netfinworth_adj totworth_adj if age >=23 & age <=25 [fweight=x42
 egen sum_weight_age_2325 = total(x42001) if age>=23 & age <=25;
 gen weight_age_2325 = x42001/sum_weight_age_2325;
 
+
+sort age weight_age_2325 durable_adj netfinworth_adj totworth_adj;  /* make sure that output always sorted in the same way */
+list weight_age_2325 durable_adj netfinworth_adj totworth_adj if age >=23 & age <=25;
+export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using "initial_cond_adj" if age >=23 & age <=25, replace;
+
 /*
-sort age weight_age_2325 durable_primres_adj netfinworth_primres_adj;  /* make sure that output always sorted in the same way */
-list weight_age_2325 durable_primres_adj netfinworth_primres_adj if age >=23 & age <=25;
-export excel age weight_age_2325 durable_primres_adj netfinworth_primres_adj using "initial_cond_adj" if age >=23 & age <=25, replace;
-*/
 /* Do adjustment in Matlab. More flexible in calibration of growth-factor */
 sort age weight_age_2325 durable netfinworth;  /* make sure that output always sorted in the same way */
 list age weight_age_2325 durable netfinworth if age >=23 & age <=25;
 export excel age weight_age_2325 durable netfinworth using "initial_cond" if age >=23 & age <=25, replace;
-
+*/
 
 histogram totworth  if age>=23 & age <=25 [fweight=x42001], normal
   color(gs0) graphregion(fcolor(gs16))
