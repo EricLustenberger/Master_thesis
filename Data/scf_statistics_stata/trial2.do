@@ -1616,6 +1616,53 @@ keep if age >=23 & age <=25;
 export excel "using initial_distributions"
 */
 
+/*******************************/
+/* Life Cycle Profiles (ERIC) */ 
+/*****************************/
+
+
+sort age_group_wealth;
+
+collapse netfinworth_primres_adj durable_primres_adj [fweight=x42001], by (age_group_wealth); 
+
+gen     age = 21 if age_group_wealth ==1;
+replace age = 24 if age_group_wealth ==2;
+replace age = 27 if age_group_wealth ==3;
+replace age = 30 if age_group_wealth ==4;
+replace age = 33 if age_group_wealth ==5;
+replace age = 36 if age_group_wealth ==6;
+replace age = 39 if age_group_wealth ==7;
+replace age = 42 if age_group_wealth ==8;
+replace age = 45 if age_group_wealth ==9;
+replace age = 48 if age_group_wealth ==10;
+replace age = 51 if age_group_wealth ==11;
+replace age = 54 if age_group_wealth ==12;
+replace age = 57 if age_group_wealth ==13;
+replace age = 60 if age_group_wealth ==14;
+replace age = 63 if age_group_wealth ==15;
+replace age = 66 if age_group_wealth ==16;
+replace age = 69 if age_group_wealth ==17;
+replace age = 72 if age_group_wealth ==18;
+replace age = 75 if age_group_wealth ==19;
+replace age = 78 if age_group_wealth ==20;
+replace age = 81 if age_group_wealth ==21;
+replace age = 84 if age_group_wealth ==22;
+replace age = 87 if age_group_wealth ==23;
+replace age = 90 if age_group_wealth ==24;
+
+/* RAW */
+
+label var durable_primres_adj "Durables Adjusted";
+label var netfinworth_primres_adj "Net Financial Worth Adjusted";
+
+graph twoway line durable_primres age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)86) ylabel(0(5)30)
+|| line  netfinworth_primres_adj age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue) color(gs0) 
+   title("Life Cycle Profiles") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
+ graphregion(fcolor(gs16)) legend(on) saving(life_cycles_raw.gph, replace);
+
+graph export "Figures/life_cycles_raw.eps", replace as(eps) preview(off);
+
+********* END LIFE CYCLE PROFILES ***********
 
 /*****************************************************/
 /* Save data for WHOLE SAMPLE (prime-age sample below);
