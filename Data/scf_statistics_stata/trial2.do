@@ -32,12 +32,6 @@ use scf2004_tot.dta;
 *use swt2004.dta;
 /* this data set consists of the raw SCF data for 2004 provided by the Federal Reserve and is
 complemented with variables obtained by feeding SCF micro data into the NBER tax simulator */
- 
-
-/* Need to rename all variables to lower case for this stata version */
- /*foreach var of varlist * {;
-  rename `var' `=strupper("`var'")';
-};*/
 
 
 foreach var of varlist * {;
@@ -62,6 +56,18 @@ replace persons=2 if (x105==1 | x105==2) & ab_sp==0; /* as in gen_taxsim_2004, h
 gen age=x8022;
 
 gen age_group_earn=.;
+
+/* Code for all age groups */
+replace age_group_earn=0  if age< 21; 
+replace age_group_earn=91 if age> 90;
+foreach i in 1/90{;
+	replace age_group_earn=`i'  if age== 20+`i';
+};
+
+
+/* newly defined age groups for wealth: for example age_group=3 corresponds to ages 26-28 in the model */ 
+gen age_group_wealth=.;
+
 replace age_group_earn=0  if age< 21;
 replace age_group_earn=1  if age>=21 & age<24;
 replace age_group_earn=2  if age>=24 & age<27;
@@ -83,11 +89,11 @@ replace age_group_earn=17 if age>=69 & age<72;
 replace age_group_earn=18 if age>=72 & age<75;
 replace age_group_earn=19 if age>=75 & age<78;
 replace age_group_earn=20 if age>=78 & age<81;
-replace age_group_earn=21 if age>=81;
+replace age_group_earn=21 if age>=81 & age<84;
+replace age_group_earn=22 if age>=84 & age<87;
+replace age_group_earn=23 if age>=87 & age<90;
+replace age_group_earn=24 if age>=90;
 
-
-/* newly defined age groups for wealth: for example age_group=3 corresponds to ages 26-28 in the model */ 
-gen age_group_wealth=.;
 replace age_group_wealth=0  if age< 19;
 replace age_group_wealth=0  if age< 20;
 replace age_group_wealth=1  if age>=20 & age<23;
@@ -110,9 +116,31 @@ replace age_group_wealth=17 if age>=68 & age<71;
 replace age_group_wealth=18 if age>=71 & age<74;
 replace age_group_wealth=19 if age>=74 & age<77;
 replace age_group_wealth=20 if age>=77 & age<80;
-replace age_group_wealth=21 if age>=80;
+replace age_group_wealth=21 if age>=80 & age<83;
+replace age_group_wealth=22 if age>=83 & age<86;
+replace age_group_wealth=23 if age>=86 & age<89;
+replace age_group_wealth=24 if age>=89;
 
+/* Alternatively construct age groups for every single year ( */ 
+/*
 
+/* Earnings age groups */
+replace age_group_earn=0  if age< 21; 
+replace age_group_earn=91 if age> 90;
+foreach i in 1/70{;
+	replace age_group_earn=`i'  if age== 20+`i';
+};
+
+/* Wealth age groups */
+
+replace age_group_wealth=0  if age< 19;
+replace age_group_wealth=0  if age< 20;
+replace age_group_wealth =91 if age>= 91;
+foreach i in 0/69{;
+	replace age_group_earn=`i'  if age== 20+`i';
+};
+
+*/ 
 
 /* generate household-equivalence scale */
 /****************************************/
@@ -717,6 +745,9 @@ gen non_finworth      = vehicl + primres + othres + othnres + othnfin +buseq ;
 gen durable           = vehicl + primres + othres + othnres; 
 gen durable_noveh     =          primres + othres + othnres; 
 gen durable_primres   =          primres; 
+
+/* durables according to H&K 2010 (value of homes, residential and non-residential property and vehicles*/
+
 
 
 /********** TOTAL DEBT ***************/
@@ -1824,8 +1855,8 @@ sort age_group_wealth;
 */
 
 
-
 /*
+
   sort age_group_wealth;
    collapse bankrupt bankrupt_per_person age age2 age3 age4 totworth totworth_adj 
                       paydiff_cum frac_durs frac_home netfinworth_primres netfinworth_primres_adj
@@ -1917,6 +1948,14 @@ replace age = 57 if age_group_wealth ==13;
 replace age = 60 if age_group_wealth ==14;
 replace age = 63 if age_group_wealth ==15;
 replace age = 66 if age_group_wealth ==16;
+replace age = 69 if age_group_wealth ==17;
+replace age = 72 if age_group_wealth ==18;
+replace age = 75 if age_group_wealth ==19;
+replace age = 78 if age_group_wealth ==20;
+replace age = 81 if age_group_wealth ==21;
+replace age = 84 if age_group_wealth ==22;
+replace age = 87 if age_group_wealth ==23;
+replace age = 90 if age_group_wealth ==24;
 
 /* SMOOTHED */
 
@@ -1924,13 +1963,13 @@ label var p_dur_primres "Home (primary residence)";
 label var p_dur_eq_primres "Home Equity";
 label var p_oth_eq_primres "Other Equity";
 
-graph twoway line p_dur_primres age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(1)4)
-|| line  p_dur_eq_primres age if age_group_wealth>2 & age_group_wealth<13, lp(dash) lw(thick) lc(midblue) color(gs0)
-|| line  p_oth_eq_primres age if age_group_wealth>2 & age_group_wealth<13, lp(dash_dot) lw(thick) lc(red) color(gs0)
+graph twoway line p_dur_primres age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(1)4)
+|| line  p_dur_eq_primres age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue) color(gs0)
+|| line  p_oth_eq_primres age if age_group_wealth>2 & age_group_wealth<24, lp(dash_dot) lw(thick) lc(red) color(gs0)
    title("SCF 2004") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(on) saving(figdata_equity.gph, replace);
 
-graph export "c:\figdata_equity.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_equity.eps", replace as(eps) preview(off);
 
 
 /* RAW */
@@ -1939,77 +1978,77 @@ label var durable_primres "Home (primary residence)";
 label var dur_equity_primres "Home Equity";
 label var oth_equity_primres "Other Equity";
 
-graph twoway line durable_primres age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(1)4)
-|| line  dur_equity_primres age if age_group_wealth>2 & age_group_wealth<13, lp(dash) lw(thick) lc(midblue) color(gs0)
-|| line  oth_equity_primres age if age_group_wealth>2 & age_group_wealth<13, lp(dash_dot) lw(thick) lc(red) color(gs0)
+graph twoway line durable_primres age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(1)4)
+|| line  dur_equity_primres age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue) color(gs0)
+|| line  oth_equity_primres age if age_group_wealth>2 & age_group_wealth<24, lp(dash_dot) lw(thick) lc(red) color(gs0)
    title("SCF 2004") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(on) saving(figdata_equity_raw.gph, replace);
 
-graph export "c:\figdata_equity_raw.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_equity_raw.eps", replace as(eps) preview(off);
 
 /* SMOOTHED */
 
 label var p_as_primres "Secured Debt";
 label var p_usecdebt_primres "Unsecured Debt";
 
-graph twoway  line p_as_primres age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(-.2)-1)
-|| line  p_usecdebt_primres age if age_group_wealth>2 & age_group_wealth<13, lp(dash) lw(thick) lc(midblue)  color(gs0)
+graph twoway  line p_as_primres age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(-.2)-1)
+|| line  p_usecdebt_primres age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue)  color(gs0)
    title("SCF 2004") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(on) saving(figdata_debt.gph, replace);
 
-graph export "c:\figdata_debt.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_debt.eps", replace as(eps) preview(off);
 
 /* RAW */
 
 label var a_s_primres "Secured Debt";
 label var unsec_debt_primres "Unsecured Debt";
 
-graph twoway  line a_s_primres age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(-.2)-1)
-|| line  unsec_debt_primres age if age_group_wealth>2 & age_group_wealth<13, lp(dash) lw(thick) lc(midblue)  color(gs0)
+graph twoway  line a_s_primres age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(-.2)-1)
+|| line  unsec_debt_primres age if age_group_wealth>2 & age_group_wealth<24, lp(dash) lw(thick) lc(midblue)  color(gs0)
    title("SCF 2004") ytitle("Average labor-earning equivalents", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(on) saving(figdata_debt_raw.gph, replace);
 
-graph export "c:\figdata_debt_raw.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_debt_raw.eps", replace as(eps) preview(off);
 
 /* SMOOTHED */
 
 label var p_f_home "Fraction home ownership";
 
-graph twoway line  p_f_home age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(.2)1)
+graph twoway line  p_f_home age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(.2)1)
    title("SCF 2004") ytitle("Fraction", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(off) saving(figdata_ownership.gph, replace);
 
-graph export "c:\figdata_ownership.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_ownership.eps", replace as(eps) preview(off);
 
 /* RAW */
 
 label var frac_home "Fraction home ownership";
 
-graph twoway  line frac_home age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(.2)1)
+graph twoway  line frac_home age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(.2)1)
   title("SCF 2004") ytitle("Fraction", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(off) saving(figdata_ownership_raw.gph, replace);
 
-graph export "c:\figdata_ownership_raw.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_ownership_raw.eps", replace as(eps) preview(off);
 
 /* SMOOTHED */
 
 label var p_bank "";
 
-graph twoway  line p_bank age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(.01).05)
+graph twoway  line p_bank age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(.01).05)
    title("SCF 2004") ytitle("Fraction", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(off) saving(figdata_bank.gph, replace);
 
-graph export "c:\figdata_bank.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_bank.eps", replace as(eps) preview(off);
 
 /* RAW */
 
 label var  bankrupt_per_person "";
 
-graph twoway  line  bankrupt_per_person age if age_group_wealth>2 & age_group_wealth<13, lp(solid) lw(thick) color(gs0) xlabel(27(3)54) ylabel(0(.01).05)
+graph twoway  line  bankrupt_per_person age if age_group_wealth>2 & age_group_wealth<24, lp(solid) lw(thick) color(gs0) xlabel(27(3)89) ylabel(0(.01).05)
  title("SCF 2004") ytitle("Fraction", justification(center)) xtitle("Age") 
  graphregion(fcolor(gs16)) legend(off) saving(figdata_bank_raw.gph, replace);
 
-graph export "c:\figdata_bank_raw.eps", replace as(eps) preview(off);
+graph export "Figures/figdata_bank_raw.eps", replace as(eps) preview(off);
 
 
 list p_bank p_f_durs p_f_home p_netfin_primres p_dur_primres p_as_primres p_usecdebt_primres p_aupos_primres p_dur_eq_primres p_oth_eq_primres if age_group_wealth>2 & age_group_wealth<13;
@@ -2042,6 +2081,7 @@ list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durabl
 
 /*
  save weights for 3-year age cells for simulating profiles in the model */
+ /*
    sort age_group_wealth;
   by age_group_wealth: egen sum_weight_by_age_wealth = total(x42001);
   egen sum_weight_wealth = total(x42001);
@@ -2056,7 +2096,7 @@ list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durabl
   gen year = 2004;
   
   save wealth_agecell_weights_2004, replace; 
-
+*/
 
 
 log close;
