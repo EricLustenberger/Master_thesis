@@ -1,0 +1,18 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Mustermann and Musterfrau(2006)]{key2}
+Franz Mustermann and Franziska Musterfrau.
+\newblock \emph{A book title}.
+\newblock random publishing house, 2006.
+
+\bibitem[Name(2006)]{key1}
+Vorname Name.
+\newblock name of the article.
+\newblock \emph{the journal's name}, 1:\penalty0 1--2, 2006.
+
+\end{thebibliography}
