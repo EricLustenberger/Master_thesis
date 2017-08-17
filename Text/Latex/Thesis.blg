@@ -4,45 +4,46 @@ The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: bib_thesis.bib
 Warning--can't use both author and editor fields in key2
-You've used 2 entries,
+Warning--there's a number but no volume in rios2016
+You've used 12 entries,
             2773 wiz_defined-function locations,
-            603 strings with 4980 characters,
-and the built_in function-call counts, 735 in all, are:
-= -- 59
-> -- 31
-< -- 2
-+ -- 11
-- -- 9
-* -- 49
-:= -- 121
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 8
-chr.to.int$ -- 2
-cite$ -- 5
-duplicate$ -- 40
-empty$ -- 68
-format.name$ -- 13
-if$ -- 149
+            677 strings with 6672 characters,
+and the built_in function-call counts, 5203 in all, are:
+= -- 483
+> -- 236
+< -- 10
++ -- 81
+- -- 69
+* -- 420
+:= -- 798
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 57
+chr.to.int$ -- 12
+cite$ -- 26
+duplicate$ -- 242
+empty$ -- 463
+format.name$ -- 95
+if$ -- 1087
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 8
-pop$ -- 19
+missing$ -- 13
+newline$ -- 70
+num.names$ -- 48
+pop$ -- 98
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 46
 quote$ -- 0
-skip$ -- 29
+skip$ -- 178
 stack$ -- 0
-substring$ -- 13
-swap$ -- 3
+substring$ -- 254
+swap$ -- 14
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 17
-warning$ -- 1
-while$ -- 7
+type$ -- 127
+warning$ -- 2
+while$ -- 55
 width$ -- 0
-write$ -- 32
-(There was 1 warning)
+write$ -- 166
+(There were 2 warnings)

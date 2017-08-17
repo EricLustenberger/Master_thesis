@@ -1,9 +1,54 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cagetti(2003)]{cagetti2003}
+Marco Cagetti.
+\newblock Wealth accumulation over the life cycle and precautionary savings.
+\newblock \emph{Journal of Business \& Economic Statistics}, 21\penalty0
+  (3):\penalty0 339--353, 2003.
+
+\bibitem[Castaneda et~al.(2003)Castaneda, Diaz-Gimenez, and
+  Rios-Rull]{castaneda2003}
+Ana Castaneda, Javier Diaz-Gimenez, and Jose-Victor Rios-Rull.
+\newblock Accounting for the us earnings and wealth inequality.
+\newblock \emph{Journal of political economy}, 111\penalty0 (4):\penalty0
+  818--857, 2003.
+
+\bibitem[Deaton and Paxson(1994)]{deaton1994}
+Angus Deaton and Christina Paxson.
+\newblock Intertemporal choice and inequality.
+\newblock \emph{Journal of political economy}, 102\penalty0 (3):\penalty0
+  437--467, 1994.
+
+\bibitem[Fernández-Villaverde and Krueger(2011)]{FV&K2011}
+Jesús Fernández-Villaverde and Dirk Krueger.
+\newblock {Consumption And Saving Over The Life Cycle: How Important Are
+  Consumer Durables?}
+\newblock \emph{Macroeconomic Dynamics}, 15\penalty0 (05):\penalty0 725--770,
+  November 2011.
+
+\bibitem[Gourinchas and Parker(2002)]{Gourinchas&Parker2002}
+Pierre-Olivier Gourinchas and Jonathan~A. Parker.
+\newblock Consumption over the life cycle.
+\newblock \emph{Econometrica}, 70\penalty0 (1):\penalty0 47--89, 2002.
+\newblock ISSN 00129682, 14680262.
+\newblock URL \url{http://www.jstor.org/stable/2692163}.
+
+\bibitem[Hintermaier and Koeniger(2011)]{hintermaier2011}
+Thomas Hintermaier and Winfried Koeniger.
+\newblock On the evolution of the us consumer wealth distribution.
+\newblock \emph{Review of Economic Dynamics}, 14\penalty0 (2):\penalty0
+  317--338, 2011.
+
+\bibitem[Kaplan and Violante(2010)]{kaplan2010}
+Greg Kaplan and Giovanni~L Violante.
+\newblock How much consumption insurance beyond self-insurance?
+\newblock \emph{American Economic Journal: Macroeconomics}, 2\penalty0
+  (4):\penalty0 53--87, 2010.
 
 \bibitem[Mustermann and Musterfrau(2006)]{key2}
 Franz Mustermann and Franziska Musterfrau.
@@ -14,5 +59,24 @@ Franz Mustermann and Franziska Musterfrau.
 Vorname Name.
 \newblock name of the article.
 \newblock \emph{the journal's name}, 1:\penalty0 1--2, 2006.
+
+\bibitem[Rios-Rull et~al.(2016)Rios-Rull, Kuhn, et~al.]{rios2016}
+Jose-Victor Rios-Rull, Moritz Kuhn, et~al.
+\newblock 2013 update on the us earnings, income, and wealth distributional
+  facts: A view from macroeconomics.
+\newblock \emph{Quarterly Review}, \penalty0 (April):\penalty0 1--75, 2016.
+
+\bibitem[Tideman and Weber(2010)]{a&w2010}
+Sander Tideman and Guglielmo Weber.
+\newblock Consumption and saving: models of intertemporal allocation and their
+  implications for public policy.
+\newblock \emph{Journal of Economic literature}, 48\penalty0 (3):\penalty0
+  693--751, 2010.
+
+\bibitem[Yang(2009)]{yang2009}
+Fang Yang.
+\newblock Consumption over the life cycle: How different is housing?
+\newblock \emph{Review of Economic Dynamics}, 12\penalty0 (3):\penalty0
+  423--443, 2009.
 
 \end{thebibliography}
