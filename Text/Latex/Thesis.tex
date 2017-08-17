@@ -194,19 +194,84 @@ These factors thus support the choice of a life-cycle model.
 \subsubsection{Partial Equilibrium}
 Last but not least, partial equilibrium as modeling choice has to be discussed briefly. (????????????????)
 
+(copy paste from hintermaier 2011
+Note that we assume that changes in the domestic supply of assets do not affect do not affect the interest rate. As in a small-open economy, this price is determined exogenously (on the world markets.) \footnote{This assumption is not restrictive for our purposes since we observe the price in our ex post analysis for the period 1983-2007. Hence, the supply of assets and the observed price suffice to determine the equilibrium asset quantities. This allows us to be agnostic about the price elasticity of asset demand.})
+
 
 
 \subsubsection{Consumer's Problem}
-As established above, the model in question is a life-cycle model with an imperfect market structure. I closely follow \cite{hintermaier2011} adding consumption durables to the model. In order to facilitate comparability, I will closely follow the notation used in their paper.
+As established above, the baseline model in question is a life-cycle model with an imperfect market structure. I closely follow \cite{hintermaier2010}.\footnote{In order to facilitate comparability, I will closely follow the notation used in their paper.} While there algorithm allows for both a live-cycle and infinite-horizon models, the example model presented in their paper uses the latter. For reasons discussed above, I will in this case opt for a live-cycle formulation. Finally, the baseline model does not include adjustment costs. These are considered in a later section of the model. 
 
-(Copy paste: In this model there is a continuum of risk-averse consumers who have a finite time horizon. These consumers make consumption and savings decisions between age 26 and age 90 when they die with certainty. Befor age 90, the probability of death at age j is $\delta_{j} < 1$. \\ 
-Consumers retire with certainty after age 65 is completed. We let $T^{r}$ denote the first period of retirement. Before retirement, labor income $y_{ij}$ is stochastic as described by Eqs. (1) and (2). After retirement, consumers receive individual-specific retirement benefits $b_{i}$. We discuss in detail in the next section how these retirement benefits are determined.  \\
-Consumers derive utility from a non-durable good $c$. The utility function is denoted by $u(c)$ and is assumed to be strictly concave and increasing. Consumers have access to a risk-free asset $a$ which earns interest $r$ so that markets are incomplete given that labor income is stochastic before retirement. As consumers cannot fully diversify their risk, different histories of labor income shocks imply different net worth positions. Moreover, the consumption and savings decision depends on the age of consumers which determines the position in the life cycle. The model is thus well suited to match the empirical facts about net worth mentioned in the previous section since it produces an endogenous net worth distribution for consumers with different histories of income shocks and different age. 
+There is a continuum of risk averse consumers with a finite time horizon. 
+At age 90 consumers die with certainty, younger consumers between the age of 26 and 90 may die with probability $\delta_{j} < 1$ at age $j$. Until retirement the labor income $y_{ij}$ is stochastic. After the age 65 is completed, they retire with certainty and receive individual-specific retirement benefits $b_{i}$.\footnote{The construction of these benefits is discussed in the Appendix.}
+Consumers derive utility from a durable good $d$ and a non-durable good $c$. The utility function $U(c,d)$ is strictly concave, increasing and non-separable in c and d (REALLY??? When not??? all three true???). 
+In each period consumption $c_{t}$, the durable good $d_{t+1}$ and the financial risk-free asset $a_{t+1}$ are chosen after receiving the income. Agents then derive utility from consumption and durable services, before the assets pay returns. While the liquid assets return an interest rate $r$ durables depreciate at rate $delta$. As previously discussed, such a market structure implies that markets are incomplete and agents will accumulate a buffer stock in order to save for rainy days. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. The model is therefore suited to match empirical facts about net worth positions since it does produce an endogenous distribution of portfolios, which differs in age and income. Moreover, (THE ADVANTAGE OF DURABLES) besides providing services and thus allowing consumers to derive utility from durables, their durability implies, that they may be used as collateral. It is assumed that all credit needs to be collateralized.\footnote{About 85\% of household debt in the Survey of Consumer Finances 2004 is secured by collateral.\citep{hintermaier2010}} 
+\\
+The collateral constraint takes the form:
+
+\begin{equation}
+\underbrace{\mu(1-\delta)d_{t+1} + \gamma\underline{y}}_{collateral} \geq -(1+r)a_{t+1}
+\end{equation}
+
+where $\underline{y}$ is the minimum labor income realization \footnote{CHECK THIS WITH CODE!!!} and $\mu \in [0,1) and \gamma \in [0,1)$ are the respective fractions of the durable stock and of minimum labor income, which can be collateralized.
+\footnote{It is important to note that this constraint guarantees full repayment by consumers and thus acts as non-bankruptcy constraint. This is assured by the timing assumptions made above \textendash The lender does know the financial portfolio choice $(a_{t+1},d_{t+1})$ and the minimum of the support of the income distribution $\underline{y}$, however future individual income draws $y_{t+1}$ do remain obscure to him. Finally, note that only choices in $t$ determine, whether the constraint is binding or not. }
+
+It is useful to rewrite the constraint in terms of total wealth and future durable holdings. Total wealth available to a consumer in each period is 
+
+\begin{equation}
+x_{t} \equiv (1+r)a_t + (1-\delta)d_{t},
+\end{equation}
+
+rewritten the constraint then looks like this:
+
+\begin{equation}
+x_{t+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{t+1}
+\end{equation}
+
+One now sees that total wealth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral. Furthermore, under the assumption that $\mu < 1$ $d_{t+1}$ is determined for a given $x_{t+1}$, when the constraint binds.
+
+Finally, the specification of the budget constraint, follows from the above:
+
+\begin{equation}
+a_{t+1}+d_{t+1}+c_{t}=x_{t}+y_{t}
+\end{equation}
+
+
+
+We let $T^{r}$ denote the first period of retirement.
 
 \paragraph{The recursive formulation of the household problem}
 
+We specify our model in discrete time. Rearranging the budget constraint, consumption of individual $i$ with age $j$ is 
+
+\begin{equation}
+c_{ij} = 
+  \begin{cases}
+    (1+r)a_{i,j-1}-a_{ij}+y_{ij} & \quad \text{if } j < T^{r}, \\
+    (1+r)a_{i,j-1}-a_{ij}+b(z_{i,T^{r}-1}) & \quad \text{if } j \geq T^{r},\\
+  \end{cases}
+\end{equation}
+
+where $b(z_{i,T^{r}-1})$ are the retirement benefits. These benefits depend on the last realization of labor income before retirement $z_{i,T^{r}-1}$ as we explain further in the next section. Defining cash-on-hand as 
+
+\begin{equation}
+x_{ij} = 
+  \begin{cases}
+    (1+r)a_{i,j-1}+y_{ij} & \quad \text{if } j < T^{r}, \\
+    (1+r)a_{i,j-1}+b(z_{i,T^{r}-1}) & \quad \text{if } j \geq T^{r},\\
+  \end{cases}
+\end{equation}
+
+we can write the Bellman equation as 
+
+\begin{equation}
+V_{j}(x_{ij},y_{ij})= \max_{ \substack{a_{ij} \geq 0}}[u(\underbrace{x_{ij}-a_{ij}}_{c_{ij}}) + \beta(1-\delta_{j})E_{j}V_{j+1}(x_{i,j+1},y_{i,j+1})],
+\end{equation}
+
+where we restrict the choice of assets to $a_{ij} \geq 0$, as motivated in the previous section.)
 
 \subsubsection{Numerical algorithm}
+
 
 
 \subsubsection{Comparing the simulation output with SCF data}

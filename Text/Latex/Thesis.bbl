@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -37,6 +37,15 @@ Pierre-Olivier Gourinchas and Jonathan~A. Parker.
 \newblock \emph{Econometrica}, 70\penalty0 (1):\penalty0 47--89, 2002.
 \newblock ISSN 00129682, 14680262.
 \newblock URL \url{http://www.jstor.org/stable/2692163}.
+
+\bibitem[Hintermaier and Koeniger(2010)]{hintermaier2010}
+Thomas Hintermaier and Winfried Koeniger.
+\newblock {The method of endogenous gridpoints with occasionally binding
+  constraints among endogenous variables}.
+\newblock \emph{Journal of Economic Dynamics and Control}, 34\penalty0
+  (10):\penalty0 2074--2088, October 2010.
+\newblock URL
+  \url{https://ideas.repec.org/a/eee/dyncon/v34y2010i10p2074-2088.html}.
 
 \bibitem[Hintermaier and Koeniger(2011)]{hintermaier2011}
 Thomas Hintermaier and Winfried Koeniger.
