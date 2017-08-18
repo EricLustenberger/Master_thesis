@@ -203,45 +203,78 @@ Note that we assume that changes in the domestic supply of assets do not affect 
 As established above, the baseline model in question is a life-cycle model with an imperfect market structure. I closely follow \cite{hintermaier2010}.\footnote{In order to facilitate comparability, I will closely follow the notation used in their paper.} While there algorithm allows for both a live-cycle and infinite-horizon models, the example model presented in their paper uses the latter. For reasons discussed above, I will in this case opt for a live-cycle formulation. Finally, the baseline model does not include adjustment costs. These are considered in a later section of the model. 
 
 There is a continuum of risk averse consumers with a finite time horizon. 
-At age 90 consumers die with certainty, younger consumers between the age of 26 and 90 may die with probability $\delta_{j} < 1$ at age $j$. Until retirement the labor income $y_{ij}$ is stochastic. After the age 65 is completed, they retire with certainty and receive individual-specific retirement benefits $b_{i}$.\footnote{The construction of these benefits is discussed in the Appendix.}
+At age 90 consumers die with certainty, younger consumers between the age of 26 and 90 may die with probability $\pi_{j} < 1$ at age $j$. Until retirement the labor income of each individual $i$ $y_{ij}$ is stochastic. After the age 65 is completed, they retire with certainty and receive individual-specific retirement benefits $b_{i}$.\footnote{The construction of these benefits is discussed in the Appendix.}
 Consumers derive utility from a durable good $d$ and a non-durable good $c$. The utility function $U(c,d)$ is strictly concave, increasing and non-separable in c and d (REALLY??? When not??? all three true???). 
-In each period consumption $c_{t}$, the durable good $d_{t+1}$ and the financial risk-free asset $a_{t+1}$ are chosen after receiving the income. Agents then derive utility from consumption and durable services, before the assets pay returns. While the liquid assets return an interest rate $r$ durables depreciate at rate $delta$. As previously discussed, such a market structure implies that markets are incomplete and agents will accumulate a buffer stock in order to save for rainy days. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. The model is therefore suited to match empirical facts about net worth positions since it does produce an endogenous distribution of portfolios, which differs in age and income. Moreover, (THE ADVANTAGE OF DURABLES) besides providing services and thus allowing consumers to derive utility from durables, their durability implies, that they may be used as collateral. It is assumed that all credit needs to be collateralized.\footnote{About 85\% of household debt in the Survey of Consumer Finances 2004 is secured by collateral.\citep{hintermaier2010}} 
+In each period consumption $c_{j}$, the durable good $d_{j+1}$ and the financial risk-free asset $a_{j+1}$ are chosen after receiving the income. Agents then derive utility from consumption and durable services, before the assets pay returns. While the liquid assets return an interest rate $r$ durables depreciate at rate $delta$. As previously discussed, such a market structure implies that markets are incomplete and agents will accumulate a buffer stock in order to save for rainy days. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. The model is therefore suited to match empirical facts about net worth positions since it does produce an endogenous distribution of portfolios, which differs in age and income. Moreover, (THE ADVANTAGE OF DURABLES) besides providing services and thus allowing consumers to derive utility from durables, their durability implies, that they may be used as collateral. It is assumed that all credit needs to be collateralized.\footnote{About 85\% of household debt in the Survey of Consumer Finances 2004 is secured by collateral.\citep{hintermaier2010}} 
 \\
 The collateral constraint takes the form:
 
 \begin{equation}
-\underbrace{\mu(1-\delta)d_{t+1} + \gamma\underline{y}}_{collateral} \geq -(1+r)a_{t+1}
+\underbrace{\mu(1-\delta)d_{j+1} + \gamma\underline{y}}_{collateral} \geq -(1+r)a_{j+1}
 \end{equation}
 
 where $\underline{y}$ is the minimum labor income realization \footnote{CHECK THIS WITH CODE!!!} and $\mu \in [0,1) and \gamma \in [0,1)$ are the respective fractions of the durable stock and of minimum labor income, which can be collateralized.
-\footnote{It is important to note that this constraint guarantees full repayment by consumers and thus acts as non-bankruptcy constraint. This is assured by the timing assumptions made above \textendash The lender does know the financial portfolio choice $(a_{t+1},d_{t+1})$ and the minimum of the support of the income distribution $\underline{y}$, however future individual income draws $y_{t+1}$ do remain obscure to him. Finally, note that only choices in $t$ determine, whether the constraint is binding or not. }
+\footnote{It is important to note that this constraint guarantees full repayment by consumers and thus acts as non-bankruptcy constraint. This is assured by the timing assumptions made above \textendash The lender does know the financial portfolio choice $(a_{j+1},d_{j+1})$ and the minimum of the support of the income distribution $\underline{y}$, however future individual income draws $y_{j+1}$ do remain obscure to him. Finally, note that only choices in $j$ determine, whether the constraint is binding or not. }
 
 It is useful to rewrite the constraint in terms of total wealth and future durable holdings. Total wealth available to a consumer in each period is 
 
 \begin{equation}
-x_{t} \equiv (1+r)a_t + (1-\delta)d_{t},
+x_{j} \equiv (1+r)a_{j} + (1-\delta)d_{j},
 \end{equation}
 
 rewritten the constraint then looks like this:
 
 \begin{equation}
-x_{t+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{t+1}
+x_{j+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{j+1}
 \end{equation}
 
-One now sees that total wealth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral. Furthermore, under the assumption that $\mu < 1$ $d_{t+1}$ is determined for a given $x_{t+1}$, when the constraint binds.
+One now sees that total wealth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral. Furthermore, under the assumption that $\mu < 1$ $d_{j+1}$ is determined for a given $x_{j+1}$, when the constraint binds.
 
 Finally, the specification of the budget constraint, follows from the above:
 
 \begin{equation}
-a_{t+1}+d_{t+1}+c_{t}=x_{t}+y_{t}
+a_{j+1}+d_{j+1}+c_{j}=x_{j}+y_{j}
 \end{equation}
 
 
 
+\paragraph{The recursive formulation of the household problem} 
+
+I will proceed by depicting the case prior to retirement. (SPECIFY RETIREMENT CASE!!!)
 We let $T^{r}$ denote the first period of retirement.
+The Bellman equation prior to retirement, if  $j < T^{r}$thus is:
 
-\paragraph{The recursive formulation of the household problem}
+\begin{equation}
+v_{j}(x_{j},d_{j},y_{j}) = \max_{\substack{a_{j+1},d_{j+1}}}\left[U(\underbrace{x_{j}+y_{j}-a_{j+1}-d_{j+1}}_{c_{j}},d_{j})+\hat{v_{j}}(x_{j+1},d_{j+1},y_{j})\right]
+\end{equation}
 
+where the expected next period value function is discouted by the product of the probability of survival $(1-\pi_{j})$ and the discount factor $\beta$
+\begin{equation}
+\hat{v_{j}}(x_{j+1},d_{j+1},y_{j}) \equiv \beta (1-\pi_{j})E_{j}v_{j+1}(x_{j+1},d_{j+1},y_{j+1}),\textnormal{\footnote{Note that the income $y_{j}$ ensters the expected value of next period's utility function as a state, due to its persistence.}}
+\end{equation}
+
+
+
+with the constraints: 
+
+\begin{equation}
+a_{j+1}+d_{j+1}+c_{j}=x_{j}+y_{j},
+\end{equation}
+
+\begin{equation}
+x_{j+1} = (1+r)a_{j+1} + (1-\delta)d_{j+1},
+\end{equation}
+
+\begin{equation}
+x_{j+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{j+1}, 
+\end{equation} (WHAT HAPPENS WITH MIN Y IN RETIREMENT????)
+
+\begin{equation}
+d_{j+1} \geq d_{min},
+\end{equation}
+
+
+FROM RED PAPER HELP TO SPECIFY CASE WITH RETIREMENT!!!
 We specify our model in discrete time. Rearranging the budget constraint, consumption of individual $i$ with age $j$ is 
 
 \begin{equation}
@@ -271,6 +304,16 @@ V_{j}(x_{ij},y_{ij})= \max_{ \substack{a_{ij} \geq 0}}[u(\underbrace{x_{ij}-a_{i
 where we restrict the choice of assets to $a_{ij} \geq 0$, as motivated in the previous section.)
 
 \subsubsection{Numerical algorithm}
+
+The problem above does not provide a closed-form solution and thus the solution has to be approximated numerically. As already mentioned above, the model is based on \cite{hintermaier2010} and I can therefore directly apply their algorithm. They expand the endogenous gridpoints method (EGM) proposed by \cite{carroll2006} for a problem with two states and thus providing a very efficient algorithm to solve models with durables and collateralized debt. \footnote{Solving such models has been considered particluarly expensive and challenging, as durables enter as additional state (if non-separability utility from durables and non-durable or adjustemnt costs are allowed for) and durables increase the dimensionality of the portfolio choice.\citep{hintermaier2010}} 
+
+(NOTE THAT ALGORITHM MUST BE CHANGED FOR CASE WITH ADJUSTMENT COSTS)
+
+Given the life-time sequences for income (as described in the income process section) {$y_{kj}$} and survival probabilities (CHECK ON HOW TO BEST WRITE DOWN!) {$(1-\pi_{j}$}, $\forall j = 0,...,T-1 $ (AND ALL MARKOV STATES $k$) the algorithm starts with an exogenous grid for the future state $x', G_{x'} \equiv {x'_{1},x'_{2},...,x'_{l}}$, the current state $d, G_{d} \equiv {d_{1},d_{2},...,d_{l}}$.
+The algorithm starts recursively in period T-1 (CHECK WITH CODE), where the choice of durables is assumed to be $d'=0$ and thus (TRUE???) the consumption policy function is $c(x,d_{j},y_{kj})=x+y_{T-1,k}$ (ADD AC). 
+
+
+
 
 
 

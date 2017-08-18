@@ -91,7 +91,9 @@ c_pol = NaN*zeros(size(MeshX,1),size(MeshX,2),nz);
 
 for ims = 1:nz;
     
-c_pol(:,:,ims) = MeshX + Y_ms_j(ims,1); %% ask if other more efficient initialization! 
+c_pol(:,:,ims) = MeshX + Y_ms_j(ims,size(Y_ms_j,2)-1); %% initialization depends on the interpretation
+% note that the initial policy function, it the one used in T, i.e. the
+% period when the agent will die with certainty 
     
 end; % of for over markov states
 
@@ -102,6 +104,9 @@ tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
 policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
+
+% save first policy for period (size(Y_ms_j,2)) i.e. period T
+policies(size(Y_ms_j,2)).c_pol = c_pol;
 
 % % for trial_simulation3
 % policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat,'a_prime_sel',init_mat,'d_prime_sel',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
@@ -192,6 +197,13 @@ x_prime(id,:,ims)   = (1+r)*a_prime(id,:,ims)+(1-delta_)*d_prime(id,:,ims);
 end; % of for over durable gridpoints today
 end; % of for over markov states
 
+% Note: needs to be before 
+% policies(jage+1).c_pol = c_pol; % indexing acording to age
+% 
+% if jage == 1;
+% policies(1).c_pol = c_pol_new; 
+% end
+
 c_pol = c_pol_new;
 
 % store policies in struct array after each period to recall during simulation
@@ -199,6 +211,10 @@ policies(jage).c_pol = c_pol_new; % indexing acording to age
 policies(jage).a_prime = a_prime;
 policies(jage).x_prime = x_prime;
 policies(jage).d_prime = d_prime; 
+
+% policies(size(Y_ms_j,2)).a_prime = zeros(size(c_pol));
+% policies(size(Y_ms_j,2)).x_prime = zeros(size(c_pol));
+% policies(size(Y_ms_j,2)).d_prime = zeros(size(c_pol));
 
 s1= sprintf('===================================================\n');
 s2= sprintf('Iteration (on policy function):%5.0d     \n', jage);

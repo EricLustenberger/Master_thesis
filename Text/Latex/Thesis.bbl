@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,12 @@ Marco Cagetti.
 \newblock Wealth accumulation over the life cycle and precautionary savings.
 \newblock \emph{Journal of Business \& Economic Statistics}, 21\penalty0
   (3):\penalty0 339--353, 2003.
+
+\bibitem[Carroll(2006)]{carroll2006}
+Christopher~D Carroll.
+\newblock The method of endogenous gridpoints for solving dynamic stochastic
+  optimization problems.
+\newblock \emph{Economics letters}, 91\penalty0 (3):\penalty0 312--320, 2006.
 
 \bibitem[Castaneda et~al.(2003)Castaneda, Diaz-Gimenez, and
   Rios-Rull]{castaneda2003}
