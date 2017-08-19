@@ -8,18 +8,18 @@
 tic 
 % Allocating memory for the simulations
 % =====================================
-x_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
-c_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
-a_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
-d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
-invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
+x_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
+c_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
+a_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
+d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
+invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2));
 
 % initial d and a 
 d_initial     = d_min;
 a_i_j(:,1) = a_initial; 
 d_i_j(:,1)  = d_initial;
 
-        for t = 1:size(Y_ms_j,2)-1;
+        for t = 1:size(Y_ms_j,2);
                 
 
             
@@ -47,10 +47,10 @@ d_i_j(:,1)  = d_initial;
 
 %% Plotting lifetime behavior of mean agent 
 
-plot_j = (1:size(Y_ms_j,2)-1);  % selection of time period for simulation-series plots
+plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series plots
 
 % calculating means 
-mean_a_j = mean(a_i_j,1);
+
 mean_d_j = mean(d_i_j,1);
 mean_c_j = mean(c_i_j,1);
 mean_invd_j = mean(invd_i_j,1);

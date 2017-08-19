@@ -309,8 +309,10 @@ The problem above does not provide a closed-form solution and thus the solution 
 
 (NOTE THAT ALGORITHM MUST BE CHANGED FOR CASE WITH ADJUSTMENT COSTS)
 
-Given the life-time sequences for income (as described in the income process section) {$y_{kj}$} and survival probabilities (CHECK ON HOW TO BEST WRITE DOWN!) {$(1-\pi_{j}$}, $\forall j = 0,...,T-1 $ (AND ALL MARKOV STATES $k$) the algorithm starts with an exogenous grid for the future state $x', G_{x'} \equiv {x'_{1},x'_{2},...,x'_{l}}$, the current state $d, G_{d} \equiv {d_{1},d_{2},...,d_{l}}$.
-The algorithm starts recursively in period T-1 (CHECK WITH CODE), where the choice of durables is assumed to be $d'=0$ and thus (TRUE???) the consumption policy function is $c(x,d_{j},y_{kj})=x+y_{T-1,k}$ (ADD AC). 
+Given the life-time sequences for income (as described in the income process section) {$y_{kj}$} and survival probabilities (CHECK ON HOW TO BEST WRITE DOWN!) {$(1-\pi_{j})$}, $\forall j = 1,...,T $ (AND ALL MARKOV STATES $k$) the algorithm starts with an exogenous grid for the future state $x', G_{x'} \equiv {x'_{1},x'_{2},...,x'_{l}}$, the current state $d, G_{d} \equiv {d_{1},d_{2},...,d_{l}}$.
+
+
+The algorithm starts iterates recursively over the policy function starting with the last period $j=T$ in which the consumer sells all durables and liquid assets to consume before death. It thus holds that $x'=d'=a'=0$ and thus the initial consumption policy is $c(x,d_{j},y_{kj})=x+y_{j,k}$.
 
 
 
