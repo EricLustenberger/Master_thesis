@@ -309,23 +309,38 @@ The problem above does not provide a closed-form solution and thus the solution 
 
 (NOTE THAT ALGORITHM MUST BE CHANGED FOR CASE WITH ADJUSTMENT COSTS)
 
-Given the life-time sequences for income (as described in the income process section) {$y_{kj}$} and survival probabilities (CHECK ON HOW TO BEST WRITE DOWN!) {$(1-\pi_{j})$}, $\forall j = 1,...,T $ (AND ALL MARKOV STATES $k$) the algorithm starts with an exogenous grid for the future state $x', G_{x'} \equiv {x'_{1},x'_{2},...,x'_{l}}$, the current state $d, G_{d} \equiv {d_{1},d_{2},...,d_{l}}$.
+Given the life-time sequences for income (as described in the income process section) {$y_{kj}$} and survival probabilities (CHECK ON HOW TO BEST WRITE DOWN!) {$(1-\pi_{j})$}, $\forall j = 1,...,T $ (AND ALL MARKOV STATES $k$) the algorithm starts with an exogenous grid for the future state $x', G_{x'} \equiv {x'_{1},x'_{2},...,x'_{I}}$, the current state $d, G_{d} \equiv {d_{1},d_{2},...,d_{J}}$.
+
+The algorithm starts iterates recursively over the policy function starting with the last period $j=T$ in which the consumer sells all durables and liquid assets to consume before death. It thus holds that $x'=d'=a'=0$ and thus the initial consumption policy is $c(x,d_{j},y_{kj})=x+y_{j,k}$.For each period t < T-1, the algorithm proceeds as follows. In a first step it maps $x'$ into $d'$ and in a second step it solves for the current choice c and state x from optimal future combinations (x',d'). Moreover, the values for the exogenous grid are chosen such that the results are not affected. (BE MORE PRECISE
+INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
 
 
-The algorithm starts iterates recursively over the policy function starting with the last period $j=T$ in which the consumer sells all durables and liquid assets to consume before death. It thus holds that $x'=d'=a'=0$ and thus the initial consumption policy is $c(x,d_{j},y_{kj})=x+y_{j,k}$.
 
 
+NOT NECESSARY FROM HERE ON. HOWEVER MAYBE BE MORE PRECISE ABOVE!
 
 
+For each period t < T-1, the algorithm proceeds as follows: 
 
+\paragraph{Step 1: Mapping $x'$ into $d'$} 
+
+Using the optimal relationship,
+\begin{equation} \label{eq:optimal_algorithm}
+\tiny
+K_{ijk}\left((1+r)\left(1+\frac{\partial \Psi(d'_{ijk},d_{j})}{\partial d'}\right)-\mu(1-\delta)\right)-\eta_{ijk} = -\left(\frac{\partial \Psi(d'_{ijk},d_{j})}{\partial d'}(1+r)+r+\delta \right) \frac{\partial \hat{v}(x'_{i},d'_{ijk},y_{k})}{\partial x'}+\frac{\partial \hat{v}(x'_{i},d'_{ijk},y_{k})}{\partial d'},
+\end{equation}
+in the algorithm determines the values of, $d'_{ijk}$ for a given $y_{k}$ and $d_{j}$, which correspond to each of the exogenous gridpoints $x'_{i}$.\footnote{The partial derivatives are obtained by exploiting the envelope conditions. When considering adjustment costs one therefore has to solve for $\partial \Psi(d'',d') /\partial d'$. In the first iteration this is done by making use of terminal condition $d''=0$. For every iteration that follows $d''$ is then replaced by the previously computed optimal policy.(COPY PASTE: Note that with adjustment costs, full decumulation is feasible for all x,d and y if $\mu < 1-(1-\delta)\alpha/2$, which is satisfied for the chosen parameters below!!!!!!!!!!!}
+
+There are three possible cases for each  $y_{k}$ and $d_{j}$, to compute the optimal $d'_{ijk}$.\footnote{Note that the optimal solution necessarily lies in the interval imposed by the collateral constraint and the lower bound on $d'$, $[d_{min},\bar{d_{i}}]$, where $\bar{d_{i}} \equiv \frac{x'_{i}+\gamma \underline{y}}{(1-\mu)(1-\delta}$.}
+\paragraph{Case 1 \textendash  Neither the collateral nor the constraint on durables are binding} Hence, $K_{ijk}=\eta_{ijk}=0$ and thus the there exists a $d'_{ijk}$ for which the right hand side of \ref{eq:optimal_algorithm} is 0.
+\paragraph{Case 2 \textendash the right hand side of \ref{eq:optimal_algorithm} is positive} jklh
+\paragraph{Case 3 \textendash the right hand side of \ref{eq:optimal_algorithm} is negative} lkjg
+
+\paragraph{Step:2 Obtaining current choice c and state x from optimal future combinations (x',d')}
 
 \subsubsection{Comparing the simulation output with SCF data}
 
 \subsubsection{Calibration}
-
-
-
-
 
 
 
