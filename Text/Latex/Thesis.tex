@@ -179,7 +179,7 @@ To answer the first question I will mainly refer to the the literature. The seco
 
 \subsubsection{Imperfect market structure}
 The choice of an exogenously determined imperfect market structure allows for a straight forward answer. It comes down to the economic question one poses. The aim here is to demonstrate that such a model can quantitatively explain the empirical net-wealth distribution in the US. The role the imperfect market structure, entering as a limited choice of assets to fully insure against idiosyncratic wage shocks, poses, is thus to produce an endogenous wealth distribution. The savings are fist and foremost driven by a precautionary motive to insure for future wage shocks. Knowing that the income may drop in the future consumers save today to achieve a more stable consumption across their live. In a complete market framework consumers could perfectly diversify away idiosyncratic risks \citep{a&w2010}  (and thus would not build a buffer stock of savings for future shocks.) (???????? is this exact?????)
-The hypothesis of the complete market framework has been rejected by the vast majority of empirical research \citep{a&w2010}. \cite{deaton1994} show that the life cycle profile of consumption inequality is increasing with age, a fact that would be inconsistent with complete markets. While in some rare cases - such as when only studying aggregates, it may still be sufficient to consider a complete market framework, when considering wealth-distributive questions, the imperfect market assumption is both necessary from a theoretical perspective and well-founded from an empirical perspective. It remains to discuss the whether it makes sens to treat distributive issues from a life-cycle point of view.
+The hypothesis of the complete market framework has been rejected by the vast majority of empirical research \citep{a&w2010}. \cite{deaton1994} show that the life cycle profile of consumption inequality is increasing with age, a fact that would be inconsistent with complete markets. Moreover, the assuming away markets, where individuals can trade contingent claims to insure themselfs against the idiosyncratic wage shocks is justified by moral hazard problems \citep{FV&K2011}. While in some rare cases - such as when only studying aggregates, it may still be sufficient to consider a complete market framework, when considering wealth-distributive questions, the imperfect market assumption is both necessary from a theoretical perspective and well-founded from an empirical perspective. It remains to discuss the whether it makes sens to treat distributive issues from a life-cycle point of view.
 
 \subsubsection{Life-Cycle}
 
@@ -230,10 +230,16 @@ x_{j+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{j+1}
 
 One now sees that total wealth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral. Furthermore, under the assumption that $\mu < 1$ $d_{j+1}$ is determined for a given $x_{j+1}$, when the constraint binds.
 
+Although in my baseline model they are set to 0, I also consider the case where durables can only be adjusted with some costs: 
+
+\begin{equation}
+\Psi(d_{t+1},d_{t})=\frac{\alpha}{2}\left(\frac{d_{t+1}-(1-\delta)d_{t}}{d_{t}}\right)^2d_{t}.
+\end{equation}\footnote{\citep{hintermaier2010} use the same specification, which is based on the investment literature (COPY PASTE(see, for example, \cite{adda2003dynamics},p.192)). Costs are differntiable in $d_{t+1}$ and $d_{t}$. Moreover, by letting the durable stock depreciate, consumers can avoid these costs. In this particular specification, adjustment costs do not affect the collateral constraint, as it is assumed that these costs do not have an impact on the sales of collateral seized by lenders. NOTE \citep{hintermaier2010} EXPLAIN IN APPENDIX VERSION WHERE THIS IS THE CASE.}
+
 Finally, the specification of the budget constraint, follows from the above:
 
 \begin{equation}
-a_{j+1}+d_{j+1}+c_{j}=x_{j}+y_{j}
+a_{j+1}+d_{j+1}+c_{j}+\Psi(d_{t+1},d_{t})=x_{j}+y_{j}
 \end{equation}
 
 
@@ -245,7 +251,7 @@ We let $T^{r}$ denote the first period of retirement.
 The Bellman equation prior to retirement, if  $j < T^{r}$thus is:
 
 \begin{equation}
-v_{j}(x_{j},d_{j},y_{j}) = \max_{\substack{a_{j+1},d_{j+1}}}\left[U(\underbrace{x_{j}+y_{j}-a_{j+1}-d_{j+1}}_{c_{j}},d_{j})+\hat{v_{j}}(x_{j+1},d_{j+1},y_{j})\right]
+v_{j}(x_{j},d_{j},y_{j}) = \max_{\substack{a_{j+1},d_{j+1}}}\left[U(\underbrace{x_{j}+y_{j}-a_{j+1}-d_{j+1}-\Psi(d_{t+1},d_{t})}_{c_{j}},d_{j})+\hat{v_{j}}(x_{j+1},d_{j+1},y_{j})\right]
 \end{equation}
 
 where the expected next period value function is discouted by the product of the probability of survival $(1-\pi_{j})$ and the discount factor $\beta$
@@ -258,7 +264,7 @@ where the expected next period value function is discouted by the product of the
 with the constraints: 
 
 \begin{equation}
-a_{j+1}+d_{j+1}+c_{j}=x_{j}+y_{j},
+a_{j+1}+d_{j+1}+c_{j}+\Psi(d_{t+1},d_{t})=x_{j}+y_{j},
 \end{equation}
 
 \begin{equation}
@@ -342,9 +348,66 @@ There are three possible cases for each  $y_{k}$ and $d_{j}$, to compute the opt
 
 \subsubsection{Calibration}
 
+\paragraph{Utility Function}
+I consider the same class of preferences as \cite{hintermaier2010}, which is commonly used in the literature considering durable and non-durable consumption (CITE MORE). 
+
+\begin{equation}
+U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c,d)=c^{\theta}(d+\epsilon_{d})^{1-\theta}, \ \textnormal{\footnote{The Cobb-Douglas specification is approximately validated by empirical evidence \citep{FV&K2011}}}
+\end{equation}
+
+where I assume $\epsilon_{d} > 0$, which thus indicates a number small enough to be irrelevant for the quantitative exercise at hand but nonetheless larger than zero. The utility function thus allows for zero consumption of durables, while the INADA-Condition ensures that people always consume some non-durables, i.e. they cannot survive without food, but are allowed to survive without houses and cars.(NOTE MIGHT LOOK AT DIFFERENCE BETWEEN EQUAL TO ZERO AND NOT EQUAL TO ZERO SINCE HINTERMAIER ALLOWS FOR BOTH(COPY PASTE: Allowing for the potentially optimal choice $d' = d_{min}$ means that the constraint for minimal durable holdings needs to be taken into account in the recursive problem as another occasionally binding constraint in addition to the collateral constraint!!!). 
+
+The utility function thus, is strictly increasing durable consumption and non-durable consumption, strictly concave and obeying the Inada conditions with respect to nondurable consumption. 
+
+\citep{FV&K2011} utility form death is normalized to 0 ??????????
+
+\paragraph{Data (Initializing DATA + probability of death (PLOT!)}
+
+\paragraph{Income Process}
+
+\begin{enumerate}
+\item \citep{FV&K2011} stochastic labor income process up to age 65, where they impose mandatory retirement. Differs from other specifications such as Abowd and Card (1989), Carroll (1992), or Gourinchas and Parker (2002) in two aspects: 
+\begin{enumerate}
+\item do not allow labor income to go to zero- very low probability Carroll (1992) estimates it at 0.003 for a year. However, its effects on the intertemporal allocations are quite big, since hh will not borrow any positive amount since they might face a lifelong sequence of zero labor income and might be unable to consume a positive amount and repay their debt in some period. (Moreover, argument of public income-support programs in the US -> labor in the model is after-tax, after-government transfer labor income.
+\item unit root in AR process is not imposed  ( is something that is debated -> they show that their results are not very sensitive toward this issue -> increase $\rho$ toward unity (LOOK AT STORESLETTEN ET AL: (2001) -> do not reject unit root.
+\end{enumerate} 
+\item Check \cite{hintermaier2010} and \cite{hintermaier2011}
+\end{enumerate}
+
+\paragraph{Others NOTE: INCOMPLETE LOOK AT PAPERS}
+\begin{enumerate}
+\item The interest rate
+\begin{enumerate}
+\item \citep{FV&K2011} $r = 4\%$(NOTE CITING A WORKING PAPER!!!) \footnote{\citep{mcgrattan2001}}
+
+\item \citep{hintermaier2010} (COPY PASTE: The annual real interest rate is set to 3\% and the depreciation rate is 2\% (see, for example, Caporale and Grier, 2000; Lustig and van Nieuwerburgh, 2005). The low depreciation rate is motivated by the dominating role of housing for consumer durables.
+\end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\item Preference Parameters
+\begin{enumerate}
+\item  \citep{FV&K2011} $\theta = 0.81$ and $\beta = 0.9375$ matching the ratio of expenditures on nondurables and durables $C/I^{d} = (C/Y)/(I^{d}/Y) = 6.2$, which is the long-run average for U.S. data.
+
+\item \cite{hintermaier2010} choose $\sigma = 0$, commonly used in the literature and then calibrate $\theta$ and $\beta$ to match (up to precision $10^{-2}$) the amount of wealth in total data, 6.33 in terms of average population labor earnings taken after taxes and transfers, and the part of wealth accounted for by durables, 4.45. \footnote{When they compute the statistic in the data, they use sampling weights provided in the SCF. (COPY PASTE: Note that the normalization by net labor and the use of equivalence scales implies that normalized (aggregate) wealth is larger than the wealth to output ratio.)}
+\end{enumerate}
+\end{enumerate}
+\section{Why model durables?}
+\begin{enumerate}
+\item \cite{FV&K2011} 
+\begin{enumerate}
+\item empirical observation that durables constitute a large fraction of households' asset holdings - hh hold 35\% of their total assets in durables and only 28\% in equity (flow of funds account 2nd quarter) 
+\item the life-cycle pattern of nondurable consumption may be closely related to the life-cycle pattern of the accumulation of durables and thus any abstraction to net wealth may severely bias the study of asset accumulation (and life-cycle profile of nondurable consumption
+\end{enumerate}
+\end{enumerate}
 
 
 \section{Life-Cycle Profiles}
+As discussed above, the choice of a life-cycle model is mainly motivated by the fact, that age plays an important role in questions related to wealth distribution and in particular to the net-wealth distribution. This section will give insight into the accumulation of wealth by agents over their lifetime. As we will see, this also affects consumption. \cite{FV&K2011} have pointed out that it is paramount to consider durables in order to properly model the life-cycle profile of consumption, which is hump shaped (see .
+
+
+
+
 \label{Chapter4}
 \section{The Wealth Distribution}
 \label{Chapter5}

@@ -3,47 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: bib_thesis.bib
+Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--can't use both author and editor fields in key2
 Warning--there's a number but no volume in rios2016
-You've used 14 entries,
+You've used 15 entries,
             2773 wiz_defined-function locations,
-            690 strings with 7053 characters,
-and the built_in function-call counts, 6074 in all, are:
-= -- 567
-> -- 267
-< -- 12
-+ -- 92
-- -- 78
-* -- 491
-:= -- 929
-add.period$ -- 45
-call.type$ -- 14
-change.case$ -- 66
-chr.to.int$ -- 14
-cite$ -- 30
-duplicate$ -- 282
-empty$ -- 545
-format.name$ -- 108
-if$ -- 1272
+            696 strings with 7194 characters,
+and the built_in function-call counts, 6415 in all, are:
+= -- 600
+> -- 288
+< -- 13
++ -- 99
+- -- 84
+* -- 513
+:= -- 988
+add.period$ -- 48
+call.type$ -- 15
+change.case$ -- 72
+chr.to.int$ -- 15
+cite$ -- 32
+duplicate$ -- 297
+empty$ -- 568
+format.name$ -- 117
+if$ -- 1341
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 15
-newline$ -- 81
-num.names$ -- 56
-pop$ -- 112
+newline$ -- 86
+num.names$ -- 60
+pop$ -- 119
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 57
 quote$ -- 0
-skip$ -- 206
+skip$ -- 220
 stack$ -- 0
-substring$ -- 310
+substring$ -- 312
 swap$ -- 17
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 149
+type$ -- 160
 warning$ -- 2
-while$ -- 64
+while$ -- 67
 width$ -- 0
-write$ -- 194
-(There were 2 warnings)
+write$ -- 207
+(There were 3 warnings)

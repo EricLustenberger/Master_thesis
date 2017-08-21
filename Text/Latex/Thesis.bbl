@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -64,6 +64,11 @@ Greg Kaplan and Giovanni~L Violante.
 \newblock How much consumption insurance beyond self-insurance?
 \newblock \emph{American Economic Journal: Macroeconomics}, 2\penalty0
   (4):\penalty0 53--87, 2010.
+
+\bibitem[McGrattan and Prescott(2001)]{mcgrattan2001}
+Ellen~R McGrattan and Edward~C Prescott.
+\newblock Is the stock market overvalued?
+\newblock Technical report, National bureau of economic research, 2001.
 
 \bibitem[Mustermann and Musterfrau(2006)]{key2}
 Franz Mustermann and Franziska Musterfrau.
