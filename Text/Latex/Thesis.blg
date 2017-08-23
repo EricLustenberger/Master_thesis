@@ -6,45 +6,45 @@ Database file #1: bib_thesis.bib
 Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--can't use both author and editor fields in key2
 Warning--there's a number but no volume in rios2016
-You've used 15 entries,
+You've used 16 entries,
             2773 wiz_defined-function locations,
-            696 strings with 7194 characters,
-and the built_in function-call counts, 6415 in all, are:
-= -- 600
-> -- 288
-< -- 13
-+ -- 99
-- -- 84
-* -- 513
-:= -- 988
-add.period$ -- 48
-call.type$ -- 15
-change.case$ -- 72
-chr.to.int$ -- 15
-cite$ -- 32
-duplicate$ -- 297
-empty$ -- 568
-format.name$ -- 117
-if$ -- 1341
+            700 strings with 7258 characters,
+and the built_in function-call counts, 6871 in all, are:
+= -- 644
+> -- 309
+< -- 14
++ -- 106
+- -- 90
+* -- 550
+:= -- 1056
+add.period$ -- 51
+call.type$ -- 16
+change.case$ -- 77
+chr.to.int$ -- 16
+cite$ -- 34
+duplicate$ -- 317
+empty$ -- 608
+format.name$ -- 126
+if$ -- 1437
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 15
-newline$ -- 86
-num.names$ -- 60
-pop$ -- 119
+missing$ -- 16
+newline$ -- 91
+num.names$ -- 64
+pop$ -- 127
 preamble$ -- 1
-purify$ -- 57
+purify$ -- 61
 quote$ -- 0
-skip$ -- 220
+skip$ -- 236
 stack$ -- 0
-substring$ -- 312
-swap$ -- 17
+substring$ -- 339
+swap$ -- 18
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 160
+type$ -- 171
 warning$ -- 2
-while$ -- 67
+while$ -- 72
 width$ -- 0
-write$ -- 207
+write$ -- 220
 (There were 3 warnings)

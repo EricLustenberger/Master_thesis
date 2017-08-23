@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -58,6 +58,12 @@ Thomas Hintermaier and Winfried Koeniger.
 \newblock On the evolution of the us consumer wealth distribution.
 \newblock \emph{Review of Economic Dynamics}, 14\penalty0 (2):\penalty0
   317--338, 2011.
+
+\bibitem[Hintermaier and Koeniger(2016)]{hintermaier2016}
+Thomas Hintermaier and Winfried Koeniger.
+\newblock Debt portfolios and homestead exemptions.
+\newblock \emph{American Economic Journal: Macroeconomics}, 8\penalty0
+  (4):\penalty0 103--141, 2016.
 
 \bibitem[Kaplan and Violante(2010)]{kaplan2010}
 Greg Kaplan and Giovanni~L Violante.

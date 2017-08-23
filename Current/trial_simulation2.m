@@ -51,6 +51,7 @@ plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series p
 
 % calculating means 
 
+mean_a_j = mean(a_i_j,1);
 mean_d_j = mean(d_i_j,1);
 mean_c_j = mean(c_i_j,1);
 mean_invd_j = mean(invd_i_j,1);
@@ -70,6 +71,23 @@ subplot(3,2,5);
 plot (plot_j,mean_y_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('y_j')
 subplot(3,2,6);
 plot (plot_j,mean_invd_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('i_j')        
+
+% plot figures individually 
+figure(60)
+plot (plot_j,mean_c_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('c_j')
+title('Consumption')
+figure(61)
+plot (plot_j,mean_x_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('x_j')
+title('Net Worth')
+figure(62)
+plot (plot_j,mean_a_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('a_j')
+title('Liquid Asset')
+figure(64)
+plot (plot_j,mean_d_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('d_j')
+title('Durable Goods')
+figure(65)
+plot (plot_j,mean_y_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('y_j')
+title('Income')
 
 toc         
         
