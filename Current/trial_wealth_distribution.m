@@ -124,19 +124,20 @@ end; % of for over percentiles
 %% plot wealth distribution 
 
 % import empirical data for comparison
-% trial_data_2004
-trial_data_1983
+trial_data_2004
+% trial_data_1983
 
 %Figures
 %=======
 
-figure(56) 
-plot(SCF_agedetail_pctiles(10:90,1),SCF_prime_age_pctiles(10:90,2),(10:90),a_perc(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
-title('Age 26-55','fontsize',14);
-legend('SCF data','Model','Location','NorthWest')
-set(gca,'XTick',10:10:90)
-set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
-axis([10,90,0,18]);
+% ONLY POSSIBLE FOR 1983! 
+% figure(56) 
+% plot(SCF_agedetail_pctiles(10:90,1),SCF_prime_age_pctiles(10:90,2),(10:90),a_perc(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+% title('Age 26-55','fontsize',14);
+% legend('SCF data','Model','Location','NorthWest')
+% set(gca,'XTick',10:10:90)
+% set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+% axis([10,90,0,18]);
 
 figure(57);
 subplot(1,3,1);

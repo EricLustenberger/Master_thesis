@@ -20,19 +20,19 @@ clear all;
 
 %% Call Calibration 
  
-%life_2004_calibration
-life_1983_calibration
+life_2004_calibration
+% life_1983_calibration
 
 % Model parameters
 % ================
-r = 0.03;         % interest rate on savings
+r = 0.04;         % interest rate on savings
 
 delta_ = 0.02;     % depreciation rate durable good
 
 alpha_ = 0.05;      % adjustment cost parameter
 
 % beta_ = 0.93885;    % discount factor 
-% 
+% % 
 % sigma_ = 2;        % overall risk aversion
 
 % =================================================
@@ -66,13 +66,13 @@ y_gam_j = gamma_*min(Y_ms_j(:));  % seizable income
 % d is durable holdings
 d_add = 0.01;
 d_min =   0.0 + d_add;
-d_max = 200;
+d_max = 250;
 % d_max =   40;
 numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
 x_min = -y_gam_j+ (1 - miu)*(1 - delta_)*d_min;
-x_max = 250;
+x_max = 350;
 % x_max =  60;
 numb_x_gridpoints = 225; 
 

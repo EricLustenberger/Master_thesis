@@ -21,44 +21,13 @@ clear all;
 
 %% Call Calibration 
  
-%life_2004_calibration
-life_1983_calibration
+life_2004_calibration
+%life_1983_calibration
 
 %% Algorithm parameters
 % ====================
 
-% Additional Model parameters for JEDC Model
-% ==========================================
-%r = 0.03;          % interest rate on savings
-
-delta_ = 0.02;     % depreciation rate durable good
-
-%  beta_ = 0.9391;    % discount factor 
-% % 
-%  sigma_ = 2;        % overall risk aversion
-
-% =================================================
-% As estimated in RED Paper for 1983
-% 
-% beta_     = 0.9845;	
-% sigma_    = 1.08;	
-% 
-
-% As in FV&K(2011)
-r = 0.039;
-beta_ = 0.9845;
-sigma_ = 3;
-theta = 0.81;
-
-% =================================================
-
-%theta = 0.8092;     % Cobb-Douglas weight on non-durable consumption
-
-epsdur = 0.000001; % autonomous durable consumption
-
-miu = 0.97;        % loan-to-value ratio
-
-gamma_ = 0.95;        % seizable fraction of minimum income
+trial_algorithm_parameters
 
 % Create the grid on the state space
 % % ==================================
@@ -66,7 +35,11 @@ gamma_ = 0.95;        % seizable fraction of minimum income
 
 % min y changes every period, due to the deterministic factor of the income
 % growth 
-y_gam_j = gamma_*min(Y_ms_j,[],1);  % seizable income
+% y_gam_j = gamma_*min(Y_ms_j,[],1);  % seizable income
+
+% min y has to be the same across all periods, the lowest income there is! 
+y_gam_j = gamma_*min(Y_ms_j(:));
+
 
 % d is durable holdings
 d_min =   0.0;
@@ -75,7 +48,7 @@ d_max =   200;
 numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
-x_min = -y_gam_j(1,1) + (1 - miu)*(1 - delta_)*d_min;
+x_min = -y_gam_j + (1 - miu)*(1 - delta_)*d_min;
 x_max =  250;
 % x_max =  60;
 numb_x_gridpoints = 225;
@@ -110,7 +83,7 @@ end; % of for over markov states
 tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
-policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
+policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
 
 % save first policy for period (size(Y_ms_j,2)) i.e. period T
 policies(size(Y_ms_j,2)).c_pol = c_pol;
@@ -157,7 +130,7 @@ for ixp = 1: size(MeshX,2);
     
     d_prime_xy_cand = interp1(diff_Der(:,ixp,ims),MeshD(:,ixp),0,'linear','extrap');
     
-    if d_prime_xy_cand > d_min && d_prime_xy_cand < (MeshX(1,ixp) + y_gam_j(jage))/((1 - miu)*(1 - delta_));
+    if d_prime_xy_cand > d_min && d_prime_xy_cand < (MeshX(1,ixp) + y_gam_j)/((1 - miu)*(1 - delta_));
         
     dprime_xy(1,ixp,ims) = d_prime_xy_cand;
     v_hat_xprimeopt(1,ixp,ims) = exp(interp1(MeshD(:,ixp),log(v_hat_xprime(:,ixp,ims)'),dprime_xy(1,ixp,ims),'linear','extrap'));    
@@ -168,7 +141,7 @@ for ixp = 1: size(MeshX,2);
         v_hat_xprimeopt(1,ixp,ims) = v_hat_xprime(1,ixp,ims);
         
         else                         % corner solution at collateral constraint
-        dprime_xy(1,ixp,ims) = (MeshX(1,ixp) + y_gam_j(jage))/((1 - miu)*(1 - delta_));
+        dprime_xy(1,ixp,ims) = (MeshX(1,ixp) + y_gam_j)/((1 - miu)*(1 - delta_));
         v_hat_xprimeopt(1,ixp,ims) = exp(interp1(MeshD(:,ixp),log(v_hat_xprime(:,ixp,ims)'),dprime_xy(1,ixp,ims),'linear','extrap'));
         v_hat_dprimeopt            = exp(interp1(MeshD(:,ixp),log(v_hat_dprime(:,ixp,ims)'),dprime_xy(1,ixp,ims),'linear','extrap'));
         kappa_xy(1,ixp,ims) =  (1/(1 + r - miu*(1 - delta_)))*(v_hat_dprimeopt - (r + delta_)*v_hat_xprimeopt(1,ixp,ims));            
