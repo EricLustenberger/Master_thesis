@@ -101,61 +101,17 @@ Summer Term 2017\\
 \setcounter{page}{1}        % Ruecksetzen des Seitenzahlzaehlers auf 1
 
 
-\section{\"Introduction}
+\section{Introduction}
 \label{Chapter1}
 
-\subsection{Unter\"Uberschrift}
+The main goal of this paper is to show how modeling durables in an incomplete markets life-cycle model where agents face idiosyncratic income shocks and thus accumulate precautionary savings can help to explain how agents accumulate wealth over the life-cycle. Such models provide the basis for the analysis of redistributional policies. They shed light on the underlying mechanisms leading to unequal distributions of wealth and consumption. In order to improve policy making it is crucial in understanding these mechanisms. 
 
-\subsubsection*{UnterUnter\"Uberschrift}
-
-
-
-Hier steht mal ein Text. Eine M\"oglichkeit des Zitierens ist, direkt
-im Text die Quelle anzugeben \citep[see][pp.225-369]{key1}.
-Andererseits schreiben \cite{key2}, dass man auch so zitieren kann.
-
-In der Matheumgebung kann der oben (im Latex-Quellcode) genannte Shortcut verwendet
-werden, um aus einem normalen $\beta$ ein fettes $\bs \beta$ zu
-machen. Wichtige Gleichungen, die nochmal verwendet werden, sollten nummeriert werden, z.B.
-\begin{equation}
-\label{eq:ols}
-   b = (x'x)x'y \;.
-\end{equation}
-
-Nebens\"achlicheres, auf das man sich nicht mehr bezieht, bleibt unnummeriert, also 
-\begin{equation*}
-   a = 1\;.
-\end{equation*}
-Nun kann man direkt auf die erste Gleichung als Gleichung~\eqref{eq:ols} verweisen mittels des zugewiesenen labels. In gleicher Weise kann man auf die Graphik~\ref{fig:ersteGraphik} bzw. Graphik~\ref{fig:andereGraphik} verweisen. Die Tilde zwischen \glqq Graphik\grqq{} und \glqq \verb|\ref{fig:andereGraphik}|\grqq{} verhindert, dass bei Zeilenumbr\"uchen die Zahl als erstes alleine in die neue Zeile rutscht. Ganz analog f\"ur die Tabelle~\ref{tab:Tabelle}. 
-
-
-
-\section{Ben\"otigte Programme}
-
-unter Windows:
-\begin{itemize}
-   \item Miktex (\url{http://miktex.org/})
-   \item ein Editor, je nach Geschmack z.B. WinEdt (\url{http://www.winedt.com/}; kostenpflichtige Studentenversion) oder einen der vielen anderen verf\"ugbaren, z.B. TeXnicCenter (\url{www.texniccenter.org/})
-   \item ghostview und ghostscript (\url{http://pages.cs.wisc.edu/~ghost/}
-\end{itemize}
-unter Linux:
-\begin{itemize}
-   \item Latex ist in den meisten Verteilungen enthalten, z.B. tetex in Suse (ggf. \"uber yast nachinstallieren)
-   \item als Editor empfiehlt sich z.B. Kile
-\end{itemize}
-f\"ur die Literatur:\\
-z.B. JabRef (\url{http://jabref.sourceforge.net/})
-
-
-\section{Pr\"asentationen}
-
-Beispiele f\"ur Pr\"asentationen mit dem Beamer-Style:
-
-\url{http://www.informatik.uni-freiburg.de/~frank/latex-kurs/latex-kurs-3/Latex-Kurs-3.html}
-
+My starting point is a classical life-cycle model with incomplete markets such as \cite{hintermaier2011} use. A majority of the literature focuses on models with only one asset, net worth. However, as \cite{FV&K2011} show, modeling durables has a big impact on life-cycle savings. Others such as \cite{diaz2010} show how modelling durables affect the wealth distribution. My thesis contributes to this literature and shows that modeling durables (is either important or unimportant) in order to reproduce the wealth distribution. And thus sheds light on the importance of durables as important driver of the net-worth accumulation. 
 
 \section{Literature Overview}
 \label{Chapter2}
+
+THIS SECTION WILL BE SPLIT UP INTO INTRODUCTION, FACTS AND GENERATING A WEALTH DISTRIBUTION
 
 Investigate empirical predictions of the life-cycle incomplete markets model (\cite{Gourinchas&Parker2002}; \cite{cagetti2003}; \cite{castaneda2003}; \cite{yang2009}; \cite{kaplan2010}; \cite{hintermaier2011}), thus contribute to the literature that (note copy paste.... demonstrate that a plausibly parameterized version of their models can quantitatively explain empirical findings as arising from rational choices of consumers facing an increasing wage profile and income uncertainty.)
 The model is based on the classic income-fluctuation problem in which the consumer faces a stochastic income process and decides in every period how much to save and how much to consume. Important contributions to the literature are Deaton (1991), Carroll (1992,1997), \cite{Gourinchas&Parker2002}. (note copy paste... Following Bewley (1986), this problem has been embedded by Huggett (1993) and Aiyagari (1994) into a general equilibrium framework, giving rise to the endogenous determination of the interest rate as well as a nontrivial income, wealth, and consumption distribution at equilibrium.)
@@ -167,7 +123,9 @@ Note: missing citations, not all of the above are cited properly!!!!!
 
 Literature on wealth distribution!!!!! 
 
-\section{The Life-Cycle Model}
+\section{Facts about the wealth distribution}
+
+\section{Generating a wealth distribution}
 \label{Chapter3}
 In the following section I discuss the economic model considered and outline the most important considerations made within the literature. Firstly, I discuss the life-cycle modeling and the literature, which applies life-cycle and to be more exact imperfect markets models in the context of wealth distributions. Secondly, I present my modeling choices and solution methods applied for this particular problem. 
 \subsection{Modeling Literature}
@@ -396,7 +354,7 @@ LOOK AT GOURINCHASandPARKER(2002) AND AT THE ADDAandCOOPER BOOK!
 \item \cite{hintermaier2010} choose $\sigma = 0$, commonly used in the literature and then calibrate $\theta$ and $\beta$ to match (up to precision $10^{-2}$) the amount of wealth in total data, 6.33 in terms of average population labor earnings taken after taxes and transfers, and the part of wealth accounted for by durables, 4.45. \footnote{When they compute the statistic in the data, they use sampling weights provided in the SCF. (COPY PASTE: Note that the normalization by net labor and the use of equivalence scales implies that normalized (aggregate) wealth is larger than the wealth to output ratio.)}
 \end{enumerate}
 \end{enumerate}
-\section{Why model durables?}
+\section{Why model durables? How do durables affect savings?}
 \begin{enumerate}
 \item \cite{FV&K2011} 
 \begin{enumerate}
@@ -560,12 +518,70 @@ What I want to look at:
 \end{enumerate}
 
 \label{Chapter4}
+
+\section{Different Parameters of the Model}
+In this part I evaluate the impact of different changes of parameters.
+
+\subsection{Adjustment Costs}
+\cite{yang2009} shows and explains the impact of the adjustment costs on the life-cycle profiles: 
+\begin{enumerate}
+\item Transaction Costs and Borrowing constraints
+\begin{enumerate}
+\item Helps to slow down decrease of non-housing consumption later in life
+\item Comparing ratio of housing to non-housing consumption
+\begin{enumerate}
+\item Without transaction costs, ratio becomes flatter over the life cycle 
+\item ratio is increasing early in life since borrowing constraints bind more likely than later in live
+\item borrowing constraints are essential in explaining accumulation of housing assets early in life
+\end{enumerate}
+\item average life cycle profiles of financial assets and total net worth
+\begin{enumerate}
+\item the evolution of wealth portfolio over the life cycle is similar
+\item shift from financial assets to housing assets when transaction costs are reduced 
+\end{enumerate}
+\item small effect on net worth profile!!!
+\end{enumerate}
+\item explains that it is not that important in explaining the net worth distribution! 
+\end{enumerate}
+
+
+\cite{diaz2010}
+Interaction Between Adjustment Costs and the Collateral Constraint
+Effect of zero adjustment costs:
+Home ownership rate rises to 89\%, the Gini indices of ouses and financial assets increase significantly for the group of homeowners
+Gini index of houses for total pop falls from 0.58 to 0.52 in the benchmark economy
+Since houses are liquid, fraction of wealth held increases as houses increases for all wealth quintiles (although relatively more for the poor)  thus effect on overall wealth distribution is minimal 
+With lower adjustment costs, houses are liquid and there is less need to accumulate financial assets for precautionary reasons
+Zero down payment it follows that households accumulate less financial assets because they are not required to keep a down payment 
+
 \section{The Wealth Distribution}
 \label{Chapter5}
 
 \subsection{Facts}
+
 \subsection{Model Predictions}
+What I can look at
+\begin{enumerate}
+\item Diaz and Luengo-Prado(2010)
+\begin{enumerate}
+\item the role of superstars and how it affects other results
+\item interaction between adjustment costs and the collateral constraint
+\item the role of persistent earnings
+\end{enumerate}
+
+\end{enumerate}
 \subsection{Determinants}
+What are the savings motives? Hence why do households accumulate wealth?
+\begin{enumerate}
+\item Kaymak and Poschke (2015): the relative strength of each motive depends on a household's productivity
+\begin{enumerate}
+\item precautionary savings motive to insure against life-cycle income risk
+\item consumption smoothing motive to save for retirement
+\item bequest motive to endow estates for their offsprings
+\end{enumerate}
+\end{enumerate}
+
+
 \subsection{The top tertile}
 \subsubsection{The literature}
 \subsubsection{Implementing Casta\~{n}eda}

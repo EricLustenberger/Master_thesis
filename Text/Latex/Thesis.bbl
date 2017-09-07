@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -29,6 +29,12 @@ Angus Deaton and Christina Paxson.
 \newblock Intertemporal choice and inequality.
 \newblock \emph{Journal of political economy}, 102\penalty0 (3):\penalty0
   437--467, 1994.
+
+\bibitem[D{\'\i}az and Luengo-Prado(2010)]{diaz2010}
+Antonia D{\'\i}az and Mar{\'\i}a~Jos{\'e} Luengo-Prado.
+\newblock The wealth distribution with durable goods.
+\newblock \emph{International Economic Review}, 51\penalty0 (1):\penalty0
+  143--170, 2010.
 
 \bibitem[Fernández-Villaverde and Krueger(2011)]{FV&K2011}
 Jesús Fernández-Villaverde and Dirk Krueger.
@@ -75,16 +81,6 @@ Greg Kaplan and Giovanni~L Violante.
 Ellen~R McGrattan and Edward~C Prescott.
 \newblock Is the stock market overvalued?
 \newblock Technical report, National bureau of economic research, 2001.
-
-\bibitem[Mustermann and Musterfrau(2006)]{key2}
-Franz Mustermann and Franziska Musterfrau.
-\newblock \emph{A book title}.
-\newblock random publishing house, 2006.
-
-\bibitem[Name(2006)]{key1}
-Vorname Name.
-\newblock name of the article.
-\newblock \emph{the journal's name}, 1:\penalty0 1--2, 2006.
 
 \bibitem[Rios-Rull et~al.(2016)Rios-Rull, Kuhn, et~al.]{rios2016}
 Jose-Victor Rios-Rull, Moritz Kuhn, et~al.
