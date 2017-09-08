@@ -100,8 +100,8 @@ c_pol = NaN*zeros(size(MeshD,1),size(MeshX,2),nz);
 
 for ims = 1:nz;
     
-c_pol(:,:,ims) = MeshX + Y_ms_j(ims,1) - d_prime(:,:,ims) - 0.5*alpha_*((d_prime(:,:,ims) - (1 - delta_)*MeshD).^2)./MeshD;
-    
+c_pol(:,:,ims) = MeshX + Y_ms_j(ims,size(Y_ms_j,2)) - d_prime(:,:,ims) - 0.5*alpha_*((d_prime(:,:,ims) - (1 - delta_)*MeshD).^2)./MeshD;
+% note that initial policy depends on the last period income    
 end; % of for over markov states
 
 ind_c_npos = c_pol <= 0; 
@@ -114,6 +114,13 @@ tic;
 
 init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
 policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
+
+% save first policy for period (size(Y_ms_j,2)) i.e. period T
+policies(size(Y_ms_j,2)).c_pol = c_pol;
+% assumption that in the last period all agents sell their assets 
+policies(size(Y_ms_j,2)).a_prime = zeros(size(c_pol));
+policies(size(Y_ms_j,2)).x_prime = zeros(size(c_pol));
+policies(size(Y_ms_j,2)).d_prime = zeros(size(c_pol));
 
 for jage = (size(Y_ms_j,2)-1):-1:1;
 

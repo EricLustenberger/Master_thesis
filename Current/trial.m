@@ -152,10 +152,10 @@ for ixp = 1: size(MeshX,2);
 end; % of for over xprime
 end; % of for over markov states
 
-% figure(1);
-% dplot = reshape(dprime_xy,size(dprime_xy,2),size(dprime_xy,3));
-% plot(MeshX(1,:),dplot(:,:));
-% title('next period combinations, d´(x´)');
+figure(1);
+dplot = reshape(dprime_xy,size(dprime_xy,2),size(dprime_xy,3));
+plot(MeshX(1,:),dplot(:,:));
+title('next period combinations, d´(x´)');
 
 % Step 2: the loop conditioning on today's durable stock
 % ======================================================

@@ -8,19 +8,19 @@
 tic 
 % Allocating memory for the simulations
 % =====================================
-x_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
-c_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
-a_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
-d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
-ac_i_j    = NaN*zeros(pop_size,size(Y_ms_j,2));
-invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2)-1);
+x_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
+c_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2));
+a_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
+d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
+ac_i_j    = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
+invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2));
 
 % initial d and a 
 d_initial     = d_min;
 a_i_j(:,1) = a_initial; 
 d_i_j(:,1)  = d_initial;
 
-        for t = 1:size(Y_ms_j,2)-1;
+        for t = 1:size(Y_ms_j,2);
                
             if t==1;
                 x_i_j(:,t)         = (1+r)*a_initial + (1-delta_)*d_initial;
@@ -47,7 +47,7 @@ d_i_j(:,1)  = d_initial;
 
 %% Plotting lifetime behavior of mean agent 
 
-plot_j = (1:size(Y_ms_j,2)-1);  % selection of time period for simulation-series plots
+plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series plots
 
 % calculating means 
 mean_a_j = mean(a_i_j,1);
@@ -75,8 +75,100 @@ toc
         
 %% Constructing the wealth distribution 
 
-% choosing a measure of net wealth for the wealth distribution
-a_i_t = x_i_j; 
+% % choosing a measure of net wealth for the wealth distribution
+% a_i_t = x_i_j; 
+% % cunstructing the distribution
+% trial_wealth_distribution
 
-% cunstructing the distribution
-trial_wealth_distribution
+
+%% import data
+trial_data_1983
+
+real_ages_of_model_periods = prime_begin:1:90;
+
+cs_x = compose_survey(x_i_j, real_ages_of_model_periods,...
+                                                     real_age__age_weight, prime_begin, prime_end,...
+                                                     growth_y, base_age);
+cs_c = compose_survey(c_i_j, real_ages_of_model_periods,...
+                                                     real_age__age_weight, prime_begin, prime_end,...
+                                                     growth_y, base_age);
+cs_y = compose_survey(Y_i_t, real_ages_of_model_periods,...
+                                                     real_age__age_weight, prime_begin, prime_end,...
+                                                     growth_y, base_age);
+cs_a = compose_survey(a_i_j(:,1:size(Y_ms_j,2)), real_ages_of_model_periods,...
+                                                     real_age__age_weight, prime_begin, prime_end,...
+                                                     growth_y, base_age);
+cs_d = compose_survey(d_i_j(:,1:size(Y_ms_j,2)), real_ages_of_model_periods,...
+                                                     real_age__age_weight, prime_begin, prime_end,...
+                                                     growth_y, base_age);                                                 
+                                                 
+% calculating percentiles
+cs_x_sorted = sort(cs_x);
+cs_c_sorted = sort(cs_c);
+cs_y_sorted = sort(cs_y);
+cs_a_sorted = sort(cs_a);
+cs_d_sorted = sort(cs_d);
+
+x_perc_composed = NaN*zeros(99,1);
+c_perc_composed = NaN*zeros(99,1);
+y_perc_composed = NaN*zeros(99,1);
+a_perc_composed = NaN*zeros(99,1);
+d_perc_composed = NaN*zeros(99,1);
+
+for iperc = 1:99;
+    x_perc_composed(iperc) = cs_x_sorted(round(max(size(cs_x_sorted))*iperc/100));
+    c_perc_composed(iperc) = cs_c_sorted(round(max(size(cs_c_sorted))*iperc/100));
+    y_perc_composed(iperc) = cs_y_sorted(round(max(size(cs_y_sorted))*iperc/100));
+    a_perc_composed(iperc) = cs_a_sorted(round(max(size(cs_a_sorted))*iperc/100));
+    d_perc_composed(iperc) = cs_d_sorted(round(max(size(cs_d_sorted))*iperc/100));
+end; % of for over percentiles
+                                                 
+% plot(1:1:99,a_perc)                                                 
+
+figure(57) 
+plot((1:99),x_perc_composed,(1:99),c_perc_composed,(1:99),y_perc_composed,(1:99),a_perc_composed,(1:99),d_perc_composed,'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+title('Age 26-55','fontsize',14);
+legend('X','C','Y','A','D','Location','NorthWest')
+set(gca,'XTick',10:10:90)
+set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+axis([10,90,0,18]);     
+
+% gini_x = gini(1:pop_size,cs_x);
+
+% figure(56) 
+% plot(SCF_agedetail_pctiles(10:90,1),SCF_prime_age_pctiles(10:90,2),(10:90),a_perc(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+% title('Age 26-55','fontsize',14);
+% legend('SCF data','Model','Location','NorthWest')
+% set(gca,'XTick',10:10:90)
+% set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+% axis([10,90,0,18]);                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+% figure(57);
+% subplot(1,3,1);
+% plot(SCF_agedetail_pctiles(10:90,1),SCF_agedetail_pctiles(10:90,2),(10:90),a_perc_26_35(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+% title('Age 26-35','fontsize',14);
+% legend('SCF data','Model','Location','NorthWest')
+% set(gca,'XTick',10:10:90)
+% set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+% axis([10,90,0,18]);
+% subplot(1,3,2);
+% plot(SCF_agedetail_pctiles(10:90,1),SCF_agedetail_pctiles(10:90,3),(10:90),a_perc_36_45(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+% title('Age 36-45','fontsize',14);
+% legend('SCF data','Model','Location','NorthWest')
+% set(gca,'XTick',10:10:90)
+% set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+% axis([10,90,0,18]);
+% subplot(1,3,3);
+% plot(SCF_agedetail_pctiles(10:90,1),SCF_agedetail_pctiles(10:90,4),(10:90),a_perc_46_55(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+% title('Age 46-55','fontsize',14);
+% legend('SCF data','Model','Location','NorthWest')
+% set(gca,'XTick',10:10:90)
+% set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
+% axis([10,90,0,18]);
+                                                 
+                                                 
+                                                 
