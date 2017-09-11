@@ -129,11 +129,34 @@ figure(57)
 plot((1:99),x_perc_composed,(1:99),c_perc_composed,(1:99),y_perc_composed,(1:99),a_perc_composed,(1:99),d_perc_composed,'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
 title('Age 26-55','fontsize',14);
 legend('X','C','Y','A','D','Location','NorthWest')
-set(gca,'XTick',10:10:90)
-set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
-axis([10,90,0,18]);     
+%set(gca,'XTick',1:99)
+%set(gca,'XTickLabel',{'1','','30','','50','','70','','90'})
+axis([1,99,-20,20]);     
 
-% gini_x = gini(1:pop_size,cs_x);
+
+%% Gini with my_gini
+
+gini_d2 = my_gini(cs_d);
+gini_c2 = my_gini(cs_c);
+gini_y2 = my_gini(cs_y);
+gini_x2 = my_gini(cs_x);
+gini_a2 = my_gini(cs_a);
+
+
+% 
+% % Check: 
+% 
+% cs_x_gini_sorted = sort(cs_x_gini);
+% 
+% x_gini_perc_composed = NaN*zeros(99,1);
+% for iperc = 1:99;
+%     x_gini_perc_composed(iperc) = cs_x_gini_sorted(round(max(size(cs_x_gini_sorted))*iperc/100));
+% end
+% 
+% figure(58)
+% plot((1:99),x_gini_perc_composed(1:99))
+% axis([1,99,-20,20]);  
+
 
 % figure(56) 
 % plot(SCF_agedetail_pctiles(10:90,1),SCF_prime_age_pctiles(10:90,2),(10:90),a_perc(10:90),'--','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
