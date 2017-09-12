@@ -18,30 +18,23 @@
 
 clear all;
 
-%% Call Calibration 
- 
-life_2004_calibration
-% life_1983_calibration
+% Algorithm parameters
+% ====================
+maxit_pol  = 5000;      % maximum  number of iterations
+
+tol_pol    = 1E-6; % convergence criterion policy function iteration
 
 % Model parameters
 % ================
-r = 0.04;         % interest rate on savings
+r = 0.03;         % interest rate on savings
 
 delta_ = 0.02;     % depreciation rate durable good
 
 alpha_ = 0.05;      % adjustment cost parameter
 
-% beta_ = 0.93885;    % discount factor 
-% % 
-% sigma_ = 2;        % overall risk aversion
+beta_ = 0.93885;    % discount factor 
 
-% =================================================
-% As estimated in RED Paper for 1983
-
-beta_     = 0.9845;	
-sigma_    = 1.08;	
-
-% =================================================
+sigma_ = 2;        % overall risk aversion
 
 theta = 0.807;     % Cobb-Douglas weight on non-durable consumption
 
@@ -51,6 +44,16 @@ miu = 0.97;        % loan-to-value ratio
 
 gamma_ = 0.95;      % seizable fraction of minimum income
 
+rhoAR = 0.95;      % autocorrelation of income
+
+nz = 5;            % number of markov states
+
+SCF_net_income_moments;
+useSigLog = SigLog;
+
+Tauchen;
+y_z_ = exp(y_logCASE);  % endowment conditional on markov state
+P_ = P_matCASEout;      % transition probability  matrix
 
 % Check restrictions on input parameters
 if miu >  (1 + r)*(1/(1 - delta_) - alpha_) || ...
@@ -61,22 +64,18 @@ end;
 % Create the grid on the state space
 % ==================================
 % state space: x, d, markov_state
-y_gam_j = gamma_*min(Y_ms_j(:));  % seizable income
+y_gam = gamma_*min(y_z_);  % seizable income
 
 % d is durable holdings
 d_add = 0.01;
 d_min =   0.0 + d_add;
-d_max = 250;
-% d_max =   40;
-numb_d_gridpoints = 300;
-% 100
+d_max =   40;
+numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
-x_min = -y_gam_j+ (1 - miu)*(1 - delta_)*d_min;
-x_max = 350;
-% x_max =  60;
-numb_x_gridpoints = 500; 
-%225
+x_min = -y_gam + (1 - miu)*(1 - delta_)*d_min;
+x_max =  60;
+numb_x_gridpoints = 225; 
 
 %  x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
 %  d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
@@ -88,7 +87,7 @@ d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_grid
 % d_grid_ = (exp(linspace(0,log(d_max - d_min+1),numb_d_gridpoints))-1+d_min)';  % set up single exponential grid
 
 [MeshX,MeshD] = meshgrid(x_grid_,d_grid_);
-ind_triang = MeshD <= (MeshX + y_gam_j)/((1 - miu)*(1 - delta_));
+ind_triang = MeshD <= (MeshX + y_gam)/((1 - miu)*(1 - delta_));
 ind_triangnz = reshape(repmat(ind_triang,1,nz),size(MeshD,1),size(MeshD,2),nz);
 MeshDnz =      reshape(repmat(MeshD,1,nz),size(MeshD,1),size(MeshD,2),nz);
 
@@ -102,8 +101,8 @@ c_pol = NaN*zeros(size(MeshD,1),size(MeshX,2),nz);
 
 for ims = 1:nz;
     
-c_pol(:,:,ims) = MeshX + Y_ms_j(ims,size(Y_ms_j,2)) - d_prime(:,:,ims) - 0.5*alpha_*((d_prime(:,:,ims) - (1 - delta_)*MeshD).^2)./MeshD;
-% note that initial policy depends on the last period income    
+c_pol(:,:,ims) = MeshX + y_z_(ims) - d_prime(:,:,ims) - 0.5*alpha_*((d_prime(:,:,ims) - (1 - delta_)*MeshD).^2)./MeshD;
+    
 end; % of for over markov states
 
 ind_c_npos = c_pol <= 0; 
@@ -114,34 +113,20 @@ c_pol(ind_c_npos) = NaN;
 % ==============================================================
 tic;
 
-init_mat = NaN*zeros(size(c_pol)); % initializing matrix for policies 
-policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat),size(Y_ms_j,2),1); % initialize array to store policies
+for pol_iter = 1:maxit_pol;
 
-% save first policy for period (size(Y_ms_j,2)) i.e. period T
-policies(size(Y_ms_j,2)).c_pol = c_pol;
-% assumption that in the last period all agents sell their assets 
-policies(size(Y_ms_j,2)).a_prime = zeros(size(c_pol));
-policies(size(Y_ms_j,2)).x_prime = zeros(size(c_pol));
-policies(size(Y_ms_j,2)).d_prime = zeros(size(c_pol));
-
-for jage = (size(Y_ms_j,2)-1):-1:1;
-
-d_prime_new  = init_mat; % initialize policies
-c_pol_new    = init_mat;
-a_prime      = init_mat;
-x_prime      = init_mat;
+d_prime_new  = NaN*zeros(size(c_pol)); % initialize policies
+c_pol_new    = NaN*zeros(size(c_pol));
+a_prime      = NaN*zeros(size(c_pol)); 
+x_prime      = NaN*zeros(size(c_pol));
 
 % calculate derivatives of the value function
 MUc          =     theta  * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^(1-theta) .* c_pol.^(theta-1);
 MUd          =  (1-theta) * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^( -theta) .* c_pol.^(theta  ) ...
                   - 0.5*alpha_*MUc.*((1 - delta_)^2 - (d_prime./MeshDnz).^2);
-if jage < T_ret;
-    v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-    v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-else 
-    v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-    v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-end
+
+v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
 
 RHS_crit_Der = (v_hat_dprime + (alpha_*(1 - delta_)*(1 + r) -(r + delta_))*v_hat_xprime)./(MeshDnz.*v_hat_xprime); % evaluating FOC on the interior
 
@@ -169,7 +154,7 @@ for ixp = 1: size(MeshX,2);
     ind_cc = false(size(MeshD,1),1);
     for id = 1:size(MeshD,1);
     
-      if d_prime_xy_cand(id) > d_min && d_prime_xy_cand(id) < (MeshX(id,ixp) + y_gam_j)/((1 - miu)*(1 - delta_));
+      if d_prime_xy_cand(id) > d_min && d_prime_xy_cand(id) < (MeshX(id,ixp) + y_gam)/((1 - miu)*(1 - delta_));
         
       dprime_xy(id,ixp,ims) = d_prime_xy_cand(id);
               
@@ -178,7 +163,7 @@ for ixp = 1: size(MeshX,2);
           dprime_xy(id,ixp,ims) = d_min;
                   
           else                              % corner solution at collateral constraint
-          dprime_xy(id,ixp,ims) = (MeshX(id,ixp) + y_gam_j)/((1 - miu)*(1 - delta_));
+          dprime_xy(id,ixp,ims) = (MeshX(id,ixp) + y_gam)/((1 - miu)*(1 - delta_));
           ind_cc(id) = true;
           end;      
         
@@ -207,7 +192,7 @@ ind_kap_neg = kappa_xy < 0;
 kappa_xy(ind_kap_neg)  = NaN;
 dprime_xy(ind_kap_neg) = NaN;
 
-%figure(1);
+% figure(1);
 plot(MeshX(1,:),dprime_xy(:,:,1));
 title('next period combinations, d´(x´)');
 
@@ -220,7 +205,7 @@ d_this = MeshD(id,1);
 
 c_EGM = ((1 + r)/theta*(v_hat_xprimeopt(id,:,ims) + kappa_xy(id,:,ims))*(d_this + epsdur).^((theta - 1)*(1-sigma_))).^(1/(theta*(1 - sigma_) - 1));
 a_prime_EGM = (MeshX(id,:)- (1 - delta_)*dprime_xy(id,:,ims))/(1 + r);
-x_EGM = c_EGM + a_prime_EGM + dprime_xy(id,:,ims) - Y_ms_j(ims,jage) + 0.5*alpha_*((dprime_xy(id,:,ims) - (1 - delta_)*d_this).^2)/d_this;
+x_EGM = c_EGM + a_prime_EGM + dprime_xy(id,:,ims) - y_z_(ims) + 0.5*alpha_*((dprime_xy(id,:,ims) - (1 - delta_)*d_this).^2)/d_this;
 
 c_EGM_sel     =        c_EGM(~isnan(c_EGM) & ~isnan(x_EGM));
 x_EGM_sel     =        x_EGM(~isnan(c_EGM) & ~isnan(x_EGM));
@@ -228,11 +213,11 @@ dprime_xy_sel = dprime_xy(id,~isnan(c_EGM) & ~isnan(x_EGM),ims);
 
 % for x on the grid < minimum of endogenous x, know that consume total wealth (both collateral constraint and dprime=d_min are binding)
 c_pol_new(id,:,ims)   = min(interp1(x_EGM_sel',c_EGM_sel',MeshX(id,:),'linear','extrap'), ...
-                            MeshX(id,:) + Y_ms_j(ims,jage) + (y_gam_j + miu*(1 - delta_)*d_min)/(1 + r) - d_min - 0.5*alpha_*((d_min - (1 - delta_)*d_this).^2)/d_this);
+                            MeshX(id,:) + y_z_(ims) + (y_gam + miu*(1 - delta_)*d_min)/(1 + r) - d_min - 0.5*alpha_*((d_min - (1 - delta_)*d_this).^2)/d_this);
 
 d_prime_new(id,:,ims) = max(d_min,interp1(x_EGM_sel',dprime_xy_sel',MeshX(id,:),'linear','extrap'));
 
-a_prime(id,:,ims)     = MeshX(id,:) + Y_ms_j(ims,jage) - c_pol_new(id,:,ims) - d_prime_new(id,:,ims) -  0.5*alpha_*((d_prime_new(id,:,ims) - (1 - delta_)*d_this).^2)/d_this;
+a_prime(id,:,ims)     = MeshX(id,:) + y_z_(ims) - c_pol_new(id,:,ims) - d_prime_new(id,:,ims) -  0.5*alpha_*((d_prime_new(id,:,ims) - (1 - delta_)*d_this).^2)/d_this;
 x_prime(id,:,ims)     = (1 + r)*a_prime(id,:,ims)+(1 - delta_)*d_prime_new(id,:,ims);
 
 end; % of for over durable gridpoints today
@@ -251,18 +236,18 @@ c_pol   = c_pol_new;     % updating policies
 d_prime = d_prime_new;
 ind_c_npos = ind_cnew_npos;
 
-% store policies in struct array after each period to recall during simulation
-policies(jage).c_pol = c_pol_new; % indexing acording to age
-policies(jage).a_prime = a_prime;
-policies(jage).x_prime = x_prime;
-policies(jage).d_prime = d_prime_new; 
-
 s1= sprintf('===================================================\n');
-s2= sprintf('Iteration (on policy function):%5.0d     \n', jage);
-s=[s1 s2 s1];
+s2= sprintf('Iteration (on policy function):%5.0d     \n', pol_iter);
+s3= sprintf('---------------------------------------------------\n');
+s4= sprintf('Max difference in policy: \n');
+s6= sprintf('%-16.7d   \n',diff_pol_max);
+s=[s1 s2 s3 s4 s6 s1];
 disp(s);
 pause(0.001);
 
+    if diff_pol_max < tol_pol;
+    break;  
+    end;
         
 end; % ending the for loop on pol_iter
 %===================   End of time iteration   =====================
@@ -272,8 +257,9 @@ toc
 % % Comment in or out (%) according to need:
 % % simulation, normalized Euler equation errors
 % % =======================================================
- trial_simulation_acost;
-
+ simulation_acost;
+ %eulererrors_acost;
+ %eulererrors_average_acost;
 
 
 
