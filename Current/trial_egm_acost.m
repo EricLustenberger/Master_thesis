@@ -46,7 +46,6 @@ sigma_    = 1.08;
 theta = 0.807;     % Cobb-Douglas weight on non-durable consumption
 
 epsdur = 0.000001; % autonomous durable consumption
-
 miu = 0.97;        % loan-to-value ratio
 
 gamma_ = 0.95;      % seizable fraction of minimum income
