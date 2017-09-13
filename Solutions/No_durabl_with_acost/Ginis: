@@ -1,0 +1,17 @@
+No durables with cost.
+
+The issue is that the algorithm does not permit a d_min = 0. Therefore, the model will not solve with theta = 1, as the constraint in this case is larger than the possible minimum held by agents. Moreover, and more importantly, the algorithm does not solve at all if d_min = 0, since at some step in the first step of the algorithm, namely to obtain kappa_xy, divides by MeshD(ind_cc,1). In other words durables are not allowed to be negative otherwise the algorithm breaks down when wanting to produce the new consumption policy. 
+
+The way I have solved the above is with a very low d_add = 0.00000000000000001, theta = 99, alpha = 0 and miu = 0. All the other parameters remain unchanged. However, since d will only produce very low values, this should be accounted for in the choice of the grid. 
+
+
+Ginis:
+
+a: 0.6827 
+c: 0.3206
+d: 0.7386
+x: 0.6642
+y: 0.4062
+x_26_35: 0.7174
+x_36_45: 0.6500
+x_46_55: 0.6074

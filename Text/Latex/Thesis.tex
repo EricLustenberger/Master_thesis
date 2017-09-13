@@ -12,6 +12,7 @@
 \usepackage{graphicx}           % Ermoeglicht das Einbinden von Bildern in allen Formaten
 \usepackage{longtable}          % zum erstellen von Tabellen ber mehrere Seiten
 \usepackage{multirow}           % zum Verbinden von Zeilen innerhalb einer Tabelle
+\usepackage{booktabs}			% für tablegenerator 
 %\usepackage{pictexwd}           % PicTex, ein Graphikpaket
 %\usepackage{pst-all, multido}   % psTricks, ein Graphikpaket
 \usepackage{url}
@@ -562,31 +563,50 @@ In the first part of this chapter I will discuss certain features of the wealth 
 
 \subsection{Model Predictions}
 
+\begin{figure}[!htbp]
+\caption{Average Durable Holdings over the Life-Cycle} 
+\label{wealth_distr_base}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.7]{Figures/wealth_distr_base}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
+\end{minipage}
+
+\end{figure}
+
+
+Figure \ref{wealth_distr_base} shows the net-wealth distribution for three different age groups from the 10th to the 90th percentile. The blue represents the SCF-Data from the year 2004 and the dotted orange line shows the distribution reproduced by the model. 
+Table \ref{ginis_base} shows the corresponding gini-indices. The ones for the SCF-Data are directly taken from \cite{hintermaier2011} whereas the model indices and averages are calculated from the net-wealth distribution resulting from the model simulation.\footnote{As I allow for negative net-worth holdings in the model, the gini-indices have to be normalized, as otherwise indices of a magnitude larger than 1 were possible. I hereby follow \cite{chen1982}. Note that this may slightly bias the gini-indices compared to the ones calculated without normalization. BE MORE PRECISE!!!} The evidence suggests that the model does manage to reproduce a decent representation of the wealth distribution. For the youngest age group it does uderpredict inequality, while for the other two the model does quite accurately reproduce the ginis. While one may argue about the precision it is evident, that it reproduces a known feature (AS DISCUSSED IN THE FACTS PART) of the empirical distribution, namely that while average wealth holdings increase with age, the concentration of wealth holdings decreases. 
+The means are such that the model slightly overpredicts average net-worth holdings for the youngest group and slightly underpredicts net-worth for the other two age groups. 
 
 
 
+\begin{table}[]
+\centering
+\caption{As Table 6 in \cite{hintermaier2011} this Table shows the Gini and Means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution.}
+\label{ginis_base}
+\begin{tabular}{@{}lll@{}}
+\toprule
+                                                                                & Data                                                 & Model                                                   \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}} \\0.80\\ 0.713\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.8350\\ 0.6255\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 2.36\\ 0.596\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.2657\\ 0.5943\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.81\\ 0.564\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 3.9695\\ 0.5522\end{tabular} \\ \bottomrule
+\end{tabular}
+\end{table}
 
 
 
+\subsection{Parameter Analysis}
+\subsubsection{Adjustment Costs}
 
+\subsubsection{Durables}
 
+\subsubsection{Collateral Constraint}
 
+\subsubsection{Income Process}
 
-
-
-
-
-
-
-\subsection{Adjustment Costs}
-
-\subsection{Durables}
-
-\subsection{Collateral Constraint}
-
-\subsection{Income Process}
-
-\subsection{Determinants}
+\subsubsection{Determinants}
 What I can look at
 \begin{enumerate}
 \item Diaz and Luengo-Prado(2010)
@@ -609,6 +629,8 @@ What are the savings motives? Hence why do households accumulate wealth?
 
 
 \subsection{The top tertile}
+So far I have limited my analysis from the 10th to the 90th percentile. Figure INSERT THE REFERENCE HERE shows the full distribution. It becomes apparent, that while the model does perform quite well in reproducing a large part of the distribution it performs a lot worse when asked to reproduce the extremes. 
+
 \subsubsection{The literature}
 \subsubsection{Implementing Casta\~{n}eda}
 \section{Conclusion}

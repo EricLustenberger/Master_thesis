@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -23,6 +23,12 @@ Ana Castaneda, Javier Diaz-Gimenez, and Jose-Victor Rios-Rull.
 \newblock Accounting for the us earnings and wealth inequality.
 \newblock \emph{Journal of political economy}, 111\penalty0 (4):\penalty0
   818--857, 2003.
+
+\bibitem[Chen et~al.(1982)Chen, Tsaur, and Rhai]{chen1982}
+Chau-Nan Chen, Tien-Wang Tsaur, and Tong-Shieng Rhai.
+\newblock The gini coefficient and negative income.
+\newblock \emph{Oxford Economic Papers}, 34\penalty0 (3):\penalty0 473--478,
+  1982.
 
 \bibitem[Deaton and Paxson(1994)]{deaton1994}
 Angus Deaton and Christina Paxson.
