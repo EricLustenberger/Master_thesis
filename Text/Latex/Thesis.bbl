@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -41,6 +41,11 @@ Antonia D{\'\i}az and Mar{\'\i}a~Jos{\'e} Luengo-Prado.
 \newblock The wealth distribution with durable goods.
 \newblock \emph{International Economic Review}, 51\penalty0 (1):\penalty0
   143--170, 2010.
+
+\bibitem[Fella and De~Nardi(2017)]{denardi2017}
+G~Fella and M~De~Nardi.
+\newblock Saving and wealth inequality.
+\newblock \emph{Review of Economic Dynamics}, 2017.
 
 \bibitem[Fernández-Villaverde and Krueger(2011)]{FV&K2011}
 Jesús Fernández-Villaverde and Dirk Krueger.

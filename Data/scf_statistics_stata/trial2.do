@@ -1123,6 +1123,7 @@ gen labearn_trans_adj        = labearn_trans       *1.01^(age-20);
 gen durable_adj				 = durable 			   *1.01^(age-20);
 gen netfinworth_adj			 = netfinworth		   *1.01^(age-20);
 
+/*
 /* LIST of initial conditions */
 /******************************/
 
@@ -1209,7 +1210,7 @@ graph twoway line durable_primres_adj age if age_group_wealth>2 & age_group_weal
 
 graph export "Figures/life_cycles_raw.eps", replace as(eps) preview(off);
 */
-
+/*
 /* With durables and net-fin worth */ 
 label var durable_adj "Durables Adjusted";
 label var netfinworth_adj "Net Financial Wealth Adjusted";
@@ -1222,7 +1223,7 @@ graph twoway line durable_adj age if age_group_wealth>2 & age_group_wealth<24, l
  graphregion(fcolor(gs16)) legend(on) saving(life_cycles_raw_durables.gph, replace);
 
 graph export "Figures/life_cycles_raw_durables.eps", replace as(eps) preview(off);
-
+*/
 
 
 ********* END LIFE CYCLE PROFILES ***********
@@ -1301,12 +1302,14 @@ graph export "Figures/life_cycles_raw_durables.eps", replace as(eps) preview(off
   
   gen year = 2004;
   save wealth_means_WHOLE_primeage_2004, replace;   
-
+*/
+ /*
 /* Output used for Table 2, 2nd column */
 /***************************************/
 list  age bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
 
-*/
+
+
 
 /*
    collapse       age totworth totworth_adj 

@@ -563,11 +563,12 @@ In the first part of this chapter I will discuss certain features of the wealth 
 
 \subsection{Model Predictions}
 
+\subsubsection{Up to the 90th percentile}
 \begin{figure}[!htbp]
 \caption{Average Durable Holdings over the Life-Cycle} 
 \label{wealth_distr_base}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.7]{Figures/wealth_distr_base}  % width legt Breite der Graphik fest
+\includegraphics[scale=.6]{Figures/wealth_distr_base}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
 \footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
@@ -595,7 +596,25 @@ The means are such that the model slightly overpredicts average net-worth holdin
 \end{tabular}
 \end{table}
 
+\subsubsection{The full distribution and the issue with the tails of the distribution}
+Figure \ref{wealth_distr_base_compl} shows the full distribution of the three age groups. Note that the scale of the y-axis varies between the age groups and compared to \ref{wealth_distr_base} in order to illustrate the whole outline of the empirical distribution. In comparison to the previous graph, two differences immediately meet the eye. For one, the model is not able to correctly predict the lowest part of the distribution. While in the model the poorest agents' net-worth holdings are around 0 for all ages, the SCF-Data displays negative values, which are more pronounced for the two younger generations. The second notable difference is the top of the distribution. Clearly, the model is unable to generate high enough savings for the richest 10\%. This is a known problem in the literature.\footnote{See \cite{denardi2017} for a review and modeling choices that are able to deal with this issue.} \\ \\
 
+\begin{figure}[!htbp]
+\caption{Average Durable Holdings over the Life-Cycle} 
+\label{wealth_distr_base_compl}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.5]{Figures/wealth_distr_base_compl_scaled}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED. NOTE THAT THE LOWEST PART OF THE DISTRIBUTION IS NOT VISIBLE!}
+\end{minipage}
+
+\end{figure}
+
+\paragraph{The richest}
+One of the reasons is that people in the later stages of their lifes do not have enough incentives to accumulate assets. The main driving forces during their life-cycle is the accumulation of assets for retirement as well as precautionary savings, i.e. to be able to deal with wage shocks. However, as the agent approaches death, the incentive to substitute assets for consumption becomes stronger and stronger. As seen in the life-cycle profiles REFERENCE GRAPH, the point where agents start decumulating liquid assets and durables with 65, when entering the retirement period. There are different ways in dealing with this issue. One approach is to model a bequest motive. Agents will thus draw utility from the capital stock remaining at the time of death and therefore tend to accumulate more and longer over the life-cycle (CITE DE NARDI!). Another way is to model extreme income risk. \citep{castaneda2003} calibrates the income process to match the ginis of both the income as well as the net-worth distribution. The resulting income states contain an extreme income state of a magnitude about 100 times larger than the second state and 1000 times larger than the worst state. The issue with this approach is that the income process then is not founded on micro-data of the income, which may be counterproductive for policy recommendation. 
+
+\paragraph{The poorest}
 
 \subsection{Parameter Analysis}
 \subsubsection{Adjustment Costs}
