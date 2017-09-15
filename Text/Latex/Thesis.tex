@@ -520,41 +520,6 @@ What I want to look at:
 
 \label{Chapter4}
 
-\section{Different Parameters of the Model}
-In this part I evaluate the impact of different changes of parameters.
-
-\subsection{Adjustment Costs}
-\cite{yang2009} shows and explains the impact of the adjustment costs on the life-cycle profiles: 
-\begin{enumerate}
-\item Transaction Costs and Borrowing constraints
-\begin{enumerate}
-\item Helps to slow down decrease of non-housing consumption later in life
-\item Comparing ratio of housing to non-housing consumption
-\begin{enumerate}
-\item Without transaction costs, ratio becomes flatter over the life cycle 
-\item ratio is increasing early in life since borrowing constraints bind more likely than later in live
-\item borrowing constraints are essential in explaining accumulation of housing assets early in life
-\end{enumerate}
-\item average life cycle profiles of financial assets and total net worth
-\begin{enumerate}
-\item the evolution of wealth portfolio over the life cycle is similar
-\item shift from financial assets to housing assets when transaction costs are reduced 
-\end{enumerate}
-\item small effect on net worth profile!!!
-\end{enumerate}
-\item explains that it is not that important in explaining the net worth distribution! 
-\end{enumerate}
-
-
-\cite{diaz2010}
-Interaction Between Adjustment Costs and the Collateral Constraint
-Effect of zero adjustment costs:
-Home ownership rate rises to 89\%, the Gini indices of ouses and financial assets increase significantly for the group of homeowners
-Gini index of houses for total pop falls from 0.58 to 0.52 in the benchmark economy
-Since houses are liquid, fraction of wealth held increases as houses increases for all wealth quintiles (although relatively more for the poor)  thus effect on overall wealth distribution is minimal 
-With lower adjustment costs, houses are liquid and there is less need to accumulate financial assets for precautionary reasons
-Zero down payment it follows that households accumulate less financial assets because they are not required to keep a down payment 
-
 \section{What features of the Wealth Distribution are explained by the model?}
 \label{Chapter5}
 In the previous section we have seen what durables may contribute. Since they do have an impact on life-cycle consumption it seems likely that they will affect the wealth distribution created by the model in one way or the other. 
@@ -613,17 +578,72 @@ Figure \ref{wealth_distr_base_compl} shows the full distribution of the three ag
 
 \paragraph{The richest}
 One of the reasons is that people in the later stages of their lifes do not have enough incentives to accumulate assets. The main driving forces during their life-cycle is the accumulation of assets for retirement as well as precautionary savings, i.e. to be able to deal with wage shocks. However, as the agent approaches death, the incentive to substitute assets for consumption becomes stronger and stronger. As seen in the life-cycle profiles REFERENCE GRAPH, the point where agents start decumulating liquid assets and durables with 65, when entering the retirement period. There are different ways in dealing with this issue. One approach is to model a bequest motive. Agents will thus draw utility from the capital stock remaining at the time of death and therefore tend to accumulate more and longer over the life-cycle (CITE DE NARDI!). Another way is to model extreme income risk. \citep{castaneda2003} calibrates the income process to match the ginis of both the income as well as the net-worth distribution. The resulting income states contain an extreme income state of a magnitude about 100 times larger than the second state and 1000 times larger than the worst state. The issue with this approach is that the income process then is not founded on micro-data of the income, which may be counterproductive for policy recommendation. 
-
+\\
+MAYBE INCLUDE GRAPH WITH SAVING RATE FROM DE NARDI
+\\
 \paragraph{The poorest}
+The main reason for the poor reproduction of the lowest 10\% is the calibration. When \cite{hintermaier2011} estimated their preference parameters they did not consider all observation with negative net-worth as their estimation approach did not permit for negative values.
 
-\subsection{Parameter Analysis}
+\subsubsection{Relative degrees of inequality}
+So far I have only discussed net-worth in the distribution section. However, the model does also reproduce a distribution of consumption as well as the two assets, which make up net-worth, independently. Moreover, there is the distribution of earnings, which is endogenously determined. It is well known that heterogeneous agent models of this type are able to reproduce the ordinal ranking of inequalities for consumption, income and net-worth in line with empirical evidence.\cite{aiyagari1994} shows that the model reproduces the (COPY PASTE: empirical plausible relative degrees of inequality), where consumption exhibits the least inequality, followed by income and capital is most unequal. (NOTE AIYAGARI IS A INFINITE HORIZON MODEL) 
+
+\begin{table}[]
+\centering
+\caption{Gini indices for the different distributions}
+\label{Gini_Ranking}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+      & Consumption & Income & Durables & Liquid Assets & Net Worth \\ \midrule
+Model & 0.3250      & 0.4062 & 0.3678   & 0.9523        & 0.6674    \\ \midrule
+Data  & ????        & 0.427  & 0.67     & 0.97          & 0.81      \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Table \ref{Gini_Ranking} displays the gini indices produced by the model and the one found in the data.\footnote{The empirical indices for durables, liquid assets and net worth are taken from \cite{hintermaier2010} and the index for income from \cite{hintermaier2011}} The model manages to match the ordering for the different inequalities only considering the types of the assets as well as net-worth. Moreover, it also shows that the consumption inequality is lowest. However, it does not manage to show that durables are more concentrated than income. \cite{diaz2010} show, in a model with housing, that this may be overcome by explicitly modeling a rental market. Housing makes up the biggest part of durables (CITE AND SHOW NUMBERS). As a consequence of rental markets, wealth poor households will decide to rent instead of owning, thus satisfying their durable consumption needs without being able to benefit from the collateral value of the durable object. As the rented object does not account for the housing part of the durable holdings, wealth poor will hold less durables and thus the gini index of durables increases, while, as \cite{diaz2010} show, the other indices change only slightly are only marginally affected. 
+As I will show below. The concentration on durables largely depends on the persistence of the earning process. A change in the income process thus helps to improve on the prediction of the gini index of durables by the model. 
+
+\subsection{Different Parameters}
 \subsubsection{Adjustment Costs}
+
+\cite{yang2009} shows and explains the impact of the adjustment costs on the life-cycle profiles: 
+\begin{enumerate}
+\item Transaction Costs and Borrowing constraints
+\begin{enumerate}
+\item Helps to slow down decrease of non-housing consumption later in life
+\item Comparing ratio of housing to non-housing consumption
+\begin{enumerate}
+\item Without transaction costs, ratio becomes flatter over the life cycle 
+\item ratio is increasing early in life since borrowing constraints bind more likely than later in live
+\item borrowing constraints are essential in explaining accumulation of housing assets early in life
+\end{enumerate}
+\item average life cycle profiles of financial assets and total net worth
+\begin{enumerate}
+\item the evolution of wealth portfolio over the life cycle is similar
+\item shift from financial assets to housing assets when transaction costs are reduced 
+\end{enumerate}
+\item small effect on net worth profile!!!
+\end{enumerate}
+\item explains that it is not that important in explaining the net worth distribution! 
+\end{enumerate}
+
+
+\cite{diaz2010}
+Interaction Between Adjustment Costs and the Collateral Constraint
+Effect of zero adjustment costs:
+Home ownership rate rises to 89\%, the Gini indices of ouses and financial assets increase significantly for the group of homeowners
+Gini index of houses for total pop falls from 0.58 to 0.52 in the benchmark economy
+Since houses are liquid, fraction of wealth held increases as houses increases for all wealth quintiles (although relatively more for the poor)  thus effect on overall wealth distribution is minimal 
+With lower adjustment costs, houses are liquid and there is less need to accumulate financial assets for precautionary reasons
+Zero down payment it follows that households accumulate less financial assets because they are not required to keep a down payment 
 
 \subsubsection{Durables}
 
 \subsubsection{Collateral Constraint}
 
 \subsubsection{Income Process}
+
+In connection with the relative degrees of inequality: \\
+Moreover, \cite{hintermaier2010} and \cite{diaz2010} both show that a modeling of persistent earnings is necessary to reproduce higher inequality in the durables and thus to more closely match the data.
 
 \subsubsection{Determinants}
 What I can look at
@@ -646,9 +666,6 @@ What are the savings motives? Hence why do households accumulate wealth?
 \end{enumerate}
 \end{enumerate}
 
-
-\subsection{The top tertile}
-So far I have limited my analysis from the 10th to the 90th percentile. Figure INSERT THE REFERENCE HERE shows the full distribution. It becomes apparent, that while the model does perform quite well in reproducing a large part of the distribution it performs a lot worse when asked to reproduce the extremes. 
 
 \subsubsection{The literature}
 \subsubsection{Implementing Casta\~{n}eda}
