@@ -9,7 +9,7 @@ delta_ = 0.02;     % depreciation rate durable good
 %  sigma_ = 2;        % overall risk aversion
 
 % As in H&K2010 with rho = 0.95
-r = 0.03;
+r = 0.04;
 beta_ = 0.9391;
 theta = 0.8092;
 sigma_ = 2; 

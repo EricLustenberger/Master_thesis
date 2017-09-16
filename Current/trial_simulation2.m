@@ -92,9 +92,9 @@ title('Income')
 toc         
         
 %% Constructing the wealth distribution 
-
-% choosing a measure of net wealth for the wealth distribution
-a_i_t = x_i_j; 
-
-% cunstructing the distribution
-trial_wealth_distribution
+% 
+% % choosing a measure of net wealth for the wealth distribution
+% a_i_t = x_i_j; 
+% 
+% % cunstructing the distribution
+compose_wealth_distribution;
