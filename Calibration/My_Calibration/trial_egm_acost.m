@@ -16,47 +16,12 @@
 % November 19, 2009
 % ===============================================
 
-clear all;
-
 %% Call Calibration 
  
-life_2004_calibration
-% life_1983_calibration
+%life_2004_calibration
 
-% Model parameters
-% ================
-r = 0.04;         % interest rate on savings
-
-delta_ = 0.02;     % depreciation rate durable good
-%delta_ = 1;
-
-%alpha_ = 0;
-alpha_ = 0.05; % adjustment cost parameter
-
-% beta_ = 0.93885;    % discount factor 
-% % 
-sigma_ = 2;        % overall risk aversion
-
-% =================================================
-% As estimated in RED Paper for 1983
-
-beta_     = 0.9845;	
-%sigma_    = 1.08;	
-
-% =================================================
-
-theta = 0.807;     % Cobb-Douglas weight on non-durable consumption
-%theta = 0.99;
-
-
-epsdur = 0.000001; % autonomous durable consumption
-%epsdur = 0;
-
-miu = 0.97;% loan-to-value ratio
-%miu = 0;
-
-gamma_ = 0.95;      % seizable fraction of minimum income
-%gamma_ = 0;
+%% Call Model Parameters
+model_parameters
 
 % Check restrictions on input parameters
 if miu >  (1 + r)*(1/(1 - delta_) - alpha_) || ...
@@ -74,25 +39,25 @@ d_add = 0.01;
 %d_add = 0;
 d_min =   0.0 + d_add;
 
-d_max = 40;
+d_max = 350;
 %d_max =   40;
-numb_d_gridpoints = 100;
+numb_d_gridpoints = 300;
 % 300 % to control behavior 
 % 100
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
 x_min = -y_gam_j+ (1 - miu)*(1 - delta_)*d_min;
 %x_min = -y_gam_j;
-x_max = 80;
+x_max = 500;
 % x_max =  60;
-numb_x_gridpoints = 225; 
+numb_x_gridpoints = 500; 
 % 500 % to control behavior 
 %225
 
-%x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
-%d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
-x_grid_ = (exp(exp(exp(linspace(0,log(log(log(x_max - x_min+1)+1)+1),numb_x_gridpoints))-1)-1)-1+x_min)';  % set up triple exponential grid
-d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_gridpoints))-1)-1)-1+d_min)';  % set up triple exponential grid
+x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
+d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
+%x_grid_ = (exp(exp(exp(linspace(0,log(log(log(x_max - x_min+1)+1)+1),numb_x_gridpoints))-1)-1)-1+x_min)';  % set up triple exponential grid
+%d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_gridpoints))-1)-1)-1+d_min)';  % set up triple exponential grid
 % x_grid_ = (exp(exp(linspace(0,log(log(x_max - x_min+1)+1),numb_x_gridpoints))-1)-1+x_min)';  % set up double exponential grid
 % d_grid_ = (exp(exp(linspace(0,log(log(d_max - d_min+1)+1),numb_d_gridpoints))-1)-1+d_min)';  % set up double exponential grid
 % x_grid_ = (exp(linspace(0,log(x_max - x_min+1),numb_x_gridpoints))-1+x_min)';  % set up single exponential grid
