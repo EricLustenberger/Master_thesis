@@ -28,7 +28,7 @@ cs_x_46_55 = compose_survey(x_i_j, real_ages_of_model_periods,...
                                                      real_age__age_weight, 46, 55,...
                                                      growth_y, base_age);
 
-mean_durables = mean(cs_d);
+total_durables = sum(cs_d);
 total_wealth = sum(cs_x);
 
 if good_file_ == 0;

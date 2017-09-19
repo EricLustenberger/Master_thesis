@@ -34,7 +34,7 @@ this_model_.sigma_   = sigma_;
 delta_        % depreciation rate
 this_model_.delta_  = delta_;
 theta         % weight on non-durable consumption
-this_model_.theta_ = theta;
+this_model_.theta = theta;
 miu           % loan to value ratio
 this_model_.miu = miu;
 gamma_       % seizable fraction of minimum income
@@ -75,6 +75,11 @@ this_model_.numb_a_gridpoints  = numb_a_gridpoints    ;
 
 % this_run_time
 % this_model_.this_run_time  = this_run_time     ;
+cs_x
+this_model_.cs_x = cs_x ;
+
+cs_d
+this_model_.cs_d = cs_d ;
 
 cs_x_26_35
 this_model_.cs_x_26_35  = cs_x_26_35     ;
@@ -85,11 +90,8 @@ this_model_.cs_x_36_45  = cs_x_36_45     ;
 cs_x_46_55
 this_model_.cs_x_46_55  = cs_x_46_55     ;
 
-cs_x
-this_model_.cs_x;
-
-mean_durables
-this_model_.mean_durables = mean_durables ;
+total_durables
+this_model_.total_durables = total_durables ;
 
 total_wealth 
 this_model_.total_wealth = total_wealth ; 

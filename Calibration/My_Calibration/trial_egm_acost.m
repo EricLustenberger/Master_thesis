@@ -39,23 +39,23 @@ d_add = 0.01;
 %d_add = 0;
 d_min =   0.0 + d_add;
 
-d_max = 350;
+d_max = 400;
 %d_max =   40;
-numb_d_gridpoints = 300;
+numb_d_gridpoints = 150;
 % 300 % to control behavior 
 % 100
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
 x_min = -y_gam_j+ (1 - miu)*(1 - delta_)*d_min;
 %x_min = -y_gam_j;
-x_max = 500;
+x_max = 650;
 % x_max =  60;
-numb_x_gridpoints = 500; 
+numb_x_gridpoints = 250; 
 % 500 % to control behavior 
 %225
 
-x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
-d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
+x_grid_ = (exp(exp(exp(exp(exp(exp(linspace(0,log(log(log(log(log(log(x_max - x_min+1)+1)+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
+d_grid_ = (exp(exp(exp(exp(exp(exp(linspace(0,log(log(log(log(log(log(d_max - d_min+1)+1)+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
 %x_grid_ = (exp(exp(exp(linspace(0,log(log(log(x_max - x_min+1)+1)+1),numb_x_gridpoints))-1)-1)-1+x_min)';  % set up triple exponential grid
 %d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_gridpoints))-1)-1)-1+d_min)';  % set up triple exponential grid
 % x_grid_ = (exp(exp(linspace(0,log(log(x_max - x_min+1)+1),numb_x_gridpoints))-1)-1+x_min)';  % set up double exponential grid
