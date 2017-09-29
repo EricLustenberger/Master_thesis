@@ -32,9 +32,9 @@ global M C
 % life_1983_calibration;
 
 % USER: SELECT DISC_PATH, mind the trailing slash
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Calibration/My_Calibration/Calibration_no_acost/output/';
+DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Calibration/My_Calibration/output_long/';
 
-models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'drop_NaN_beta091_theta08085'];
+models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', ''];
 models_database_ = [models_database_name_, '.mat']; 
 % USER: if several databases get merged before it might be simpler to adjust the following line
 % models_database_ = 'the_file_that_contains_all_merged_databases.mat';
@@ -78,12 +78,48 @@ tot_cases = size(models_,2);
 for iprepcase = 1:tot_cases;
         this_model_ = models_(iprepcase);
 %         simM_26_55(:,iprepcase) = this_model_.a_perc;
-        sim_Wealth(iprepcase)   = this_model_.averages.wealth;
-        sim_Durables(iprepcase) = this_model_.averages.durables;
+        sim_cs_d(iprepcase)   = this_model_.cs_d;
+        sim_cs_x(iprepcase) = this_model_.cs_x;
 %         simM_26_35(:,iprepcase) = this_model_.a_perc_26_35;
 %         simM_36_45(:,iprepcase) = this_model_.a_perc_36_45;
 %         simM_46_55(:,iprepcase) = this_model_.a_perc_46_55;
 end; % of for writing percentiles from all cases
+
+%% Drop all simulated observations which are extrapolated off the grid and set to ext_val
+% ======================================================================================
+
+for cases = 1:tot_cases;
+ind_non_NAN = (~isnan(a_i_j) & ~isnan(d_i_j));
+total_drops = sum(sum(isnan(a_i_j) & isnan(d_i_j))); 
+
+ind_non_NAN_colm = ~(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
+agents_drops = sum(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
+
+c_i_j    =    c_i_j(ind_non_NAN_colm,:);
+x_i_j    =    x_i_j(ind_non_NAN_colm,:);
+a_i_j    =    a_i_j(ind_non_NAN_colm,:);
+d_i_j    =    d_i_j(ind_non_NAN_colm,:);
+Y_i_t    =    Y_i_t(ind_non_NAN_colm,:);
+invd_i_j = invd_i_j(ind_non_NAN_colm,:);
+
+c_t    =    c_t(1:end-1); % use choice variables only until one period before states are above the upper bound of the grid
+invd_t = invd_t(1:end-1);
+ac_t   =   ac_t(1:end-1);
+
+
+if agents_drops > 10000;
+ display('Too many observations dropped:');  
+ display('Widen grid range or reduce drop_obs');
+ pause;
+end; % of if for number of observations below the upper bound of the grid
+
+sim_sample = pop_size-agents_drops;
+
+display(sprintf('Size of simulation sample:%5.0d ', sim_sample ));
+
+end % for over cases
+
+%% Stack moments
 
 % sel_simM_26_55    = SelFun_vert(simM_26_55);
 % sel_simM_26_35    = SelFun_vert_26_35(simM_26_35);

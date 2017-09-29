@@ -1116,12 +1116,13 @@ inequal7 totworth      [fweight=x42001] if (age>=26 & age<=55); /* prime-age per
 
 
 /* Adjust for growth in the life-cycle profile: SCF data show that average equivalized net-labor earnings grow by 1% per annum */
+/* Note: higher in 2011 Paper, thus 1.015*/
 
-gen totworth_adj             = totworth            *1.01^(age-20);
-gen totworth_np_adj          = totworth_np         *1.01^(age-20);
-gen labearn_trans_adj        = labearn_trans       *1.01^(age-20);
-gen durable_adj				 = durable 			   *1.01^(age-20);
-gen netfinworth_adj			 = netfinworth		   *1.01^(age-20);
+gen totworth_adj             = totworth            *1.015^(age-20); 
+gen totworth_np_adj          = totworth_np         *1.015^(age-20);
+gen labearn_trans_adj        = labearn_trans       *1.015^(age-20);
+gen durable_adj				 = durable 			   *1.015^(age-20);
+gen netfinworth_adj			 = netfinworth		   *1.015^(age-20);
 
 /*
 /* LIST of initial conditions */
@@ -1195,7 +1196,7 @@ replace age = 81 if age_group_wealth ==21;
 replace age = 84 if age_group_wealth ==22;
 replace age = 87 if age_group_wealth ==23;
 replace age = 90 if age_group_wealth ==24;
-
+*/
 /**** Adjusted ****/ 
 /* With primres variables */
 /*
@@ -1303,7 +1304,7 @@ graph export "Figures/life_cycles_raw_durables.eps", replace as(eps) preview(off
   gen year = 2004;
   save wealth_means_WHOLE_primeage_2004, replace;   
 */
- /*
+/*
 /* Output used for Table 2, 2nd column */
 /***************************************/
 list  age bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
@@ -1311,7 +1312,7 @@ list  age bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres d
 
 
 
-/*
+
    collapse       age totworth totworth_adj 
                       bankrupt bankrupt_per_person paydiff_cum frac_durs frac_home netfinworth_primres netfinworth_primres_adj
                       durable_primres durable_primres_adj secdebt_primres secdebt_primres_adj
@@ -1321,7 +1322,20 @@ list  age bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres d
   
   gen year = 2004;
   save wealth_means_primeage_2004, replace;   
-*/
+  
+*/  
+/********ERIC STATISTICS********/
+list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
+
+
+   collapse       age totworth totworth_adj 
+					  totworth_np totworth_np_adj labearn_trans_adj labearn_trans durable_adj durable
+					  netfinworth netfinworth_adj [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
+  
+  gen year = 2004;
+  save wealth_means_primeage_2004_ERIC, replace;  
+
+
 
 
 /*
@@ -1671,7 +1685,7 @@ list p_bank p_f_durs p_f_home p_netfin_primres p_dur_primres p_as_primres p_usec
 list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres if age_group_wealth>2 & age_group_wealth<13;
 
 
-*/
+
 
 /*  
 /*

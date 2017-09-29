@@ -53,8 +53,8 @@ numb_a_gridpoints_set = 500;
 % USER: FIRST grid layer for parameter space. Compute solutions for a SECOND finer
 % grid-layer around the estimates found on the coarser first grid layer.
 % Then merge databases for the first and second grid layer.
-beta_VEC  = 0.90:0.0025:1;
-theta_VEC = 0.65:0.025:0.9;
+beta_VEC  = 0.90:0.005:1;
+theta_VEC = 0.65:0.005:0.9;
 
 ifillall = 1;
 pilot_mat = NaN*zeros(max(size(beta_VEC))*max(size(theta_VEC)),2);

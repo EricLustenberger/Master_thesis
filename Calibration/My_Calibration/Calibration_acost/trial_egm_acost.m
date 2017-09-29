@@ -41,7 +41,7 @@ d_min =   0.0 + d_add;
 
 d_max = 400;
 %d_max =   40;
-numb_d_gridpoints = 150;
+numb_d_gridpoints = 200;
 % 300 % to control behavior 
 % 100
 
@@ -50,7 +50,7 @@ x_min = -y_gam_j+ (1 - miu)*(1 - delta_)*d_min;
 %x_min = -y_gam_j;
 x_max = 650;
 % x_max =  60;
-numb_x_gridpoints = 250; 
+numb_x_gridpoints = 450; 
 % 500 % to control behavior 
 %225
 
