@@ -10,9 +10,9 @@ delta_ = 0.02;     % depreciation rate durable good
 
 % As in H&K2010 with rho = 0.95
 r = 0.04;
-beta_ = 0.9391;
-theta = 0.8092;
-sigma_ = 2; 
+% beta_ = 0.9391;
+% theta = 0.8092;
+sigma_ = 1.5; 
 
 % =================================================
 % As estimated in RED Paper for 1983

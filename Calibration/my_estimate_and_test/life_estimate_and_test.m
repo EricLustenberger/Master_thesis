@@ -29,12 +29,13 @@ global M C
 % USER: MAKE ABSOLUTELY SURE that the following calibration script
 % CORRESPONDS to the calibration of the cases saved in the models_database_, which is going to be loaded
 % This calls the script for the calibration of life-cycle and income parameters
-% life_1983_calibration;
+trial_data_2004;
 
 % USER: SELECT DISC_PATH, mind the trailing slash
 DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Calibration/My_Calibration/Calibration_no_acost/output/';
 
-models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'drop_NaN_beta091_theta08085'];
+models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta0985995_theta07550765_sigma15','steps_001','my_initial_cond'];
+
 models_database_ = [models_database_name_, '.mat']; 
 % USER: if several databases get merged before it might be simpler to adjust the following line
 % models_database_ = 'the_file_that_contains_all_merged_databases.mat';
@@ -61,7 +62,9 @@ SelFun_vert_26_35 =      inline('([vecM(11,:);vecM(12,:);vecM(13,:);vecM(14,:);v
 
 % stack all data moments: CAREFUL below to stack the model moments the SAME way
   %sel_sampleM       = [ sel_sampleM_26_35; sel_sampleM_36_45; sel_sampleM_46_55];
-  sel_sampleM = [6.33; 4.45];
+  %sel_sampleM = [6.33; 4.45]; % hintermaier 2010 averages of total sample
+  %(wealth, durables)
+  sel_sampleM = [2.39; 2.95];
 % cum_wght_prime_ageindex = cumsum(prime_real_age__prime_age_weight(:,2)); % this defines the age weights for bootstrapping according to age weights
 
 % =========================================================================
@@ -74,12 +77,15 @@ tot_cases = size(models_,2);
 % simM_26_35 = NaN*zeros(99,tot_cases);
 % simM_36_45 = NaN*zeros(99,tot_cases);
 % simM_46_55 = NaN*zeros(99,tot_cases);
+sim_Wealth = NaN*zeros(1,tot_cases);
+sim_Durables = NaN*zeros(1,tot_cases);
 
 for iprepcase = 1:tot_cases;
         this_model_ = models_(iprepcase);
 %         simM_26_55(:,iprepcase) = this_model_.a_perc;
-        sim_Wealth(iprepcase)   = this_model_.averages.wealth;
-        sim_Durables(iprepcase) = this_model_.averages.durables;
+         sim_Wealth(iprepcase)   = prime_sample_means(this_model_.cs_x_prime);
+         sim_Durables(iprepcase) = prime_sample_means(this_model_.cs_d_prime);
+        %sel_simM(:,iprepcase) = prime_sample_means(this_model_.cs_x_prime, this_model_.cs_d_prime);
 %         simM_26_35(:,iprepcase) = this_model_.a_perc_26_35;
 %         simM_36_45(:,iprepcase) = this_model_.a_perc_36_45;
 %         simM_46_55(:,iprepcase) = this_model_.a_perc_46_55;
@@ -320,9 +326,16 @@ end
 beta_star   = min_model_.beta_          % discount factor
 sigma_star  = min_model_.theta         % utility curvature
 % % closest_a_perc_26_55 = min_model_.a_perc;  % percentiles of net worth, synthetic population
-% closest_a_perc_26_35 = min_model_.a_perc_26_35;  
-% closest_a_perc_36_45 = min_model_.a_perc_36_45;  
-% closest_a_perc_46_55 = min_model_.a_perc_46_55;  
+cs_x_26_35 = min_model_.cs_x_26_35;  
+cs_x_36_45 = min_model_.cs_x_36_45;  
+cs_x_46_55 = min_model_.cs_x_46_55; 
+cs_x = min_model_.cs_x;
+cs_d = min_model_.cs_d;
+cs_x_prime = min_model_.cs_x_prime;
+cs_d_prime = min_model_.cs_d_prime;
+
+compose_wealth_distribution;
+
 % 
 % figure(7);
 % subplot(1,3,1);

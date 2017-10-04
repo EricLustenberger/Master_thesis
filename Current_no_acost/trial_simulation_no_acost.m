@@ -15,16 +15,15 @@ d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
 invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2));
 
 % initial d and a 
-d_initial     = d_min;
-a_i_j(:,1) = a_initial; 
-d_i_j(:,1)  = d_initial;
+% d_initial     = d_min;
+x_i_j(:,1) = x_initial; 
+d_i_j(:,1) = d_initial;
+a_i_j(:,1) = (x_i_j(:,1) - (1-delta_)*d_i_j(:,1))/(1+r);
 
         for t = 1:size(Y_ms_j,2);
                 
-
-            
             if t==1;
-                x_i_j(:,t)         = (1+r)*a_initial + (1-delta_)*d_initial;
+                x_i_j(:,t)         = x_initial;
             else % on initial period
                 x_i_j(:,t)         = (1+r)*a_i_j(:,t) + (1-delta_)*d_i_j(:,t);           
             end; % on initial period
@@ -120,5 +119,5 @@ plot (1:size(mean_invd_j,2),mean_invd_j(1:size(mean_invd_j,2)),'LineWidth',2), x
 % title('Income')
 
 toc
-
-compose_wealth_distribution_no_acost;
+%% Constructing the wealth distribution 
+compose_wealth_distribution;

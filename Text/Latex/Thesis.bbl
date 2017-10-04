@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,11 +11,23 @@ S~Rao Aiyagari.
 \newblock \emph{The Quarterly Journal of Economics}, 109\penalty0 (3):\penalty0
   659--684, 1994.
 
+\bibitem[Benhabib et~al.(2015)Benhabib, Bisin, and Luo]{benhabib2015}
+Jess Benhabib, Alberto Bisin, and Mi~Luo.
+\newblock Wealth distribution and social mobility in the us: A quantitative
+  approach.
+\newblock Technical report, National Bureau of Economic Research, 2015.
+
 \bibitem[Cagetti(2003)]{cagetti2003}
 Marco Cagetti.
 \newblock Wealth accumulation over the life cycle and precautionary savings.
 \newblock \emph{Journal of Business \& Economic Statistics}, 21\penalty0
   (3):\penalty0 339--353, 2003.
+
+\bibitem[Cagetti and De~Nardi(2009)]{cagetti2009}
+Marco Cagetti and Mariacristina De~Nardi.
+\newblock Estate taxation, entrepreneurship, and wealth.
+\newblock \emph{The American Economic Review}, 99\penalty0 (1):\penalty0
+  85--111, 2009.
 
 \bibitem[Carroll(2006)]{carroll2006}
 Christopher~D Carroll.
@@ -35,6 +47,17 @@ Chau-Nan Chen, Tien-Wang Tsaur, and Tong-Shieng Rhai.
 \newblock The gini coefficient and negative income.
 \newblock \emph{Oxford Economic Papers}, 34\penalty0 (3):\penalty0 473--478,
   1982.
+
+\bibitem[De~Nardi and Yang(2014)]{denardi2014}
+Mariacristina De~Nardi and Fang Yang.
+\newblock Bequests and heterogeneity in retirement wealth.
+\newblock \emph{European Economic Review}, 72:\penalty0 182--196, 2014.
+
+\bibitem[De~Nardi et~al.(2016)De~Nardi, Fella, and Pardo]{denardi2016}
+Mariacristina De~Nardi, Giulio Fella, and Gonzalo~Paz Pardo.
+\newblock The implications of richer earnings dynamics for consumption and
+  wealth.
+\newblock Technical report, National Bureau of Economic Research, 2016.
 
 \bibitem[Deaton and Paxson(1994)]{deaton1994}
 Angus Deaton and Christina Paxson.
@@ -93,6 +116,12 @@ Greg Kaplan and Giovanni~L Violante.
 \newblock How much consumption insurance beyond self-insurance?
 \newblock \emph{American Economic Journal: Macroeconomics}, 2\penalty0
   (4):\penalty0 53--87, 2010.
+
+\bibitem[Krusell and Smith(1998)]{krusell1998}
+Per Krusell and Anthony~A Smith, Jr.
+\newblock Income and wealth heterogeneity in the macroeconomy.
+\newblock \emph{Journal of political Economy}, 106\penalty0 (5):\penalty0
+  867--896, 1998.
 
 \bibitem[McGrattan and Prescott(2001)]{mcgrattan2001}
 Ellen~R McGrattan and Edward~C Prescott.

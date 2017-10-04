@@ -17,17 +17,11 @@
 % November 19, 2009
 % ===============================================
 
-clear all;
-
-%% Call Calibration 
- 
-life_2004_calibration
-%life_1983_calibration
-
 %% Algorithm parameters
 % ====================
 
-trial_algorithm_parameters
+% parameters from literature
+model_parameters_no_acost
 
 % Create the grid on the state space
 % % ==================================
@@ -43,20 +37,20 @@ y_gam_j = gamma_*min(Y_ms_j(:));
 
 % d is durable holdings
 d_min =   0.0;
-d_max =   200;
+d_max =   250;
 % d_max =   40;
 numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
 x_min = -y_gam_j + (1 - miu)*(1 - delta_)*d_min;
-x_max =  250;
+x_max =  300;
 % x_max =  60;
 numb_x_gridpoints = 225;
 
-% x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
-% d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
-x_grid_ = (exp(exp(exp(linspace(0,log(log(log(x_max - x_min+1)+1)+1),numb_x_gridpoints))-1)-1)-1+x_min)';  % set up triple exponential grid
-d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_gridpoints))-1)-1)-1+d_min)';  % set up triple exponential grid
+x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
+d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
+% x_grid_ = (exp(exp(exp(linspace(0,log(log(log(x_max - x_min+1)+1)+1),numb_x_gridpoints))-1)-1)-1+x_min)';  % set up triple exponential grid
+% d_grid_ = (exp(exp(exp(linspace(0,log(log(log(d_max - d_min+1)+1)+1),numb_d_gridpoints))-1)-1)-1+d_min)';  % set up triple exponential grid
 % x_grid_ = (exp(exp(linspace(0,log(log(x_max - x_min+1)+1),numb_x_gridpoints))-1)-1+x_min)';  % set up double exponential grid
 % d_grid_ = (exp(exp(linspace(0,log(log(d_max - d_min+1)+1),numb_d_gridpoints))-1)-1+d_min)';  % set up double exponential grid
 % x_grid_ = (exp(linspace(0,log(x_max - x_min+1),numb_x_gridpoints))-1+x_min)';  % set up single exponential grid
@@ -202,6 +196,4 @@ end; % ending the for loop on jage
 toc
 
 % simulate agents 
-% trial_simulation; 
-trial_simulation2;
-% trial_simulation3;
+trial_simulation_no_acost;

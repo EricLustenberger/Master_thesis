@@ -17,17 +17,11 @@
 % November 19, 2009
 % ===============================================
 
-
-%% Call Calibration 
-% beta_ = 0.9845
-% theta = 0.8092
-% life_2004_calibration
-% %life_1983_calibration
-
 %% Algorithm parameters
 % ====================
 
-model_parameters
+% parameters from literature
+model_parameters_no_acost
 
 % Create the grid on the state space
 % % ==================================
@@ -110,7 +104,7 @@ MUd          =  (1-theta) * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sig
 if jage < T_ret;
     v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
     v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-else 
+else
     v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
     v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
 end % taking into account that after retirement the income process is deterministic 
@@ -202,6 +196,4 @@ end; % ending the for loop on jage
 toc
 
 % simulate agents 
-% trial_simulation; 
 trial_simulation_no_acost;
-% trial_simulation3;

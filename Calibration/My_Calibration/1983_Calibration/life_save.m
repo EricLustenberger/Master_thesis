@@ -29,11 +29,11 @@ this_model_.good_file_ = good_file_;
 this_model_.r   = r;
 beta_         % discount factor
 this_model_.beta_  = beta_; 
-%sigma_        % utility curvature
+sigma_        % utility curvature
 this_model_.sigma_   = sigma_; 
 %delta_        % depreciation rate
 this_model_.delta_  = delta_;
-theta         % weight on non-durable consumption
+%theta         % weight on non-durable consumption
 this_model_.theta = theta;
 %miu           % loan to value ratio
 this_model_.miu = miu;

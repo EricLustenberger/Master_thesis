@@ -1124,7 +1124,7 @@ gen labearn_trans_adj        = labearn_trans       *1.015^(age-20);
 gen durable_adj				 = durable 			   *1.015^(age-20);
 gen netfinworth_adj			 = netfinworth		   *1.015^(age-20);
 
-/*
+
 /* LIST of initial conditions */
 /******************************/
 
@@ -1325,7 +1325,10 @@ list  age bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres d
   
 */  
 /********ERIC STATISTICS********/
-list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
+/*list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
+
+
+
 
 
    collapse       age totworth totworth_adj 
@@ -1333,10 +1336,27 @@ list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_
 					  netfinworth netfinworth_adj [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
   
   gen year = 2004;
+  save wealth_means_primeage_90th_2004_ERIC, replace;  
+
+
+*/
+
+/*
+list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
+
+collapse       age totworth totworth_adj 
+					   totworth_np totworth_np_adj labearn_trans_adj labearn_trans durable_adj durable
+					   netfinworth netfinworth_adj [fweight=x42001] if age>=26 & age<=55;
+  
+  gen year = 2004;
   save wealth_means_primeage_2004_ERIC, replace;  
 
 
+*/
 
+
+
+/********* END ERIC **********/ 
 
 /*
    collapse       age totworth totworth_adj 
@@ -1724,6 +1744,6 @@ list bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durabl
   
   save wealth_agecell_weights_2004, replace; 
 */
-
+*/
 
 log close;

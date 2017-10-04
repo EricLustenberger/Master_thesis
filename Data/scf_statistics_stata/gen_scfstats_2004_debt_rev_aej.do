@@ -184,7 +184,7 @@ replace net_lab_earn = net_lab_earn/hhsize; /* adjust for hhsize */
 
 /* compute mean income  (same as comptuing mean for each sample replica and then use the average) */
 sum net_lab_earn [fweight=x42001];
-scalar mean_earn_trans = r(mean); 
+scalar mean_earn_trans = r(mean);  
 gen labearn_trans= net_lab_earn/mean_earn_trans;
 
 
@@ -1632,7 +1632,6 @@ graph export "c:\tw_age2325_2004.eps", replace as(eps) preview(off);
   save earnings_means_primeage_bankr_2004, replace;                      
 */                      
 
-/*
    collapse       age totworth totworth_adj 
                       bankrupt bankrupt_per_person paydiff_cum frac_durs frac_home netfinworth_primres netfinworth_primres_adj
                       durable_primres durable_primres_adj secdebt_primres secdebt_primres_adj
@@ -1641,12 +1640,12 @@ graph export "c:\tw_age2325_2004.eps", replace as(eps) preview(off);
                       oth_equity_primres oth_equity_primres_adj [fweight=x42001] if age>=26 & age<=55;
   
   gen year = 2004;
-  save wealth_means_WHOLE_primeage_2004, replace;   
-
+  *save wealth_means_WHOLE_primeage_2004, replace;   
+	save wealth_means_WHOLE_primeage_2004, replace; 
 /* Output used for Table 2, 2nd column */
 /***************************************/
 list  age bankrupt bankrupt_per_person frac_durs frac_home netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
-*/
+
 
 
 /*

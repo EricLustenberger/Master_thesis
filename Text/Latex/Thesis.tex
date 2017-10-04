@@ -109,6 +109,10 @@ The main goal of this paper is to show how modeling durables in an incomplete ma
 
 My starting point is a classical life-cycle model with incomplete markets such as \cite{hintermaier2011} use. A majority of the literature focuses on models with only one asset, net worth. However, as \cite{FV&K2011} show, modeling durables has a big impact on life-cycle savings. Others such as \cite{diaz2010} show how modelling durables affect the wealth distribution. My thesis contributes to this literature and shows that modeling durables (is either important or unimportant) in order to reproduce the wealth distribution. And thus sheds light on the importance of durables as important driver of the net-worth accumulation. 
 
+The data I use is directly obtained from \cite{hintermaier2011}. The prime age sample entails 26 to 55 years old. The empirical net-worth distribution I am using consists of distributions for three age groups: 26-35, 36-45 and 46-55. The data is thus particularly suitable to examine how changes in parameters affect different age-groups in an adverse manner. I will therefore put a stronger focus on these differences and thus contribute to the literature on net worth particularly in this point. 
+
+
+
 \section{Literature Overview}
 \label{Chapter2}
 
@@ -125,6 +129,17 @@ Note: missing citations, not all of the above are cited properly!!!!!
 Literature on wealth distribution!!!!! 
 
 \section{Facts about the wealth distribution}
+
+\section{Research strategy}
+
+\subsection{The issue with the richest}
+In the following I explain the strategy I use to shed light on the effect of different parametrisations on the wealth distribution as well as the life-cycle behavior of consumers. \\ As I will further discuss below, one crucial driver of heterogeneity, which manifests itself through different portfolio holdings in these models, is the income process. Permanent uninsurable income shocks lead to different choices in the accumulation of assets and eventually lead to a wealth distribution. Hence, the modeling of the income process is crucial. \\ Two general approaches can be distinguished. For one, there is the approach to closely match the individual income process and hence calibrating the income process independantly of wealth distributional apsects. \cite{hintermaier2011} or \cite{hintermaier2016} estimate age effects from the data and then take the variance of the residuals the retrieve the income shocks. The big plus of such an approach is to closely model the income process on a micro level. Changes in determinants of this process can thus be directly incorporated in the analysis. The downside is, that such models are not able to match the top part of the wealth distribution \cite{denardi2017}. Another approach commonly used in the literature is thus to calibrate the income process to match features of the income- as well as the wealth distribution at the same time. This approach is base on a paper from \cite{castaneda2003}. It entails modeling extreme income shocks in order to provoke precautionary savings to match the vast accumulation of assets by the very top of the wealth distribution. 
+Due to the problem mentionned above, more recent literature dealing with the empirical validity of bewley-type models for the wealth distribution have further investigated the reproducability of the high concentration of wealth for the richest. \cite{denardi2014} show that adding voluntary bequests and intergenerational transmission of earnings drastically improves the model's prediction for the empirical cross-sectional differences in wealth at retirement as well as their correlation with lifetime incomes. \cite{krusell1998} were the first to point out that a stochastic discount factor across dynasties can account for the variance of the cross-sectional distribution of wealth and does increase the wealth concentration among the richest. Other approaches are: A heterogeneous interest rates \citep{benhabib2015}, a richer earnings process \citep{denardi2016}  or entrepreneurship \citep{cagetti2009}. Although these additional modeling features are able to better approximate the right tail of the wealth distribution, they still fail to produce a satisfying representation. \footnote{For a more indebted review of this literature see  \citep{denardi2017}} \\ \\
+I will thus chose the former strategy. Since calibrating the income process separately from the wealth distribution and thus reproducing a more realistic modeling of income risk does not allow for a representation of the right tail of the wealth distribution I focus on the distribution up to the 9th percentile. As \cite{hintermaier2011} argue this strategy is robust if general equilibrium feedback effects on the consumers excluded do not adversely affect the result.
+
+\subsection{Prime Age Sample}
+Moreover, I will focus on consumers aged between 26 and 55, where income risk plays an important role for the accumulation of savings. 
+
 
 \section{Generating a wealth distribution}
 \label{Chapter3}
@@ -158,6 +173,7 @@ Note that we assume that changes in the domestic supply of assets do not affect 
 
 \subsubsection{The Income Process}
 \cite{kaplan2010} discuss various features of the income process in more detail.
+
 
 
 \subsubsection{Consumer's Problem}
@@ -269,6 +285,15 @@ V_{j}(x_{ij},y_{ij})= \max_{ \substack{a_{ij} \geq 0}}[u(\underbrace{x_{ij}-a_{i
 \end{equation}
 
 where we restrict the choice of assets to $a_{ij} \geq 0$, as motivated in the previous section.)
+
+\section{Calibration}
+The calibration strategy demands to be in line with the aim of the paper - discussing the importance of modeling durables in context of the distribution of net worth. It is thus crucial to satisfy a high degree of comparability with other work dealing with net-worth distributions. Moreover, the calibration ought to replicate some features of the data, without containing to much information on the features the model is asked to show. (CITE SOME BOOK/ PAPER). 
+
+\subsection{Income Process}
+As discussed above the income process is an important driver of the accumulation of savings in the form of precautionary savings. Its calibration does thus decisively influence the outcome. There are different strategies on how to mimic the income process in a incomplete-market life-cycle model as discussed above. I will follow \cite{hintermaier2011} and thus use their calibration for the 
+
+
+\subsection{Utility parameters}
 
 \subsubsection{Numerical algorithm}
 
