@@ -33,7 +33,7 @@ sigma_        % utility curvature
 this_model_.sigma_   = sigma_; 
 %delta_        % depreciation rate
 this_model_.delta_  = delta_;
-%theta         % weight on non-durable consumption
+theta         % weight on non-durable consumption
 this_model_.theta = theta;
 %miu           % loan to value ratio
 this_model_.miu = miu;

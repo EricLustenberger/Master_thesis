@@ -17,11 +17,23 @@
 % November 19, 2009
 % ===============================================
 
+clear all;
+
+%% Call Calibration 
+life_1983_calibration
+
 %% Algorithm parameters
 % ====================
 
 % parameters from literature
 model_parameters_no_acost
+
+% estimated parameters 
+
+% thus far best match with sigma 1.5
+theta = 0.761;
+beta_ = 0.991;
+sigma_ = 1.5;
 
 % Create the grid on the state space
 % % ==================================
@@ -37,14 +49,16 @@ y_gam_j = gamma_*min(Y_ms_j(:));
 
 % d is durable holdings
 d_min =   0.0;
-d_max =   250;
-% d_max =   40;
+% d_max =   250;
+%d_max = 180;
+d_max =   40;
 numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
 x_min = -y_gam_j + (1 - miu)*(1 - delta_)*d_min;
-x_max =  300;
-% x_max =  60;
+% x_max =  300;
+x_max =  60;
+x_max =  220;
 numb_x_gridpoints = 225;
 
 x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
@@ -102,11 +116,11 @@ MUc          =     theta  * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sig
 MUd          =  (1-theta) * (c_pol.^theta.*(MeshDnz + epsdur).^(1-theta)).^(-sigma_) .* (MeshDnz + epsdur).^( -theta) .* c_pol.^(theta  );
 
 if jage < T_ret;
-     v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-     v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+    v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+    v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*P_'*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
 else 
-     v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
-     v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+    v_hat_xprime = reshape(reshape(MUc,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
+    v_hat_dprime = reshape(reshape(MUd,size(c_pol,1)*size(c_pol,2),size(c_pol,3))*1.0*(1 - death_prob(jage))*beta_,size(c_pol,1),size(c_pol,2),size(c_pol,3));
 end % taking into account that after retirement the income process is deterministic 
     
 diff_Der = v_hat_dprime -(r + delta_)*v_hat_xprime; % evaluating FOC on the interior

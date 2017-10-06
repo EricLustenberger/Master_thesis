@@ -12,7 +12,9 @@
 \usepackage{graphicx}           % Ermoeglicht das Einbinden von Bildern in allen Formaten
 \usepackage{longtable}          % zum erstellen von Tabellen ber mehrere Seiten
 \usepackage{multirow}           % zum Verbinden von Zeilen innerhalb einer Tabelle
-\usepackage{booktabs}			% für tablegenerator 
+\usepackage{booktabs}			% für tablegenerator
+\usepackage{threeparttable, booktabs} 
+
 %\usepackage{pictexwd}           % PicTex, ein Graphikpaket
 %\usepackage{pst-all, multido}   % psTricks, ein Graphikpaket
 \usepackage{url}
@@ -133,7 +135,7 @@ Literature on wealth distribution!!!!!
 \section{Research strategy}
 
 \subsection{The issue with the richest}
-In the following I explain the strategy I use to shed light on the effect of different parametrisations on the wealth distribution as well as the life-cycle behavior of consumers. \\ As I will further discuss below, one crucial driver of heterogeneity, which manifests itself through different portfolio holdings in these models, is the income process. Permanent uninsurable income shocks lead to different choices in the accumulation of assets and eventually lead to a wealth distribution. Hence, the modeling of the income process is crucial. \\ Two general approaches can be distinguished. For one, there is the approach to closely match the individual income process and hence calibrating the income process independantly of wealth distributional apsects. \cite{hintermaier2011} or \cite{hintermaier2016} estimate age effects from the data and then take the variance of the residuals the retrieve the income shocks. The big plus of such an approach is to closely model the income process on a micro level. Changes in determinants of this process can thus be directly incorporated in the analysis. The downside is, that such models are not able to match the top part of the wealth distribution \cite{denardi2017}. Another approach commonly used in the literature is thus to calibrate the income process to match features of the income- as well as the wealth distribution at the same time. This approach is base on a paper from \cite{castaneda2003}. It entails modeling extreme income shocks in order to provoke precautionary savings to match the vast accumulation of assets by the very top of the wealth distribution. 
+In the following I explain the strategy I use to shed light on the effect of different parametrisations on the wealth distribution as well as the life-cycle behavior of consumers. \\ As I will further discuss below, one crucial driver of heterogeneity, which manifests itself through different portfolio holdings in these models, is the income process. Permanent uninsurable income shocks lead to different choices in the accumulation of assets and eventually lead to a wealth distribution. Hence, the modeling of the income process is crucial. \\ Two general approaches can be distinguished. For one, there is the approach to closely match the individual income process and hence calibrating the income process independantly of wealth distributional apsects. \cite{hintermaier2011} or \cite{hintermaier2016} estimate age effects from the data and then take the variance of the residuals the retrieve the income shocks. The big plus of such an approach is to closely model the income process on a micro level. Changes in determinants of this process can thus be directly incorporated in the analysis. The downside is, that such models are not able to match the top part of the wealth distribution \cite{denardi2017}. Another approach commonly used in the literature is thus to calibrate the income process to match features of the income- as well as the wealth distribution at the same time. This approach is base on a paper from \cite{castaneda2003}. (OR ADDING PARETO SHAPED TAIL PIKETTY AND SAEZ 2003) It entails modeling extreme income shocks in order to provoke precautionary savings to match the vast accumulation of assets by the very top of the wealth distribution. 
 Due to the problem mentionned above, more recent literature dealing with the empirical validity of bewley-type models for the wealth distribution have further investigated the reproducability of the high concentration of wealth for the richest. \cite{denardi2014} show that adding voluntary bequests and intergenerational transmission of earnings drastically improves the model's prediction for the empirical cross-sectional differences in wealth at retirement as well as their correlation with lifetime incomes. \cite{krusell1998} were the first to point out that a stochastic discount factor across dynasties can account for the variance of the cross-sectional distribution of wealth and does increase the wealth concentration among the richest. Other approaches are: A heterogeneous interest rates \citep{benhabib2015}, a richer earnings process \citep{denardi2016}  or entrepreneurship \citep{cagetti2009}. Although these additional modeling features are able to better approximate the right tail of the wealth distribution, they still fail to produce a satisfying representation. \footnote{For a more indebted review of this literature see  \citep{denardi2017}} \\ \\
 I will thus chose the former strategy. Since calibrating the income process separately from the wealth distribution and thus reproducing a more realistic modeling of income risk does not allow for a representation of the right tail of the wealth distribution I focus on the distribution up to the 9th percentile. As \cite{hintermaier2011} argue this strategy is robust if general equilibrium feedback effects on the consumers excluded do not adversely affect the result.
 
@@ -288,14 +290,41 @@ where we restrict the choice of assets to $a_{ij} \geq 0$, as motivated in the p
 
 \section{Calibration}
 The calibration strategy demands to be in line with the aim of the paper - discussing the importance of modeling durables in context of the distribution of net worth. It is thus crucial to satisfy a high degree of comparability with other work dealing with net-worth distributions. Moreover, the calibration ought to replicate some features of the data, without containing to much information on the features the model is asked to show. (CITE SOME BOOK/ PAPER). 
+In order to give insight on the underlying parameters of the cross-section of inequality I will thus proceed in the following way. As discussed above, I base the parametrisation of model on \cite{hintermaier2011} and apply the algorithm introduced by \cite{hintermaier2010} to solve the model with durables. 
 
-\subsection{Income Process}
-As discussed above the income process is an important driver of the accumulation of savings in the form of precautionary savings. Its calibration does thus decisively influence the outcome. There are different strategies on how to mimic the income process in a incomplete-market life-cycle model as discussed above. I will follow \cite{hintermaier2011} and thus use their calibration for the 
+\subsection{The income process}
+As discussed above the income process is an important driver of the accumulation of savings in the form of precautionary savings. Its calibration does thus decisively influence the outcome. 
+\cite{hintermaier2011} use the SCF cross sections to construct a measure for labor earnings risk before retirement purging labor earnings from age effects for consumers between age 26 and age 65. The authors assume that log of earnings $y_{ij}$ of individual $i$ at age $j$ before retirement is additively separable in a deterministic age polynomial $\phi_{j}$ and an idiosyncratic income shock $z_{ij}$:\footnote{This approach is quite standard in the literature (see others! NEWERS THAN YANG AND KAPLAN VIOLANTE) } 
 
+\[y_{ij}=\phi_{j}+z_{ij}\],
+
+where the shock $z_{ij}$ follows an AR(1) process
+
+\[z_{ij} = \rho z_{i,j-1}+\epsilon_{ij}\]
+
+After retirement the income process is deterministic. Thus, each individual receives retirement benefits from social security, the level of which is determined by the last period's income resulting in a replacement ratio of benefits over gross income of 52\% for the median income in the last period before retirement. The approximation takes into account the US social security legislation(http://www.ssa.gov). \footnote{The reader may consult \cite{hintermaier2011} for a more detailed discription of the calibration of the retirement benefits.} The age polynomial $\phi_{j}$ is obtained by  regression the log of earnings on a quartic age polynomial in each survey year of the SCF data between ages 26 and 65.\footnote{The table in appendix \ref{table_experience_premium} displays the experience obtained by \cite{hintermaier2011}.} The then obtained standard deviation of the residuals are used to calibrate the distribution of earnings shocks $z_{ij}$, with the assumption that the shocks are drawn from a normal distribution. This means that in the calibration to the SCF 1983, $z_{1983} \sim \mathcal{N}(0,0.498)$, and in the calibration to the SCF 2004, $z_{2004} \sim \mathcal{N}(0,0.607)$. (POSSIBLY COMPARE THIS RISK TO OTHER STUDIES ALSO SEE KRUEGER AND PERRI 2006) The calculations for the experience premium displays a concave relationship between the base age and the rising age it is compared to. Moreover, the experience premium has risen since the 1980s. The autocorrelation of the log-earnings shocks are calibrates as $\rho = 0.95$, which implies a variance for the innovations of $\epsilon_{ij} = 0.048$. (HERE ALSO COMPARE TO OTHER, MORE RECENT LITERATURE) The AR(1) process for $z_{ij}$ is then approximated by a Markov chain with 21 income states via the Rouwenhorst method.\\
+
+Finally, the authors adjust for growth in life-cycle income to convert the cross-sectional age-earnings pattern into life-cycle profiles considering a growth factor of $1.015^{age-base age)}$, where the base age is a reference age to make income units comparable across cohorts of different years. \\
+
+The choice for the comparison of the SCF 2004 with the SCF 1983 is motivated by the fact that both surveys have been undertaken at similar points in the business cycle. \\ 
+
+Controlling for the age distribution is another important determinant for the dynamics! \\
+
+It is worth noting that the smallest income is larger than 0!!!! 
 
 \subsection{Utility parameters}
+I chose a CRRA utility function with a Cobb-Douglas specification of the consumption index:\footnote{Note that this choice is in line with a more generic formulation of the utility function \citep{FV&K2011}.}
 
-\subsubsection{Numerical algorithm}
+\[U(c,d) = \frac{(c^{\theta}(d+\epsilon_{d})^{1-\theta})^{1-\sigma}-1}{1-\sigma}\]
+
+
+$\epsilon_{d} > 0$ is a number small enough to be insignificant for the result of the quantitative exercise, but to allow for agents to hold no durables.\footnote{Note that for $\epsilon_{d}=0$ the Inada conditions would imply that households would never hold zero durables as in that case the marginal utility of any increase in the durable stock would equal infinity.} Intuitively, this means that agents can survive without durables, but cannot do so without non-durable consumption i.e. they need to eat at least something each year. $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holding and average durable holding of the prime age population up to the 90th percentile, respectively. The data moments are 2.95 for the durable holdings and 2.39 for the net-worth in terms of median labor-income. TO MATCH HOW EXACT: SHOW WITH SMALL TABLE (BE CAREFUL TO BE SPECIFIC ENOUGH!) To calibrate the two parameters I solved the for a grid of (??????) for $theta$ and a grid of (???????) for $\beta$. The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample \textendash as is both the population above 55 years of age and above the 90th percentile hold more wealth on average than in the prime age sample. 
+
+\subsection{Further inputs}
+
+As is common in the literature dealing with the period of the great moderation and supported by empirical evidence, the interest rate $r$ is set to $4\%$. (CITING LITERATURE). As discussed above, this partial equilibrium approach entails the assumption of a small open economy. Furthermore, I set the loan-to-value ratio $\mu = 0.8$. Although commonly used in the literature, this is a rather conservative assumption for the loan-to-value ratio: CAPLIN ET AL (1997) claim that it is almost impossible for a hh to obtain a house without paying at least $10\%$, moreover (OTHER AUTHOR IN HINTERMAIER2010 max LTV). However, this will allow me to investigate the effects of recent years, which lead to a relaxation of the LTV (IacovielloandPavan 2013) or (THAT OTHER PAPER ABOUT THE DENSITIES OF LTV). Finally, as in \cite{hintermaier2010} $\gamma = 0.97$ is chosen to be smaller than $1$ in order to assure positive consumption at the smallest gridpoint of next periods net-worth $x'$. The probabilities of death as in \cite{hintermaier2011} are taken from Table 1 of the decennial life tables 1979-1982 and 1999-2001 for the calibration of 1983 and 2004, respectively.\footnote{They are published by the National Center for Health Statistics at $http://www.cdc.gov/nchs/products/life_tables.htm$.} (COMMENT ON WHY THESE ARE IMPORTANT!)
+
+\section{Numerical algorithm}
 
 The problem above does not provide a closed-form solution and thus the solution has to be approximated numerically. As already mentioned above, the model is based on \cite{hintermaier2010} and I can therefore directly apply their algorithm. They expand the endogenous gridpoints method (EGM) proposed by \cite{carroll2006} for a problem with two states and thus providing a very efficient algorithm to solve models with durables and collateralized debt. \footnote{Solving such models has been considered particluarly expensive and challenging, as durables enter as additional state (if non-separability utility from durables and non-durable or adjustemnt costs are allowed for) and durables increase the dimensionality of the portfolio choice.\citep{hintermaier2010}} 
 
@@ -545,6 +574,10 @@ What I want to look at:
 
 \label{Chapter4}
 
+\section{Creating a cross-section from simulated life-cycle profiles}
+
+
+
 \section{What features of the Wealth Distribution are explained by the model?}
 \label{Chapter5}
 In the previous section we have seen what durables may contribute. Since they do have an impact on life-cycle consumption it seems likely that they will affect the wealth distribution created by the model in one way or the other. 
@@ -707,47 +740,33 @@ What are the savings motives? Hence why do households accumulate wealth?
 \addcontentsline{toc}{section}{References}        % Fuegt im Inhaltsverzeichnis "References" hinzu
 \bibliography{bib_thesis}                         % Erstellt Literaturverzeichnis (bindet das file bib_thesis.bib ein
 
-%_________________ Platz fuer Graphiken und Tabellen _______________%
 
 \newpage
 
-% Einfuegen einer Grafik
-\begin{figure}
-\caption{titel der Graphik} 
-\label{fig:ersteGraphik}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+%_________________ Appendix _______________%
+
+\appendix
+\section{Experience Premium}
+ \label{table_experience_premium}  
+
+% Please add the following required packages to your document preamble:
+
+\begin{table}[!htbp]
 \centering
-\includegraphics[width=6.5cm]{abb1.png}  % width legt Breite der Graphik fest
-
-\begin{minipage}{0.8\linewidth}
-\footnotesize{die Graphik sollte beschrieben werden, sodass man ohne den Text vorne zu lesen wei\ss{}, worum es geht: panel 1 zeigt die Funktion, panel 2 die erste Ableitung und Panel 3 die zweite Ableitung}
-\end{minipage}
-
-\end{figure}
-
-\begin{figure}
-\caption{titel der Graphik}
-\label{fig:andereGraphik} \centering
-\includegraphics[angle=90,height=6.5cm]{abb2.jpg}  % angle dreht die Graphik, falls noetig; height legt die Hoehe der Graphik fest
-
-\end{figure}
-
-\begin{table}
-\caption{Der Title der Tabelle}
-\label{tab:Tabelle}
-\centering
- \begin{tabular}{lc|r}
-   Eine & kleine & Tabelle\\
-\hline
-   Text links & mittig & oder rechts \\
-   & unterstrichen  & \\
-\cline{2-2}
-   \multicolumn{2}{c|}{\"uber zwei Spalten} & dritte Spalte \\
-\end{tabular}   
+\begin{threeparttable}
+% \def\arraystretch{2}
+\setlength{\tabcolsep}{3em}
+\caption[The annualized experience premium of labor income at ages 36, 46 and 56 relative to age 26.Source: Corresponds to Table 4 in \cite{hintermaier2011} and is based on the authors' calculation based on SCF Data.]{The annualized experience premium of labor income at ages 36, 46 and 56 relative to age 26.\\\hspace{\textwidth} Source: Corresponds to Table 4 in \cite{hintermaier2011} and displays the results of the authors' calculation based on SCF Data.}
+\label{my-label}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\multicolumn{2}{l}{Annualized experience premium} & 1983   & 2004   \\ \midrule
+Age \textendash  26:& 10 years               & 1.81\% & 2.60\% \\
+                         & 20 years               & 1.33\% & 2.18\% \\
+                         & 30 years               & 0.99\% & 1.83\% \\ \bottomrule
+\end{tabular}
+\end{threeparttable}
 \end{table}
-
-   
-
-
 
 
 

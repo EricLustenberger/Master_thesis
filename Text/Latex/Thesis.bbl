@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,13 @@ S~Rao Aiyagari.
 \newblock Uninsured idiosyncratic risk and aggregate saving.
 \newblock \emph{The Quarterly Journal of Economics}, 109\penalty0 (3):\penalty0
   659--684, 1994.
+
+\bibitem[Attanasio et~al.(1999)Attanasio, Banks, Meghir, and
+  Weber]{attanasio1999}
+Orazio~P Attanasio, James Banks, Costas Meghir, and Guglielmo Weber.
+\newblock Humps and bumps in lifetime consumption.
+\newblock \emph{Journal of Business \& Economic Statistics}, 17\penalty0
+  (1):\penalty0 22--35, 1999.
 
 \bibitem[Benhabib et~al.(2015)Benhabib, Bisin, and Luo]{benhabib2015}
 Jess Benhabib, Alberto Bisin, and Mi~Luo.

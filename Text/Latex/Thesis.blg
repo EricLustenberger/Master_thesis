@@ -5,45 +5,45 @@ The style file: plainnat.bst
 Database file #1: bib_thesis.bib
 Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--there's a number but no volume in rios2016
-You've used 23 entries,
+You've used 24 entries,
             2773 wiz_defined-function locations,
-            744 strings with 8351 characters,
-and the built_in function-call counts, 10021 in all, are:
-= -- 946
-> -- 483
+            750 strings with 8491 characters,
+and the built_in function-call counts, 10559 in all, are:
+= -- 993
+> -- 522
 < -- 18
-+ -- 164
-- -- 141
-* -- 813
-:= -- 1546
-add.period$ -- 72
-call.type$ -- 23
-change.case$ -- 118
-chr.to.int$ -- 23
-cite$ -- 47
-duplicate$ -- 449
-empty$ -- 858
-format.name$ -- 192
-if$ -- 2086
++ -- 177
+- -- 153
+* -- 865
+:= -- 1630
+add.period$ -- 75
+call.type$ -- 24
+change.case$ -- 125
+chr.to.int$ -- 24
+cite$ -- 49
+duplicate$ -- 470
+empty$ -- 897
+format.name$ -- 205
+if$ -- 2195
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 20
-newline$ -- 126
-num.names$ -- 92
-pop$ -- 185
+missing$ -- 21
+newline$ -- 131
+num.names$ -- 96
+pop$ -- 197
 preamble$ -- 1
-purify$ -- 92
+purify$ -- 98
 quote$ -- 0
-skip$ -- 342
+skip$ -- 358
 stack$ -- 0
-substring$ -- 491
-swap$ -- 22
+substring$ -- 512
+swap$ -- 23
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 253
+type$ -- 264
 warning$ -- 1
-while$ -- 104
+while$ -- 109
 width$ -- 0
-write$ -- 311
+write$ -- 324
 (There were 2 warnings)

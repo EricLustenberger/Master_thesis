@@ -13,7 +13,7 @@ clear all;
 global DISC_PATH
 global models_database_ models_database_name_
 global plot_histograms_
-global r_a_ r_b_ tauS_ beta_ sigma_ P_ death_prob Y_ms_j coh_grid_ 
+global r_a_ r_b_ tauS_ beta_ sigma_ theta P_ death_prob Y_ms_j coh_grid_ 
 global b_ad_hoc_ b_lim_
 global Dep numb_a_gridpoints
 global numb_markov_states_
@@ -35,7 +35,7 @@ dos(['md ' DISC_PATH]);
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = [ '1983_Data', 'LIFE', 'rho095', 'beta0981_sigma12_theta07'];
+models_database_name_ = [ '1983_Data', 'LIFE', 'rho095', 'beta0971_sigma13_theta0761or08','downpayment08'];
 models_database_ = [models_database_name_, '.mat']; 
 
 good_file_   = 0;                       % filename ('timestamp') for already computed case, 0 if none
@@ -53,16 +53,20 @@ numb_a_gridpoints_set = 500;
 % USER: FIRST grid layer for parameter space. Compute solutions for a SECOND finer
 % grid-layer around the estimates found on the coarser first grid layer.
 % Then merge databases for the first and second grid layer.
-beta_VEC  = 0.98:0.005:1;
+beta_VEC  = 0.97:0.005:1;
 sigma_VEC = 1:0.1:2;
+theta_VEC = [0.761, 0.8];
 
 ifillall = 1;
-pilot_mat = NaN*zeros(max(size(beta_VEC))*max(size(sigma_VEC)),2);
+pilot_mat = NaN*zeros(max(size(beta_VEC))*max(size(sigma_VEC))*max(size(theta_VEC)),3);
 for ifillbeta = 1:max(size(beta_VEC));
     for ifillsigma = 1:max(size(sigma_VEC));
+        for ifilltheta = 1:max(size(theta_VEC));
             pilot_mat(ifillall,1) = beta_VEC(ifillbeta);
             pilot_mat(ifillall,2) = sigma_VEC(ifillsigma);
+            pilot_mat(ifillall,3) = theta_VEC(ifilltheta);
             ifillall = ifillall + 1;
+        end;
     end;
 end;
 
@@ -75,6 +79,7 @@ for ipilot = 1:size(pilot_mat,1);
 
 beta_   = pilot_mat(ipilot,1);    % discount factor
 sigma_  = pilot_mat(ipilot,2);    % utility curvature
+theta   = pilot_mat(ipilot,3);    % weight on non-durable consumption
 
 trial_no_acost;
 
