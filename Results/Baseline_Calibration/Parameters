@@ -1,0 +1,67 @@
+Parameters
+==========
+theta = 0.761;
+beta_ = 0.991;
+r = 0.04;         % interest rate on savings
+delta_ = 0.02;     % depreciation rate durable good
+sigma_    = 1.5;  % risk aversion parameter
+epsdur = 0.000001; % autonomous durable consumption
+miu = 0.97;% loan-to-value ratio
+gamma_ = 0.95;% seizable fraction of minimum income
+
+Grids
+-----
+d_min =   0.0;
+d_max =   250;
+numb_d_gridpoints = 100;
+
+x_min = -y_gam_j + (1 - miu)*(1 - delta_)*d_min;
+x_max =  300;
+numb_x_gridpoints = 225;
+
+Initial Conditions
+------------------
+as calculated via my data 
+
+
+
+Sample Information
+==================
+10 observations droped for to high values of d or x
+thus total sample of 99990
+
+
+
+Results
+=======
+prime sample means
+------------------
+x = 2.3878
+d = 2.9488
+
+Ginis
+-----
+gini_a2 = 0.9542
+gini_c2 = 0.3492
+gini_d2 = 0.3611
+gini_x2 = 0.6618
+gini_y2 = 0.4248
+
+gini_x_26_35 = 0.7205
+gini_x_26_35_90th = 0.6273;
+gini_x_36_45 = 0.6556;
+gini_x_36_45_90th = 0.5850;
+gini_x_46_55 = 0.6146;
+gini_x_46_55_90th = 0.5464;
+
+Means
+-----
+mean_x = 5.4573
+mean_x_26_35 = 1.6396
+mean_x_26_35_90th = 0.8137
+mean_x_36_45 = 3.9510
+mean_x_36_45_90th = 2.3609
+mean_x_46_55 = 6.6601
+mean_x_46_55_90th = 4.2821
+
+

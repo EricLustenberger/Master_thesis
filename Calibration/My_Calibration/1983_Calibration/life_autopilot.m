@@ -35,7 +35,7 @@ dos(['md ' DISC_PATH]);
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = [ '1983_Data', 'LIFE', 'rho095', 'beta0971_sigma13_theta0761or08','downpayment08'];
+models_database_name_ = [ '1983_Data', 'LIFE', 'rho095', 'beta09799_sigma112_theta069073','downpayment09'];
 models_database_ = [models_database_name_, '.mat']; 
 
 good_file_   = 0;                       % filename ('timestamp') for already computed case, 0 if none
@@ -53,9 +53,9 @@ numb_a_gridpoints_set = 500;
 % USER: FIRST grid layer for parameter space. Compute solutions for a SECOND finer
 % grid-layer around the estimates found on the coarser first grid layer.
 % Then merge databases for the first and second grid layer.
-beta_VEC  = 0.97:0.005:1;
-sigma_VEC = 1:0.1:2;
-theta_VEC = [0.761, 0.8];
+beta_VEC  = 0.97:0.005:99;
+sigma_VEC = 1:0.05:1.2;
+theta_VEC = 0.69:0.05:0.73;
 
 ifillall = 1;
 pilot_mat = NaN*zeros(max(size(beta_VEC))*max(size(sigma_VEC))*max(size(theta_VEC)),3);

@@ -6,8 +6,8 @@ delta_ = 0.02;     % depreciation rate durable good
 
 epsdur = 0.000001; % autonomous durable consumption
 
-miu = 0.97;% loan-to-value ratio
-
+%miu = 0.97;% loan-to-value ratio
+miu = 0.8;
 gamma_ = 0.95;% seizable fraction of minimum income
 
 

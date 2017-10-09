@@ -313,12 +313,34 @@ Controlling for the age distribution is another important determinant for the dy
 It is worth noting that the smallest income is larger than 0!!!! 
 
 \subsection{Utility parameters}
-I chose a CRRA utility function with a Cobb-Douglas specification of the consumption index:\footnote{Note that this choice is in line with a more generic formulation of the utility function \citep{FV&K2011}.}
 
-\[U(c,d) = \frac{(c^{\theta}(d+\epsilon_{d})^{1-\theta})^{1-\sigma}-1}{1-\sigma}\]
+I consider a utility function that is non-separable in durable- and non-durable consumption, strictly increasing in both consumption types, strictly concave and obeying the INADA-Conditions with respect to nondurable consumption. It is the same class of preferences as \cite{hintermaier2010}, which is commonly used in the literature considering durable and non-durable consumption (CITE MORE). \footnote{Note that this choice is in line with a more generic formulation of the utility function \citep{FV&K2011}.}
+
+\begin{equation}
+U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c,d)=c^{\theta}(d+\epsilon_{d})^{1-\theta}, \ \textnormal{\footnote{The Cobb-Douglas specification is approximately validated by empirical evidence \citep{FV&K2011}}}
+\end{equation}
+
+where I assume $\epsilon_{d} > 0$, which thus indicates a number small enough to be irrelevant for the quantitative exercise at hand but nonetheless larger than zero. The CRRA utility function with the Cobb-Douglas specification of the consumption index, thus allows for zero consumption of durables, while the INADA-Condition ensures that people always consume some non-durables, i.e. intuitively this means consumers cannot survive without food, but are allowed to survive without houses and cars.\footnote{For the recursive problem it means that when allowing the potentially optimal choice $d' = d_{min}$, the constraint for minimal durable holdings needs to be accounted for explicitly, as the INADA-Conditions do not implicitly exclude zero durable consumption.} (WHAT IS THE CONSEQUENCE OF OMITTING THE EPSILON???? 
+
+\citep{FV&K2011} utility form death is normalized to 0 ??????????
+
+The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holding and average durable holding of the prime age population up to the 90th percentile, respectively. The data moments are 2.95 for the durable holdings and 2.39 for the net-worth in terms of median labor-income. TO MATCH HOW EXACT: SHOW WITH SMALL TABLE (BE CAREFUL TO BE SPECIFIC ENOUGH!) To calibrate the two parameters I solved the for a grid of (??????) for $\theta$ and a grid of (???????) for $\beta$. The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample \textendash as is both the population above 55 years of age and above the 90th percentile hold more wealth on average than in the prime age sample. The estimation procedure is explained in more detail in appendix \ref{estimation_procedure}. 
+
+\begin{table}[!htbp]
+\centering
+\caption{This table depicts the parameter estimates matching the average durable holdings and average total worth of the prime age population in the data.}
+\label{estimates}
+\begin{tabular}{llll}
+\hline
+\multicolumn{2}{l}{Parameters} & Baseline & Alternative \\ \hline
+\multicolumn{2}{l}{$\beta$}             & 0.991    & ??          \\
+\multicolumn{2}{l}{$\theta$}            & 0.761    & ???        
+\end{tabular}
+\end{table}
 
 
-$\epsilon_{d} > 0$ is a number small enough to be insignificant for the result of the quantitative exercise, but to allow for agents to hold no durables.\footnote{Note that for $\epsilon_{d}=0$ the Inada conditions would imply that households would never hold zero durables as in that case the marginal utility of any increase in the durable stock would equal infinity.} Intuitively, this means that agents can survive without durables, but cannot do so without non-durable consumption i.e. they need to eat at least something each year. $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holding and average durable holding of the prime age population up to the 90th percentile, respectively. The data moments are 2.95 for the durable holdings and 2.39 for the net-worth in terms of median labor-income. TO MATCH HOW EXACT: SHOW WITH SMALL TABLE (BE CAREFUL TO BE SPECIFIC ENOUGH!) To calibrate the two parameters I solved the for a grid of (??????) for $theta$ and a grid of (???????) for $\beta$. The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample \textendash as is both the population above 55 years of age and above the 90th percentile hold more wealth on average than in the prime age sample. 
+(BE MINDFUL OF THE FACT THAT HINTERMAIER 2016 HAS 0.76 FOR HOUSING - SAME SAMPLE!!!!!!) 
+The estimation results are somewhat different from what other authors with similar models have obtained. (NOTE DIFFERENCE INF HORIZON AND LIFE CYCLE ) \cite{FV&K2011} estimate a weight on non-durable consumption of $0.81$, \cite{yang2009} $0.8615$ and \cite{hintermaier2010} $0.8092$. (CITE NEWER STUDIES) Whereas studies solely considering housing, obtain estimates more closely to mine (CITE THESE STUDIES). This should, however, not be surprising, as I used data moments which correspond to the means of the above defined prime-age sample, contrary to these other studies, who calibrated their to the whole sample. \cite{diaz2010} among others, show that the empirical portfolio composition changes over life-time, as will be discussed more in detail below. Young households take on credit to invest in durables and older households accumulate assets to finance retirement. The fraction of durables of total wealth, as the two data moments show 2.95/2.39 is larger than one for the prime-age sample, since the average liquid assets are negative. Where as for the whole sample the fraction of average durable holdings in terms of average total wealth 4.45/6.33 is smaller than one \citep{hintermaier2010}. The estimated  discount factor$\beta$ is quite similar to the one in\cite{hintermaier2011}. 
 
 \subsection{Further inputs}
 
@@ -326,38 +348,13 @@ As is common in the literature dealing with the period of the great moderation a
 
 \section{Numerical algorithm}
 
-The problem above does not provide a closed-form solution and thus the solution has to be approximated numerically. As already mentioned above, the model is based on \cite{hintermaier2010} and I can therefore directly apply their algorithm. They expand the endogenous gridpoints method (EGM) proposed by \cite{carroll2006} for a problem with two states and thus providing a very efficient algorithm to solve models with durables and collateralized debt. \footnote{Solving such models has been considered particluarly expensive and challenging, as durables enter as additional state (if non-separability utility from durables and non-durable or adjustemnt costs are allowed for) and durables increase the dimensionality of the portfolio choice.\citep{hintermaier2010}} 
+The problem above does not provide a closed-form solution (CITE!!!!) and thus the solution has to be approximated numerically. \cite{hintermaier2010} offer a solution for problems of this type. They expand the endogenous gridpoints method (EGM) proposed by \cite{carroll2006} for a problem with two states and thus providing a very efficient algorithm to solve models with durables and collateralized debt. As their algorithm is formulated recursively, it is well suited to solve life-cycle models. \footnote{Solving such models has been considered particluarly expensive and challenging, as durables enter as additional state (if non-separability utility from durables and non-durable or adjustemnt costs are allowed for) and durables increase the dimensionality of the portfolio choice.\citep{hintermaier2010}} I iterate over the policy function starting in period $j = T$ where the consumer sells all liquid assets and durables (TIME ASSUMPTION OF DURABLES IS IMPORTANT HERE - agents retrieve utility from the durable stock before it is sold, and can consume afterwards????) to consume them before death. It thus holds that $x'=d'=a'=0$ and thus the initial consumption policy is $c(x,d_{j},y_{kj})=x+y_{j,k}$ (NOTE CASE WITHOUT ADC). Each iteration $n$ on the policy function then gives the the solution for the period $T-n$, where in my case $n=65$ which corresponds to ages $90$ to $26$. \\
+The exogenous grids for d and x are chosen as follows: 
 
 (NOTE THAT ALGORITHM MUST BE CHANGED FOR CASE WITH ADJUSTMENT COSTS)
 
-Given the life-time sequences for income (as described in the income process section) {$y_{kj}$} and survival probabilities (CHECK ON HOW TO BEST WRITE DOWN!) {$(1-\pi_{j})$}, $\forall j = 1,...,T $ (AND ALL MARKOV STATES $k$) the algorithm starts with an exogenous grid for the future state $x', G_{x'} \equiv {x'_{1},x'_{2},...,x'_{I}}$, the current state $d, G_{d} \equiv {d_{1},d_{2},...,d_{J}}$.
-
-The algorithm starts iterates recursively over the policy function starting with the last period $j=T$ in which the consumer sells all durables and liquid assets to consume before death. It thus holds that $x'=d'=a'=0$ and thus the initial consumption policy is $c(x,d_{j},y_{kj})=x+y_{j,k}$.For each period t < T-1, the algorithm proceeds as follows. In a first step it maps $x'$ into $d'$ and in a second step it solves for the current choice c and state x from optimal future combinations (x',d'). Moreover, the values for the exogenous grid are chosen such that the results are not affected. (BE MORE PRECISE
+For each period t < T-1, the algorithm proceeds as follows. In a first step it maps $x'$ into $d'$ and in a second step it solves for the current choice c and state x from optimal future combinations (x',d'). Moreover, the values for the exogenous grid are chosen such that the results are not affected. (BE MORE PRECISE
 INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
-
-
-
-
-NOT NECESSARY FROM HERE ON. HOWEVER MAYBE BE MORE PRECISE ABOVE!
-
-
-For each period t < T-1, the algorithm proceeds as follows: 
-
-\paragraph{Step 1: Mapping $x'$ into $d'$} 
-
-Using the optimal relationship,
-\begin{equation} \label{eq:optimal_algorithm}
-\tiny
-K_{ijk}\left((1+r)\left(1+\frac{\partial \Psi(d'_{ijk},d_{j})}{\partial d'}\right)-\mu(1-\delta)\right)-\eta_{ijk} = -\left(\frac{\partial \Psi(d'_{ijk},d_{j})}{\partial d'}(1+r)+r+\delta \right) \frac{\partial \hat{v}(x'_{i},d'_{ijk},y_{k})}{\partial x'}+\frac{\partial \hat{v}(x'_{i},d'_{ijk},y_{k})}{\partial d'},
-\end{equation}
-in the algorithm determines the values of, $d'_{ijk}$ for a given $y_{k}$ and $d_{j}$, which correspond to each of the exogenous gridpoints $x'_{i}$.\footnote{The partial derivatives are obtained by exploiting the envelope conditions. When considering adjustment costs one therefore has to solve for $\partial \Psi(d'',d') /\partial d'$. In the first iteration this is done by making use of terminal condition $d''=0$. For every iteration that follows $d''$ is then replaced by the previously computed optimal policy.(COPY PASTE: Note that with adjustment costs, full decumulation is feasible for all x,d and y if $\mu < 1-(1-\delta)\alpha/2$, which is satisfied for the chosen parameters below!!!!!!!!!!!}
-
-There are three possible cases for each  $y_{k}$ and $d_{j}$, to compute the optimal $d'_{ijk}$.\footnote{Note that the optimal solution necessarily lies in the interval imposed by the collateral constraint and the lower bound on $d'$, $[d_{min},\bar{d_{i}}]$, where $\bar{d_{i}} \equiv \frac{x'_{i}+\gamma \underline{y}}{(1-\mu)(1-\delta}$.}
-\paragraph{Case 1 \textendash  Neither the collateral nor the constraint on durables are binding} Hence, $K_{ijk}=\eta_{ijk}=0$ and thus the there exists a $d'_{ijk}$ for which the right hand side of \ref{eq:optimal_algorithm} is 0.
-\paragraph{Case 2 \textendash the right hand side of \ref{eq:optimal_algorithm} is positive} jklh
-\paragraph{Case 3 \textendash the right hand side of \ref{eq:optimal_algorithm} is negative} lkjg
-
-\paragraph{Step:2 Obtaining current choice c and state x from optimal future combinations (x',d')}
 
 \subsubsection{Comparing the simulation output with SCF data}
 
@@ -768,6 +765,13 @@ Age \textendash  26:& 10 years               & 1.81\% & 2.60\% \\
 \end{threeparttable}
 \end{table}
 
+\section{Estimation}
+\label{estimation_procedure}
 
+SEE ADDA and COOPER! 
+$ \operatorname{arg\,max}_a f(a) \operatorname*{arg\,max}_b f(b)$
+
+Model is just identified. Choice of weighting matrix imp when model is overidentified. 
+\[ \widehat{\Theta}^{1} = \operatorname{arg\,min}[(m(\Theta )-\nu)'I(m(\Theta )-\nu)] \]
 
 \end{document}

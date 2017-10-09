@@ -34,8 +34,9 @@ global M C
 % USER: SELECT DISC_PATH, mind the trailing slash
 DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Calibration/My_Calibration/1983_Calibration/output/';
 
-models_database_name_ = [  '1983_Data', 'LIFE', 'rho095', 'beta0971_sigma13_theta0761or08','downpayment08'];
+models_database_name_ = [ '1983_Data', 'LIFE', 'rho095', 'beta0971_sigma115_theta069073','downpayment09'];
 models_database_ = [models_database_name_, '.mat']; 
+
 % USER: if several databases get merged before it might be simpler to adjust the following line
 % models_database_ = 'the_file_that_contains_all_merged_databases.mat';
 
@@ -278,6 +279,8 @@ sel_sampleM_46_55 = SelFun_vert(sampleM_46_55);
 
 load([DISC_PATH,models_database_]);
 
+pop_size = 100000;
+
 tot_cases = size(models_,2);
 
 simM_26_55 = NaN*zeros(99,tot_cases);
@@ -288,15 +291,27 @@ simM_46_55 = NaN*zeros(99,tot_cases);
 % note here only the sample is loaded and hence needs to be converted into
 % the distribution
 
+sorted_cs_x_prime = NaN*zeros(pop_size,tot_cases);
+sorted_cs_x_26_35 = NaN*zeros(pop_size,tot_cases);
+sorted_cs_x_36_45 = NaN*zeros(pop_size,tot_cases);
+sorted_cs_x_46_55 = NaN*zeros(pop_size,tot_cases);
+
+for all_cases = 1:tot_cases;
+        this_model_ = models_(all_cases);
+            sorted_cs_x_prime(:,all_cases) = sort(this_model_.cs_x_prime,1);
+            sorted_cs_x_26_35(:,all_cases) = sort(this_model_.cs_x_26_35,1);
+            sorted_cs_x_36_45(:,all_cases) = sort(this_model_.cs_x_36_45,1);
+            sorted_cs_x_46_55(:,all_cases) = sort(this_model_.cs_x_46_55,1);
+end 
+
 
 for iprepcase = 1:tot_cases;
-        this_model_ = models_(iprepcase);
-        for iperc = 1:99
-            simM_26_55(:,iprepcase) = sort(this_model_.cs_x_prime(round(max(size(sort(this_model_.cs_x_prime)))*iperc/100)));
-            simM_26_35(:,iprepcase) = sort(this_model_.cs_x_26_35(round(max(size(sort(this_model_.cs_x_26_35)))*iperc/100)));
-            simM_36_45(:,iprepcase) = sort(this_model_.cs_x_36_45(round(max(size(sort(this_model_.cs_x_36_45)))*iperc/100)));
-            simM_46_55(:,iprepcase) = sort(this_model_.cs_x_46_55(round(max(size(sort(this_model_.cs_x_46_55)))*iperc/100)));
-        end; % of over percentiles 
+    for iperc = 1:99;
+            simM_26_55(iperc,iprepcase) = sorted_cs_x_prime(round(max(size(sorted_cs_x_prime))*iperc/100),iprepcase);
+            simM_26_35(iperc,iprepcase) = sorted_cs_x_prime(round(max(size(sorted_cs_x_prime))*iperc/100),iprepcase);
+            simM_36_45(iperc,iprepcase) = sorted_cs_x_prime(round(max(size(sorted_cs_x_prime))*iperc/100),iprepcase);
+            simM_46_55(iperc,iprepcase) = sorted_cs_x_prime(round(max(size(sorted_cs_x_prime))*iperc/100),iprepcase);
+    end;
 end; % of for writing percentiles from all cases
 
 
@@ -339,7 +354,7 @@ sel_simM_46_55    = SelFun_vert(simM_46_55);
 % specify number of steps
 for iestim = 1:total_estimation_steps; % THE ESTIMATION LOOP
 
-    bet_sig =   NaN*zeros(tot_cases,2);
+    bet_sig =   NaN*zeros(tot_cases,3);
     crit_dist = NaN*zeros(tot_cases,1);
  
     min_distM = Inf;
@@ -351,6 +366,7 @@ for iestim = 1:total_estimation_steps; % THE ESTIMATION LOOP
     
     bet_sig(icase,1) = this_model_.beta_;
     bet_sig(icase,2) = this_model_.sigma_;
+    bet_sig(icase,3) = this_model_.theta;
 
         if iestim == 1;
         % initialize W-matrix (inverse of the weighting matrix)
@@ -559,6 +575,7 @@ end
     
 beta_star = min_model_.beta_ ; 
 sigma_star = min_model_.sigma_ ;  
+theta_star = min_model_.theta; 
     
 cs_x_26_35 = min_model_.cs_x_26_35;  
 cs_x_36_45 = min_model_.cs_x_36_45;  
@@ -697,9 +714,9 @@ compose_wealth_distribution;
 s1= sprintf('==================================================================\n');
 s2= sprintf('Estimation results \n');
 s3= sprintf('------------------------------------------------------------------\n');
-s4=sprintf('beta \t sigma \n');
+s4=sprintf('beta \t sigma \t theta \n');
 s4a=sprintf('Point estimates: \n');
-s5 = sprintf('%g \t',[beta_star ; sigma_star  ]');
+s5 = sprintf('%g \t',[beta_star ; sigma_star ; theta_star]');
 s6 = sprintf('\nStandard errors: \n');
 % s7 = sprintf('%g \t', sqrt(diag(QMat)));
 s7a = sprintf('\n');

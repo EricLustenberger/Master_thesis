@@ -215,4 +215,32 @@ title('Age 46-55','fontsize',14);
 legend('SCF data','Model','Location','NorthWest')
 set(gca,'XTick',10:10:90)
 set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
-axis([1,90,-1,18]);                                           
+axis([1,90,-1,18]);
+
+size_life_cycle = 1:size(mean_c_j,2); 
+
+% plotting life-cycle profiles of financial assets
+figure(60);
+plot (size_life_cycle,mean_x_j(size_life_cycle),...
+    size_life_cycle,mean_a_j(size_life_cycle),size_life_cycle,mean_d_j(size_life_cycle),...
+    'LineWidth',2), xlabel('Age'), ylabel('Asset Holdings');
+legend('Net Worth','Liquid Assets','Durables','Location','NorthWest')
+set(gca,'XTick',1:5:65)
+set(gca,'XTickLabel',{'26','','36','','46','','56','','66','','76','','86','',})
+%axis([1,90,-1,18]);
+
+
+% life-cycle profiles of income and consumption
+figure(61);
+plot (size_life_cycle,mean_c_j(size_life_cycle),size_life_cycle,mean_y_j(size_life_cycle),...
+    'LineWidth',2), xlabel('Age'), ylabel('Values');
+legend('Consumption','Income','Location','NorthWest')
+set(gca,'XTick',1:5:65)
+set(gca,'XTickLabel',{'26','','36','','46','','56','','66','','76','','86','',})
+
+
+
+
+
+
+
