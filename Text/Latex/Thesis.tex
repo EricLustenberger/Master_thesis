@@ -176,6 +176,14 @@ Note that we assume that changes in the domestic supply of assets do not affect 
 \subsubsection{The Income Process}
 \cite{kaplan2010} discuss various features of the income process in more detail.
 
+\subsection{Why model durables? How do durables affect savings?}
+\begin{enumerate}
+\item \cite{FV&K2011} 
+\begin{enumerate}
+\item empirical observation that durables constitute a large fraction of households' asset holdings - hh hold 35\% of their total assets in durables and only 28\% in equity (flow of funds account 2nd quarter) 
+\item the life-cycle pattern of nondurable consumption may be closely related to the life-cycle pattern of the accumulation of durables and thus any abstraction to net wealth may severely bias the study of asset accumulation (and life-cycle profile of nondurable consumption
+\end{enumerate}
+\end{enumerate}
 
 
 \subsubsection{Consumer's Problem}
@@ -312,12 +320,25 @@ Controlling for the age distribution is another important determinant for the dy
 
 It is worth noting that the smallest income is larger than 0!!!! 
 
+\paragraph{Income Process}
+
+LOOK AT GOURINCHASandPARKER(2002) AND AT THE ADDAandCOOPER BOOK! 
+
+\begin{enumerate}
+\item \citep{FV&K2011} stochastic labor income process up to age 65, where they impose mandatory retirement. Differs from other specifications such as Abowd and Card (1989), Carroll (1992), or Gourinchas and Parker (2002) in two aspects: 
+\begin{enumerate}
+\item do not allow labor income to go to zero- very low probability Carroll (1992) estimates it at 0.003 for a year. However, its effects on the intertemporal allocations are quite big, since hh will not borrow any positive amount since they might face a lifelong sequence of zero labor income and might be unable to consume a positive amount and repay their debt in some period. (Moreover, argument of public income-support programs in the US -> labor in the model is after-tax, after-government transfer labor income.
+\item unit root in AR process is not imposed  ( is something that is debated -> they show that their results are not very sensitive toward this issue -> increase $\rho$ toward unity (LOOK AT STORESLETTEN ET AL: (2001) -> do not reject unit root.
+\end{enumerate} 
+\item Check \cite{hintermaier2010} and \cite{hintermaier2011}
+\end{enumerate}
+
 \subsection{Utility parameters}
 
 I consider a utility function that is non-separable in durable- and non-durable consumption, strictly increasing in both consumption types, strictly concave and obeying the INADA-Conditions with respect to nondurable consumption. It is the same class of preferences as \cite{hintermaier2010}, which is commonly used in the literature considering durable and non-durable consumption (CITE MORE). \footnote{Note that this choice is in line with a more generic formulation of the utility function \citep{FV&K2011}.}
 
 \begin{equation}
-U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c,d)=c^{\theta}(d+\epsilon_{d})^{1-\theta}, \ \textnormal{\footnote{The Cobb-Douglas specification is approximately validated by empirical evidence \citep{FV&K2011}}}
+U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c,d)=c^{\theta}(d+\epsilon_{d})^{1-\theta},
 \end{equation}
 
 where I assume $\epsilon_{d} > 0$, which thus indicates a number small enough to be irrelevant for the quantitative exercise at hand but nonetheless larger than zero. The CRRA utility function with the Cobb-Douglas specification of the consumption index, thus allows for zero consumption of durables, while the INADA-Condition ensures that people always consume some non-durables, i.e. intuitively this means consumers cannot survive without food, but are allowed to survive without houses and cars.\footnote{For the recursive problem it means that when allowing the potentially optimal choice $d' = d_{min}$, the constraint for minimal durable holdings needs to be accounted for explicitly, as the INADA-Conditions do not implicitly exclude zero durable consumption.} (WHAT IS THE CONSEQUENCE OF OMITTING THE EPSILON???? 
@@ -358,62 +379,8 @@ INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
 
 \subsubsection{Comparing the simulation output with SCF data}
 
-\subsubsection{Calibration}
-
-\paragraph{Utility Function}
-I consider the same class of preferences as \cite{hintermaier2010}, which is commonly used in the literature considering durable and non-durable consumption (CITE MORE). 
-
-\begin{equation}
-U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c,d)=c^{\theta}(d+\epsilon_{d})^{1-\theta}, \ \textnormal{\footnote{The Cobb-Douglas specification is approximately validated by empirical evidence \citep{FV&K2011}}}
-\end{equation}
-
-where I assume $\epsilon_{d} > 0$, which thus indicates a number small enough to be irrelevant for the quantitative exercise at hand but nonetheless larger than zero. The utility function thus allows for zero consumption of durables, while the INADA-Condition ensures that people always consume some non-durables, i.e. they cannot survive without food, but are allowed to survive without houses and cars.(NOTE MIGHT LOOK AT DIFFERENCE BETWEEN EQUAL TO ZERO AND NOT EQUAL TO ZERO SINCE HINTERMAIER ALLOWS FOR BOTH(COPY PASTE: Allowing for the potentially optimal choice $d' = d_{min}$ means that the constraint for minimal durable holdings needs to be taken into account in the recursive problem as another occasionally binding constraint in addition to the collateral constraint!!!). 
-
-The utility function thus, is strictly increasing durable consumption and non-durable consumption, strictly concave and obeying the Inada conditions with respect to nondurable consumption. 
-
-\citep{FV&K2011} utility form death is normalized to 0 ??????????
-
 \paragraph{Data (Initializing DATA + probability of death (PLOT!)}
 
-\paragraph{Income Process}
-
-LOOK AT GOURINCHASandPARKER(2002) AND AT THE ADDAandCOOPER BOOK! 
-
-\begin{enumerate}
-\item \citep{FV&K2011} stochastic labor income process up to age 65, where they impose mandatory retirement. Differs from other specifications such as Abowd and Card (1989), Carroll (1992), or Gourinchas and Parker (2002) in two aspects: 
-\begin{enumerate}
-\item do not allow labor income to go to zero- very low probability Carroll (1992) estimates it at 0.003 for a year. However, its effects on the intertemporal allocations are quite big, since hh will not borrow any positive amount since they might face a lifelong sequence of zero labor income and might be unable to consume a positive amount and repay their debt in some period. (Moreover, argument of public income-support programs in the US -> labor in the model is after-tax, after-government transfer labor income.
-\item unit root in AR process is not imposed  ( is something that is debated -> they show that their results are not very sensitive toward this issue -> increase $\rho$ toward unity (LOOK AT STORESLETTEN ET AL: (2001) -> do not reject unit root.
-\end{enumerate} 
-\item Check \cite{hintermaier2010} and \cite{hintermaier2011}
-\end{enumerate}
-
-\paragraph{Others NOTE: INCOMPLETE LOOK AT PAPERS}
-\begin{enumerate}
-\item The interest rate
-\begin{enumerate}
-\item \citep{FV&K2011} $r = 4\%$(NOTE CITING A WORKING PAPER!!!) \footnote{\citep{mcgrattan2001}}
-
-\item \citep{hintermaier2010} (COPY PASTE: The annual real interest rate is set to 3\% and the depreciation rate is 2\% (see, for example, Caporale and Grier, 2000; Lustig and van Nieuwerburgh, 2005). The low depreciation rate is motivated by the dominating role of housing for consumer durables.
-\end{enumerate}
-\end{enumerate}
-
-\begin{enumerate}
-\item Preference Parameters
-\begin{enumerate}
-\item  \citep{FV&K2011} $\theta = 0.81$ and $\beta = 0.9375$ matching the ratio of expenditures on nondurables and durables $C/I^{d} = (C/Y)/(I^{d}/Y) = 6.2$, which is the long-run average for U.S. data.
-
-\item \cite{hintermaier2010} choose $\sigma = 0$, commonly used in the literature and then calibrate $\theta$ and $\beta$ to match (up to precision $10^{-2}$) the amount of wealth in total data, 6.33 in terms of average population labor earnings taken after taxes and transfers, and the part of wealth accounted for by durables, 4.45. \footnote{When they compute the statistic in the data, they use sampling weights provided in the SCF. (COPY PASTE: Note that the normalization by net labor and the use of equivalence scales implies that normalized (aggregate) wealth is larger than the wealth to output ratio.)}
-\end{enumerate}
-\end{enumerate}
-\section{Why model durables? How do durables affect savings?}
-\begin{enumerate}
-\item \cite{FV&K2011} 
-\begin{enumerate}
-\item empirical observation that durables constitute a large fraction of households' asset holdings - hh hold 35\% of their total assets in durables and only 28\% in equity (flow of funds account 2nd quarter) 
-\item the life-cycle pattern of nondurable consumption may be closely related to the life-cycle pattern of the accumulation of durables and thus any abstraction to net wealth may severely bias the study of asset accumulation (and life-cycle profile of nondurable consumption
-\end{enumerate}
-\end{enumerate}
 
 
 \section{Life-Cycle Profiles}
@@ -438,26 +405,22 @@ In this first section, \cite{FV&K2011} thus contradict Blundell et al. (1994), A
 As \cite{FV&K2011} point out households' portfolio composition do vary over the lifetime. Young households only little liquid assets and hold most of their wealth in consumer durables, whereas later in life, they accumulate big amounts of financial assets to save up for retirement. Durables make up 35\%of the aggregate composition of wealth, while equity only accounts for 28\% \citep{FV&K2011}.The same authors thus show that these facts can better be accounted for, when one considers liquid assets and durables separately, instead of combining them in one asset such as net worth. The interaction of the two assets thus is able to reproduce the abserved pattern in the data. Where the consumer durables provide both consumption and collateral services as well as an endogenous borrowing constraint. 
 
 \subsection{Profiles predicted by the model}
-Averages, in what Units?
-\begin{enumerate}
-\item \cite{hintermaier2016} averages and in average net labor earning
-\item \citep{FV&K2011} population averages are weighted averages due to stochastic death. WHAT DOES HE MEAN BY THAT? IS IT ALSO THE CASE HERE????
-\end{enumerate}
 
-In the following section I will discuss the baseline life-cycle profiles produced by the model more in detail. I will thus describe mechanisms introduced above in a more detailed manner and present population averages of income, consumption, durables, liquid assets and net worth over the life-cycle. These are obtained by simulating 100 000 agents and taking the average. 
+In the following section I will discuss the baseline life-cycle profiles produced by the model more in detail and compare it to other work and empirical results presented therein. I will mainly focus on two aspects discussed in the literature. The consumption and income profiles and comparing the asset profiles, which entails a discussion about portfolio allocations over the life-cycle. \\
+The life-cycle presented in figure \ref{consumption_life_cycle} and figure \ref{asset_holdings_life_cycle} show averages of the variables of interest over the simulated population of 100000 consumers aged between 26 and 90. With the exception of net-labor earnings all variables are in units of average net-labor earnings per adult-equivalent. (BE MORE PRECISE HERE) 
 
-\paragraph{Income}
+\subsection{Income and Consumption}
 
-Figure \ref{Income_LCP} shows the hump shaped income profile arising due to construction. The hump clearly shows that as agents get older, they do profit from an experience premium, they retire at the age of 65 with certainty and from there on receive a constant retirement benefit. (MAYBE BE MORE PRECISE, DISCUSS THE TWO STEP DROP OBSERVABLE AND CHECK WITH INCOME PROCESS IN CODE). The top of the hump is is a bit earlier.
+\paragraph{Income} Figure \ref{consumption_life_cycle} shows the hump of the income profile arising by construction as the process is determined exogenously. Note that this hump shaped profile arises from the experience premium captured by the estimated age polynomial as well as economic growth, up to age 65. Consumers earnings rise until the age of 49, when they reach the maximum log net-income equivalent of 2.3131. Afterwards the experience premium decreases, as the experience factor is dominated by a decrease in productivity to the age of 65, where consumers earn 2.0834, thus around 10\% less than when they are at their top. At this point the average income decreases sharply, as every consumer retires after the age of 65 and receives deterministic retirement benefits from then on, with an average of 1.0966. \footnote{Following \cite{hintermaier2011} the growth adjustment is neglected for the retirement period, therefore the curve does not increase for ages 66 to 90. (CHECK IF WOULD HAVE AN EFFECT! OR IS THERE A REASON FOR THIS???)} 
 
 \begin{figure}[!htbp]
-\caption{Average Income over the Life-Cycle} 
-\label{Income_LCP}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\caption{Average Income and Consumption over the Life-Cycle} 
+\label{consumption_life_cycle}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.5]{Figures/Income_LCP}  % width legt Breite der Graphik fest
+\includegraphics[scale=.5]{Figures/life_cycle_consumption_base}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
-\footnotesize{NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
+\footnotesize{Consumption is in terms of average net labor-earning equivalents and and the labor earnings are as calibrated, the log of net labor earnings-equivalents?????? JUST VERY STANDARD! NEEDS TO BE UPDATED}
 \end{minipage}
 
 \end{figure}
@@ -474,10 +437,10 @@ basic life-cycle model.\footnote{See DEATON (1992) for a review}
 
 
 \begin{figure}[!htbp]
-\caption{Average Consumption over the Life-Cycle} 
-\label{Consumption_LCP}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\caption{Average Asset Holdings over the Life-Cycle} 
+\label{asset_holdings_life_cycle}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.5]{Figures/Consumption_LCP}  % width legt Breite der Graphik fest
+\includegraphics[scale=.5]{Figures/life_cycle_assets_base}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
 \footnotesize{NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
@@ -768,10 +731,29 @@ Age \textendash  26:& 10 years               & 1.81\% & 2.60\% \\
 \section{Estimation}
 \label{estimation_procedure}
 
-SEE ADDA and COOPER! 
-$ \operatorname{arg\,max}_a f(a) \operatorname*{arg\,max}_b f(b)$
+Due to my estimation strategy, to estimate the model for the prime age sample and thus excluding consumers, which are situated in the top 10\% of the wealth distribution, the means estimation does not suffer from the bias \cite{cagetti2003} puts forward. \\  
 
+ADDA and COOPER: 
 Model is just identified. Choice of weighting matrix imp when model is overidentified. 
-\[ \widehat{\Theta}^{1} = \operatorname{arg\,min}[(m(\Theta )-\nu)'I(m(\Theta )-\nu)] \]
+
+The moment condition holds for both moments: 
+
+\[ E(d_{i} -  D(\beta_{0},\theta_{0})) = 0 \]
+\[ E(d_{i} -  X(\beta_{0},\theta_{0})) = 0 \]
+
+where D and X are the average of durable stock and net worth holdings of the prime age population respectively. As a consequence, the simulated method of moments can be applied \citep{duffie1993}.\\
+
+Therefore I look for 
+
+\[ \widehat{\Theta} = \operatorname{arg\,min}[(m(\Theta )-\nu)'I(m(\Theta )-\nu)] \]
+
+where $\Theta$ is a vector containing $\beta$ and $\theta$, $m$ contains the simulated moments for a specific $\Theta$ and $\nu = [2.95,2.39]$ the empirical counterpart. 
+
+$\hat{\beta}$ and $\hat{\theta}$ that 
+
+
+
+
+Heathcote et al. (2010): (COPY PASTE: As Christiano and Eichenbaum argue, the exact identification strategy allows for a clear separation between what the model is restricted to match and what it is designed to explain. The exactly identified strategy amounts to a weighting matrix that sets positive and equal weight only on certain moments, based on the investigator's prior about the (first-order) dimensions of the data that the model should fit.)
 
 \end{document}

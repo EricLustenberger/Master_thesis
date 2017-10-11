@@ -7,43 +7,43 @@ Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--there's a number but no volume in rios2016
 You've used 24 entries,
             2773 wiz_defined-function locations,
-            750 strings with 8491 characters,
-and the built_in function-call counts, 10559 in all, are:
-= -- 993
+            751 strings with 8491 characters,
+and the built_in function-call counts, 10674 in all, are:
+= -- 1004
 > -- 522
 < -- 18
 + -- 177
 - -- 153
-* -- 865
-:= -- 1630
+* -- 880
+:= -- 1639
 add.period$ -- 75
 call.type$ -- 24
-change.case$ -- 125
+change.case$ -- 124
 chr.to.int$ -- 24
 cite$ -- 49
-duplicate$ -- 470
-empty$ -- 897
+duplicate$ -- 475
+empty$ -- 914
 format.name$ -- 205
-if$ -- 2195
+if$ -- 2222
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 21
+missing$ -- 22
 newline$ -- 131
 num.names$ -- 96
-pop$ -- 197
+pop$ -- 198
 preamble$ -- 1
 purify$ -- 98
 quote$ -- 0
-skip$ -- 358
+skip$ -- 360
 stack$ -- 0
-substring$ -- 512
-swap$ -- 23
+substring$ -- 537
+swap$ -- 24
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 264
 warning$ -- 1
-while$ -- 109
+while$ -- 111
 width$ -- 0
 write$ -- 324
 (There were 2 warnings)
