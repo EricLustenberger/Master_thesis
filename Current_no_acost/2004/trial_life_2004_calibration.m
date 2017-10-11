@@ -41,7 +41,7 @@ T_ret                   = 65 - 26 + 1; % NOTE: the income process estimates are 
 base_age = 20;
 
 % annual average real income growth = productivity growth
-growth_y = 0;%0.015;
+growth_y = 0.015;
 
 % income tax to back out gross earnings (for social security)
 proportional_taxrate = 0.2155;
