@@ -176,6 +176,16 @@ Note that we assume that changes in the domestic supply of assets do not affect 
 \subsubsection{The Income Process}
 \cite{kaplan2010} discuss various features of the income process in more detail.
 
+\subsection{The determinants of savings}
+\label{determinants}
+There are different factors contributing to savings. Understanding these factors and their importance for the accumulation of wealth is crucial in understanding distributional issues and for the provision of policy advice, where such issues are the subject of discussion, both normative and positive. \\
+In the model presented in this work a number of determinants are considered, all of which precedent work has shown to be of importance in the context of the accumulation of wealth. The present paragraph thus gives an overview of these determinants, to whom I will refer to when discussing simulation results.  
+
+\paragraph{Consumption Smoothing}Early life-cycle models predict consumption (SLOWLY DECREASING???) to be flat over the life-cycle. This is the case, when perfect consumption smoothing can be achieved. With an income profile observed above, agents would thus accumulate debt, when expected future earnings are high to substitute this higher income for lower income today. And high current income is converted into savings when future higher earnings are low. (CITE A MODEL OF THIS TYPE) 
+\paragraph{Precautionary Savings Motive} Idiosyncratic income risk as for example in \citep{aiyagari1994} is an additional savings motive. Savings are used as a buffer for future income shocks. If, uncertainty is high, agents save more and thus cut down on consumption to do so in order to save for rainy days. 
+\paragraph{Borrowing Constraints} A third determinant are the borrowing constraints. These prevent agents from borrowing and thus do not allow for perfect consumption smoothing across time or income states. 
+\paragraph{Durables} \citep{FV&K2011} show that including durables into a life-cycle model is an important determinant of the consumption behavior along an agents life cycle. The relative price of durables does affect savings-consumption (IS IT LIKE THAT???) decisions. 
+
 \subsection{Why model durables? How do durables affect savings?}
 \begin{enumerate}
 \item \cite{FV&K2011} 
@@ -427,8 +437,18 @@ The life-cycle presented in figure \ref{consumption_life_cycle} and figure \ref{
 
 \end{figure}
 
-\paragraph{Consumption} As income consumption is hump shaped and seems to follow the behavior of income with a slight time lag and its decrease is smooth. Non-durable consumption peaks on average at the age of 74. At that point agents consume 1.9911 in terms of the average net labor-earnings equivalent, which is almost four times as much as at the age of 27, when their non-durable consumption is lowest. \footnote{Note this first fall of consumption is due to adaptation from initiating durables and net worth.} Whereas the late increase of consumption is due to life-time uncertainty. As all consumers know that they will die with certainty in the last period they sell all of their assets an thus increase consumption. 
-Consumption increases in the early part of life, mainly due to two reasons. Note that both depend on the presence of durable goods. First of all, since durables also generate utility, it is optimal to stack durables and compromise on the consumption of non-durables. Secondly, when the stock of durables is built, due to the nonseparabilities in the utility function, the marginal utility from non-durable consumption is higher, since at that point households are better endowed in durables. 
+\paragraph{Consumption} As income consumption is hump shaped and seems to follow the behavior of income with a slight time lag and its decrease is smooth. Non-durable consumption peaks on average at the age of 74. At that point agents consume 1.9911 in terms of the average net labor-earnings equivalent, which is almost four times as much as at the age of 27, when their non-durable consumption is lowest. \footnote{Note this first fall of consumption is due to adaptation from initiating durables and net worth.} \\
+
+The first observation, consumption traking income, is due to borrowing constraints. In principle, agent's expected future income rises with certainty, due to the higher experience premium. Thus, they would like to accumulate debt early in live to substitute future higher income for todays lower income. 
+
+As discussed above, \citep{FV&K2011} show, dourables contribute to a large extend to this hump shape of consumption. The double role of durables as (UTILITY GOOD) as well as the non-separability of durable and non-durable consumption are responsible for this behavior. In the early part of life consumers prefer to stack durables over consuming more non-durables as the latter serves both as asset, providing insurance and collateral services, and utility services. The non-separability is responsible for a rise in non-durable consumption as the early increase in durables decreases the latters marginal utility and thus the relative utility benefits of consumption rises as agents grow older. Later in live, when death becomes more likely and utility is discounted to a larger extend consumption decreases again. 
+
+
+substitute the non-durable consumption with stacking durables. As durables contribute to a large extend
+
+Whereas the late increase of consumption is due to life-time uncertainty. As all consumers know that they will die with certainty in the last period they sell all of their assets an thus increase consumption. 
+
+Note that both depend on the presence of durable goods. First of all, since durables also generate utility, it is optimal to stack durables and compromise on the consumption of non-durables. Secondly, when the stock of durables is built, due to the nonseparabilities in the utility function, the marginal utility from non-durable consumption is higher, since at that point households are better endowed in durables. 
 \subparagraph{Comparing to results reported in the literature}
 \cite{FV&K2011} underline the importance of modeling durables in order to accurately reproduce the the shape of consumption over the life cycle observed in the data. He shows that including durables in a non-separable way in the utility function into the canonical incomplete markets model with one asset may achieve a better representation of the hump shape. Namely, durables account for 50\% of the hump size, while the other half is attributed to changes in the household size, a fact pointed out by \cite{attanasio1999}. 
 Using data from the Consumer expenditure survey (CEX) and correcting it for the family size, \cite{FV&K2011} show that the average household spends 65\% more than when the head of the household is 50 compared to when he or she is 25 and around 70\% more, when he or she is 65.\footnote{\cite{FV&K2011} use data from 1998. \cite{yang2009} reports similar findings for estimating consumption profiles from CEX 2001 data. Adjusting for household size, he finds an peak at age 55, with an increase of roughly 60\% compared to age 20.} Their model predicts a peak around the age of 45, with a size that is about 40\% bigger than at the age of 20.  \cite{yang2009} reports similar results: non-housing consumption at age 50, where it peaks, is 80\% more than that of age 20, after the peak, the decrease is steady and at age 75, people consume 25\% less on average. \\ \\
@@ -772,4 +792,6 @@ $\hat{\beta}$ and $\hat{\theta}$ that
 
 Heathcote et al. (2010): (COPY PASTE: As Christiano and Eichenbaum argue, the exact identification strategy allows for a clear separation between what the model is restricted to match and what it is designed to explain. The exactly identified strategy amounts to a weighting matrix that sets positive and equal weight only on certain moments, based on the investigator's prior about the (first-order) dimensions of the data that the model should fit.)
 
+\section{Data}
+\label{data}
 \end{document}
