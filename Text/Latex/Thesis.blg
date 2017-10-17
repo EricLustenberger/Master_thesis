@@ -3,48 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: bib_thesis.bib
+Warning--I didn't find a database entry for "hugget"
 Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--I didn't find a database entry for "yang2006"
+Warning--empty journal in gruber2003precautionary
 Warning--there's a number but no volume in rios2016
-You've used 24 entries,
+You've used 28 entries,
             2773 wiz_defined-function locations,
-            752 strings with 8499 characters,
-and the built_in function-call counts, 10674 in all, are:
-= -- 1004
-> -- 522
-< -- 18
-+ -- 177
-- -- 153
-* -- 880
-:= -- 1639
-add.period$ -- 75
-call.type$ -- 24
-change.case$ -- 124
-chr.to.int$ -- 24
-cite$ -- 49
-duplicate$ -- 475
-empty$ -- 914
-format.name$ -- 205
-if$ -- 2222
+            775 strings with 9179 characters,
+and the built_in function-call counts, 12357 in all, are:
+= -- 1160
+> -- 604
+< -- 21
++ -- 205
+- -- 177
+* -- 1011
+:= -- 1897
+add.period$ -- 87
+call.type$ -- 28
+change.case$ -- 144
+chr.to.int$ -- 28
+cite$ -- 58
+duplicate$ -- 555
+empty$ -- 1061
+format.name$ -- 237
+if$ -- 2572
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 22
-newline$ -- 131
-num.names$ -- 96
-pop$ -- 198
+missing$ -- 26
+newline$ -- 151
+num.names$ -- 112
+pop$ -- 235
 preamble$ -- 1
-purify$ -- 98
+purify$ -- 114
 quote$ -- 0
-skip$ -- 360
+skip$ -- 420
 stack$ -- 0
-substring$ -- 537
-swap$ -- 24
+substring$ -- 611
+swap$ -- 27
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 264
-warning$ -- 1
-while$ -- 111
+type$ -- 308
+warning$ -- 2
+while$ -- 129
 width$ -- 0
-write$ -- 324
-(There were 3 warnings)
+write$ -- 374
+(There were 5 warnings)

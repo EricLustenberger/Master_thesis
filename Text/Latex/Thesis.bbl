@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -55,6 +55,13 @@ Chau-Nan Chen, Tien-Wang Tsaur, and Tong-Shieng Rhai.
 \newblock \emph{Oxford Economic Papers}, 34\penalty0 (3):\penalty0 473--478,
   1982.
 
+\bibitem[Cho(2012)]{cho2012accounting}
+Sang-Wook~Stanley Cho.
+\newblock Accounting for life-cycle wealth accumulation: the role of housing
+  institution.
+\newblock \emph{Macroeconomic Dynamics}, 16\penalty0 (4):\penalty0 493--517,
+  2012.
+
 \bibitem[De~Nardi and Yang(2014)]{denardi2014}
 Mariacristina De~Nardi and Fang Yang.
 \newblock Bequests and heterogeneity in retirement wealth.
@@ -102,6 +109,18 @@ Pierre-Olivier Gourinchas and Jonathan~A. Parker.
 \newblock ISSN 00129682, 14680262.
 \newblock URL \url{http://www.jstor.org/stable/2692163}.
 
+\bibitem[Gruber and Martin(2003)]{gruber2003precautionary}
+Joseph~W Gruber and Robert~F Martin.
+\newblock Precautionary savings and the wealth distribution with illiquid
+  durables.
+\newblock 2003.
+
+\bibitem[Heathcote et~al.(2009)Heathcote, Storesletten, and
+  Violante]{heathcote2009quantitative}
+Jonathan Heathcote, Kjetil Storesletten, and Giovanni~L Violante.
+\newblock Quantitative macroeconomics with heterogeneous households.
+\newblock \emph{Annu. Rev. Econ.}, 1\penalty0 (1):\penalty0 319--354, 2009.
+
 \bibitem[Hintermaier and Koeniger(2010)]{hintermaier2010}
 Thomas Hintermaier and Winfried Koeniger.
 \newblock {The method of endogenous gridpoints with occasionally binding
@@ -128,6 +147,12 @@ Greg Kaplan and Giovanni~L Violante.
 \newblock How much consumption insurance beyond self-insurance?
 \newblock \emph{American Economic Journal: Macroeconomics}, 2\penalty0
   (4):\penalty0 53--87, 2010.
+
+\bibitem[Kaymak and Poschke(2016)]{kaymak2016evolution}
+Bar{\i}{\c{s}} Kaymak and Markus Poschke.
+\newblock The evolution of wealth inequality over half a century: the role of
+  taxes, transfers and technology.
+\newblock \emph{Journal of Monetary Economics}, 77:\penalty0 1--25, 2016.
 
 \bibitem[Krusell and Smith(1998)]{krusell1998}
 Per Krusell and Anthony~A Smith, Jr.

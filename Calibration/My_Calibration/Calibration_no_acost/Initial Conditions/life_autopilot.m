@@ -35,7 +35,7 @@ dos(['md ' DISC_PATH]);
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','downpayment08'];
+models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','higher_risk0624'];
 models_database_ = [models_database_name_, '.mat']; 
 
 good_file_   = 0;                       % filename ('timestamp') for already computed case, 0 if none
