@@ -8,11 +8,9 @@ sigma_    = 1.5;  % risk aversion parameter
 
 epsdur = 0.000001; % autonomous durable consumption
 
-%miu = 0.97;% loan-to-value ratio
-miu = 0.8;
+miu = 0.97;% loan-to-value ratio
+
 gamma_ = 0.95;% seizable fraction of minimum income
 
 %gamma_ = 0;
 %miu = 0.5;
-
-

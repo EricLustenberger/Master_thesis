@@ -23,34 +23,9 @@ b_age2  = -.0146018;
 b_age3  =  .0002342;
 b_age4  = -1.41e-06;
 
-% life-cycle wage profile: coefficient estimates obtained with a regression of log income
-% shock on b_age thus a change in premium linearly affecting all ages 
-% of same magnitude as 1983 (10%)
-% b_const = -5.163669;
-% b_age   =  .46486187;
-% b_age2  = -.0146018;
-% b_age3  =  .0002342;
-% b_age4  = -1.41e-06;
-
-
-% 1983
-% b_const = -3.454309;
-% b_age   =  0.2755415;
-% b_age2  = -0.0089617;
-% b_age3  =  0.0001353;
-% b_age4  = -7.79e-07;
-
 % variance of the residuals obtained from the estimation
-%var_z_2004 = 0.740;
 var_z_2004 = 0.607;
-%var_z_2004 = 0.498;
 var_z = var_z_2004;
-% 
-% var_z_1983 = 0.498;
-% var_z = var_z_1983;
-% increase of same magnitude as from 1983 to 2004
-% is an increase of 22% and thus would be 0.740
-% 
 
 % sample size of 26-55 year olds in the SCF 2004, for bootstrapping.
 T_SCF = 2577;

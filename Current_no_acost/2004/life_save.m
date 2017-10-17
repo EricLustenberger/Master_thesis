@@ -7,21 +7,16 @@ out_file_time_only = datestr(snow,30);
 out_file_time = out_file_time_only;
 this_model_.out_file_time = out_file_time;
 
-out_file_identifier = ['PIL',sprintf('%06.0f',ipilot),'BET',sprintf('%04.0f',beta_*1000),'SIG',sprintf('%04.0f',theta*100),out_file_time_only,models_database_(1:end-4)];
+out_file_identifier = ['PIL','BET',sprintf('%04.0f',beta_*1000),'SIG',sprintf('%04.0f',theta*100),out_file_time_only,models_database_(1:end-4)];
 this_model_.out_file_identifier = out_file_identifier;
 
 out_file = [DISC_PATH,out_file_identifier];
 
 disp(out_file_identifier);
 
-ipilot
-this_model_.ipilot = ipilot;
-
 models_database_
 this_model_.models_database_ = models_database_;
 
-good_file_                 % filename ('timestamp') for already computed case, 0 if none
-this_model_.good_file_ = good_file_;
 
 % Setting up the model, parameters
 % ================================
@@ -44,7 +39,12 @@ this_model_.epsdur = epsdur;
 %alpha_      % adjustment cost parameter
 %this_model_.alpha_ = alpha_;
 
-
+%means
+this_model_.mean_a_j = mean_a_j;
+this_model_.mean_c_j = mean_c_j;
+this_model_.mean_d_j = mean_d_j;
+this_model_.mean_x_j = mean_x_j;
+this_model_.mean_y_j = mean_y_j;
 
 %rhoAR      % persistence of income process, e.g., 1st-order autocorrelation from Storesletten et al.:
 this_model_.rhoAR = rhoAR   ;
@@ -67,11 +67,6 @@ this_model_.death_prob = death_prob   ;
 
 % Algorithm parameters
 % ====================
-%numb_markov_states_
-this_model_.numb_markov_states_  = numb_markov_states_ ; 
-
-%numb_a_gridpoints   % 'coh is the endogenous state variable cash-on-hand
-this_model_.numb_a_gridpoints  = numb_a_gridpoints    ;
 
 % %sim_sample % the size of the simulated sample
 % this_model_.sim_sample = sim_sample;
@@ -119,32 +114,37 @@ this_model_.cs_x_36_45  = cs_x_36_45     ;
 this_model_.cs_x_46_55  = cs_x_46_55     ;
 
 % averages
-%this_model_.averages = averages ;
+this_model_.averages = averages ;
 
-% initial conditions
-this_model_.initail_x_i_j = x_i_j(:,1); 
-this_model_.initial_d_i_j = d_i_j(:,1);
-this_model_.initial_a_i_j = a_i_j(:,1);
+% distributions
+this_model_.x_26_35_perc_composed = x_26_35_perc_composed;
+
+this_model_.x_36_45_perc_composed = x_36_45_perc_composed;
+
+this_model_.x_46_55_perc_composed = x_46_55_perc_composed;
+
+%policies
+this_model_.policies = policies;
 
 % =========================================================================================
 
 % Update database of models
 % =========================
 
-if this_is_the_first_case_since_starting_autopilot_on_this_machine
-    
-   if exist([DISC_PATH,models_database_],'file') == 0;
-   models_ = this_model_;
-   else
-   load([DISC_PATH,models_database_]);
-   end; % of if on certain database with certain name already existing
-    
-   save([out_file 'P_'],'P_');  % all output matrices have rows corresponding to coh
-   save([out_file 'Y_ms_j'],'Y_ms_j'); 
-       
-   this_is_the_first_case_since_starting_autopilot_on_this_machine = 0;
-end; % of if on first case since starting autopilot
+% if this_is_the_first_case_since_starting_autopilot_on_this_machine
+%     
+%    if exist([DISC_PATH,models_database_],'file') == 0;
+%    models_ = this_model_;
+%    else
+%    load([DISC_PATH,models_database_]);
+%    end; % of if on certain database with certain name already existing
+%     
+%    save([out_file 'P_'],'P_');  % all output matrices have rows corresponding to coh
+%    save([out_file 'Y_ms_j'],'Y_ms_j'); 
+%        
+%    this_is_the_first_case_since_starting_autopilot_on_this_machine = 0;
+% end; % of if on first case since starting autopilot
 
-new_index = size(models_,2) + 1;
+new_index = size(this_model_,2) + 1;
 models_(new_index) = this_model_;
-save([DISC_PATH,models_database_],'models_','-v7.3');    
+save([DISC_PATH,models_database_],'this_model_');    

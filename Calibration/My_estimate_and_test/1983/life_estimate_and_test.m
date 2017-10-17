@@ -33,9 +33,14 @@ global M C
 
 % USER: SELECT DISC_PATH, mind the trailing slash
 DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Calibration/My_Calibration/1983_Calibration/output/';
-
-models_database_name_ = [ '1983_Data', 'LIFE', 'rho095', 'beta0971_sigma115_theta069073','downpayment09'];
+models_database_name_ = [  '1983_Data', 'LIFE', 'rho095', 'beta0971_sigma115_theta067073','downpayment08'];
 models_database_ = [models_database_name_, '.mat']; 
+% models_database_name_1 = [  '1983_Data', 'LIFE', 'rho095', 'beta0961_s0005_sigma15_s01_theta07or075or08or085','downpayment08'];
+% models_database_1 = [models_database_name_1, '.mat']; 
+% models_database_name_2 = [  '1983_Data', 'LIFE', 'rho095', 'beta09799_s0005_sigma115_s01_theta060or065','downpayment08'];
+% models_database_2 = [models_database_name_2, '.mat']; 
+
+%models_database_ = [models_database_1,models_database_2]
 
 % USER: if several databases get merged before it might be simpler to adjust the following line
 % models_database_ = 'the_file_that_contains_all_merged_databases.mat';
@@ -260,6 +265,9 @@ SCF_prime_age_pctiles = [...
 SelFun_vert = inline('([vecM(10,:);vecM(11,:);vecM(12,:);vecM(13,:);vecM(14,:);vecM(15,:);vecM(16,:);vecM(17,:);vecM(18,:);vecM(19,:);vecM(20,:);vecM(21,:);vecM(22,:);vecM(23,:);vecM(24,:);vecM(25,:);vecM(26,:);vecM(27,:);vecM(28,:);vecM(29,:);vecM(30,:);vecM(31,:);vecM(32,:);vecM(33,:);vecM(34,:);vecM(35,:);vecM(36,:);vecM(37,:);vecM(38,:);vecM(39,:);vecM(40,:);vecM(41,:);vecM(42,:);vecM(43,:);vecM(44,:);vecM(45,:);vecM(46,:);vecM(47,:);vecM(48,:);vecM(49,:);vecM(50,:);vecM(51,:);vecM(52,:);vecM(53,:);vecM(54,:);vecM(55,:);vecM(56,:);vecM(57,:);vecM(58,:);vecM(59,:);vecM(60,:);vecM(61,:);vecM(62,:);vecM(63,:);vecM(64,:);vecM(65,:);vecM(66,:);vecM(67,:);vecM(68,:);vecM(69,:);vecM(70,:);vecM(71,:);vecM(72,:);vecM(73,:);vecM(74,:);vecM(75,:);vecM(76,:);vecM(77,:);vecM(78,:);vecM(79,:);vecM(80,:);vecM(81,:);vecM(82,:);vecM(83,:);vecM(84,:);vecM(85,:);vecM(86,:);vecM(87,:);vecM(88,:);vecM(89,:);vecM(90,:)])' , 'vecM');
 SelFun_vert_26_35 =      inline('([vecM(11,:);vecM(12,:);vecM(13,:);vecM(14,:);vecM(15,:);vecM(16,:);vecM(17,:);vecM(18,:);vecM(19,:);vecM(20,:);vecM(21,:);vecM(22,:);vecM(23,:);vecM(24,:);vecM(25,:);vecM(26,:);vecM(27,:);vecM(28,:);vecM(29,:);vecM(30,:);vecM(31,:);vecM(32,:);vecM(33,:);vecM(34,:);vecM(35,:);vecM(36,:);vecM(37,:);vecM(38,:);vecM(39,:);vecM(40,:);vecM(41,:);vecM(42,:);vecM(43,:);vecM(44,:);vecM(45,:);vecM(46,:);vecM(47,:);vecM(48,:);vecM(49,:);vecM(50,:);vecM(51,:);vecM(52,:);vecM(53,:);vecM(54,:);vecM(55,:);vecM(56,:);vecM(57,:);vecM(58,:);vecM(59,:);vecM(60,:);vecM(61,:);vecM(62,:);vecM(63,:);vecM(64,:);vecM(65,:);vecM(66,:);vecM(67,:);vecM(68,:);vecM(69,:);vecM(70,:);vecM(71,:);vecM(72,:);vecM(73,:);vecM(74,:);vecM(75,:);vecM(76,:);vecM(77,:);vecM(78,:);vecM(79,:);vecM(80,:);vecM(81,:);vecM(82,:);vecM(83,:);vecM(84,:);vecM(85,:);vecM(86,:);vecM(87,:);vecM(88,:);vecM(89,:);vecM(90,:)])' , 'vecM');
 
+%% Only median
+% SelFun_vert = inline('([vecM(50,:)])' , 'vecM');
+% SelFun_vert_26_35 = inline('([vecM(50,:)])' , 'vecM');
 sampleM_26_55     = SCF_prime_age_pctiles(:,2);
 sel_sampleM_26_55 = SelFun_vert(sampleM_26_55);
 
@@ -271,13 +279,15 @@ sampleM_46_55     = SCF_agedetail_pctiles(:,4);
 sel_sampleM_46_55 = SelFun_vert(sampleM_46_55);
 
 % stack all data moments: CAREFUL below to stack the model moments the SAME way
-  sel_sampleM       = [ sel_sampleM_26_35; sel_sampleM_36_45; sel_sampleM_46_55];
+  sel_sampleM       = [ sel_sampleM_26_35; sel_sampleM_36_45; sel_sampleM_46_55; 3.29];
   
 %cum_wght_prime_ageindex = cumsum(prime_real_age__prime_age_weight(:,2)); % this defines the age weights for bootstrapping according to age weights
 
 % =========================================================================
 
 load([DISC_PATH,models_database_]);
+% load([DISC_PATH,models_database_1]);
+% load([DISC_PATH,models_database_2]);
 
 pop_size = 100000;
 
@@ -296,12 +306,17 @@ sorted_cs_x_26_35 = NaN*zeros(pop_size,tot_cases);
 sorted_cs_x_36_45 = NaN*zeros(pop_size,tot_cases);
 sorted_cs_x_46_55 = NaN*zeros(pop_size,tot_cases);
 
+simM_average_durables_prime = NaN*zeros(1,tot_cases);
+
 for all_cases = 1:tot_cases;
         this_model_ = models_(all_cases);
+        %if this_model_.theta == 0.85;
             sorted_cs_x_prime(:,all_cases) = sort(this_model_.cs_x_prime,1);
             sorted_cs_x_26_35(:,all_cases) = sort(this_model_.cs_x_26_35,1);
             sorted_cs_x_36_45(:,all_cases) = sort(this_model_.cs_x_36_45,1);
             sorted_cs_x_46_55(:,all_cases) = sort(this_model_.cs_x_46_55,1);
+        %end
+        simM_average_durables_prime(all_cases) = mean(this_model_.cs_d_prime);
 end 
 
 
@@ -349,7 +364,7 @@ sel_simM_46_55    = SelFun_vert(simM_46_55);
         
 % stack all model moments: CAREFUL to stack the model moments the
 % SAME way as the data moments above
-          sel_simM       = [ sel_simM_26_35; sel_simM_36_45; sel_simM_46_55];
+          sel_simM       = [ sel_simM_26_35; sel_simM_36_45; sel_simM_46_55; simM_average_durables_prime];
 
 % specify number of steps
 for iestim = 1:total_estimation_steps; % THE ESTIMATION LOOP

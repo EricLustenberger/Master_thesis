@@ -14,16 +14,21 @@ a_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
 d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
 invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2));
 
-% initial d and a 
-% d_initial     = d_min;
-x_i_j(:,1) = x_initial; 
+% initial d and a with life_2004_calibration
+d_initial     = d_min;
+a_i_j(:,1)    = a_initial; 
 d_i_j(:,1) = d_initial;
-a_i_j(:,1) = (x_i_j(:,1) - (1-delta_)*d_i_j(:,1))/(1+r);
+
+% % with trial_life_2004_calibration
+% x_i_j(:,1) = x_initial;
+% d_i_j(:,1) = d_initial;
+% a_i_j(:,1) = (x_i_j(:,1) - (1-delta_)*d_i_j(:,1))/(1+r);
 
         for t = 1:size(Y_ms_j,2);
                 
             if t==1;
-                x_i_j(:,t)         = x_initial;
+                % x_i_j(:,t)         = x_initial; % with trial_life_2004_calibration
+                x_i_j(:,t)         = (1+r)*a_initial + (1-delta_)*d_initial; % with life_2004_calibration
             else % on initial period
                 x_i_j(:,t)         = (1+r)*a_i_j(:,t) + (1-delta_)*d_i_j(:,t);           
             end; % on initial period
@@ -44,38 +49,38 @@ a_i_j(:,1) = (x_i_j(:,1) - (1-delta_)*d_i_j(:,1))/(1+r);
 
         end; % of for in simulation over t
 
-% % %% Plotting lifetime behavior of mean agent 
-% 
-% % Drop all simulated observations which are extrapolated off the grid and set to ext_val
-% % ======================================================================================
-% 
-% ind_non_NAN = (~isnan(a_i_j) & ~isnan(d_i_j));
-% total_drops = sum(sum(isnan(a_i_j) & isnan(d_i_j))); 
-% 
-% ind_non_NAN_colm = ~(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
-% agents_drops = sum(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
-% 
-% c_i_j    =    c_i_j(ind_non_NAN_colm,:);
-% x_i_j    =    x_i_j(ind_non_NAN_colm,:);
-% a_i_j    =    a_i_j(ind_non_NAN_colm,:);
-% d_i_j    =    d_i_j(ind_non_NAN_colm,:);
-% invd_i_j = invd_i_j(ind_non_NAN_colm,:);
-% 
-% % c_t    =    c_t(1:end-1); % use choice variables only until one period before states are above the upper bound of the grid
-% % invd_t = invd_t(1:end-1);
-% % ac_t   =   ac_t(1:end-1);
-% 
-% 
-% if agents_drops > 10000;
-%  display('Too many observations dropped:');  
-%  display('Widen grid range or reduce drop_obs');
-%  pause;
-% end; % of if for number of observations below the upper bound of the grid
-% 
-% sim_sample = pop_size-agents_drops;
-% 
-% display(sprintf('Size of simulation sample:%5.0d ', sim_sample ));
-% 
+%% Plotting lifetime behavior of mean agent 
+
+% Drop all simulated observations which are extrapolated off the grid and set to ext_val
+% ======================================================================================
+
+ind_non_NAN = (~isnan(a_i_j) & ~isnan(d_i_j));
+total_drops = sum(sum(isnan(a_i_j) & isnan(d_i_j))); 
+
+ind_non_NAN_colm = ~(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
+agents_drops = sum(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
+
+c_i_j    =    c_i_j(ind_non_NAN_colm,:);
+x_i_j    =    x_i_j(ind_non_NAN_colm,:);
+a_i_j    =    a_i_j(ind_non_NAN_colm,:);
+d_i_j    =    d_i_j(ind_non_NAN_colm,:);
+invd_i_j = invd_i_j(ind_non_NAN_colm,:);
+
+% c_t    =    c_t(1:end-1); % use choice variables only until one period before states are above the upper bound of the grid
+% invd_t = invd_t(1:end-1);
+% ac_t   =   ac_t(1:end-1);
+
+
+if agents_drops > 10000;
+ display('Too many observations dropped:');  
+ display('Widen grid range or reduce drop_obs');
+ pause;
+end; % of if for number of observations below the upper bound of the grid
+
+sim_sample = pop_size-agents_drops;
+
+display(sprintf('Size of simulation sample:%5.0d ', sim_sample ));
+
 plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series plots
 
 % calculating means 

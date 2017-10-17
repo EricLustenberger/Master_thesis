@@ -121,6 +121,11 @@ this_model_.cs_x_46_55  = cs_x_46_55     ;
 % averages
 % this_model_.averages = averages ;
 
+% initial conditions
+this_model_.initail_x_i_j = x_i_j(:,1);
+this_model_.initial_d_i_j = d_i_j(:,1);
+this_model_.initial_a_i_j = a_i_j(:,1);
+
 % =========================================================================================
 
 % Update database of models

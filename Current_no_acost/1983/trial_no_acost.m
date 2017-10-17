@@ -31,8 +31,8 @@ model_parameters_no_acost
 % estimated parameters 
 
 % thus far best match with sigma 1.5
-theta = 0.8;
-beta_ = 0.9851;
+theta = 0.72;
+beta_ = 0.985;
 sigma_ = 1;
 
 % Create the grid on the state space
