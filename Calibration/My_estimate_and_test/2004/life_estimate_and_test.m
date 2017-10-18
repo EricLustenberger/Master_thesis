@@ -38,7 +38,7 @@ DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_f
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta09850995_theta07450755_sigma15','initial_conditions_liquid_assets','001']; % initial conditions by hint. and set to liquid assets
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','downpayment08']; % downpayment 08 with my initial conditions
 %models_database_name_ = ['2004_Data','LIFE','rho095','beta09850995_theta07450755_sigma15','downpayment08','001']; % downpayment without my initial conditions
-models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta0981_theta074077_sigma15','steps_005','my_initial_cond','higher_risk0624']; % with higher risk
+models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','higher_risk0624']; % with higher risk
 
 models_database_ = [models_database_name_, '.mat']; 
 % USER: if several databases get merged before it might be simpler to adjust the following line

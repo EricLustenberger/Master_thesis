@@ -112,42 +112,54 @@ The main goal of this paper is to contribute to the net-worth literature by inve
 Doing so, using detailed micro-data for income as well as the net-worth distributions for three different age groups thus allows me to accurately illustrate, what part of the distribution can be explained by the model and where the model presents shortcomings. Moreover, I look at two important determinants, the income risk and the LTV-ratio by simulating unexpected changes to illustrate how these affect the distribution across different age groups and the consumption-savings decision across the life-cycle. Finally, I show that the initial portfolio allocation is particularly important to predict the the net-worth distribution of the youngest age group when calibrating the model.\\
 
 I use detailed consumer data from \cite{hintermaier2011} to evaluate the out of sample prediction of the evolution of the net-worth distribution in the US in a model abstracting from durables. 
-Modeling durables is particularly interesting, since they exhibit a dual-role. On the one hand consumers derive consumption services by holding durables, one the other hand, they may use these as collateral to borrow and thus transfer wealth across time. \cite{FV&K2011} show that this dual role is important to reproduce the non-durable consumption life-cycle profile. \cite{diaz2010} investigates the role of housing in the wealth-distribution in the US  using an infinite-horizon model. 
+Modeling durables is particularly interesting, since they exhibit a dual-role. On the one hand consumers derive consumption services by holding durables, one the other hand, they may use these as collateral to borrow and thus transfer wealth across time. \cite{FV&K2011} show that this dual role is important to reproduce the non-durable consumption life-cycle profile. An abstraction from durables may therefore bias life-cycle profiles of non-durable consumption and thus the accumulation of net-worth in a model with one asset. Moreover, they point out that durables help to explain why households with higher life-cycle income save proportionally more than poor households. As the durable stock rises, liquid assets become relatively more attractive and thus rich consumers with a high durable stock will increase their liquid assets.\cite{diaz2010} investigates the role of housing in the wealth-distribution in the US  using an infinite-horizon model. 
 I show that my model is able to accurately reproduce life-cycle profiles of the portfolio composition as well as non-druable consumption over the life-cycle observed in the data. In order to do so, I compare the simulated life-cycle profiles to the empirical data presented in other literature.
-\\
+\\ \\
+The first section discusses the theoretical literature, whose motive is to find determinants of net-worth and empirically validate these. The second section presents important empirical facts of the wealth distribution. In the third section I present the model. The fourth discusses the calibration and in the fifth I present the results. The sixth section concludes. 
 
 \section{Modeling the wealth distribution}
+\label{Modeling the wealth distribution}
 
-\subsection{Net-Worth}
-The modeling of distributions requires some form of heterogeneity. The standard model used to achieve heterogeneity and thus differences among agents is the standard incomplete markets model (SIM)   \citep{heathcote2009quantitative}. In this model, ex-ante identical consumers are subject to uninsurable idiosyncratic income risks. In order to insure themselves against these income shocks agents accumulate precautionary savings. Since income histories vary according to the agent, these accumulate different amounts of savings resulting in an endogenous wealth distribution. This model is mainly based on the works of Bewley, Aiyagari, Hugget and Imorphoglu and thus sometimes refered to as Bewely-Aiyagari-Hugget-Imorghoroglu model. \\
+The modeling of distributions requires some form of heterogeneity. The standard model used to achieve heterogeneity and thus differences among agents is the standard incomplete markets model (SIM)   \citep{heathcote2009quantitative}. In this model, ex-ante identical consumers are subject to uninsurable idiosyncratic income risks. In order to insure themselves against these income shocks agents accumulate precautionary savings. Since income histories vary according to the agent, these accumulate different amounts of savings resulting in an endogenous wealth distribution. An important feature is thereby the exogenously determined imperfect market structure, which leads to the accumulation of precautionary savings, since the trade of contingent claims is assumed away. \footnote{Note, in a complete market framework consumers could perfectly diversify away idiosyncratic risks \citep{a&w2010}.} Consumers are thus limited to a certain choice of assets. The canonical version allows for a one-time period bond only \--- Commonly interpreted as net-worth holdings. The hypothesis of the complete market framework has been rejected by the vast majority of empirical research \citep{a&w2010}. \cite{deaton1994} show that the life-cycle profile of consumption inequality is increasing with age, a fact that would be inconsistent with complete markets. Moreover, the assuming away markets, where individuals can trade contingent claims to insure themselves against the idiosyncratic wage shocks is justified by moral hazard problems \citep{FV&K2011}. While in some rare cases - such as when only studying aggregates, it may still be sufficient to consider a complete market framework, when considering wealth-distributive questions, the imperfect market assumption is both necessary from a theoretical perspective and well-founded from an empirical perspective. It remains to discuss the whether it makes sens to treat distributive issues from a life-cycle point of view.
+This model is mainly based on the works of \cite{bewley}, \cite{aiyagari1994}, \cite{hugget} and Imorphoglu and thus sometimes referred to as Bewely-Aiyagari-Hugget-Imorghoroglu model. \\
 
-An important application of these models is the evaluation of the empirical prediction of the wealth-distribution.\footnote{The application of such models ranges from ... to... CITE.} Investigate empirical predictions of the life-cycle incomplete markets model. \cite{Gourinchas&Parker2002}; \cite{castaneda2003} for predictions of the cross-section or \cite{hintermaier2011} for the study of distributional dynamics. More recent literature has primarily focused on modeling the the right tail of the wealth distribution, which is particularly challenging, as the canonical SIM fails to produce the extreme density of wealth found among the richest in empirical data \citep{denardi2017}. A commonly used approach entails modeling extreme income shocks in order to provoke precautionary savings to match the vast accumulation of assets by the very top of the wealth distributionand is based \cite{castaneda2003} (\citep{diaz2010} or \citep{kaymak2016evolution} for a more recent implementations). \cite{krusell1998} were the first to point out that a stochastic discount factor across dynasties can account for the variance of the cross-sectional distribution of wealth and does increase the wealth concentration among the richest. Other approaches are: A heterogeneous interest rates \citep{benhabib2015}, a richer earnings process \citep{denardi2016}  or entrepreneurship \citep{cagetti2009}. \cite{denardi2014} show that adding voluntary bequests and intergenerational transmission of earnings drastically improves the model's prediction for the empirical cross-sectional differences in wealth at retirement as well as their correlation with lifetime incomes.  Although these additional modeling features are able to better approximate the right tail of the wealth distribution, they still fail to produce a satisfying representation. \footnote{For a more indebted review and the shortcomings of the different modeling approaches of this literature, see \citep{denardi2017}.} \\ 
-These studies, for the exception of.........., use life-cycle models. 
+An important application of these models is the evaluation of the empirical prediction of the wealth-distribution.\footnote{The application of such models ranges from ... to... CITE.} The following authors have investigated empirical predictions of the life-cycle incomplete markets model. \cite{Gourinchas&Parker2002}; \cite{castaneda2003} for predictions of the cross-section or \cite{hintermaier2011} for the study of distributional dynamics. More recent literature has primarily focused on modeling the the right tail of the wealth distribution, which is particularly challenging, as the canonical SIM fails to produce the extreme density of wealth found among the richest in empirical data \citep{denardi2017}. A commonly used approach entails modeling extreme income shocks in order to provoke precautionary savings to match the vast accumulation of assets by the very top of the wealth distributionand is based \cite{castaneda2003} (\citep{diaz2010} or \citep{kaymak2016evolution} for a more recent implementations). \cite{krusell1998} were the first to point out that a stochastic discount factor across dynasties can account for the variance of the cross-sectional distribution of wealth and does increase the wealth concentration among the richest. Other approaches are: A heterogeneous interest rates \citep{benhabib2015}, a richer earnings process \citep{denardi2016}  or entrepreneurship \citep{cagetti2009}. \cite{denardi2014} show that adding voluntary bequests and intergenerational transmission of earnings drastically improves the model's prediction for the empirical cross-sectional differences in wealth at retirement as well as their correlation with lifetime incomes.  Although these additional modeling features are able to better approximate the right tail of the wealth distribution, they still fail to produce a satisfying representation. \footnote{For a more indebted review and the shortcomings of the different modeling approaches of this literature, see \citep{denardi2017}.} \\ 
+These studies, for the exception of.........., use life-cycle models. As \cite{deaton1994} show, consumption inequality seems to vary with age. Further empirical research does support these findings, indicating that some of the differences in earnings, income, and wealth across households can be attributed to differences in the household's age \cite{rios2016} (FIND BETTER REFERENCES?). \cite{hintermaier2011} Show that the average net-wealth increases with wealth and that the dispersion of wealth falls with age. 
+Moreover, there is a vast theoretical literature using a different versions of the life-cycle model to discuss distributive questions.  \cite{Gourinchas&Parker2002}; \cite{cagetti2003}; \cite{castaneda2003}; \cite{yang2009}; \cite{kaplan2010};\cite{hintermaier2011} (CITE MORE RECENT LITERATURE!!!)
+while there are also some that use infinite horizon models....
 
-\subsection{Modeling Durables}
-Including durables into the canonical SIM-Model with one asset is interesting for several reasons. Durables exhibit a dual role. Firstly, they are a consumption good and, therefore consumers draw utility services from that good. Secondly, durables can be used as collateral and thus facilitate borrowing as the individual durable stock rises. \cite{FV&K2011} show that due to the dual role durables are important to replicate average non-durable consumption over the life-cycle observed in the data. An abstraction from durables may therefore bias life-cycle profiles of non-durable consumption and thus the accumulation of net-worth in a model with one asset. Moreover, they point out that durables help to explain why households with higher life-cycle income save proportionally more than poor households. \cite{yang2009} shows that borrowing constraints are important in explaining the accumulation of housing assets early in life.  \cite{gruber2003precautionary} show that durables are important for the accumulation of precautionary savings and \cite{diaz2010}, show that an infinite-horizon model with durables can replicate portfolio changes with the level of wealth. They further investigate distributional consequences of changes in financial liberalization, simulating changes in the down payment. \cite{cho2012accounting} show that changes in the LTV ratio can account for 40\% of the difference in homeownership between Korea and the US. 
+Finally, the choice to study the empirical validity of a life-cycle model, which produces a net-wealth distribution arising from rational choices of consumers subject to income uncertainty, moreover allows for a detailed analysis of consumption and savings behavior over a person's live-cycle. A coherent framework incorporating the behavior of household's over their lifespan is paramount for the study of re-distributive policies. (Cite....)
+These factors thus support the choice of a life-cycle model. 
+
+The role of borrowing constraints. 
+\\
+Whereas the literature demonstrating that a plaubily parameterized version of the SIM can quantitatively explain features of the net-worth distribution is quite large, few of these models incorporate durables. Besides the authors mentioned in the introduction, a few others investigate the importance of modeling durables. \cite{yang2009} shows that borrowing constraints are important in explaining the accumulation of housing assets early in life. \cite{gruber2003precautionary} show that durables are important for the accumulation of precautionary savings. \cite{cho2012accounting} show that changes in the LTV ratio can account for 40\% of the difference in homeownership between Korea and the US. 
 
 
+
+
+
+
+(((((((((demonstrate that a plausibly parameterized version of their models can quantitatively explain empirical findings as arising from rational choices of consumers facing an increasing wage profile and income uncertainty.))))))))
+
+
+\section{Facts about the Net-Worth distribution }
+Changes across age groups
+Net worth
+Portfolio composition 
+Financial liberalization 
 
 \section{Research Strategy}
-As discussed above, the modeling of the top of the wealth distribution is still unsatisfactory, unless one models extreme income shocks. The resulting income process is, however, far from realistic. Conclusions, drawn from such a model may therefore be biased. 
+As discussed above, the modeling of the top of the wealth distribution is still unsatisfactory, unless one models extreme income shocks. The method introduced by \cite{castaneda2003} (OR ADDING PARETO SHAPED TAIL PIKETTY AND SAEZ 2003)  is based on calibrating the income process in order to match the Lorenz curves of both earnings and wealth inequality and is thus not estimated based on micro-level data on earnings. This application, although able to match the right tail of the wealth distribution, therefore uses cross-sectional moments rather than household level data on earnings dynamics over time. The advantage is to get around the issue of oversampling and top-coding for the richest \citep{heathcote2009quantitative}. It, however, is unclear, whether the actual earnings process can produce the strong concentration of wealth at the top of the distribution (\cite{denardi2017}. \cite{hintermaier2011} propose an alternative strategy, namely to focus on the the wealth distribution up to the 90th percentile. Moreover, they focus on consumers between the ages 26 and 55 for whom changes in labor earnings are most relevant  and that are not affected by measurement problems due to changes in the pension plans, which are poorly measured by the SCF Data. As these authors point out,  this strategy is robust if general equilibrium feedback effects on the consumers excluded do not adversely affect the result. 
 
+\subsubsection{Partial Equilibrium}
+Last but not least, partial equilibrium as modeling choice has to be discussed briefly. (????????????????)
 
-
-
-I will thus chose the former strategy. Since calibrating the income process separately from the wealth distribution and thus reproducing a more realistic modeling of income risk does not allow for a representation of the right tail of the wealth distribution I focus on the distribution up to the 9th percentile. As \cite{hintermaier2011} argue this strategy is robust if general equilibrium feedback effects on the consumers excluded do not adversely affect the result.
-
-
-; \cite{yang2009}; \cite{kaplan2010}; ), thus contribute to the literature that (note copy paste.... demonstrate that a plausibly parameterized version of their models can quantitatively explain empirical findings as arising from rational choices of consumers facing an increasing wage profile and income uncertainty.)
-
-
+(copy paste from hintermaier 2011
+Note that we assume that changes in the domestic supply of assets do not affect do not affect the interest rate. As in a small-open economy, this price is determined exogenously (on the world markets.) \footnote{This assumption is not restrictive for our purposes since we observe the price in our ex post analysis for the period 1983-2007. Hence, the supply of assets and the observed price suffice to determine the equilibrium asset quantities. This allows us to be agnostic about the price elasticity of asset demand.})
 
 The first quantitative was based on the following the work of Kydland and Prescott (1982) was based on the representative agent paradigm. One of the main reasons of abstracting from heterogeneity and incomplete markets was the lack of dynamic tools to solve such models. \cite{heathcote2009quantitative} Over the past twenty years computational power has increased substantially and numerous dynamic methods have been developed, thus allowing to solve more complex models. This development is crucial for the modeling of distributions. \\
 Modeling heterogeneity is important for several reasons: precautionary savings as a consequence of idiosyncratic uncertainty increases aggregate savings and, thus, decreases the interest rate \cite{hugget}
-
-The choice of an exogenously determined imperfect market structure allows for a straight forward answer. It comes down to the economic question one poses. The aim here is to demonstrate that such a model can quantitatively explain the empirical net-wealth distribution in the US. The role the imperfect market structure, entering as a limited choice of assets to fully insure against idiosyncratic wage shocks, poses, is thus to produce an endogenous wealth distribution. The savings are fist and foremost driven by a precautionary motive to insure for future wage shocks. Knowing that the income may drop in the future consumers save today to achieve a more stable consumption across their live. In a complete market framework consumers could perfectly diversify away idiosyncratic risks \citep{a&w2010}  (and thus would not build a buffer stock of savings for future shocks.) (???????? is this exact?????)
-The hypothesis of the complete market framework has been rejected by the vast majority of empirical research \citep{a&w2010}. \cite{deaton1994} show that the life cycle profile of consumption inequality is increasing with age, a fact that would be inconsistent with complete markets. Moreover, the assuming away markets, where individuals can trade contingent claims to insure themselfs against the idiosyncratic wage shocks is justified by moral hazard problems \citep{FV&K2011}. While in some rare cases - such as when only studying aggregates, it may still be sufficient to consider a complete market framework, when considering wealth-distributive questions, the imperfect market assumption is both necessary from a theoretical perspective and well-founded from an empirical perspective. It remains to discuss the whether it makes sens to treat distributive issues from a life-cycle point of view.
-
 
 \section{Literature Overview}
 \label{Chapter2}
@@ -161,22 +173,7 @@ Note: missing citations, not all of the above are cited properly!!!!!
 
 Literature on wealth distribution!!!!! 
 
-\section{Facts about the wealth distribution}
-Changes across age groups
-Net worth
-Portfolio composition 
-Financial liberalization 
-\section{Research strategy}
 
-In the following I explain the strategy I use to shed light on the effect of different parametrisations on the wealth distribution as well as the life-cycle behavior of consumers. \\ As I will further discuss below, one crucial driver of heterogeneity, which manifests itself through different portfolio holdings in these models, is the income process. Permanent uninsurable income shocks lead to different choices in the accumulation of assets and eventually lead to a wealth distribution. Hence, the modeling of the income process is crucial. \\ Two general approaches can be distinguished. For one, there is the approach to closely match the individual income process and hence calibrating the income process independantly of wealth distributional apsects. \cite{hintermaier2011} or \cite{hintermaier2016} estimate age effects from the data and then take the variance of the residuals the retrieve the income shocks. The big plus of such an approach is to closely model the income process on a micro level. Changes in determinants of this process can thus be directly incorporated in the analysis. The downside is, that such models are not able to match the top part of the wealth distribution \cite{denardi2017}. Another approach commonly used in the literature is thus to calibrate the income process to match features of the income- as well as the wealth distribution at the same time. This approach is base on a paper from \cite{castaneda2003}. (OR ADDING PARETO SHAPED TAIL PIKETTY AND SAEZ 2003) 
-
-\subsection{Prime Age Sample}
-Moreover, I will focus on consumers aged between 26 and 55, where income risk plays an important role for the accumulation of savings. 
-
-
-\section{Generating a wealth distribution}
-\label{Chapter3}
-In the following section I discuss the economic model considered and outline the most important considerations made within the literature. Firstly, I discuss the life-cycle modeling and the literature, which applies life-cycle and to be more exact imperfect markets models in the context of wealth distributions. Secondly, I present my modeling choices and solution methods applied for this particular problem. 
 \subsection{Modeling Literature}
 
 \subsection{The Model}
@@ -184,27 +181,6 @@ Before going into a more detailed description of the model at hand it is importa
 
 To answer the first question I will mainly refer to the the literature. The second will be discussed in a more detailed manner in the following section, which treads the life-cycle profiles and especially the importance of modeling durables. 
 
-\subsubsection{Imperfect market structure}
-
-
-\subsubsection{Life-Cycle}
-
-As \cite{deaton1994} show, consumption inequality seems to vary with age. Further empirical research does support these findings, indicating that some of the differences in earnings, income, and wealth across households can be attributed to differences in the household's age \cite{rios2016} (FIND BETTER REFERENCES?). \cite{hintermaier2011} Show that the average net-wealth increases with wealth and that the dispersion of wealth falls with age. 
-Moreover, there is a vast theoretical literature using a different versions of the life-cycle model to discuss distributive questions.  \cite{Gourinchas&Parker2002}; \cite{cagetti2003}; \cite{castaneda2003}; \cite{yang2009}; \cite{kaplan2010};\cite{hintermaier2011} (CITE MORE RECENT LITERATURE!!!)
-while there are also some that use infinite horizon models....
-
-Finally, the choice to study the empirical validity of a life-cycle model, which produces a net-wealth distribution arising from rational choices of consumers subject to income uncertainty, moreover allows for a detailed analysis of consumption and savings behavior over a person's live-cycle. A coherent framework incorporating the behavior of household's over their lifespan is paramount for the study of re-distributive policies. (Cite....)
-These factors thus support the choice of a life-cycle model. 
-
-
-\subsubsection{Partial Equilibrium}
-Last but not least, partial equilibrium as modeling choice has to be discussed briefly. (????????????????)
-
-(copy paste from hintermaier 2011
-Note that we assume that changes in the domestic supply of assets do not affect do not affect the interest rate. As in a small-open economy, this price is determined exogenously (on the world markets.) \footnote{This assumption is not restrictive for our purposes since we observe the price in our ex post analysis for the period 1983-2007. Hence, the supply of assets and the observed price suffice to determine the equilibrium asset quantities. This allows us to be agnostic about the price elasticity of asset demand.})
-
-\subsubsection{The Income Process}
-\cite{kaplan2010} discuss various features of the income process in more detail.
 
 \subsection{The determinants of savings}
 \label{determinants}

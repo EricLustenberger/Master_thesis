@@ -3,6 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: bib_thesis.bib
+Warning--I didn't find a database entry for "bewley"
 Warning--I didn't find a database entry for "hugget"
 Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--I didn't find a database entry for "yang2006"
@@ -10,7 +11,7 @@ Warning--empty journal in gruber2003precautionary
 Warning--there's a number but no volume in rios2016
 You've used 28 entries,
             2773 wiz_defined-function locations,
-            775 strings with 9179 characters,
+            776 strings with 9185 characters,
 and the built_in function-call counts, 12357 in all, are:
 = -- 1160
 > -- 604
@@ -49,4 +50,4 @@ warning$ -- 2
 while$ -- 129
 width$ -- 0
 write$ -- 374
-(There were 5 warnings)
+(There were 6 warnings)
