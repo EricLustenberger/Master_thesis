@@ -146,15 +146,49 @@ Besides the authors mentioned in the introduction, a few others investigate the 
 
 
 \section{Facts about the Net-Worth distribution }
-\paragraph{Changes across age groups}
+\paragraph{Net-Worth and Changes across age groups}
+There are substantial differences in the net-worth distribution across different age groups. Table \ref{facts_changes} displays the gini-coefficients and the means for three different age groups, both for the whole sample, as well as up to the 90th percentile.\footnote{The table corresponds to the column for the SCF 2004 US data in Table 2 of \cite{hintermaier2011}. } \\
+
+\begin{table}[!htbp]
+\centering
+\caption{My caption}
+\label{facts_changes}
+\begin{tabular}{@{}llll@{}}
+\toprule
+                     & Age 26-35 & Age 36-45 & Age 46-55 \\ \midrule
+\textbf{Full sample}          &           &           &           \\
+Mean                 & 2.28      & 5.90      & 12.49     \\
+Gini coefficient     & 0.824     & 0.765     & 0.765     \\
+\textbf{Sample $\leq$ 90th pctile} &           &           &           \\
+Mean                 & 0.80      & 2.36      & 4.81      \\
+Gini coefficient     & 0.713     & 0.596     & 0.564     \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The average wealth holding is more than $2$ times larger with each age group, for both the full distribution and the distribution up to the 90th percentile. Mean wealth thus increases substantially across age groups. While average wealth is increasing, the gini-index indicates that the within age group inequality tends to be increasing. The only exception is the stagnation between the older age groups for the full distribution. \cite{hintermaier2011} show that this pattern holds true for the years 1983 to 2007, with the exception that inequality tends to  increase between the last two age-groups for the whole sample.\footnote{See Table 2 in their paper.} (ADD OTHER NEWER SOURCE!!!) \\
+
+Furthermore, the differences between the full sample and the 90th percentile sample indicate that the wealth held by the top 10\% is quite significant and its magnitude is relatively increasing in the age groups. 
+
+
+Figure \ref{wealth_data_90} plots the detailed net-worth distribution for different age groups of the US in 2004 up to the 90th percentile. The data is SCF data from \cite{hintermaier2011}.
+
+\begin{figure}[!htbp]
+\caption{Average Durable Holdings over the Life-Cycle} 
+\label{wealth_data_90}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.6]{Figures/distribtion_10_90th_base}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
+\end{minipage}
+
+\end{figure}
+
+Both inequality and average wealth differs across the age groups. While  the ginis are decreasing, the mean holdings of net-worth increase as the agents get older. 
 
 As \cite{deaton1994} show, consumption inequality seems to vary with age. Further empirical research does support these findings, indicating that some of the differences in earnings, income, and wealth across households can be attributed to differences in the household's age \cite{rios2016} (FIND BETTER REFERENCES?).
 
-\paragraph{Net worth}
-\paragraph{Portfolio composition} 
-\paragraph{Financial liberalization} 
-
-\paragraph{Durables}
+\paragraph{Portfolio composition and the importance of Durables} 
 
 \begin{enumerate}
 \item \cite{FV&K2011} 
@@ -162,6 +196,10 @@ As \cite{deaton1994} show, consumption inequality seems to vary with age. Furthe
 \item empirical observation that durables constitute a large fraction of households' asset holdings - hh hold 35\% of their total assets in durables and only 28\% in equity (flow of funds account 2nd quarter) 
 \end{enumerate}
 \end{enumerate}
+
+\paragraph{Financial liberalization} 
+
+
 
 \section{Research Strategy}
 As discussed above, the modeling of the top of the wealth distribution is still unsatisfactory, unless one models extreme income shocks. The method introduced by \cite{castaneda2003} is based on calibrating the income process in order to match the Lorenz curves of both earnings and wealth inequality and is thus not estimated based on micro-level data on earnings. This application, although able to match the right tail of the wealth distribution, therefore uses cross-sectional moments rather than household level data on earnings dynamics over time. The advantage is to get around the issue of oversampling and top-coding for the richest \citep{heathcote2009quantitative}. It, however, is unclear, whether the actual earnings process can produce the strong concentration of wealth at the top of the distribution (\cite{denardi2017}. \cite{hintermaier2011} propose an alternative strategy, namely to focus on the the wealth distribution up to the 90th percentile. Moreover, they focus on consumers between the ages 26 and 55 for whom changes in labor earnings are most relevant  and that are not affected by measurement problems due to changes in the pension plans, which are poorly measured by the SCF Data. As these authors point out,  this strategy is robust if general equilibrium feedback effects on the consumers excluded do not adversely affect the result. 
