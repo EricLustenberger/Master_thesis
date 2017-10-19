@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{33}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,11 +18,18 @@ Orazio~P Attanasio, James Banks, Costas Meghir, and Guglielmo Weber.
 \newblock \emph{Journal of Business \& Economic Statistics}, 17\penalty0
   (1):\penalty0 22--35, 1999.
 
-\bibitem[Benhabib et~al.(2015)Benhabib, Bisin, and Luo]{benhabib2015}
-Jess Benhabib, Alberto Bisin, and Mi~Luo.
-\newblock Wealth distribution and social mobility in the us: A quantitative
-  approach.
-\newblock Technical report, National Bureau of Economic Research, 2015.
+\bibitem[Benhabib et~al.(2011)Benhabib, Bisin, and
+  Zhu]{benhabib2011distribution}
+Jess Benhabib, Alberto Bisin, and Shenghao Zhu.
+\newblock The distribution of wealth and fiscal policy in economies with
+  finitely lived agents.
+\newblock \emph{Econometrica}, 79\penalty0 (1):\penalty0 123--157, 2011.
+
+\bibitem[Bewley(1977)]{bewley1977permanent}
+Truman Bewley.
+\newblock The permanent income hypothesis: A theoretical formulation.
+\newblock \emph{Journal of Economic Theory}, 16\penalty0 (2):\penalty0
+  252--292, 1977.
 
 \bibitem[Cagetti(2003)]{cagetti2003}
 Marco Cagetti.
@@ -142,11 +149,25 @@ Thomas Hintermaier and Winfried Koeniger.
 \newblock \emph{American Economic Journal: Macroeconomics}, 8\penalty0
   (4):\penalty0 103--141, 2016.
 
-\bibitem[Kaplan and Violante(2010)]{kaplan2010}
-Greg Kaplan and Giovanni~L Violante.
-\newblock How much consumption insurance beyond self-insurance?
-\newblock \emph{American Economic Journal: Macroeconomics}, 2\penalty0
-  (4):\penalty0 53--87, 2010.
+\bibitem[Huggett(1993)]{huggett1993risk}
+Mark Huggett.
+\newblock The risk-free rate in heterogeneous-agent incomplete-insurance
+  economies.
+\newblock \emph{Journal of economic Dynamics and Control}, 17\penalty0
+  (5):\penalty0 953--969, 1993.
+
+\bibitem[Huggett(1996)]{huggett1996wealth}
+Mark Huggett.
+\newblock Wealth distribution in life-cycle economies.
+\newblock \emph{Journal of Monetary Economics}, 38\penalty0 (3):\penalty0
+  469--494, 1996.
+
+\bibitem[{\.I}mrohoroglu et~al.(1995){\.I}mrohoroglu, Imrohoroglu, and
+  Joines]{imrohoroglu1995life}
+t~distre~onAy{\c{s}}e {\.I}mrohoroglu, Selahattin Imrohoroglu, and Douglas~H
+  Joines.
+\newblock A life cycle analysis of social security.
+\newblock \emph{Economic theory}, 6\penalty0 (1):\penalty0 83--114, 1995.
 
 \bibitem[Kaymak and Poschke(2016)]{kaymak2016evolution}
 Bar{\i}{\c{s}} Kaymak and Markus Poschke.
@@ -159,6 +180,16 @@ Per Krusell and Anthony~A Smith, Jr.
 \newblock Income and wealth heterogeneity in the macroeconomy.
 \newblock \emph{Journal of political Economy}, 106\penalty0 (5):\penalty0
   867--896, 1998.
+
+\bibitem[Ljungqvist and Sargent(2012)]{ljungqvist2012recursive}
+Lars Ljungqvist and Thomas~J Sargent.
+\newblock \emph{Recursive macroeconomic theory}.
+\newblock MIT press, 2012.
+
+\bibitem[R{\'\i}os-Rull(1995)]{rios1995models}
+Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
+\newblock Models with heterogeneous agents.
+\newblock \emph{Frontiers of business cycle research}, pages 98--125, 1995.
 
 \bibitem[Rios-Rull et~al.(2016)Rios-Rull, Kuhn, et~al.]{rios2016}
 Jose-Victor Rios-Rull, Moritz Kuhn, et~al.
