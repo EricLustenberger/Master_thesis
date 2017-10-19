@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -190,12 +190,6 @@ Lars Ljungqvist and Thomas~J Sargent.
 Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
 \newblock Models with heterogeneous agents.
 \newblock \emph{Frontiers of business cycle research}, pages 98--125, 1995.
-
-\bibitem[Rios-Rull et~al.(2016)Rios-Rull, Kuhn, et~al.]{rios2016}
-Jose-Victor Rios-Rull, Moritz Kuhn, et~al.
-\newblock 2013 update on the us earnings, income, and wealth distributional
-  facts: A view from macroeconomics.
-\newblock \emph{Quarterly Review}, \penalty0 (April):\penalty0 1--75, 2016.
 
 \bibitem[Tideman and Weber(2010)]{a&w2010}
 Sander Tideman and Guglielmo Weber.
