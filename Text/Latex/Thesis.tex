@@ -207,7 +207,8 @@ As established above, the baseline model in question is a life-cycle model with 
 \subsection{Demographics}
 There is a continuum of ex ante identical risk averse consumers with a finite time horizon. At age 90 consumers die with certainty, younger consumers between the age of 26 and 90 may die with probability $\pi_{j} < 1$ at age $j$.
 \subsection{Consumer's Problem} 
-\paragraph{Consumption savings decision}Consumers derive utility from a durable good $d$ and a non-durable good $c$. The utility function $U(c,d)$ is strictly increasing in both arguments and strictly concave, with diminishing returns for both arguments and allowed to be non-separable in $c$ and $d$. The choice-set of assets is restricted to durables $d$ and a one-period bond $a$. Preferences are assumed to be time separable and future utility is discounted with a constant discount factor $\beta$.
+\paragraph{Consumption savings decision}
+Consumers derive utility from a durable good $d$ and a non-durable good $c$. The utility function $U(c,d)$ is strictly increasing in both arguments and strictly concave, with diminishing returns for both arguments and allowed to be non-separable in $c$ and $d$. The choice-set of assets is restricted to durables $d$ and a one-period bond $a$. Preferences are assumed to be time separable and future utility is discounted with a constant discount factor $\beta$.
 In each period, after receiving the income $y_{ij}$, consumers decide on the amount they want to consume in this period $c_{j}$ and next periods portfolio composition $d_{j+1}$ and the financial risk-free asset $a_{j+1}$ are chosen after receiving the income. Agents then derive utility from consumption and durable services, before the assets pay returns. While the liquid assets return an interest rate $r$ durables depreciate at rate $\delta$. This implies the following budget constraint:  
 
 \begin{equation}
@@ -231,6 +232,8 @@ Durable serve both as consumption good and value storing asset, since their dura
 \end{equation}
 
 where $\underline{y_{j}}$ is the minimum labor income realization across all states in each period and $\mu \in [0,1) and \gamma \in [0,1)$ are the respective fractions of the durable stock and of minimum labor income, which can be collateralized. The timing assumptions made above imply that this constraint guarantees full repayment by consumers and thus acts as non-bankruptcy constraint.\footnote{This is assured by the fact, that the lender does know the financial portfolio choice $(a_{j+1},d_{j+1})$ and the minimum of the support of the income distribution for all ages, but does not know the realization of future income shocks.$\underline{y_{j}}$.} $\gamma\underline{y_{j}}$ can be interpreted as debts where the wage plays a major part in the risk assessment from the lender's side i.e. credit card debts or short-term unsecured loans. 
+(ASSUMPTIONS DO NOT MAKE SENSE!!!) 
+
 \paragraph{Net-Worth in the model} 
 Net-worth is defined as:
 \begin{equation}
@@ -274,17 +277,25 @@ CHECK THE PART OF INCOME THAT CAN BE USED TO ACQUIRE DEBT!!!!!!!!!!!!!!!!!!!!!!!
 
 After retirement, for periods $j \geq T^{r}$, the income $y_{ij}$ is given by $b(z_{i,T^{r}})$, the retirement benefits $b$ depending on the last realization of labor income before retirement $z_{i,T^{r}}$.
 
+\subsection{Equilibrium Concept}
+The interest rate is fixed, assuming that changes in the domestic supply of assets do not affect the economy. This assumption corresponds to a small open economy. Moreover, as the price is observed in the ex-post analysis it suffices to determine the equilibrium asset quantities \citep{hintermaier2011}. Furthermore, it is assumed that the assets of agents, who dye are taxed away and that equilibrium feedbacks from the government budget constraint are negligible. (ARE THESE ASSUMPTIONS REASONABLE???)  
 
 \subsection{Motivation}
-The limited variety of assets implies an incomplete market structure, which hinders consumers to perfectly diversify away the idiosyncratic risk from income uncertainty. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. Moreover, the optimal decision will depend on the consumers age. The model is therefore well suited to match  net-worth distributional facts  introduced above, as well as differences across ages. \\
+There are a variety of characteristics of this model that demonstrate the its suitability for the analysis at hand. The limited variety of assets implies an incomplete market structure, which hinders consumers to perfectly diversify away the idiosyncratic risk from income uncertainty. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. Moreover, the optimal decision will depend on the consumers age. The model is therefore well suited to match  net-worth distributional facts  introduced above, as well as differences across ages.
 
 \subsection{The determinants of savings}
 \label{determinants}
+The model presented above accommodates several determinants of savings, the accumulation of net-worth, which I will briefly outline here. These will be further discussed in the subsequent analysis. 
 
-\paragraph{The experience premium and retirement benefits} As will be described further below, the model incorporates an experience premium as well as retirement benefits. This part of the income is deterministic and thus consumers's perfectly anticipate it. 
+\paragraph{The Experience Premium} The experience premium corresponds to the deterministic part of the labor income before retirement and thus is known with certainty prior to realization to all consumers. An expected higher income causes perfectly rational consumers to reduce their present savings and increase consumption as they seek to smooth consumption across their life-cycle. 
 
+\paragraph{Life-Cycle Risk} The life-cycle risk has the exact opposite effect. As consumers anticipate a large drop in their income due to retirement at the age of 65, they seek to accumulate more assets in order to save for retirement. As... and ... have shown, consumers mainly save in liquid assets for retirement. Moreover, this effect starts to become more important as consumers age. It's importance is therefore of small magnitude for the present analysis. As discussed above, I focus on consumers aged 26 to 55, where the income process is the main driver of the income risk. 
 
-income increases as their working experience grows. But as they get older their productivity decreases again,which leads to a hump shaped income. Rational consumers perfectly anticipate this part of earnings
+\paragraph{Income Risk} As that same author shows, income risk mainly dominates life-cycle risk in the early part of life. This effects illustrates the risk  a lower future income. Agents accumulate precautionary savings to save up for rainy days, as they seek to smooth consumption. \cite{aiyagari1994} shows the importance of precautionary savings for the aggregate capital stock. 
+
+\paragraph{Borrowing Constraint} Another important determinant of savings in these models is the borrowing constraint. A tighter constraint limits the insurance potential of liquid assets. The particularity of the present model is an endogenous borrowing constraint. Consumers with higher durable holdings can borrow more. Moreover, there is a small but quantitatively negligible effect of the experience premium allowing for more borrowing due to a higher minimal state for older wage earners. (BE MORE PRECISE, PRESENT EVIDENCE WHY IT IS NEGLIGABLE). \cite{FV&K2011} show that this leads to a higher dispersion of net-worth with respect to earnings. (BE MORE PRECISE. WHY EXACTLY???) 
+
+\paragraph{The relative price of durables} ARE YOU SURE??? As the durable stock increases, liquid assets become relatively more attractive. WHAT DOES IT MEAN FOR NET-WORTH???? 
 
 Early life-cycle models predict consumption (SLOWLY DECREASING???) to be flat over the life-cycle. This is the case, when perfect consumption smoothing can be achieved. With an income profile observed above, agents would thus accumulate debt, when expected future earnings are high to substitute this higher income for lower income today. And high current income is converted into savings when future higher earnings are low. (CITE A MODEL OF THIS TYPE) 
 \paragraph{Income uncertainty} The each period the consumer receives an idiosyncratic income shock, which unanticipated 
@@ -300,8 +311,6 @@ Endogenous borrowing constraint: The specification of the borrowing constraint  
 Literature on optimal portfolio choice in the presence of consumer durables: Grossman and Laroque (1990), Eberly (1994), Chah et al. (1995), and Flavin and Yamashita (2002).)
 
 Note: missing citations, not all of the above are cited properly!!!!!
-
-
 
 
 \section{Calibration}
