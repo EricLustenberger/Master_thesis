@@ -3,11 +3,10 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: bib_thesis.bib
-Warning--I didn't find a database entry for "adda2003dynamics"
 Warning--empty journal in gruber2003precautionary
 You've used 32 entries,
             2773 wiz_defined-function locations,
-            798 strings with 9664 characters,
+            797 strings with 9648 characters,
 and the built_in function-call counts, 14043 in all, are:
 = -- 1320
 > -- 645
@@ -46,4 +45,4 @@ warning$ -- 1
 while$ -- 150
 width$ -- 0
 write$ -- 425
-(There were 2 warnings)
+(There was 1 warning)

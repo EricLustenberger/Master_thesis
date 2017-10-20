@@ -201,14 +201,94 @@ Modeling heterogeneity is important for several reasons: precautionary savings a
 
 
 \section{The Model}
+In the following section I will present the life-cycle model with durables I use in my analysis. After describing the consumer's problem and the income process, I will I give a brief description of the savings determinants accommodated by the model, which will facilitate the subsequent discussion of the results. 
+\\
+As established above, the baseline model in question is a life-cycle model with an imperfect market structure, which incorporates durables. \footnote{The present model is a life-cycle version of  \cite{hintermaier2010}.} 
+\subsection{Demographics}
+There is a continuum of ex ante identical risk averse consumers with a finite time horizon. At age 90 consumers die with certainty, younger consumers between the age of 26 and 90 may die with probability $\pi_{j} < 1$ at age $j$.
+\subsection{Consumer's Problem} 
+\paragraph{Consumption savings decision}Consumers derive utility from a durable good $d$ and a non-durable good $c$. The utility function $U(c,d)$ is strictly increasing in both arguments and strictly concave, with diminishing returns for both arguments and allowed to be non-separable in $c$ and $d$. The choice-set of assets is restricted to durables $d$ and a one-period bond $a$. Preferences are assumed to be time separable and future utility is discounted with a constant discount factor $\beta$.
+In each period, after receiving the income $y_{ij}$, consumers decide on the amount they want to consume in this period $c_{j}$ and next periods portfolio composition $d_{j+1}$ and the financial risk-free asset $a_{j+1}$ are chosen after receiving the income. Agents then derive utility from consumption and durable services, before the assets pay returns. While the liquid assets return an interest rate $r$ durables depreciate at rate $\delta$. This implies the following budget constraint:  
+
+\begin{equation}
+a_{j+1}+d_{j+1}+c_{j}=(1+r)a_{j} + (1-\delta)d_{j}+y_{j}
+\end{equation}
+
+\paragraph{Income Process}
+I directly follow the specification of the income process in \cite{hintermaier2011}. Until retirement every consumer $i$ receives an individual, stochastic labor income $y_{ij}$ in each period. After the age 65 is completed, they retire with certainty and receive deterministic individual-specific retirement benefits $b_{i}$. \\
+The authors assume that log of earnings $y_{ij}$ of individual $i$ at age $j$ before retirement is additively separable in a deterministic age polynomial $\phi_{j}$ and an idiosyncratic income shock $z_{ij}$:\footnote{This approach is quite standard in the literature (see others! NEWERS THAN YANG AND KAPLAN VIOLANTE) } 
+\[y_{ij}=\phi_{j}+z_{ij}\],
+
+where the shock $z_{ij}$ follows an AR(1) process
+
+\[z_{ij} = \rho z_{i,j-1}+\epsilon_{ij}\]
+
+\paragraph{Collateral Constraint}
+Durable serve both as consumption good and value storing asset, since their durability implies that they may be used as collateral for short-sales of the liquid asset. It is assumed that all credit needs to be collaterized, either by income or by durable holdings. \footnote{As \citep{hintermaier2010} point out, this assumption is reasonable since about 85\% of household debt in the SCF 2004 is secured by collateral.} The collateral constraint takes the form:
+
+\begin{equation}
+\underbrace{\mu(1-\delta)d_{i,j+1} + \gamma\underline{y_{j}}}_{collateral} \geq -(1+r)a_{i,j+1}
+\end{equation}
+
+where $\underline{y_{j}}$ is the minimum labor income realization across all states in each period and $\mu \in [0,1) and \gamma \in [0,1)$ are the respective fractions of the durable stock and of minimum labor income, which can be collateralized. The timing assumptions made above imply that this constraint guarantees full repayment by consumers and thus acts as non-bankruptcy constraint.\footnote{This is assured by the fact, that the lender does know the financial portfolio choice $(a_{j+1},d_{j+1})$ and the minimum of the support of the income distribution for all ages, but does not know the realization of future income shocks.$\underline{y_{j}}$.} $\gamma\underline{y_{j}}$ can be interpreted as debts where the wage plays a major part in the risk assessment from the lender's side i.e. credit card debts or short-term unsecured loans. 
+\paragraph{Net-Worth in the model} 
+Net-worth is defined as:
+\begin{equation}
+x_{i,j} \equiv (1+r)a_{,ij} + (1-\delta)d_{i,j},
+\end{equation}
+And thus reflects the total amount of assets a consumer has access to in a given period.\footnote{The borrowing constraint in terms of net-worth and future durable holdings then is: $x_{j+1} \geq -\gamma\underline{y_{j}}+(1-\mu)(1-\delta)d_{j+1}$This implies that in each period net-worth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral.}
+
+\subsection{The recursive formulation of the household problem} 
+
+We let $T^{r}$ denote the first period of retirement.
+The Bellman equation prior to retirement, if  $j < T^{r}$thus is:
+\begin{equation}
+v_{i,j}(x_{j},d_{i,j},y_{i,j}) = \max_{\substack{a_{i,j+1},d_{i,j+1}}}\left[U(\underbrace{x_{i,j}+y_{i,j}-a_{i,j+1}-d_{i,j+1}}_{c_{i,j}},d_{i,j})+\hat{v}_{i,j}(x_{i,j+1},d_{i,j+1},y_{i,j})\right]
+\end{equation}
+
+where the expected next period value function is discouted by the product of the probability of survival $(1-\pi_{j})$ and the discount factor $\beta$
+\begin{equation}
+\hat{v}_{i,j}(x_{i,j+1},d_{i,j+1},y_{i,j}a \equiv \beta (1-\pi_{j})E_{j}v_{i,j+1}(x_{i,j+1},d_{i,j+1},y_{i,j+1}),\textnormal{\footnote{Note that the income $y_{i,j}$ ensters the expected value of next period's utility function as a state, due to its persistence.}}
+\end{equation}
+
+
+with the constraints: 
+
+\begin{equation}
+a_{i,j+1}+d_{i,j+1}+c_{i,j}=x_{i,j}+y_{i,j},
+\end{equation}
+
+\begin{equation}
+x_{i,j+1} = (1+r)a_{i,j+1} + (1-\delta)d_{i,j+1},
+\end{equation}
+
+\begin{equation}
+x_{i,j+1} \geq -\gamma\underline{y_{j}}+(1-\mu)(1-\delta)d_{j+1}, 
+\end{equation} (WHAT HAPPENS WITH MIN Y IN RETIREMENT????)
+
+\begin{equation}
+d_{i,j+1} \geq d_{min},
+\end{equation}
+
+CHECK THE PART OF INCOME THAT CAN BE USED TO ACQUIRE DEBT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+After retirement, for periods $j \geq T^{r}$, the income $y_{ij}$ is given by $b(z_{i,T^{r}})$, the retirement benefits $b$ depending on the last realization of labor income before retirement $z_{i,T^{r}}$.
+
+
+\subsection{Motivation}
+The limited variety of assets implies an incomplete market structure, which hinders consumers to perfectly diversify away the idiosyncratic risk from income uncertainty. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. Moreover, the optimal decision will depend on the consumers age. The model is therefore well suited to match  net-worth distributional facts  introduced above, as well as differences across ages. \\
 
 \subsection{The determinants of savings}
 \label{determinants}
-There are different factors contributing to savings. Understanding these factors and their importance for the accumulation of wealth is crucial in understanding distributional issues and for the provision of policy advice, where such issues are the subject of discussion, both normative and positive. \\
-In the model presented in this work a number of determinants are considered, all of which precedent work has shown to be of importance in the context of the accumulation of wealth. The present paragraph thus gives an overview of these determinants, to whom I will refer to when discussing simulation results.  
 
-\paragraph{Consumption Smoothing}Early life-cycle models predict consumption (SLOWLY DECREASING???) to be flat over the life-cycle. This is the case, when perfect consumption smoothing can be achieved. With an income profile observed above, agents would thus accumulate debt, when expected future earnings are high to substitute this higher income for lower income today. And high current income is converted into savings when future higher earnings are low. (CITE A MODEL OF THIS TYPE) 
-\paragraph{Precautionary Savings Motive} Idiosyncratic income risk as for example in \citep{aiyagari1994} is an additional savings motive. Savings are used as a buffer for future income shocks. If, uncertainty is high, agents save more and thus cut down on consumption to do so in order to save for rainy days. 
+\paragraph{The experience premium and retirement benefits} As will be described further below, the model incorporates an experience premium as well as retirement benefits. This part of the income is deterministic and thus consumers's perfectly anticipate it. 
+
+
+income increases as their working experience grows. But as they get older their productivity decreases again,which leads to a hump shaped income. Rational consumers perfectly anticipate this part of earnings
+
+Early life-cycle models predict consumption (SLOWLY DECREASING???) to be flat over the life-cycle. This is the case, when perfect consumption smoothing can be achieved. With an income profile observed above, agents would thus accumulate debt, when expected future earnings are high to substitute this higher income for lower income today. And high current income is converted into savings when future higher earnings are low. (CITE A MODEL OF THIS TYPE) 
+\paragraph{Income uncertainty} The each period the consumer receives an idiosyncratic income shock, which unanticipated 
+Idiosyncratic income risk as for example in \citep{aiyagari1994} is an additional savings motive. Savings are used as a buffer for future income shocks. If, uncertainty is high, agents save more and thus cut down on consumption to do so in order to save for rainy days. 
 \paragraph{Borrowing Constraints} A third determinant are the borrowing constraints. These prevent agents from borrowing and thus do not allow for perfect consumption smoothing across time or income states. 
 \paragraph{Durables} \citep{FV&K2011} show that including durables into a life-cycle model is an important determinant of the consumption behavior along an agents life cycle. The relative price of durables does affect savings-consumption (IS IT LIKE THAT???) decisions. 
 
@@ -223,129 +303,15 @@ Note: missing citations, not all of the above are cited properly!!!!!
 
 
 
-\subsection{Consumer's Problem}
-As established above, the baseline model in question is a life-cycle model with an imperfect market structure. I closely follow \cite{hintermaier2010}.\footnote{In order to facilitate comparability, I will closely follow the notation used in their paper.} While there algorithm allows for both a live-cycle and infinite-horizon models, the example model presented in their paper uses the latter. For reasons discussed above, I will in this case opt for a live-cycle formulation. Finally, the baseline model does not include adjustment costs. These are considered in a later section of the model. 
-
-There is a continuum of risk averse consumers with a finite time horizon. 
-At age 90 consumers die with certainty, younger consumers between the age of 26 and 90 may die with probability $\pi_{j} < 1$ at age $j$. Until retirement the labor income of each individual $i$ $y_{ij}$ is stochastic. After the age 65 is completed, they retire with certainty and receive individual-specific retirement benefits $b_{i}$.\footnote{The construction of these benefits is discussed in the Appendix.}
-Consumers derive utility from a durable good $d$ and a non-durable good $c$. The utility function $U(c,d)$ is strictly concave, increasing and non-separable in c and d (REALLY??? When not??? all three true???). 
-In each period consumption $c_{j}$, the durable good $d_{j+1}$ and the financial risk-free asset $a_{j+1}$ are chosen after receiving the income. Agents then derive utility from consumption and durable services, before the assets pay returns. While the liquid assets return an interest rate $r$ durables depreciate at rate $delta$. As previously discussed, such a market structure implies that markets are incomplete and agents will accumulate a buffer stock in order to save for rainy days. The ex-ante identical consumers thus will thus, depending on their income trajectory, end up with different portfolios of the endogenous state variables. The model is therefore suited to match empirical facts about net worth positions since it does produce an endogenous distribution of portfolios, which differs in age and income. Moreover, (THE ADVANTAGE OF DURABLES) besides providing services and thus allowing consumers to derive utility from durables, their durability implies, that they may be used as collateral. It is assumed that all credit needs to be collateralized.\footnote{About 85\% of household debt in the Survey of Consumer Finances 2004 is secured by collateral.\citep{hintermaier2010}} 
-\\
-The collateral constraint takes the form:
-
-\begin{equation}
-\underbrace{\mu(1-\delta)d_{j+1} + \gamma\underline{y}}_{collateral} \geq -(1+r)a_{j+1}
-\end{equation}
-
-where $\underline{y}$ is the minimum labor income realization \footnote{CHECK THIS WITH CODE!!!} and $\mu \in [0,1) and \gamma \in [0,1)$ are the respective fractions of the durable stock and of minimum labor income, which can be collateralized.
-\footnote{It is important to note that this constraint guarantees full repayment by consumers and thus acts as non-bankruptcy constraint. This is assured by the timing assumptions made above \textendash The lender does know the financial portfolio choice $(a_{j+1},d_{j+1})$ and the minimum of the support of the income distribution $\underline{y}$, however future individual income draws $y_{j+1}$ do remain obscure to him. Finally, note that only choices in $j$ determine, whether the constraint is binding or not. }
-
-It is useful to rewrite the constraint in terms of total wealth and future durable holdings. Total wealth available to a consumer in each period is 
-
-\begin{equation}
-x_{j} \equiv (1+r)a_{j} + (1-\delta)d_{j},
-\end{equation}
-
-rewritten the constraint then looks like this:
-
-\begin{equation}
-x_{j+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{j+1}
-\end{equation}
-
-One now sees that total wealth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral. Furthermore, under the assumption that $\mu < 1$ $d_{j+1}$ is determined for a given $x_{j+1}$, when the constraint binds.
-
-Although in my baseline model they are set to 0, I also consider the case where durables can only be adjusted with some costs: 
-
-\begin{equation}
-\Psi(d_{t+1},d_{t})=\frac{\alpha}{2}\left(\frac{d_{t+1}-(1-\delta)d_{t}}{d_{t}}\right)^2d_{t}.
-\end{equation}\footnote{\citep{hintermaier2010} use the same specification, which is based on the investment literature (COPY PASTE(see, for example, \cite{adda2003dynamics},p.192)). Costs are differntiable in $d_{t+1}$ and $d_{t}$. Moreover, by letting the durable stock depreciate, consumers can avoid these costs. In this particular specification, adjustment costs do not affect the collateral constraint, as it is assumed that these costs do not have an impact on the sales of collateral seized by lenders. NOTE \citep{hintermaier2010} EXPLAIN IN APPENDIX VERSION WHERE THIS IS THE CASE.}
-
-Finally, the specification of the budget constraint, follows from the above:
-
-\begin{equation}
-a_{j+1}+d_{j+1}+c_{j}+\Psi(d_{t+1},d_{t})=x_{j}+y_{j}
-\end{equation}
-
-
-
-\paragraph{The recursive formulation of the household problem} 
-
-I will proceed by depicting the case prior to retirement. (SPECIFY RETIREMENT CASE!!!)
-We let $T^{r}$ denote the first period of retirement.
-The Bellman equation prior to retirement, if  $j < T^{r}$thus is:
-
-\begin{equation}
-v_{j}(x_{j},d_{j},y_{j}) = \max_{\substack{a_{j+1},d_{j+1}}}\left[U(\underbrace{x_{j}+y_{j}-a_{j+1}-d_{j+1}-\Psi(d_{t+1},d_{t})}_{c_{j}},d_{j})+\hat{v_{j}}(x_{j+1},d_{j+1},y_{j})\right]
-\end{equation}
-
-where the expected next period value function is discouted by the product of the probability of survival $(1-\pi_{j})$ and the discount factor $\beta$
-\begin{equation}
-\hat{v_{j}}(x_{j+1},d_{j+1},y_{j}) \equiv \beta (1-\pi_{j})E_{j}v_{j+1}(x_{j+1},d_{j+1},y_{j+1}),\textnormal{\footnote{Note that the income $y_{j}$ ensters the expected value of next period's utility function as a state, due to its persistence.}}
-\end{equation}
-
-
-
-with the constraints: 
-
-\begin{equation}
-a_{j+1}+d_{j+1}+c_{j}+\Psi(d_{t+1},d_{t})=x_{j}+y_{j},
-\end{equation}
-
-\begin{equation}
-x_{j+1} = (1+r)a_{j+1} + (1-\delta)d_{j+1},
-\end{equation}
-
-\begin{equation}
-x_{j+1} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{j+1}, 
-\end{equation} (WHAT HAPPENS WITH MIN Y IN RETIREMENT????)
-
-\begin{equation}
-d_{j+1} \geq d_{min},
-\end{equation}
-
-
-FROM RED PAPER HELP TO SPECIFY CASE WITH RETIREMENT!!!
-We specify our model in discrete time. Rearranging the budget constraint, consumption of individual $i$ with age $j$ is 
-
-\begin{equation}
-c_{ij} = 
-  \begin{cases}
-    (1+r)a_{i,j-1}-a_{ij}+y_{ij} & \quad \text{if } j < T^{r}, \\
-    (1+r)a_{i,j-1}-a_{ij}+b(z_{i,T^{r}-1}) & \quad \text{if } j \geq T^{r},\\
-  \end{cases}
-\end{equation}
-
-where $b(z_{i,T^{r}-1})$ are the retirement benefits. These benefits depend on the last realization of labor income before retirement $z_{i,T^{r}-1}$ as we explain further in the next section. Defining cash-on-hand as 
-
-\begin{equation}
-x_{ij} = 
-  \begin{cases}
-    (1+r)a_{i,j-1}+y_{ij} & \quad \text{if } j < T^{r}, \\
-    (1+r)a_{i,j-1}+b(z_{i,T^{r}-1}) & \quad \text{if } j \geq T^{r},\\
-  \end{cases}
-\end{equation}
-
-we can write the Bellman equation as 
-
-\begin{equation}
-V_{j}(x_{ij},y_{ij})= \max_{ \substack{a_{ij} \geq 0}}[u(\underbrace{x_{ij}-a_{ij}}_{c_{ij}}) + \beta(1-\delta_{j})E_{j}V_{j+1}(x_{i,j+1},y_{i,j+1})],
-\end{equation}
-
-where we restrict the choice of assets to $a_{ij} \geq 0$, as motivated in the previous section.)
 
 \section{Calibration}
 The calibration strategy demands to be in line with the aim of the paper - discussing the importance of modeling durables in context of the distribution of net worth. It is thus crucial to satisfy a high degree of comparability with other work dealing with net-worth distributions. Moreover, the calibration ought to replicate some features of the data, without containing to much information on the features the model is asked to show. (CITE SOME BOOK/ PAPER). 
 In order to give insight on the underlying parameters of the cross-section of inequality I will thus proceed in the following way. As discussed above, I base the parametrisation of model on \cite{hintermaier2011} and apply the algorithm introduced by \cite{hintermaier2010} to solve the model with durables. 
 
 \subsection{The income process}
+\footnote{The construction of these benefits is discussed in the Appendix.}
 As discussed above the income process is an important driver of the accumulation of savings in the form of precautionary savings. Its calibration does thus decisively influence the outcome. 
-\cite{hintermaier2011} use the SCF cross sections to construct a measure for labor earnings risk before retirement purging labor earnings from age effects for consumers between age 26 and age 65. The authors assume that log of earnings $y_{ij}$ of individual $i$ at age $j$ before retirement is additively separable in a deterministic age polynomial $\phi_{j}$ and an idiosyncratic income shock $z_{ij}$:\footnote{This approach is quite standard in the literature (see others! NEWERS THAN YANG AND KAPLAN VIOLANTE) } 
-
-\[y_{ij}=\phi_{j}+z_{ij}\],
-
-where the shock $z_{ij}$ follows an AR(1) process
-
-\[z_{ij} = \rho z_{i,j-1}+\epsilon_{ij}\]
+\cite{hintermaier2011} use the SCF cross sections to construct a measure for labor earnings risk before retirement purging labor earnings from age effects for consumers between age 26 and age 65. 
 
 After retirement the income process is deterministic. Thus, each individual receives retirement benefits from social security, the level of which is determined by the last period's income resulting in a replacement ratio of benefits over gross income of 52\% for the median income in the last period before retirement. The approximation takes into account the US social security legislation(http://www.ssa.gov). \footnote{The reader may consult \cite{hintermaier2011} for a more detailed discription of the calibration of the retirement benefits.} The age polynomial $\phi_{j}$ is obtained by  regression the log of earnings on a quartic age polynomial in each survey year of the SCF data between ages 26 and 65.\footnote{The table in appendix \ref{table_experience_premium} displays the experience obtained by \cite{hintermaier2011}.} The then obtained standard deviation of the residuals are used to calibrate the distribution of earnings shocks $z_{ij}$, with the assumption that the shocks are drawn from a normal distribution. This means that in the calibration to the SCF 1983, $z_{1983} \sim \mathcal{N}(0,0.498)$, and in the calibration to the SCF 2004, $z_{2004} \sim \mathcal{N}(0,0.607)$. (POSSIBLY COMPARE THIS RISK TO OTHER STUDIES ALSO SEE KRUEGER AND PERRI 2006) The calculations for the experience premium displays a concave relationship between the base age and the rising age it is compared to. Moreover, the experience premium has risen since the 1980s. The autocorrelation of the log-earnings shocks are calibrates as $\rho = 0.95$, which implies a variance for the innovations of $\epsilon_{ij} = 0.048$. (HERE ALSO COMPARE TO OTHER, MORE RECENT LITERATURE) The AR(1) process for $z_{ij}$ is then approximated by a Markov chain with 21 income states via the Rouwenhorst method.\\
 
