@@ -4,45 +4,45 @@ The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: bib_thesis.bib
 Warning--empty journal in gruber2003precautionary
-You've used 32 entries,
+You've used 31 entries,
             2773 wiz_defined-function locations,
-            797 strings with 9648 characters,
-and the built_in function-call counts, 14043 in all, are:
-= -- 1320
-> -- 645
-< -- 26
-+ -- 221
-- -- 189
-* -- 1129
-:= -- 2139
-add.period$ -- 99
-call.type$ -- 32
-change.case$ -- 159
-chr.to.int$ -- 32
-cite$ -- 65
-duplicate$ -- 647
-empty$ -- 1237
-format.name$ -- 253
-if$ -- 2937
+            793 strings with 9548 characters,
+and the built_in function-call counts, 13686 in all, are:
+= -- 1292
+> -- 624
+< -- 25
++ -- 214
+- -- 183
+* -- 1106
+:= -- 2082
+add.period$ -- 96
+call.type$ -- 31
+change.case$ -- 155
+chr.to.int$ -- 31
+cite$ -- 63
+duplicate$ -- 627
+empty$ -- 1205
+format.name$ -- 244
+if$ -- 2862
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 32
-newline$ -- 171
-num.names$ -- 128
-pop$ -- 272
+missing$ -- 30
+newline$ -- 166
+num.names$ -- 124
+pop$ -- 259
 preamble$ -- 1
-purify$ -- 127
+purify$ -- 123
 quote$ -- 0
-skip$ -- 484
+skip$ -- 469
 stack$ -- 0
-substring$ -- 733
-swap$ -- 39
+substring$ -- 731
+swap$ -- 38
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 347
+type$ -- 341
 warning$ -- 1
-while$ -- 150
+while$ -- 147
 width$ -- 0
-write$ -- 425
+write$ -- 413
 (There was 1 warning)

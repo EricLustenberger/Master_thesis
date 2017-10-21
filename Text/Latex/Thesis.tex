@@ -138,7 +138,7 @@ Although, the SIM model is used to study a variety of different economical quest
 Whereas the literature demonstrating that a plaubily parameterized version of the SIM can quantitatively explain features of the net-worth distribution is quite large, few of these models incorporate durables.
 
 \subsection{Durables and the Net-Worth Literature}
-Besides the authors mentioned in the introduction, a few others investigate the importance of modeling durables. \cite{yang2009} shows that borrowing constraints are important in explaining the accumulation of housing assets early in life. \cite{gruber2003precautionary} show that durables are important for the accumulation of precautionary savings. \cite{cho2012accounting} show that changes in the LTV ratio can account for 40\% of the difference in homeownership between Korea and the US. 
+Besides the authors mentioned in the introduction, a few others investigate the importance of modeling durables. \cite{yang2009} shows that borrowing constraints are important in explaining the accumulation of housing assets early in life. \cite{gruber2003precautionary} show that durables are important for the accumulation of precautionary savings.  
 
 
 
@@ -219,7 +219,7 @@ a_{j+1}+d_{j+1}+c_{j}=(1+r)a_{j} + (1-\delta)d_{j}+y_{j}
 I directly follow the specification of the income process in \cite{hintermaier2011}. Until retirement every consumer $i$ receives an individual, stochastic labor income $y_{ij}$ in each period. After the age 65 is completed, they retire with certainty and receive deterministic individual-specific retirement benefits $b_{i}$. \\
 The authors assume that log of earnings $y_{ij}$ of individual $i$ at age $j$ before retirement is additively separable in a deterministic age polynomial $\phi_{j}$ and an idiosyncratic income shock $z_{ij}$:\footnote{This approach is quite standard in the literature (see others! NEWERS THAN YANG AND KAPLAN VIOLANTE) } 
 
-\begin{equation}
+\begin{equation}\label{eq:income_process}
 y_{ij}=\phi_{j}+z_{ij}
 \end{equation},
 
@@ -234,7 +234,7 @@ z_{ij} = \rho z_{i,j-1}+\epsilon_{ij}
 \paragraph{Collateral Constraint}
 Durable serve both as consumption good and value storing asset, since their durability implies that they may be used as collateral for short-sales of the liquid asset. It is assumed that all credit needs to be collaterized, either by income or by durable holdings. \footnote{As \citep{hintermaier2010} point out, this assumption is reasonable since about 85\% of household debt in the SCF 2004 is secured by collateral.} The collateral constraint takes the form:
 
-\begin{equation}
+\begin{equation}\label{eq:borrowing_constraint}
 \underbrace{\mu(1-\delta)d_{i,j+1} + \gamma\underline{y_{j}}}_{collateral} \geq -(1+r)a_{i,j+1}
 \end{equation}
 
@@ -243,10 +243,10 @@ where $\underline{y_{j}}$ is the minimum labor income realization across all sta
 
 \paragraph{Net-Worth in the model} 
 Net-worth is defined as:
-\begin{equation}
+\begin{equation}\label{eq:net_worth}
 x_{i,j} \equiv (1+r)a_{,ij} + (1-\delta)d_{i,j},
 \end{equation}
-And thus reflects the total amount of assets a consumer has access to in a given period.\footnote{The borrowing constraint in terms of net-worth and future durable holdings then is: $x_{j+1} \geq -\gamma\underline{y_{j}}+(1-\mu)(1-\delta)d_{j+1}$This implies that in each period net-worth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral.}
+And thus reflects the total amount of assets a consumer has access to in a given period.
 
 \subsection{The recursive formulation of the household problem} 
 
@@ -262,7 +262,7 @@ where the expected next period value function is discouted by the product of the
 \end{equation}
 
 
-with the constraints: 
+with the constraints: (NOTE BORROWING CONSTRAINT NEEDS TO MAKE SENSE!!!! WITH NET WORTH OR NOT????) 
 
 \begin{equation}
 a_{i,j+1}+d_{i,j+1}+c_{i,j}=x_{i,j}+y_{i,j},
@@ -297,46 +297,37 @@ There are a variety of characteristics of this model that demonstrate the its su
 The model presented above accommodates several determinants of savings, the accumulation of net-worth, which I will briefly outline here. These will be further discussed in the subsequent analysis. 
 
 
-\paragraph{Income Risk} Agents accumulate buffer stocks of savings in order to self-insure against labor income uncertainty and being able to smooth consumption across different states of the income process. The risk is captured by the AR(1) process specified by equation \ref{eq:ar1_shock} and thus depends on the distribution of the error term of the process in question as well as the persistence factor. \\
-\cite{aiyagari1994} quantifies the aggregate importance of buffer stock savings. \citep{Gourinchas&Parker2002} assess the relative importance of these precautionary savings across the life-cycle of a consumer. They show that the precautionary motive dominates the accumulation of savings early in life, while later in savings due to deterministic changes in income become more important. 
+\paragraph{Income Risk} Agents accumulate buffer stocks of savings in order to self-insure against labor income uncertainty and being able to smooth consumption across different states of the income process. The risk is captured by the AR(1) process specified by Equation \ref{eq:ar1_shock} and thus depends on the distribution of the error term of the process in question as well as the persistence factor. \\
+\cite{aiyagari1994} quantifies the aggregate importance of buffer stock savings. \citep{Gourinchas&Parker2002} assess the relative importance of these precautionary savings across the life-cycle of a consumer. They show that the precautionary motive dominates the accumulation of savings early in life, while later in life, after the age of 40, savings, due to deterministic changes in income, become more important. 
 
-\paragraph{Income growth} In the model above there are two sources for deterministic changes in income growth, which give rise to life-cycle savings motives. Firstly, for the working population it is the experience premium, the deterministic age polynomial. Secondly, every household retires at 65 and experiences a large drop in income. These factors together make up for a hump shaped income profile displayed in Figure \ref{consumption_life_cycle} in Section\ref{life_cycle_profiles}. \\ The characteristic of these changes is, that they are perfectly anticipated by the consumers. An expected higher income causes perfectly rational consumers to reduce their present savings and increase consumption as they seek to smooth consumption across their life-cycle. On the contrary, when facing a large drop, such as retirement, consumers increase present saving. 
+\paragraph{Income growth} In the model above there are two sources for deterministic changes in income growth, which give rise to life-cycle savings motives. Firstly, for the working population it is the experience premium, the deterministic age polynomial in Equation \ref{eq:income_process}. Secondly, every household retires at 65 and experiences a large drop in income. These factors together make up for a hump shaped income profile displayed in Figure \ref{consumption_life_cycle} in Section \ref{life_cycle_profiles}. \\ The characteristic of these changes is, that they are perfectly anticipated by the consumers. An expected higher income causes perfectly rational consumers to reduce their present savings and increase consumption as they seek to smooth consumption across their life-cycle. On the contrary, when facing a large drop, such as retirement, consumers increase present saving. 
 
-\paragraph{Borrowing Constraint} Another important determinant of savings in these models is the borrowing constraint. A tighter constraint limits the insurance potential of liquid assets. The particularity of the present model is an endogenous borrowing constraint. Consumers with higher durable holdings can borrow more. Moreover, there is a small but quantitatively negligible effect of the experience premium allowing for more borrowing due to a higher minimal state for older wage earners. (BE MORE PRECISE, PRESENT EVIDENCE WHY IT IS NEGLIGABLE). \cite{FV&K2011} show that this leads to a higher dispersion of net-worth with respect to earnings. (BE MORE PRECISE. WHY EXACTLY???) 
+\paragraph{Borrowing Constraint} Another important determinant of savings in these models is the borrowing constraint. A tighter constraint limits the insurance potential of assets. They limit agents in their ability to short-sell assets and thus trade-off future consumption against present consumption. \\ \cite{hintermaier2011} estimate the borrowing limit to be zero for the observed distribution of net-worth in the present paper. 
+Using the definition of net-worth from Equation \ref{eq:borrowing_constraint} the borrowing constraint from Equation \ref{eq:borrowing_constraint} can be reformulated in terms of durable holdings and net-worth: 
+\begin{equation}
+x_{i,j} \geq -\gamma\underline{y}+(1-\mu)(1-\delta)d_{i,j}
+\end{equation}
+implying that in each period net-worth needs to be larger than the negative value of the minimum fraction of income that can be collateralized and the fraction of wealth which cannot be used as collateral. As I will show further below, the calibration implies that although allowing for negative values of net-worth, these are negligibly small and thus similar to \cite{hintermaier2011}. 
+\\ 
+As introduced above, an important distinction between a more standard specification of the borrowing constraint is that the present constraint is endogenous, since durables can be collateralized. Although, the limit for net-worth may be similar, the collateral value of durables still allows agents to smooth consumption. In an ad hoc specification of the the sort used in \cite{hintermaier2011}, does thus imply a more rigid constraint leading borrowing constrained consumers to reduce present consumption and increasing mean borrowing. This may bias the accumulation of savings early in life, when mean income is quite low. \footnote{See for example \cite{FV&K2011}, who compare an ad hoc constraint, with limit zero to a version that allows the use of durables as collateral.} \\ The role of durables as collateral value further implies that the Loan-to-Value (LTV) ratio is a further determinant of savings. A higher LTV ratio relaxes the constraint and thus allows for more borrowing.\footnote{\cite{cho2012accounting} show that changes in the LTV ratio can account for 40\% of the difference in homeownership between Korea and the US.} I will discuss the effect of changes in the LTV further below.
+Finally, the relative price of durables is also important.
 
-\paragraph{The relative price of durables} ARE YOU SURE??? As the durable stock increases, liquid assets become relatively more attractive. WHAT DOES IT MEAN FOR NET-WORTH???? 
+\paragraph{The relative price of durables} \citep{FV&K2011} shows that the dual role of durables leads to a higher dispersion in net-worth due to the formers relative price. High-income earners are able to accumulate more durables, as these increase, their relative price decreases and financial assets become more attractive. This effect then increases the dispersion in net-worth between poor and rich consumers. 
 
-Early life-cycle models predict consumption (SLOWLY DECREASING???) to be flat over the life-cycle. This is the case, when perfect consumption smoothing can be achieved. With an income profile observed above, agents would thus accumulate debt, when expected future earnings are high to substitute this higher income for lower income today. And high current income is converted into savings when future higher earnings are low. (CITE A MODEL OF THIS TYPE) 
-\paragraph{Income uncertainty} The each period the consumer receives an idiosyncratic income shock, which unanticipated 
-Idiosyncratic income risk as for example in \citep{aiyagari1994} is an additional savings motive. Savings are used as a buffer for future income shocks. If, uncertainty is high, agents save more and thus cut down on consumption to do so in order to save for rainy days. 
-\paragraph{Borrowing Constraints} A third determinant are the borrowing constraints. These prevent agents from borrowing and thus do not allow for perfect consumption smoothing across time or income states. 
-\paragraph{Durables} \citep{FV&K2011} show that including durables into a life-cycle model is an important determinant of the consumption behavior along an agents life cycle. The relative price of durables does affect savings-consumption (IS IT LIKE THAT???) decisions. 
+(NOTE THAT MIN Y NEEDS TO BE CORRECTED EVERYWHERE)
 
-\paragraph{Borrowing Constraints} 
-Besides the income risk discussed above, there is a second element that is crucial in determining the level of consumption smoothing across periods, namely the borrowing constraint. As the borrowing constraint tightens, consumption smoothing becomes more difficult \--- Borrowing constraint agents need to lower their consumption in case of a low income shock. \cite{ljungqvist2012recursive} show that giving agents an additional dollar of wealth has the same effect as loosening the borrowing constraint. There are various specifications of the borrowing constraint. \cite{aiyagari1994} introduced the natural borrowing limit, meaning that agents do only have to be able to repay debt with probability one, thus allowing for a lot of borrowing. \cite{hintermaier2011} do not allow for borrowing, thus setting the limit to 0 (NOTE THAT THIS IS FOR NET WORTH!!!). \citep{FV&K2011} assessed the performance of different borrowing constraints, mainly comparing an endogenous specification with the two previously mentioned exogenous specifications, finding that in the context of life-cycle profiles, the former outperforms the latter. \\
-Modeling durables, thus provides the opportunity to model an endogenous specification, where the durables can be used as collateral. Higher durable holdings do therefore loosen the borrowing constraint and enable the consumers to borrow a larger amount of liquid assets. \\ To some degree, this allows to incorporate changes in the financial liberalization into the model. \cite{diaz2010} simulate changes in the downpayment rate and investigate how these affect the distribution. \cite{yang2009} show how these affect the life-cycle. Finally, \cite{cho2012accounting} assess the importance of the loan-to-value ratio for differences in the wealth distributions between the US and Korea. 
-
-Endogenous borrowing constraint: The specification of the borrowing constraint  in \cite{FV&K2011} is adapted from the recent endogenous incomplete-markets literature: Kehoe and Levine (1993), Kocherlakota (1996), Krueger and Perri (1999, 2006), and Alvarez and Jermann (2000). Lustig (2004) also has a model with durable assets and an endogenous borrowing constraint to explain the equity premium puzzle, however agents have full access to Arrow securities and are infinitely lived.
-Literature on optimal portfolio choice in the presence of consumer durables: Grossman and Laroque (1990), Eberly (1994), Chah et al. (1995), and Flavin and Yamashita (2002).)
-
-Note: missing citations, not all of the above are cited properly!!!!!
-
-It's importance is therefore of small magnitude for the present analysis. As discussed above, I focus on consumers aged 26 to 55, where the income process is the main driver of the income risk. 
 
 \section{Calibration}
 The calibration strategy demands to be in line with the aim of the paper - discussing the importance of modeling durables in context of the distribution of net worth. It is thus crucial to satisfy a high degree of comparability with other work dealing with net-worth distributions. Moreover, the calibration ought to replicate some features of the data, without containing to much information on the features the model is asked to show. (CITE SOME BOOK/ PAPER). 
 In order to give insight on the underlying parameters of the cross-section of inequality I will thus proceed in the following way. As discussed above, I base the parametrisation of model on \cite{hintermaier2011} and apply the algorithm introduced by \cite{hintermaier2010} to solve the model with durables. 
 
 \subsection{The income process}
-\footnote{The construction of these benefits is discussed in the Appendix.}
-As discussed above the income process is an important driver of the accumulation of savings in the form of precautionary savings. Its calibration does thus decisively influence the outcome. 
+As discussed above the income process is an important driver of the accumulation of savings as both the income growth and income risk influence a consumer's capital stock along the life-cycle. Its calibration does thus decisively influence the outcome. 
 \cite{hintermaier2011} use the SCF cross sections to construct a measure for labor earnings risk before retirement purging labor earnings from age effects for consumers between age 26 and age 65. 
 
-After retirement the income process is deterministic. Thus, each individual receives retirement benefits from social security, the level of which is determined by the last period's income resulting in a replacement ratio of benefits over gross income of 52\% for the median income in the last period before retirement. The approximation takes into account the US social security legislation(http://www.ssa.gov). \footnote{The reader may consult \cite{hintermaier2011} for a more detailed discription of the calibration of the retirement benefits.} The age polynomial $\phi_{j}$ is obtained by  regression the log of earnings on a quartic age polynomial in each survey year of the SCF data between ages 26 and 65.\footnote{The table in appendix \ref{table_experience_premium} displays the experience obtained by \cite{hintermaier2011}.} The then obtained standard deviation of the residuals are used to calibrate the distribution of earnings shocks $z_{ij}$, with the assumption that the shocks are drawn from a normal distribution. This means that in the calibration to the SCF 1983, $z_{1983} \sim \mathcal{N}(0,0.498)$, and in the calibration to the SCF 2004, $z_{2004} \sim \mathcal{N}(0,0.607)$. (POSSIBLY COMPARE THIS RISK TO OTHER STUDIES ALSO SEE KRUEGER AND PERRI 2006) The calculations for the experience premium displays a concave relationship between the base age and the rising age it is compared to. Moreover, the experience premium has risen since the 1980s. The autocorrelation of the log-earnings shocks are calibrates as $\rho = 0.95$, which implies a variance for the innovations of $\epsilon_{ij} = 0.048$. (HERE ALSO COMPARE TO OTHER, MORE RECENT LITERATURE) The AR(1) process for $z_{ij}$ is then approximated by a Markov chain with 21 income states via the Rouwenhorst method.\\
+After retirement the income process is deterministic. Thus, each individual receives retirement benefits from social security, the level of which is determined by the last period's income resulting in a replacement ratio of benefits over gross income of 52\% for the median income in the last period before retirement. The approximation takes into account the US social security legislation(http://www.ssa.gov). \footnote{For a detailed description of the cunstruction of these benefits see \cite{hintermaier2011}.} The age polynomial $\phi_{j}$ is obtained by  regression the log of earnings on a quartic age polynomial in each survey year of the SCF data between ages 26 and 65.\footnote{The table in appendix \ref{table_experience_premium} displays the experience obtained by \cite{hintermaier2011}.} The standard deviation obtained of the residuals resulting from this regression are used to calibrate the distribution of earnings shocks $z_{ij}$, with the assumption that the shocks are drawn from a normal distribution. Assuming normality of the error terms the authors found a variance of $0.607$ for the 2004 data \---  $z_{2004} \sim \mathcal{N}(0,0.607)$. (POSSIBLY COMPARE THIS RISK TO OTHER STUDIES ALSO SEE KRUEGER AND PERRI 2006) The calculations for the experience premium displays a concave relationship between the base age and the rising age it is compared to. Moreover, the experience premium has risen since the 1980s. The autocorrelation of the log-earnings shocks are calibrates as $\rho = 0.95$, which implies a variance for the innovations of $\epsilon_{ij} = 0.048$. (HERE ALSO COMPARE TO OTHER, MORE RECENT LITERATURE) The AR(1) process for $z_{ij}$ is then approximated by a Markov chain with 21 income states via the Rouwenhorst method.\\
 
 Finally, the authors adjust for growth in life-cycle income to convert the cross-sectional age-earnings pattern into life-cycle profiles considering a growth factor of $1.015^{age-base age)}$, where the base age is a reference age to make income units comparable across cohorts of different years. \\
-
-The choice for the comparison of the SCF 2004 with the SCF 1983 is motivated by the fact that both surveys have been undertaken at similar points in the business cycle. \\ 
 
 Controlling for the age distribution is another important determinant for the dynamics! \\
 
@@ -346,14 +337,7 @@ It is worth noting that the smallest income is larger than 0!!!!
 
 LOOK AT GOURINCHASandPARKER(2002) AND AT THE ADDAandCOOPER BOOK! 
 
-\begin{enumerate}
-\item \citep{FV&K2011} stochastic labor income process up to age 65, where they impose mandatory retirement. Differs from other specifications such as Abowd and Card (1989), Carroll (1992), or Gourinchas and Parker (2002) in two aspects: 
-\begin{enumerate}
-\item do not allow labor income to go to zero- very low probability Carroll (1992) estimates it at 0.003 for a year. However, its effects on the intertemporal allocations are quite big, since hh will not borrow any positive amount since they might face a lifelong sequence of zero labor income and might be unable to consume a positive amount and repay their debt in some period. (Moreover, argument of public income-support programs in the US -> labor in the model is after-tax, after-government transfer labor income.
-\item unit root in AR process is not imposed  ( is something that is debated -> they show that their results are not very sensitive toward this issue -> increase $\rho$ toward unity (LOOK AT STORESLETTEN ET AL: (2001) -> do not reject unit root.
-\end{enumerate} 
-\item Check \cite{hintermaier2010} and \cite{hintermaier2011}
-\end{enumerate}
+ unit root in AR process is not imposed  ( is something that is debated -> they show that their results are not very sensitive toward this issue -> increase $\rho$ toward unity (LOOK AT STORESLETTEN ET AL: (2001) -> do not reject unit root.
 
 \subsection{Utility parameters}
 
@@ -385,6 +369,9 @@ The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \ci
 (BE MINDFUL OF THE FACT THAT HINTERMAIER 2016 HAS 0.76 FOR HOUSING - SAME SAMPLE!!!!!!) 
 The estimation results are somewhat different from what other authors with similar models have obtained. (NOTE DIFFERENCE INF HORIZON AND LIFE CYCLE ) \cite{FV&K2011} estimate a weight on non-durable consumption of $0.81$, \cite{yang2009} $0.8615$ and \cite{hintermaier2010} $0.8092$. (CITE NEWER STUDIES) Whereas studies solely considering housing, obtain estimates more closely to mine (CITE THESE STUDIES). This should, however, not be surprising, as I used data moments which correspond to the means of the above defined prime-age sample, contrary to these other studies, who calibrated their to the whole sample. \cite{diaz2010} among others, show that the empirical portfolio composition changes over life-time, as will be discussed more in detail below. Young households take on credit to invest in durables and older households accumulate assets to finance retirement. The fraction of durables of total wealth, as the two data moments show 2.95/2.39 is larger than one for the prime-age sample, since the average liquid assets are negative. Where as for the whole sample the fraction of average durable holdings in terms of average total wealth 4.45/6.33 is smaller than one \citep{hintermaier2010}. The estimated  discount factor$\beta$ is quite similar to the one in\cite{hintermaier2011}. 
 
+\subsection{Initial Conditions}
+In order to properly estimate the model, the specification of the initial conditions is important in a life-cycle model. I follow \cite{hintermaier2011} (BE MORE SPECIFIC. DO DATA PART!) and construct the initial level of durables via the 24 year old and 25 year old. Appendix \ref{initial_conditions} shows the importance of a solid specification of the initial conditions. I re-estimated the model for different specifications of the initial conditions using the initial conditions provided by \cite{hintermaier2011}, which only indicate net-worth. I thus assigned all net-worth to durables in a first estimation and then to liquid assets in a second estimation. The results indicate that it is important to properly construct the initial portfolio distribution. 
+
 \subsection{Further inputs}
 
 As is common in the literature dealing with the period of the great moderation and supported by empirical evidence, the interest rate $r$ is set to $4\%$. (CITING LITERATURE). As discussed above, this partial equilibrium approach entails the assumption of a small open economy. Furthermore, I set the loan-to-value ratio $\mu = 0.8$. Although commonly used in the literature, this is a rather conservative assumption for the loan-to-value ratio: CAPLIN ET AL (1997) claim that it is almost impossible for a hh to obtain a house without paying at least $10\%$, moreover (OTHER AUTHOR IN HINTERMAIER2010 max LTV). However, this will allow me to investigate the effects of recent years, which lead to a relaxation of the LTV (IacovielloandPavan 2013) or (THAT OTHER PAPER ABOUT THE DENSITIES OF LTV). Finally, as in \cite{hintermaier2010} $\gamma = 0.97$ is chosen to be smaller than $1$ in order to assure positive consumption at the smallest gridpoint of next periods net-worth $x'$. The probabilities of death as in \cite{hintermaier2011} are taken from Table 1 of the decennial life tables 1979-1982 and 1999-2001 for the calibration of 1983 and 2004, respectively.\footnote{They are published by the National Center for Health Statistics at $http://www.cdc.gov/nchs/products/life_tables.htm$.} (COMMENT ON WHY THESE ARE IMPORTANT!)
@@ -394,7 +381,6 @@ As is common in the literature dealing with the period of the great moderation a
 The problem above does not provide a closed-form solution (CITE!!!!) and thus the solution has to be approximated numerically. \cite{hintermaier2010} offer a solution for problems of this type. They expand the endogenous gridpoints method (EGM) proposed by \cite{carroll2006} for a problem with two states and thus providing a very efficient algorithm to solve models with durables and collateralized debt. As their algorithm is formulated recursively, it is well suited to solve life-cycle models. \footnote{Solving such models has been considered particluarly expensive and challenging, as durables enter as additional state (if non-separability utility from durables and non-durable or adjustemnt costs are allowed for) and durables increase the dimensionality of the portfolio choice.\citep{hintermaier2010}} I iterate over the policy function starting in period $j = T$ where the consumer sells all liquid assets and durables (TIME ASSUMPTION OF DURABLES IS IMPORTANT HERE - agents retrieve utility from the durable stock before it is sold, and can consume afterwards????) to consume them before death. It thus holds that $x'=d'=a'=0$ and thus the initial consumption policy is $c(x,d_{j},y_{kj})=x+y_{j,k}$ (NOTE CASE WITHOUT ADC). Each iteration $n$ on the policy function then gives the the solution for the period $T-n$, where in my case $n=65$ which corresponds to ages $90$ to $26$. \\
 The exogenous grids for d and x are chosen as follows: 
 
-(NOTE THAT ALGORITHM MUST BE CHANGED FOR CASE WITH ADJUSTMENT COSTS)
 
 For each period t < T-1, the algorithm proceeds as follows. In a first step it maps $x'$ into $d'$ and in a second step it solves for the current choice c and state x from optimal future combinations (x',d'). Moreover, the values for the exogenous grid are chosen such that the results are not affected. (BE MORE PRECISE
 INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
@@ -410,6 +396,8 @@ INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
 As discussed above, the choice of a life-cycle model is mainly motivated by the fact, that age plays an important role in questions related to wealth distribution and in particular to the net-wealth distribution. This section will give insight into the accumulation of wealth by agents over their lifetime. As we will see, this also affects consumption. \cite{FV&K2011} have pointed out that it is paramount to consider durables in order to properly model the life-cycle profile of consumption, which is hump shaped. The authors underline the importance of modeling durables in order to accurately reproduce the the shape of consumption over the life cycle observed in the data. He shows that including durables in a non-separable way in the utility function into the canonical incomplete markets model with one asset may achieve a better representation of the hump shape. Namely, durables account for 50\% of the hump size, while the other half is attributed to changes in the household size, a fact pointed out by \cite{attanasio1999}. The first section discusses empirical results as well as life-cycle profiles produced by models from theoretical research. In the second section I will produce and comment on the life-cycle profile of my baseline model and then go over to a more detailed investigation of certain factors in the third section. 
 
 LOOK AT GOURINCHASandPARKER(2002) for more insight
+
+It's importance is therefore of small magnitude for the present analysis. As discussed above, I focus on consumers aged 26 to 55, where the income process is the main driver of the income risk. 
 
 \subsection{Life-Cycle profiles in the data and theoretical literature}
 
@@ -577,12 +565,14 @@ COMPARE RESULTS TO OTHER STUDIES!
 \end{tabular}
 \end{table}
 
-
 \section{The decomposition of determinants}
 In this section I perform a series of experiments to simulate, how one-time unexpected changes in the determinants introduced above affect both the wealth distributions of the age groups, as well as the life-cycle profiles. 
 
 \subsection{Loan-to-value ratio}
 An important determinant, when considering durables is the loan-to value ratio (LTV), which is equal to the part of a durable that is collaterizable. A lower loan to value ratio, would mean that when purchasing a house the amount of credit needed by a consumer would be higher. As is evident, the loan to value ratio has increased by quite a margin during financial libaration. I here simulate the effect of a one time change and unexpected change of the loan to value ratio. A decrease in the LTV to 0.8 (Show increase instead and cite papers. Possible to go over 1?) . 
+
+(DO I NEED TO CITE YANG AND DIAZ????) 
+Modeling durables, thus provides the opportunity to model an endogenous specification, where the durables can be used as collateral. Higher durable holdings do therefore loosen the borrowing constraint and enable the consumers to borrow a larger amount of liquid assets. \\ To some degree, this allows to incorporate changes in the financial liberalization into the model. \cite{diaz2010} simulate changes in the downpayment rate and investigate how these affect the distribution. \cite{yang2009} show how these affect the life-cycle. Finally, \cite{cho2012accounting} assess the importance of the loan-to-value ratio for differences in the wealth distributions between the US and Korea. 
 
 \subsubsection{The distribution}
 Figure \ref{downpayment_vs_baseline} shows the impact of such a change on the distributions. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample after a change of the LTV ratio. All three age groups seem to be affected. However, only the poorer consumers are affected. With a tighter borrowing constraint, poor agents cannot borrow as much and thus keep more net-assets. This tightening does not affect the rich, who have already accumulated enough assets to borrow at their desired rate. 
@@ -626,6 +616,10 @@ NOTE SIMULATE OVERBORROWING i.e. a negative downpayment
 \subsection{Income risk}
 
 \subsection{The experience premium}
+
+
+
+
 
 
 \subsubsection{Adjustment Costs}
@@ -765,6 +759,26 @@ Heathcote et al. (2010): (COPY PASTE: As Christiano and Eichenbaum argue, the ex
 
 \section{Data}
 \label{data}
+
+
+
+\section{Initial Conditions}
+\label{initial_conditions}
+
+I re-estimated the model setting the initial conditions from \cite{hintermaier2011} in net-worth equal to durable holdings and liquid assets to zero, when simulating the life-cycle profiles. I repeated this process setting net-worth equal to liquid assets and initial durable holdings to zero.\\
+Table \ref{estimates_initial_cond} depicts the estimation results for the preference paramters $\theta$ and $\beta$ as well as the estimated moments. The results show, that the population moments are matched quite well for the estimation, where young households only hold assets. However, when the simulation is initialized with only durables, the estimation produces average net-worth holdings that are to high. 
+
+\begin{table}[!htbp]
+\centering
+\caption{This table depicts the parameter estimates matching the average durable holdings and average total worth of the prime age population in the data.}
+\label{estimates_initial_cond}
+\begin{tabular}{llllll}
+\hline
+\multicolumn{2}{l}{Estimations} & $\beta$ & $\theta$ & Av.Durables & Av.Net-Worth\\ \hline
+\multicolumn{2}{l}{Durables}             & 0.991    & 0.760  & 2.9467 & 2.41166      \\
+\multicolumn{2}{l}{Assets}            & 0.994   & 0.749   & 2.9455 & 2.3851    
+\end{tabular}
+\end{table}
 
 
 

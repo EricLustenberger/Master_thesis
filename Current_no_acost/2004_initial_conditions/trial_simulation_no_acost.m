@@ -15,14 +15,19 @@ d_i_j     = NaN*zeros(pop_size,size(Y_ms_j,2)+1);
 invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2));
 
 % initial d and a 
+% initial d and a 
 d_initial     = d_min;
-a_i_j(:,1) = d_initial; 
-d_i_j(:,1)  = a_initial;
+a_i_j(:,1) = a_initial; 
+d_i_j(:,1)  = d_initial;
 
         for t = 1:size(Y_ms_j,2);
-          
-            
-            x_i_j(:,t)         = (1+r)*a_i_j(:,t) + (1-delta_)*d_i_j(:,t);           
+               
+            if t==1;
+                x_i_j(:,t)         = (1+r)*a_initial + (1-delta_)*d_initial;
+
+            else % on initial period
+                x_i_j(:,t)         = (1+r)*a_i_j(:,t) + (1-delta_)*d_i_j(:,t);           
+            end; % on initial period
             
             
             for imarkstate = 1 : size(P_,2);
@@ -40,11 +45,11 @@ d_i_j(:,1)  = a_initial;
 
         end; % of for in simulation over t
 
-%% Plotting lifetime behavior of mean agent 
-
-% Drop all simulated observations which are extrapolated off the grid and set to ext_val
-% ======================================================================================
-
+% % %% Plotting lifetime behavior of mean agent 
+% 
+% % Drop all simulated observations which are extrapolated off the grid and set to ext_val
+% % ======================================================================================
+% 
 % ind_non_NAN = (~isnan(a_i_j) & ~isnan(d_i_j));
 % total_drops = sum(sum(isnan(a_i_j) & isnan(d_i_j))); 
 % 
@@ -71,7 +76,7 @@ d_i_j(:,1)  = a_initial;
 % sim_sample = pop_size-agents_drops;
 % 
 % display(sprintf('Size of simulation sample:%5.0d ', sim_sample ));
-
+% 
 plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series plots
 
 % calculating means 
@@ -114,6 +119,18 @@ plot (1:size(mean_invd_j,2),mean_invd_j(1:size(mean_invd_j,2)),'LineWidth',2), x
 % plot (plot_j,mean_y_j(plot_j),'LineWidth',2), xlabel('t'), ylabel('y_j')
 % title('Income')
 
+% figure(100)
+% plot(1:1:65, a_i_j(76704,1:65),1:1:65, d_i_j(76704,1:65),1:1:65, x_i_j(76704,1:65),1:1:65, Y_i_t(76704,1:65))
+% title('poorest')
+% figure(101)
+% plot(1:1:65, a_i_j(96921,1:65),1:1:65, d_i_j(96921,1:65),1:1:65, x_i_j(96921,1:65),1:1:65, Y_i_t(96921,1:65))
+% title('richest')
+% figure(102)
+% plot(1:1:65, c_i_j(76704,1:65))
+% title('poorest')
+% figure(103)
+% plot(1:1:65, c_i_j(96921,1:65))
+% title('richest')
 toc
-
-compose_wealth_distribution_no_acost;
+%% Constructing the wealth distribution 
+compose_wealth_distribution;

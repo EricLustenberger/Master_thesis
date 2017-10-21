@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -180,11 +180,6 @@ Per Krusell and Anthony~A Smith, Jr.
 \newblock Income and wealth heterogeneity in the macroeconomy.
 \newblock \emph{Journal of political Economy}, 106\penalty0 (5):\penalty0
   867--896, 1998.
-
-\bibitem[Ljungqvist and Sargent(2012)]{ljungqvist2012recursive}
-Lars Ljungqvist and Thomas~J Sargent.
-\newblock \emph{Recursive macroeconomic theory}.
-\newblock MIT press, 2012.
 
 \bibitem[R{\'\i}os-Rull(1995)]{rios1995models}
 Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
