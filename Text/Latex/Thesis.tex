@@ -218,11 +218,18 @@ a_{j+1}+d_{j+1}+c_{j}=(1+r)a_{j} + (1-\delta)d_{j}+y_{j}
 \paragraph{Income Process}
 I directly follow the specification of the income process in \cite{hintermaier2011}. Until retirement every consumer $i$ receives an individual, stochastic labor income $y_{ij}$ in each period. After the age 65 is completed, they retire with certainty and receive deterministic individual-specific retirement benefits $b_{i}$. \\
 The authors assume that log of earnings $y_{ij}$ of individual $i$ at age $j$ before retirement is additively separable in a deterministic age polynomial $\phi_{j}$ and an idiosyncratic income shock $z_{ij}$:\footnote{This approach is quite standard in the literature (see others! NEWERS THAN YANG AND KAPLAN VIOLANTE) } 
-\[y_{ij}=\phi_{j}+z_{ij}\],
+
+\begin{equation}
+y_{ij}=\phi_{j}+z_{ij}
+\end{equation},
+
 
 where the shock $z_{ij}$ follows an AR(1) process
 
-\[z_{ij} = \rho z_{i,j-1}+\epsilon_{ij}\]
+\begin{equation}\label{eq:ar1_shock}
+z_{ij} = \rho z_{i,j-1}+\epsilon_{ij}
+\end{equation}
+
 
 \paragraph{Collateral Constraint}
 Durable serve both as consumption good and value storing asset, since their durability implies that they may be used as collateral for short-sales of the liquid asset. It is assumed that all credit needs to be collaterized, either by income or by durable holdings. \footnote{As \citep{hintermaier2010} point out, this assumption is reasonable since about 85\% of household debt in the SCF 2004 is secured by collateral.} The collateral constraint takes the form:
@@ -285,15 +292,15 @@ There are a variety of characteristics of this model that demonstrate the its su
 
 \subsection{The determinants of savings}
 \label{determinants}
+(IN THE BEGINNING: WHEN I REFER TO SAVINGS I MEAN THE POSITIVE ACCUMULATION OF NET WORTH)
+
 The model presented above accommodates several determinants of savings, the accumulation of net-worth, which I will briefly outline here. These will be further discussed in the subsequent analysis. 
 
-\paragraph{The Experience Premium} The experience premium corresponds to the deterministic part of the labor income before retirement and thus is known with certainty prior to realization to all consumers. An expected higher income causes perfectly rational consumers to reduce their present savings and increase consumption as they seek to smooth consumption across their life-cycle. 
 
-THESE TWO CAN BE CLASSIFIED AS LIFE-CYCLE SAVINGS
+\paragraph{Income Risk} Agents accumulate buffer stocks of savings in order to self-insure against labor income uncertainty and being able to smooth consumption across different states of the income process. The risk is captured by the AR(1) process specified by equation \ref{eq:ar1_shock} and thus depends on the distribution of the error term of the process in question as well as the persistence factor. \\
+\cite{aiyagari1994} quantifies the aggregate importance of buffer stock savings. \citep{Gourinchas&Parker2002} assess the relative importance of these precautionary savings across the life-cycle of a consumer. They show that the precautionary motive dominates the accumulation of savings early in life, while later in savings due to deterministic changes in income become more important. 
 
-\paragraph{Life-Cycle Risk} The life-cycle risk has the exact opposite effect. As consumers anticipate a large drop in their income due to retirement at the age of 65, they seek to accumulate more assets in order to save for retirement. As... and ... have shown, consumers mainly save in liquid assets for retirement. Moreover, \cite{Gourinchas&Parker2002} show that this effect starts to become more important as consumers age. It's importance is therefore of small magnitude for the present analysis. As discussed above, I focus on consumers aged 26 to 55, where the income process is the main driver of the income risk. 
-
-\paragraph{Income Risk} As that same author shows, income risk mainly dominates life-cycle risk in the early part of life. This effects illustrates the risk  a lower future income. Agents accumulate precautionary savings to save up for rainy days, as they seek to smooth consumption. \cite{aiyagari1994} shows the importance of precautionary savings for the aggregate capital stock. 
+\paragraph{Income growth} In the model above there are two sources for deterministic changes in income growth, which give rise to life-cycle savings motives. Firstly, for the working population it is the experience premium, the deterministic age polynomial. Secondly, every household retires at 65 and experiences a large drop in income. These factors together make up for a hump shaped income profile displayed in Figure \ref{consumption_life_cycle} in Section\ref{life_cycle_profiles}. \\ The characteristic of these changes is, that they are perfectly anticipated by the consumers. An expected higher income causes perfectly rational consumers to reduce their present savings and increase consumption as they seek to smooth consumption across their life-cycle. On the contrary, when facing a large drop, such as retirement, consumers increase present saving. 
 
 \paragraph{Borrowing Constraint} Another important determinant of savings in these models is the borrowing constraint. A tighter constraint limits the insurance potential of liquid assets. The particularity of the present model is an endogenous borrowing constraint. Consumers with higher durable holdings can borrow more. Moreover, there is a small but quantitatively negligible effect of the experience premium allowing for more borrowing due to a higher minimal state for older wage earners. (BE MORE PRECISE, PRESENT EVIDENCE WHY IT IS NEGLIGABLE). \cite{FV&K2011} show that this leads to a higher dispersion of net-worth with respect to earnings. (BE MORE PRECISE. WHY EXACTLY???) 
 
@@ -314,6 +321,7 @@ Literature on optimal portfolio choice in the presence of consumer durables: Gro
 
 Note: missing citations, not all of the above are cited properly!!!!!
 
+It's importance is therefore of small magnitude for the present analysis. As discussed above, I focus on consumers aged 26 to 55, where the income process is the main driver of the income risk. 
 
 \section{Calibration}
 The calibration strategy demands to be in line with the aim of the paper - discussing the importance of modeling durables in context of the distribution of net worth. It is thus crucial to satisfy a high degree of comparability with other work dealing with net-worth distributions. Moreover, the calibration ought to replicate some features of the data, without containing to much information on the features the model is asked to show. (CITE SOME BOOK/ PAPER). 
@@ -398,6 +406,7 @@ INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
 
 
 \section{Life-Cycle Profiles}
+\label{life_cycle_profiles}
 As discussed above, the choice of a life-cycle model is mainly motivated by the fact, that age plays an important role in questions related to wealth distribution and in particular to the net-wealth distribution. This section will give insight into the accumulation of wealth by agents over their lifetime. As we will see, this also affects consumption. \cite{FV&K2011} have pointed out that it is paramount to consider durables in order to properly model the life-cycle profile of consumption, which is hump shaped. The authors underline the importance of modeling durables in order to accurately reproduce the the shape of consumption over the life cycle observed in the data. He shows that including durables in a non-separable way in the utility function into the canonical incomplete markets model with one asset may achieve a better representation of the hump shape. Namely, durables account for 50\% of the hump size, while the other half is attributed to changes in the household size, a fact pointed out by \cite{attanasio1999}. The first section discusses empirical results as well as life-cycle profiles produced by models from theoretical research. In the second section I will produce and comment on the life-cycle profile of my baseline model and then go over to a more detailed investigation of certain factors in the third section. 
 
 LOOK AT GOURINCHASandPARKER(2002) for more insight
