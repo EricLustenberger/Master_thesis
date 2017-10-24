@@ -12,30 +12,31 @@
 \usepackage{graphicx}           % Ermoeglicht das Einbinden von Bildern in allen Formaten
 \usepackage{longtable}          % zum erstellen von Tabellen ber mehrere Seiten
 \usepackage{multirow}           % zum Verbinden von Zeilen innerhalb einer Tabelle
+%\usepackage{mathptmx}
 \usepackage{booktabs}			% für tablegenerator
 \usepackage{threeparttable, booktabs} 
+\usepackage{setspace}
 
 %\usepackage{pictexwd}           % PicTex, ein Graphikpaket
 %\usepackage{pst-all, multido}   % psTricks, ein Graphikpaket
 \usepackage{url}
-
+\usepackage{geometry}
 
 
 % ________________ EINRICHTEN DES DOKUMENTS ______________________%
 
 \bibliographystyle{plainnat}    % legt den Stil fuer das Inhaltsverzeichnis fest
 
-\oddsidemargin 0.1in \evensidemargin 0.1in \textwidth 15.5cm \topmargin -0.4in \textheight 24.5cm
-\parindent 0cm      % legt die Seitenraender fest
+\geometry{verbose,a4paper,tmargin=20mm,bmargin=20mm,lmargin=30mm,rmargin=20mm}
+%\oddsidemargin 0.1in \evensidemargin 0.1in \textwidth 15.5cm \topmargin -0.4in \textheight 24.5cm
+%\parindent 0cm      % legt die Seitenraender fest
 
 \pagestyle{plain}          % leere Kopfzeile, Seitennummer in der Mitte der Fusszeile
 
+%\footnotesize{10p}
 \newcommand{\bs}{\boldsymbol}  % shortcut zur Erzeugung von fetten Sympolen in der Mathe-Umgebung
 
-\renewcommand{\baselinestretch}{1.25}
-% 1,5 -facher Zeilenabstand (Standard ist 1,2-facher Zeilenabstand, also 1,2*1,25 = 1,5
-
-
+\doublespacing % 1,5 -facher Zeilenabstand 
 
 \begin{document}
 
@@ -89,11 +90,17 @@ Matriculation Number 2849851
 % ________________ INHALTSVERZEICHNIS ______________________%
 
 
-% \tableofcontents   %fuegt Automatisch ein Inhaltsverzeichnis ein
+ \tableofcontents   %fuegt Automatisch ein Inhaltsverzeichnis ein
 % 
-% \newpage
+ \newpage
 % 
+\listoftables
 
+ \newpage
+
+\listoffigures
+
+ \newpage
 
 % ________________ HAUPTTEIL ______________________%
 
@@ -104,9 +111,8 @@ Matriculation Number 2849851
 
 \section{Introduction}
 \label{Chapter1}
-The importance of distributional questions
-
-Such models provide the basis for the analysis of redistributional policies. They shed light on the underlying mechanisms leading to unequal distributions of wealth and consumption. In order to improve policy making it is crucial in understanding these mechanisms. \\
+Over the past decades the concentration of wealth has decreased dramatically. This has important social consequences, affecting democratic institutions. Even if the views of the extent of this rise in inequality are somewhat debated it clearly affects everyday life. Inequality is thus  \\ 
+Over the same time period, macroeconomics has seen a shift towards micro-founded analysis, which is based on the aggregation of optimal decision making at the individual level and thus providing a coherent and robust framework to all kinds of economical questions at the macro economic level. Initially predominantly featuring the representative agent version, a surge in computing power and numerical methods have enabled macroeconomists to deal with models incorporating a higher degree of complexity. One of these ramifications has led to include different forms of heterogeneity among agents. The endogenous wealth distribution in the standard incomplete market model provides a natural framework for the study of questions related to inequality. Such models provide the basis for the analysis of redistributional policies. They shed light on the underlying mechanisms leading to unequal distributions of wealth and consumption. In order to improve policy making it is crucial in understanding these mechanisms. \\
 
 The main goal of this paper is to contribute to the net-worth literature by investigating the empirical prediction of the net-worth cross-section in the US.  
 Doing so, using detailed micro-data for income as well as the net-worth distributions for three different age groups thus allows me to accurately illustrate, what part of the distribution can be explained by the model and where the model presents shortcomings. Moreover, I look at two important determinants, the income risk and the LTV-ratio by simulating unexpected changes to illustrate how these affect the distribution across different age groups and the consumption-savings decision across the life-cycle. Finally, I show that the initial portfolio allocation is particularly important to predict the the net-worth distribution of the youngest age group when calibrating the model.\\
