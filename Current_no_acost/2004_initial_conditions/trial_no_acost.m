@@ -20,7 +20,7 @@
 clear all;
 
 
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Current_no_acost/2004/output/';
+DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Current_no_acost/2004_initial_conditions/output/';
 
 dos(['md ' DISC_PATH]);
 

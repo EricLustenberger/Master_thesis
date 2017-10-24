@@ -239,7 +239,7 @@ set(gca,'XTick',1:5:65)
 set(gca,'XTickLabel',{'26','','36','','46','','56','','66','','76','','86','',})
 
 
-life_save;
+% life_save;
 
 
 

@@ -32,6 +32,16 @@ b_age4  = -1.41e-06;
 % b_age3  =  .0002342;
 % b_age4  = -1.41e-06;
 
+% no experience premium
+% b_const = 0;
+% b_age   = 0;
+% b_age2  = 0;
+% b_age3  = 0;
+% b_age4  = 0;
+
+
+
+
 
 % 1983
 % b_const = -3.454309;
@@ -42,8 +52,9 @@ b_age4  = -1.41e-06;
 
 % variance of the residuals obtained from the estimation
 %var_z_2004 = 0.740;
-var_z_2004 = 0.607;
+var_z_2004 = 0.607; % initial variance 
 %var_z_2004 = 0.498;
+%var_z_2004 = 0;
 var_z = var_z_2004;
 % 
 % var_z_1983 = 0.498;

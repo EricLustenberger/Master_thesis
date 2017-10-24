@@ -370,7 +370,7 @@ The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \ci
 The estimation results are somewhat different from what other authors with similar models have obtained. (NOTE DIFFERENCE INF HORIZON AND LIFE CYCLE ) \cite{FV&K2011} estimate a weight on non-durable consumption of $0.81$, \cite{yang2009} $0.8615$ and \cite{hintermaier2010} $0.8092$. (CITE NEWER STUDIES) Whereas studies solely considering housing, obtain estimates more closely to mine (CITE THESE STUDIES). This should, however, not be surprising, as I used data moments which correspond to the means of the above defined prime-age sample, contrary to these other studies, who calibrated their to the whole sample. \cite{diaz2010} among others, show that the empirical portfolio composition changes over life-time, as will be discussed more in detail below. Young households take on credit to invest in durables and older households accumulate assets to finance retirement. The fraction of durables of total wealth, as the two data moments show 2.95/2.39 is larger than one for the prime-age sample, since the average liquid assets are negative. Where as for the whole sample the fraction of average durable holdings in terms of average total wealth 4.45/6.33 is smaller than one \citep{hintermaier2010}. The estimated  discount factor$\beta$ is quite similar to the one in\cite{hintermaier2011}. 
 
 \subsection{Initial Conditions}
-In order to properly estimate the model, the specification of the initial conditions is important in a life-cycle model. I follow \cite{hintermaier2011} (BE MORE SPECIFIC. DO DATA PART!) and construct the initial level of durables via the 24 year old and 25 year old. Appendix \ref{initial_conditions} shows the importance of a solid specification of the initial conditions. I re-estimated the model for different specifications of the initial conditions using the initial conditions provided by \cite{hintermaier2011}, which only indicate net-worth. I thus assigned all net-worth to durables in a first estimation and then to liquid assets in a second estimation. The results indicate that it is important to properly construct the initial portfolio distribution. 
+In order to properly estimate the model, the specification of the initial conditions is important in a life-cycle model. I follow \cite{hintermaier2011} (BE MORE SPECIFIC. DO DATA PART!) and construct the initial level of durables via the 24 year old and 25 year old. Appendix \ref{initial_conditions} shows the importance of a solid specification of the initial conditions. I re-estimated the model for different specifications of the initial conditions using the initial conditions provided by \cite{hintermaier2011}, which only indicate net-worth. I assigned all net-worth to durables in a first estimation and then to liquid assets in a second estimation. The results show, that the assumption that the initial net-worth can be attributed to durables is sufficient, since the differences between the baseline case and this case are negligible. However, the baseline case still slightly performs better. 
 
 \subsection{Further inputs}
 
@@ -393,6 +393,10 @@ INDICATE DIFFERENCES BETWEEN POST/PRE RETIREMENT (expectation)!
 
 \section{Life-Cycle Profiles}
 \label{life_cycle_profiles}
+
+
+SEEE DOTSEY ET AL FOR THE DATA!!!! 
+
 As discussed above, the choice of a life-cycle model is mainly motivated by the fact, that age plays an important role in questions related to wealth distribution and in particular to the net-wealth distribution. This section will give insight into the accumulation of wealth by agents over their lifetime. As we will see, this also affects consumption. \cite{FV&K2011} have pointed out that it is paramount to consider durables in order to properly model the life-cycle profile of consumption, which is hump shaped. The authors underline the importance of modeling durables in order to accurately reproduce the the shape of consumption over the life cycle observed in the data. He shows that including durables in a non-separable way in the utility function into the canonical incomplete markets model with one asset may achieve a better representation of the hump shape. Namely, durables account for 50\% of the hump size, while the other half is attributed to changes in the household size, a fact pointed out by \cite{attanasio1999}. The first section discusses empirical results as well as life-cycle profiles produced by models from theoretical research. In the second section I will produce and comment on the life-cycle profile of my baseline model and then go over to a more detailed investigation of certain factors in the third section. 
 
 LOOK AT GOURINCHASandPARKER(2002) for more insight
@@ -498,27 +502,6 @@ A second possible explanation is the endogenous formation of households in the d
 \cite{yang2009} shows that modelling adjustment costs is important to account for the slow downsizing of durables (housing in his case) as agents get older.Since the high transaction costs for trading houses prevents the households from decreasing their stock quickly later in life. He also shows that when agents are young they build a housing stock and compromise on non-housing consumption. Moreover, as they age they start to decrease non-housing consumption because  time the time preference is higher than the interest rate and mortality rates are increasing along the life cycle. 
 
 
-\subsection{What drives the life-cycle profiles within the model?}
-
-\cite{yang2009} investigates the quantitative relevance of transaction costs, borrowing constraints and bequest motives. 
-He shows (COPY PASTE: that borrowing constraints are essential in explaining the accumulation of housing assets early in life, the existence of transaction costs is crucial in explaining the slwo downsizing of housing profile later in life.)
-Moreover, he shows that the bequest motives play a role in determining total lifetime wealth, but not the housing profile!!!! 
-Certain features \cite{yang2009} has abstracted from and his justification:
-\begin{enumerate}
-\item no inter-vivos transfers (parents lend children money if they need some), data from Health and Retirement Study suggest that these transfers are fairly small, this would lead to higher durable and non-durable consumption
-\item yang uses exogenous borrowing constraints and not endogenous ones. \cite{FV&K2011} compare the two and show that life-cycle profiles are identical. only exception, with endogenous borrowing constraints net worth of average young agents is slightly negative 
-\item no housing rental market 
-\item no health shocks for elderly, which might be important for accumulation of wealth stock
-\end{enumerate}
-
-What I want to look at:
-\begin{enumerate}
-\item Check if income uncertainty zero
-\item Check what happens when death proba is always zero
-\item Use Ad-Hoc constraint 
-\item With adjustment costs!
-\end{enumerate}
-
 \label{Chapter4}
 
 
@@ -565,6 +548,25 @@ COMPARE RESULTS TO OTHER STUDIES!
 \end{tabular}
 \end{table}
 
+\section{Relative degrees of inequality and the overall distribution}
+So far I have only discussed net-worth in the distribution section. However, the model does also reproduce a distribution of consumption as well as the two assets, which make up net-worth, independently. Moreover, there is the distribution of earnings, which is endogenously determined. It is well known that heterogeneous agent models of this type are able to reproduce the ordinal ranking of inequalities for consumption, income and net-worth in line with empirical evidence.\cite{aiyagari1994} shows that the model reproduces empirical plausible relative degrees of inequality, where consumption exhibits the least inequality, followed by income and capital is most unequal. 
+
+\begin{table}[]
+\centering
+\caption{Gini indices for the different distributions}
+\label{Gini_Ranking}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+      & Consumption & Income & Durables & Liquid Assets & Net Worth \\ \midrule
+Model & 0.3492      & 0.4248 & 0.3611   & 0.9542        & 0.6618    \\ \midrule
+Data  & ????        & 0.427  & 0.67     & 0.97          & 0.81      \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Table \ref{Gini_Ranking} displays the gini indices for the whole distribution produced by the model and the one found in the data.\footnote{The empirical indices for durables, liquid assets and net worth are taken from \cite{hintermaier2010} and the index for income from \cite{hintermaier2011}} The model manages to match the ordering for the different inequalities considering the types of the assets as well as net-worth. Moreover, it also shows that the consumption inequality is lowest. However, it does not manage to show that durables are more concentrated than income. \cite{diaz2010} show, in a model with housing, that this may be overcome by explicitly modeling a rental market. \footnote{}Housing makes up the biggest part of durables (CITE AND SHOW NUMBERS). As a consequence of rental markets, wealth poor households will decide to rent instead of owning, thus satisfying their durable consumption needs without being able to benefit from the collateral value of the durable object. As the rented object does not account for the housing part of the durable holdings, wealth poor will hold less durables and thus the gini index of durables increases, while, as \cite{diaz2010} show, the other indices change only slightly are only marginally affected. 
+
+As discussed above, the model cannot predict the net-worth inequality over the whole distribution. This, however, is further encouraged through the fact, that I matched the model to the 90th percentile. 
+
 \section{The decomposition of determinants}
 In this section I perform a series of experiments to simulate, how one-time unexpected changes in the determinants introduced above affect both the wealth distributions of the age groups, as well as the life-cycle profiles. 
 
@@ -575,13 +577,29 @@ An important determinant, when considering durables is the loan-to value ratio (
 Modeling durables, thus provides the opportunity to model an endogenous specification, where the durables can be used as collateral. Higher durable holdings do therefore loosen the borrowing constraint and enable the consumers to borrow a larger amount of liquid assets. \\ To some degree, this allows to incorporate changes in the financial liberalization into the model. \cite{diaz2010} simulate changes in the downpayment rate and investigate how these affect the distribution. \cite{yang2009} show how these affect the life-cycle. Finally, \cite{cho2012accounting} assess the importance of the loan-to-value ratio for differences in the wealth distributions between the US and Korea. 
 
 \subsubsection{The distribution}
+
+\begin{table}[!htbp]
+\centering
+\caption{As in Table \ref{ginis_base} this Table shows the Gini and Means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the baseline estimation and the ceteris paribus change of the LTV.}
+\label{ginis_means_LTV}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                                                                 & Baseline ($\mu = 0.97$) & $\mu = 0.8$
+                                                                 
+                                                                                \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.9142\\ 0.5495\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.4976\\ 0.5447\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 4.4224\\ 0.5246\end{tabular}  \\ \bottomrule
+\end{tabular}
+\end{table}
+
 Figure \ref{downpayment_vs_baseline} shows the impact of such a change on the distributions. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample after a change of the LTV ratio. All three age groups seem to be affected. However, only the poorer consumers are affected. With a tighter borrowing constraint, poor agents cannot borrow as much and thus keep more net-assets. This tightening does not affect the rich, who have already accumulated enough assets to borrow at their desired rate. 
 
 \begin{figure}[!htbp]
 \caption{Average Durable Holdings over the Life-Cycle} 
 \label{downpayment_vs_baseline}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.6]{Figures/downpayment_vs_baseline}  % width legt Breite der Graphik fest
+\includegraphics[scale=.4]{Figures/downpayment_vs_baseline}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
 \footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
@@ -589,7 +607,23 @@ Figure \ref{downpayment_vs_baseline} shows the impact of such a change on the di
 
 \end{figure}
 
-Look at different ginis: change of gini of net-worth, gini of durables and gini of liquid assets
+Table \ref{ginis_means_LTV} displays the gini and means estimates of the baseline estimation and the ceteris paribus change of the LTV. A first observation is, that all the means across the age groups rise by an amount of a similar magnitude when lowering the loan-to-value ratio. The means of the older groups rise by a larger magnitude. The second observation is, that all of the ginis drop. Here, however, the heterogeneity is of a more important magnitude. The differences across the age groups is almost gone after the rise in the LTV meaning that the gini drops most for the youngest age group. This is in line with the observation, that tightening the borrowing constraint affects the poor, who are most likely to be borrowing constraint. The medium income is lowest for the young. Moreover, they do not yet have accumulated enough durables to relax the borrowing constraint. 
+
+\subsubsection{On the individual level}
+Figure \ref{policy_downpayment08_age36} displays the policy functions for a 36 year old agent at three different income levels: the lowest income, the intermediate income and the highest income. As the figure shows, only the 36-year old consumer with an intermediate income is affected and only the very poor 36-years old with this income. Namely the borrowing constraint that are harmed by a tighter constraint. The other agents, the ones with higher income and lower income are not affected, since they are far enough from the constraint or constraint in their borrowing in either case. Note, this case is representative for all age groups. It abstracts from the variety of income levels for illustrative purposes. As the above illustrates, income levels close to the state displayed in the middle display a similar trajectory of optimal choices for the individual agent. These closer to the extreme levels are more likely not to be affected by the change. 
+
+\begin{figure}[!htbp]
+\caption{Change of the LTV-rate to $0.8$} 
+\label{policy_downpayment08_age36}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.4]{Figures/policy_downpayment08_age36}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{The figure displays the different policy functions for the baseline case, solid-lines vs. the case with a reduced loan-to-value ratio, dashed-lines. The different colors display different wage levels. The blue lines illustrate the highest income, the purple lines are the intermediate income level and the orange lines the lowest income level.}
+\end{minipage}
+
+\end{figure}
+
 
 \subsubsection{Over the life-cycle}
 Figure \ref{downpayment_vs_baseline_lc} shows how the change affects consumers over the life-cycle. A lower loan to value ratio forces agents to  pros-pone the accumulation of durables for a few years. As they now can finance a smaller part with debt, they cannot immediately  increase the durable stock but need to accumulate it step by step to be able to increase borrowing. Note that only in the very first period, consumption is affected. It does therefore not affect consumption smoothing??? This trade-off is mainly one, between durables and liquid assets. At around age 30 the durable level is the same as in the baseline case, however, the liquid assets stock stays higher for quite some time and thus net worth is affected over this period. 
@@ -612,83 +646,67 @@ look at policies!
 
 NOTE SIMULATE OVERBORROWING i.e. a negative downpayment
 
+\subsection{The income process}
+\paragraph{Income risk} As discussed above, the volatility of the labor-income is an important feature of the accumulation of wealth. I hereby simulate a change in the risk, by setting the parameter equal to the estimate in 1983. It thus indicates a change of that magnitude. It is well established that the income risk changed over time. Moreover, there is evidence that idiosyncratic income risk changes with business-cycle fluctuations. CITE STORESLETTEN ET AL ETC... THIS PAPER indicates that in the us it is negatively correlated with the business cycle. THE CHANGE IN RISK HERE CORRESPONDS TO A CHANGE OF MAGNITUDE CORRESPONDING TO.....
 
-\subsection{Income risk}
+The results presented in Table \ref{ginis_means_risk} show that a decrease in the volatility leads to lower net-worth holdings across all age-groups. The effect on the ginis does seem to be rather small. However, there are some changes. The distribution across the youngest group shows a rise in inequality. The same can be said for the intermediate age group, although the effect is smaller here. Finally, the change for the last group indicates a drop in inequality. 
 
-\subsection{The experience premium}
+\begin{table}[!htbp]
+\centering
+\caption{As in Table \ref{ginis_base} this Table shows the Gini and Means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the baseline estimation and the ceteris paribus change of the risk (be more precise).}
+\label{ginis_means_risk}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                                                                 & Baseline  & Lower Risk
+                                                                 
+                                                                                \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.7034\\ 0.6339\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.0227\\ 0.5897\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 3.7679\\ 0.5420\end{tabular}  \\ \bottomrule
+\end{tabular}
+\end{table}
 
+As a consequence of lower income risk, the agents can reduce precautionary savings. However, the change also affects the mean of the wage. A lower variance in the error-term leads to a lower average income. 
+Low income households are able to increase their durable holdings and thus borrow more and also increase their consumption. They thus save marginally less than before. Middle income consumers are the most interesting ones, the poor behave as the low-income households do. However, the richer ones do increase their asset holdings, and drop durables also dropping consumption to raise net-worth savings. The richest, consume less in durable and non-durables, and borrow more, thus reducing the net-worth stock. 
 
+Note, the effect is mainly driven by the high-income households. They, reduce the accumulation of net-worth substantially. As they are young a decrease in all policy functions can be observed. When they get older, they start to marginally increase assets, however, the drop in durables becomes even more substantial leading to a more substantial drop in net-worth. This increase in assets has to do with life-cycle savings. The drastic decrease in both types of consumption does indicate that the drop in income is the dominant force of the impact. 
 
+\paragraph{Experience Premium}
+As pointed out in the discussion of the determinants. An important feature of this model is the experience premium. In this section I set the experience premium to zero in order to visualize the impact of a potential change. \cite{hintermaier2011} show that the experience premium has changed over the years and also.... for a more indebt discussion of the dynamics of the experience premium. 
 
+\begin{table}[!htbp]
+\centering
+\caption{As in Table \ref{ginis_base} this Table shows the Gini and Means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the baseline estimation and the ceteris paribus change of the experience premium.}
+\label{ginis_means_exp_premium}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                                                                 & Baseline  & No experience premium
+                                                                 
+                                                                                \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\1.7453\\ 0.5783\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.8234\\ 0.5114\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 7.0865\\ 0.4982\end{tabular}  \\ \bottomrule
+\end{tabular}
+\end{table}
 
+Table \ref{ginis_means_exp_premium} shows that the means of all age groups dramatically increase. While this increase is most crucial for the first age group, more than 100\% this effect is lesser for the older age groups. The gini indices all decrease by a similar magnitude, whereas this decrease is strongest for the second age group. \\
 
-\subsubsection{Adjustment Costs}
+There are two factors driving this result. The first one is a flatter increase of labor-earnings, they now only grow due to economical growth. The expected future labor income is thus more similar to today's labor income for the working age population. It follows that consumers decrease borrowing, which in turn increases savings. The second factor is a change in average income over the life-cycle. Young consumers do now relatively have a much higher income than before and can therefore adjust their durable stock much faster. 
 
-\cite{yang2009} shows and explains the impact of the adjustment costs on the life-cycle profiles: 
-\begin{enumerate}
-\item Transaction Costs and Borrowing constraints
-\begin{enumerate}
-\item Helps to slow down decrease of non-housing consumption later in life
-\item Comparing ratio of housing to non-housing consumption
-\begin{enumerate}
-\item Without transaction costs, ratio becomes flatter over the life cycle 
-\item ratio is increasing early in life since borrowing constraints bind more likely than later in live
-\item borrowing constraints are essential in explaining accumulation of housing assets early in life
-\end{enumerate}
-\item average life cycle profiles of financial assets and total net worth
-\begin{enumerate}
-\item the evolution of wealth portfolio over the life cycle is similar
-\item shift from financial assets to housing assets when transaction costs are reduced 
-\end{enumerate}
-\item small effect on net worth profile!!!
-\end{enumerate}
-\item explains that it is not that important in explaining the net worth distribution! 
-\end{enumerate}
+As the policy functions show, one or the other effect may dominate depending on the income level. High-income households do accumulate more net-worth, as they reduce borrowing and increase both durable and non-durable consumption. Medium- and low income households, are borrowing constraint and thus still want to borrow, to increase their durables as quick as possible. Resulting in a slightly negative net-worth for the low income consumer and slightly positive net-worth for the medium income consumer. 
 
+As the households age, the positive difference becomes smaller in is close to zero at the age of 55 for the richest household. 
+The large part of the higher savings is thus driven by the high earnings household, who start accumulating more savings early on. 
 
-\cite{diaz2010}
-Interaction Between Adjustment Costs and the Collateral Constraint
-Effect of zero adjustment costs:
-Home ownership rate rises to 89\%, the Gini indices of ouses and financial assets increase significantly for the group of homeowners
-Gini index of houses for total pop falls from 0.58 to 0.52 in the benchmark economy
-Since houses are liquid, fraction of wealth held increases as houses increases for all wealth quintiles (although relatively more for the poor)  thus effect on overall wealth distribution is minimal 
-With lower adjustment costs, houses are liquid and there is less need to accumulate financial assets for precautionary reasons
-Zero down payment it follows that households accumulate less financial assets because they are not required to keep a down payment 
-
-\subsubsection{Durables}
-
-\subsubsection{Collateral Constraint}
-
-\subsubsection{Income Process}
-
-In connection with the relative degrees of inequality: \\
-Moreover, \cite{hintermaier2010} and \cite{diaz2010} both show that a modeling of persistent earnings is necessary to reproduce higher inequality in the durables and thus to more closely match the data.
-
-\subsubsection{Determinants}
-What I can look at
-\begin{enumerate}
-\item Diaz and Luengo-Prado(2010)
-\begin{enumerate}
-\item the role of superstars and how it affects other results
-\item interaction between adjustment costs and the collateral constraint
-\item the role of persistent earnings
-\end{enumerate}
-
-\end{enumerate}
-What are the savings motives? Hence why do households accumulate wealth?
-\begin{enumerate}
-\item Kaymak and Poschke (2015): the relative strength of each motive depends on a household's productivity
-\begin{enumerate}
-\item precautionary savings motive to insure against life-cycle income risk
-\item consumption smoothing motive to save for retirement
-\item bequest motive to endow estates for their offsprings
-\end{enumerate}
-\end{enumerate}
+The differences in inequality is mainly driven by the high-earners, but poors, who decrease borrowing and thus net-worth substantially leading to a more equal distribution of assets. 
 
 
-\subsubsection{The literature}
-\subsubsection{Implementing Casta\~{n}eda}
 \section{Conclusion}
+The life-cycle model with durables and endogenous borrowing constraints calibrated to match micro-level household data in the US in 2004 is able to match a number of features in the data. It is quite successful in reproducing important features of the wealth distribution, predicting an increase of the average net-worth holding over the life-cycle accompanied by a decreasing inequality in net worth. Moreover, it matches the wealth distribution for the working age population between 26 and 45 quite well. Furthermore, it can replicate the portfolio composition as well as the consumption expenditure along the life-cycle. The endogenous borrowing constraint with durables serving as collateral helps to explain the surge in durable consumption early in live and the increase of liquid assets later in life. Finally, the model can also predict the relative ranking of inequalities. \\
+However, I also found that such a parsimonious model has its limits. Namely it under predicts the accumulation of wealth of the oldest age group. These results are rather similar to \cite{hintermaier2011}, who analyse the out of sample prediction of a simpler model specification, without durables, using the same particularization. Calibrating the model to match the 1983 US wealth distribution, they find, that their model manages to predict changes of the younger two age groups. However, they fail to predict the sharp increase in average wealth of the oldest age group. This suggests that the effect reported by \citep{FV&K2011}, where durables increase the dispersion of net-worth between high- and low-earners, is not enough to explain the large increase in average wealth for the last age group. \cite{hintermaier2011} have argued that this may be due to measurement problems for pension wealth in the SCF-data. Alternatively, this may be due to the abstraction from additional features such as a richer heterogeneity in the earnings process. \cite{guvenen2015data} shows that the log-normality assumption does not hold for higher-oder moments of the individual earnings shocks. They display strong negative skweness and a very high kurtosis, implying that most individuals experience very small shocks and a very small number experiences very high shocks. Moreover, he shows that shocks display very high heterogeneities along the life-cycle. (((COPY PASTE: the authors highlight that earnins changes display substantial negative skewness and kurtosis and that the conditional moments of earnings changes display substantial variation by age and previous earnings level.))) Finally, some heterogeneity in the rates of return may be able to explain the large net-worth holdings for the 46 to 55 years old. Namely, rising rates of returns in wealth. \cite{fagereng_wp} show evidence for heterogeneities in returns, which are attributed to wealth-holdings but also on an individual level. 
+
+as reported by \cite{benhabib2011distribution} heterogeneity in rates of returns might account for the sharper increase in net-worth. Finally, the bequest motive may have some influence. \cite{denardi2014}. It may be interesting to include such features. 
+
 \label{Chapter6}
 %_________________ ENDE DES HAUPTTEILS_________________%
 
@@ -766,7 +784,7 @@ Heathcote et al. (2010): (COPY PASTE: As Christiano and Eichenbaum argue, the ex
 \label{initial_conditions}
 
 I re-estimated the model setting the initial conditions from \cite{hintermaier2011} in net-worth equal to durable holdings and liquid assets to zero, when simulating the life-cycle profiles. I repeated this process setting net-worth equal to liquid assets and initial durable holdings to zero.\\
-Table \ref{estimates_initial_cond} depicts the estimation results for the preference paramters $\theta$ and $\beta$ as well as the estimated moments. The results show, that the population moments are matched quite well for the estimation, where young households only hold assets. However, when the simulation is initialized with only durables, the estimation produces average net-worth holdings that are to high. 
+Table \ref{estimates_initial_cond} depicts the estimation results for the preference paramters $\theta$ and $\beta$ as well as the estimated moments. The table shows that the moments are matched up to a precision $10^{-2}$ for both cases. 
 
 \begin{table}[!htbp]
 \centering
@@ -775,12 +793,41 @@ Table \ref{estimates_initial_cond} depicts the estimation results for the prefer
 \begin{tabular}{llllll}
 \hline
 \multicolumn{2}{l}{Estimations} & $\beta$ & $\theta$ & Av.Durables & Av.Net-Worth\\ \hline
-\multicolumn{2}{l}{Durables}             & 0.991    & 0.760  & 2.9467 & 2.41166      \\
+\multicolumn{2}{l}{Durables}             & 0.991    & 0.759  & 2.9527 & 2.3906      \\
 \multicolumn{2}{l}{Assets}            & 0.994   & 0.749   & 2.9455 & 2.3851    
 \end{tabular}
 \end{table}
 
+Table \ref{ginis_means_init} shows prime age moments for the three different estimations as well as for the data. Attributing the initial net worth entirely to assets produces results that are way off for the youngest age group. The results for the middle age group are matched reasonably well and for the oldest age group they are matched rather badly. Interestingly, when attributing all initial wealth to durables the results are almost the same as for the baseline case. This, however, is not surprising as young households hold almost the entirety of their wealth in durables. Moreover, when performing the different estimations, I abstracted almost from all negative balances of net worth. 
+The assumption, that all positive initial net-worth is durable wealth, would be a sufficient one, for the present model specification. 
 
+\begin{table}[!htbp]
+\centering
+\caption{As in Table \ref{ginis_base} this Table shows the Gini and Means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the different estimates.}
+\label{ginis_means_init}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+                                                                                & Data & Baseline & Durables
+                                                                 & Assets
+                                                                                \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}} \\0.80\\ 0.713\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.8170\\ 0.6281\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.6433\\ 0.6696\end{tabular}\\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 2.36\\ 0.596\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.3628\\ 0.5843\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.3705\\ 0.5845\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.81\\ 0.564\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 4.2810\\ 0.5456\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.4958\\ 0.5388\end{tabular}\\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[!htbp]
+\caption{Distribution with different initial conditions} 
+\label{initial_conditions_dist}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.4]{Figures/initial_conditions_distribution}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED. NOTE THAT THE LOWEST PART OF THE DISTRIBUTION IS NOT VISIBLE!}
+\end{minipage}
+
+\end{figure}
 
 \section{The full distribution and the issue with the tails of the distribution}
 Figure \ref{wealth_distr_base_compl} shows the full distribution of the three age groups. Note that the scale of the y-axis varies between the age groups and compared to \ref{wealth_distr_base} in order to illustrate the whole outline of the empirical distribution. In comparison to the previous graph, two differences immediately meet the eye. For one, the model is not able to correctly predict the lowest part of the distribution. While in the model the poorest agents' net-worth holdings are around 0 for all ages, the SCF-Data displays negative values, which are more pronounced for the two younger generations. The second notable difference is the top of the distribution. Clearly, the model is unable to generate high enough savings for the richest 10\%. This is a known problem in the literature.\footnote{See \cite{denardi2017} for a review and modeling choices that are able to deal with this issue.} \\ \\
@@ -805,21 +852,5 @@ MAYBE INCLUDE GRAPH WITH SAVING RATE FROM DE NARDI
 \paragraph{The poorest}
 The main reason for the poor reproduction of the lowest 10\% is the calibration. When \cite{hintermaier2011} estimated their preference parameters they did not consider all observation with negative net-worth as their estimation approach did not permit for negative values.
 
-\section{Relative degrees of inequality}
-So far I have only discussed net-worth in the distribution section. However, the model does also reproduce a distribution of consumption as well as the two assets, which make up net-worth, independently. Moreover, there is the distribution of earnings, which is endogenously determined. It is well known that heterogeneous agent models of this type are able to reproduce the ordinal ranking of inequalities for consumption, income and net-worth in line with empirical evidence.\cite{aiyagari1994} shows that the model reproduces the (COPY PASTE: empirical plausible relative degrees of inequality), where consumption exhibits the least inequality, followed by income and capital is most unequal. (NOTE AIYAGARI IS A INFINITE HORIZON MODEL) 
 
-\begin{table}[]
-\centering
-\caption{Gini indices for the different distributions}
-\label{Gini_Ranking}
-\begin{tabular}{@{}llllll@{}}
-\toprule
-      & Consumption & Income & Durables & Liquid Assets & Net Worth \\ \midrule
-Model & 0.3250      & 0.4062 & 0.3678   & 0.9523        & 0.6674    \\ \midrule
-Data  & ????        & 0.427  & 0.67     & 0.97          & 0.81      \\ \bottomrule
-\end{tabular}
-\end{table}
-
-Table \ref{Gini_Ranking} displays the gini indices produced by the model and the one found in the data.\footnote{The empirical indices for durables, liquid assets and net worth are taken from \cite{hintermaier2010} and the index for income from \cite{hintermaier2011}} The model manages to match the ordering for the different inequalities only considering the types of the assets as well as net-worth. Moreover, it also shows that the consumption inequality is lowest. However, it does not manage to show that durables are more concentrated than income. \cite{diaz2010} show, in a model with housing, that this may be overcome by explicitly modeling a rental market. Housing makes up the biggest part of durables (CITE AND SHOW NUMBERS). As a consequence of rental markets, wealth poor households will decide to rent instead of owning, thus satisfying their durable consumption needs without being able to benefit from the collateral value of the durable object. As the rented object does not account for the housing part of the durable holdings, wealth poor will hold less durables and thus the gini index of durables increases, while, as \cite{diaz2010} show, the other indices change only slightly are only marginally affected. 
-As I will show below. The concentration on durables largely depends on the persistence of the earning process. A change in the income process thus helps to improve on the prediction of the gini index of durables by the model. 
 \end{document}

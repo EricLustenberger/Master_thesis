@@ -21,13 +21,10 @@ a_i_j(:,1) = a_initial;
 d_i_j(:,1)  = d_initial;
 
         for t = 1:size(Y_ms_j,2);
-               
-            if t==1;
-                x_i_j(:,t)         = (1+r)*a_initial + (1-delta_)*d_initial;
-
-            else % on initial period
-                x_i_j(:,t)         = (1+r)*a_i_j(:,t) + (1-delta_)*d_i_j(:,t);           
-            end; % on initial period
+          
+            
+            x_i_j(:,t)         = (1+r)*a_i_j(:,t) + (1-delta_)*d_i_j(:,t);           
+            
             
             
             for imarkstate = 1 : size(P_,2);
