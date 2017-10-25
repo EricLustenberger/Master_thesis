@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -80,12 +80,6 @@ Mariacristina De~Nardi, Giulio Fella, and Gonzalo~Paz Pardo.
   wealth.
 \newblock Technical report, National Bureau of Economic Research, 2016.
 
-\bibitem[Deaton and Paxson(1994)]{deaton1994}
-Angus Deaton and Christina Paxson.
-\newblock Intertemporal choice and inequality.
-\newblock \emph{Journal of political economy}, 102\penalty0 (3):\penalty0
-  437--467, 1994.
-
 \bibitem[D{\'\i}az and Luengo-Prado(2010)]{diaz2010}
 Antonia D{\'\i}az and Mar{\'\i}a~Jos{\'e} Luengo-Prado.
 \newblock The wealth distribution with durable goods.
@@ -110,8 +104,8 @@ G~Fella and M~De~Nardi.
 \newblock Saving and wealth inequality.
 \newblock \emph{Review of Economic Dynamics}, 2017.
 
-\bibitem[Fernández-Villaverde and Krueger(2011)]{FV&K2011}
-Jesús Fernández-Villaverde and Dirk Krueger.
+\bibitem[Fern\'{a}ndez-Villaverde and Krueger(2011)]{FV&K2011}
+Jes\'{u}s Fern\'{a}ndez-Villaverde and Dirk Krueger.
 \newblock {Consumption And Saving Over The Life Cycle: How Important Are
   Consumer Durables?}
 \newblock \emph{Macroeconomic Dynamics}, 15\penalty0 (05):\penalty0 725--770,
@@ -200,13 +194,6 @@ Per Krusell and Anthony~A Smith, Jr.
 Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
 \newblock Models with heterogeneous agents.
 \newblock \emph{Frontiers of business cycle research}, pages 98--125, 1995.
-
-\bibitem[Tideman and Weber(2010)]{a&w2010}
-Sander Tideman and Guglielmo Weber.
-\newblock Consumption and saving: models of intertemporal allocation and their
-  implications for public policy.
-\newblock \emph{Journal of Economic literature}, 48\penalty0 (3):\penalty0
-  693--751, 2010.
 
 \bibitem[Yang(2009)]{yang2009}
 Fang Yang.

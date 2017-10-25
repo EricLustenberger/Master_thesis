@@ -1,13 +1,13 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {2}Modeling the wealth distribution}{2}
-\contentsline {subsection}{\numberline {2.1}The Standard Incomplete Markets Model}{2}
+\contentsline {section}{\numberline {2}Modeling the wealth distribution}{3}
+\contentsline {subsection}{\numberline {2.1}The Standard Incomplete Markets Model}{3}
 \contentsline {subsection}{\numberline {2.2}The Life-Cycle Feature}{3}
 \contentsline {subsection}{\numberline {2.3}Wealth Distribution Literature}{4}
 \contentsline {subsection}{\numberline {2.4}Durables and the Net-Worth Literature}{5}
-\contentsline {section}{\numberline {3}Facts about the Net-Worth distribution }{5}
-\contentsline {paragraph}{Net-Worth and Changes across age groups}{5}
-\contentsline {paragraph}{Portfolio composition and the importance of Durables}{6}
-\contentsline {section}{\numberline {4}Research Strategy}{7}
+\contentsline {section}{\numberline {3}Facts about the Net-Worth distribution }{6}
+\contentsline {paragraph}{Net-Worth and Changes across age groups}{6}
+\contentsline {paragraph}{Portfolio composition and the importance of Durables}{7}
+\contentsline {section}{\numberline {4}Research Strategy}{8}
 \contentsline {subsubsection}{\numberline {4.0.1}Partial Equilibrium}{8}
 \contentsline {section}{\numberline {5}The Model}{9}
 \contentsline {subsection}{\numberline {5.1}Demographics}{9}
@@ -19,48 +19,48 @@
 \contentsline {subsection}{\numberline {5.3}The recursive formulation of the household problem}{11}
 \contentsline {subsection}{\numberline {5.4}Equilibrium Concept}{12}
 \contentsline {subsection}{\numberline {5.5}Motivation}{12}
-\contentsline {subsection}{\numberline {5.6}The determinants of savings}{12}
+\contentsline {subsection}{\numberline {5.6}The determinants of savings}{13}
 \contentsline {paragraph}{Income Risk}{13}
 \contentsline {paragraph}{Income growth}{13}
-\contentsline {paragraph}{Borrowing Constraint}{13}
-\contentsline {paragraph}{The relative price of durables}{14}
+\contentsline {paragraph}{Borrowing Constraint}{14}
+\contentsline {paragraph}{The relative price of durables}{15}
 \contentsline {section}{\numberline {6}Calibration}{15}
 \contentsline {subsection}{\numberline {6.1}The income process}{15}
-\contentsline {paragraph}{Income Process}{16}
-\contentsline {subsection}{\numberline {6.2}Utility parameters}{16}
-\contentsline {subsection}{\numberline {6.3}Initial Conditions}{18}
+\contentsline {paragraph}{Income Process}{17}
+\contentsline {subsection}{\numberline {6.2}Utility parameters}{17}
+\contentsline {subsection}{\numberline {6.3}Initial Conditions}{19}
 \contentsline {subsection}{\numberline {6.4}Further inputs}{19}
-\contentsline {section}{\numberline {7}Numerical algorithm}{19}
+\contentsline {section}{\numberline {7}Numerical algorithm}{20}
 \contentsline {subsubsection}{\numberline {7.0.1}Comparing the simulation output with SCF data}{20}
 \contentsline {paragraph}{Data (Initializing DATA + probability of death (PLOT!)}{20}
-\contentsline {section}{\numberline {8}Life-Cycle Profiles}{20}
+\contentsline {section}{\numberline {8}Life-Cycle Profiles}{21}
 \contentsline {subsection}{\numberline {8.1}Life-Cycle profiles in the data and theoretical literature}{21}
-\contentsline {subsubsection}{\numberline {8.1.1}Consumption smoothing}{21}
-\contentsline {paragraph}{Income tracking consumption}{22}
+\contentsline {subsubsection}{\numberline {8.1.1}Consumption smoothing}{22}
+\contentsline {paragraph}{Income tracking consumption}{23}
 \contentsline {subsubsection}{\numberline {8.1.2}Portfolio Composition}{23}
 \contentsline {subsection}{\numberline {8.2}Profiles predicted by the model}{23}
-\contentsline {subsection}{\numberline {8.3}Income and Consumption}{23}
-\contentsline {paragraph}{Income}{23}
+\contentsline {subsection}{\numberline {8.3}Income and Consumption}{24}
+\contentsline {paragraph}{Income}{24}
 \contentsline {paragraph}{Consumption}{24}
-\contentsline {subparagraph}{Comparing to results reported in the literature}{25}
-\contentsline {subsection}{\numberline {8.4}Portfolio Composition over the Life-Cycle}{26}
-\contentsline {paragraph}{Wealth Portfolio}{26}
+\contentsline {subparagraph}{Comparing to results reported in the literature}{26}
+\contentsline {subsection}{\numberline {8.4}Portfolio Composition over the Life-Cycle}{27}
+\contentsline {paragraph}{Wealth Portfolio}{27}
 \contentsline {paragraph}{What does the literature say?}{27}
-\contentsline {paragraph}{Durables}{28}
-\contentsline {section}{\numberline {9}What features of the Wealth Distribution are explained by the model?}{29}
+\contentsline {paragraph}{Durables}{29}
+\contentsline {section}{\numberline {9}What features of the Wealth Distribution are explained by the model?}{30}
 \contentsline {subsection}{\numberline {9.1}Creating a cross-section from simulated life-cycle profiles}{30}
 \contentsline {subsection}{\numberline {9.2}Model Predictions}{30}
 \contentsline {section}{\numberline {10}Relative degrees of inequality and the overall distribution}{31}
-\contentsline {section}{\numberline {11}The decomposition of determinants}{32}
+\contentsline {section}{\numberline {11}The decomposition of determinants}{33}
 \contentsline {subsection}{\numberline {11.1}Loan-to-value ratio}{33}
-\contentsline {subsubsection}{\numberline {11.1.1}The distribution}{33}
+\contentsline {subsubsection}{\numberline {11.1.1}The distribution}{34}
 \contentsline {subsubsection}{\numberline {11.1.2}On the individual level}{35}
 \contentsline {subsubsection}{\numberline {11.1.3}Over the life-cycle}{35}
 \contentsline {subsection}{\numberline {11.2}The income process}{36}
 \contentsline {paragraph}{Income risk}{36}
 \contentsline {paragraph}{Experience Premium}{38}
 \contentsline {section}{\numberline {12}Conclusion}{39}
-\contentsline {section}{References}{41}
+\contentsline {section}{References}{42}
 \contentsline {section}{\numberline {A}Experience Premium}{45}
 \contentsline {section}{\numberline {B}Estimation}{45}
 \contentsline {section}{\numberline {C}Data}{46}
