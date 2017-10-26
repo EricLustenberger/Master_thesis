@@ -137,6 +137,10 @@ Jonathan Heathcote, Kjetil Storesletten, and Giovanni~L Violante.
 \newblock Quantitative macroeconomics with heterogeneous households.
 \newblock \emph{Annu. Rev. Econ.}, 1\penalty0 (1):\penalty0 319--354, 2009.
 
+\bibitem[Heer and Maussner(2004)]{heer2004dge}
+Burkhard Heer and Alfred Maussner.
+\newblock Dge models. computational methods and applications, 2004.
+
 \bibitem[Hintermaier and Koeniger(2010)]{hintermaier2010}
 Thomas Hintermaier and Winfried Koeniger.
 \newblock {The method of endogenous gridpoints with occasionally binding
@@ -171,13 +175,6 @@ Mark Huggett.
 \newblock \emph{Journal of Monetary Economics}, 38\penalty0 (3):\penalty0
   469--494, 1996.
 
-\bibitem[{\.I}mrohoroglu et~al.(1995){\.I}mrohoroglu, Imrohoroglu, and
-  Joines]{imrohoroglu1995life}
-t~distre~onAy{\c{s}}e {\.I}mrohoroglu, Selahattin Imrohoroglu, and Douglas~H
-  Joines.
-\newblock A life cycle analysis of social security.
-\newblock \emph{Economic theory}, 6\penalty0 (1):\penalty0 83--114, 1995.
-
 \bibitem[Kaymak and Poschke(2016)]{kaymak2016evolution}
 Bar{\i}{\c{s}} Kaymak and Markus Poschke.
 \newblock The evolution of wealth inequality over half a century: the role of
@@ -190,10 +187,11 @@ Per Krusell and Anthony~A Smith, Jr.
 \newblock \emph{Journal of political Economy}, 106\penalty0 (5):\penalty0
   867--896, 1998.
 
-\bibitem[R{\'\i}os-Rull(1995)]{rios1995models}
-Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
-\newblock Models with heterogeneous agents.
-\newblock \emph{Frontiers of business cycle research}, pages 98--125, 1995.
+\bibitem[Quadrini and R{\'\i}os-Rull(1997)]{quadrini1997understanding}
+Vincenzo Quadrini and Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
+\newblock Understanding the us distribution of wealth.
+\newblock \emph{Federal Reserve Bank of Minneapolis. Quarterly Review-Federal
+  Reserve Bank of Minneapolis}, 21\penalty0 (2):\penalty0 22, 1997.
 
 \bibitem[Yang(2009)]{yang2009}
 Fang Yang.

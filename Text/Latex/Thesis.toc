@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {2}Modeling the wealth distribution}{3}
+\contentsline {section}{\numberline {2}Modeling the wealth distribution}{2}
 \contentsline {subsection}{\numberline {2.1}The Standard Incomplete Markets Model}{3}
 \contentsline {subsection}{\numberline {2.2}The Life-Cycle Feature}{3}
 \contentsline {subsection}{\numberline {2.3}Wealth Distribution Literature}{4}
@@ -19,52 +19,52 @@
 \contentsline {subsection}{\numberline {5.3}The recursive formulation of the household problem}{11}
 \contentsline {subsection}{\numberline {5.4}Equilibrium Concept}{12}
 \contentsline {subsection}{\numberline {5.5}Motivation}{12}
-\contentsline {subsection}{\numberline {5.6}The determinants of savings}{13}
-\contentsline {paragraph}{Income Risk}{13}
+\contentsline {subsection}{\numberline {5.6}The determinants of savings}{12}
+\contentsline {paragraph}{Income Risk}{12}
 \contentsline {paragraph}{Income growth}{13}
-\contentsline {paragraph}{Borrowing Constraint}{14}
-\contentsline {paragraph}{The relative price of durables}{15}
-\contentsline {section}{\numberline {6}Calibration}{15}
+\contentsline {paragraph}{Borrowing Constraint}{13}
+\contentsline {paragraph}{The relative price of durables}{14}
+\contentsline {section}{\numberline {6}Calibration}{14}
 \contentsline {subsection}{\numberline {6.1}The income process}{15}
-\contentsline {paragraph}{Income Process}{17}
-\contentsline {subsection}{\numberline {6.2}Utility parameters}{17}
-\contentsline {subsection}{\numberline {6.3}Initial Conditions}{19}
-\contentsline {subsection}{\numberline {6.4}Further inputs}{19}
-\contentsline {section}{\numberline {7}Numerical algorithm}{20}
-\contentsline {subsubsection}{\numberline {7.0.1}Comparing the simulation output with SCF data}{20}
-\contentsline {paragraph}{Data (Initializing DATA + probability of death (PLOT!)}{20}
-\contentsline {section}{\numberline {8}Life-Cycle Profiles}{21}
-\contentsline {subsection}{\numberline {8.1}Life-Cycle profiles in the data and theoretical literature}{21}
-\contentsline {subsubsection}{\numberline {8.1.1}Consumption smoothing}{22}
-\contentsline {paragraph}{Income tracking consumption}{23}
-\contentsline {subsubsection}{\numberline {8.1.2}Portfolio Composition}{23}
-\contentsline {subsection}{\numberline {8.2}Profiles predicted by the model}{23}
-\contentsline {subsection}{\numberline {8.3}Income and Consumption}{24}
-\contentsline {paragraph}{Income}{24}
-\contentsline {paragraph}{Consumption}{24}
-\contentsline {subparagraph}{Comparing to results reported in the literature}{26}
-\contentsline {subsection}{\numberline {8.4}Portfolio Composition over the Life-Cycle}{27}
-\contentsline {paragraph}{Wealth Portfolio}{27}
-\contentsline {paragraph}{What does the literature say?}{27}
-\contentsline {paragraph}{Durables}{29}
-\contentsline {section}{\numberline {9}What features of the Wealth Distribution are explained by the model?}{30}
-\contentsline {subsection}{\numberline {9.1}Creating a cross-section from simulated life-cycle profiles}{30}
-\contentsline {subsection}{\numberline {9.2}Model Predictions}{30}
-\contentsline {section}{\numberline {10}Relative degrees of inequality and the overall distribution}{31}
-\contentsline {section}{\numberline {11}The decomposition of determinants}{33}
-\contentsline {subsection}{\numberline {11.1}Loan-to-value ratio}{33}
-\contentsline {subsubsection}{\numberline {11.1.1}The distribution}{34}
-\contentsline {subsubsection}{\numberline {11.1.2}On the individual level}{35}
-\contentsline {subsubsection}{\numberline {11.1.3}Over the life-cycle}{35}
-\contentsline {subsection}{\numberline {11.2}The income process}{36}
-\contentsline {paragraph}{Income risk}{36}
-\contentsline {paragraph}{Experience Premium}{38}
-\contentsline {section}{\numberline {12}Conclusion}{39}
-\contentsline {section}{References}{42}
-\contentsline {section}{\numberline {A}Experience Premium}{45}
-\contentsline {section}{\numberline {B}Estimation}{45}
-\contentsline {section}{\numberline {C}Data}{46}
-\contentsline {section}{\numberline {D}Initial Conditions}{46}
-\contentsline {section}{\numberline {E}The full distribution and the issue with the tails of the distribution}{48}
-\contentsline {paragraph}{The richest}{49}
-\contentsline {paragraph}{The poorest}{49}
+\contentsline {paragraph}{Income Process}{16}
+\contentsline {subsection}{\numberline {6.2}Utility parameters}{16}
+\contentsline {subsection}{\numberline {6.3}Initial Conditions}{18}
+\contentsline {subsection}{\numberline {6.4}Further inputs}{18}
+\contentsline {section}{\numberline {7}Numerical algorithm}{19}
+\contentsline {subsubsection}{\numberline {7.0.1}Comparing the simulation output with SCF data}{19}
+\contentsline {paragraph}{Data (Initializing DATA + probability of death (PLOT!)}{19}
+\contentsline {section}{\numberline {8}Life-Cycle Profiles}{19}
+\contentsline {subsection}{\numberline {8.1}Life-Cycle profiles in the data and theoretical literature}{20}
+\contentsline {subsubsection}{\numberline {8.1.1}Consumption smoothing}{20}
+\contentsline {paragraph}{Income tracking consumption}{21}
+\contentsline {subsubsection}{\numberline {8.1.2}Portfolio Composition}{22}
+\contentsline {subsection}{\numberline {8.2}Profiles predicted by the model}{22}
+\contentsline {subsection}{\numberline {8.3}Income and Consumption}{22}
+\contentsline {paragraph}{Income}{22}
+\contentsline {paragraph}{Consumption}{23}
+\contentsline {subparagraph}{Comparing to results reported in the literature}{24}
+\contentsline {subsection}{\numberline {8.4}Portfolio Composition over the Life-Cycle}{25}
+\contentsline {paragraph}{Wealth Portfolio}{25}
+\contentsline {paragraph}{What does the literature say?}{26}
+\contentsline {paragraph}{Durables}{27}
+\contentsline {section}{\numberline {9}What features of the Wealth Distribution are explained by the model?}{28}
+\contentsline {subsection}{\numberline {9.1}Creating a cross-section from simulated life-cycle profiles}{28}
+\contentsline {subsection}{\numberline {9.2}Model Predictions}{28}
+\contentsline {section}{\numberline {10}Relative degrees of inequality and the overall distribution}{30}
+\contentsline {section}{\numberline {11}The decomposition of determinants}{31}
+\contentsline {subsection}{\numberline {11.1}Loan-to-value ratio}{31}
+\contentsline {subsubsection}{\numberline {11.1.1}The distribution}{31}
+\contentsline {subsubsection}{\numberline {11.1.2}On the individual level}{33}
+\contentsline {subsubsection}{\numberline {11.1.3}Over the life-cycle}{33}
+\contentsline {subsection}{\numberline {11.2}The income process}{35}
+\contentsline {paragraph}{Income risk}{35}
+\contentsline {paragraph}{Experience Premium}{36}
+\contentsline {section}{\numberline {12}Conclusion}{37}
+\contentsline {section}{References}{39}
+\contentsline {section}{\numberline {A}Experience Premium}{42}
+\contentsline {section}{\numberline {B}Estimation}{42}
+\contentsline {section}{\numberline {C}Data}{43}
+\contentsline {section}{\numberline {D}Initial Conditions}{43}
+\contentsline {section}{\numberline {E}The full distribution and the issue with the tails of the distribution}{45}
+\contentsline {paragraph}{The richest}{46}
+\contentsline {paragraph}{The poorest}{46}
