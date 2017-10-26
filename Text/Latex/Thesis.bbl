@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -186,6 +186,11 @@ Per Krusell and Anthony~A Smith, Jr.
 \newblock Income and wealth heterogeneity in the macroeconomy.
 \newblock \emph{Journal of political Economy}, 106\penalty0 (5):\penalty0
   867--896, 1998.
+
+\bibitem[Kuhn et~al.(2017)Kuhn, Schularick, and Steins]{kuhn2017income}
+Moritz Kuhn, Moritz Schularick, and Ulrike Steins.
+\newblock Income and wealth inequality in america, 1949-2013.
+\newblock 2017.
 
 \bibitem[Quadrini and R{\'\i}os-Rull(1997)]{quadrini1997understanding}
 Vincenzo Quadrini and Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
