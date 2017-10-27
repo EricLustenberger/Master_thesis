@@ -34,13 +34,13 @@ trial_data_2004;
 % USER: SELECT DISC_PATH, mind the trailing slash
 DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Calibration/My_Calibration/Calibration_no_acost/output/';
 
-%models_database_name_ = ['2004_Data', 'LIFE', 'rho095','beta0985995_theta07550765_sigma15','steps_001','my_initial_cond']; %baseline
+models_database_name_ = ['2004_Data', 'LIFE', 'rho095','beta0985995_theta07550765_sigma15','steps_001','my_initial_cond']; %baseline
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta09850995_theta07450755_sigma15','initial_conditions_liquid_assets','001']; % initial conditions by hint. and set to liquid assets
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','downpayment08']; % downpayment 08 with my initial conditions
 %models_database_name_ = ['2004_Data','LIFE','rho095','beta09850995_theta07450755_sigma15','downpayment08','001']; % downpayment without my initial conditions
 %models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','higher_risk0624']; % with higher risk
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta0981_theta075077_sigma15','steps_001','my_initial_cond','higher_risk0624']; % with higher risk, total 
-models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09890993_theta07580762_sigma15','initial_conditions_durables_correct','001']; % durables as initial conditions
+%models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09890993_theta07580762_sigma15','initial_conditions_durables_correct','001']; % durables as initial conditions
 
 
 models_database_ = [models_database_name_, '.mat']; 
