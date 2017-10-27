@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{33}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -191,6 +191,12 @@ Per Krusell and Anthony~A Smith, Jr.
 Moritz Kuhn, Moritz Schularick, and Ulrike Steins.
 \newblock Income and wealth inequality in america, 1949-2013.
 \newblock 2017.
+
+\bibitem[Kydland and Prescott(1996)]{kydland1996computational}
+Finn~E Kydland and Edward~C Prescott.
+\newblock The computational experiment: an econometric tool.
+\newblock \emph{The Journal of Economic Perspectives}, 10\penalty0
+  (1):\penalty0 69--85, 1996.
 
 \bibitem[Quadrini and R{\'\i}os-Rull(1997)]{quadrini1997understanding}
 Vincenzo Quadrini and Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
