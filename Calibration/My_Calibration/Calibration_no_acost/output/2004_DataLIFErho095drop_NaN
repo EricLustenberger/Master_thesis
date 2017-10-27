@@ -1,7 +1,0 @@
-2004_DataLIFErho095drop_NaN
-
-takes: 
-
-beta_VEC  = 0.96:0.005:1;
-theta_VEC = 0.70:0.005:0.75;
-
