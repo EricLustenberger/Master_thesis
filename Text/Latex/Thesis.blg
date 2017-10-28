@@ -5,45 +5,45 @@ The style file: plainnat.bst
 Database file #1: bib_thesis.bib
 Warning--empty journal in gruber2003precautionary
 Warning--empty journal in kuhn2017income
-You've used 34 entries,
+You've used 35 entries,
             2773 wiz_defined-function locations,
-            805 strings with 10265 characters,
-and the built_in function-call counts, 14769 in all, are:
-= -- 1374
-> -- 734
-< -- 26
-+ -- 250
-- -- 216
-* -- 1199
-:= -- 2276
-add.period$ -- 105
-call.type$ -- 34
-change.case$ -- 176
-chr.to.int$ -- 34
-cite$ -- 70
-duplicate$ -- 667
-empty$ -- 1265
-format.name$ -- 284
-if$ -- 3069
+            812 strings with 10470 characters,
+and the built_in function-call counts, 15225 in all, are:
+= -- 1418
+> -- 755
+< -- 27
++ -- 257
+- -- 222
+* -- 1236
+:= -- 2344
+add.period$ -- 108
+call.type$ -- 35
+change.case$ -- 181
+chr.to.int$ -- 35
+cite$ -- 72
+duplicate$ -- 687
+empty$ -- 1305
+format.name$ -- 293
+if$ -- 3165
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 30
-newline$ -- 181
-num.names$ -- 136
-pop$ -- 297
+missing$ -- 31
+newline$ -- 186
+num.names$ -- 140
+pop$ -- 305
 preamble$ -- 1
-purify$ -- 140
+purify$ -- 144
 quote$ -- 0
-skip$ -- 508
+skip$ -- 524
 stack$ -- 0
-substring$ -- 685
-swap$ -- 32
+substring$ -- 712
+swap$ -- 33
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 374
+type$ -- 385
 warning$ -- 2
-while$ -- 152
+while$ -- 157
 width$ -- 0
-write$ -- 449
+write$ -- 462
 (There were 2 warnings)
