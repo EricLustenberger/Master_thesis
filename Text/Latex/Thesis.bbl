@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -68,6 +68,12 @@ Sang-Wook~Stanley Cho.
   institution.
 \newblock \emph{Macroeconomic Dynamics}, 16\penalty0 (4):\penalty0 493--517,
   2012.
+
+\bibitem[De~Nardi(2004)]{de2004wealth}
+Mariacristina De~Nardi.
+\newblock Wealth inequality and intergenerational links.
+\newblock \emph{The Review of Economic Studies}, 71\penalty0 (3):\penalty0
+  743--768, 2004.
 
 \bibitem[De~Nardi and Yang(2014)]{denardi2014}
 Mariacristina De~Nardi and Fang Yang.
