@@ -34,10 +34,10 @@
 \contentsline {subsection}{\numberline {7.1}Income and Consumption}{19}
 \contentsline {paragraph}{Income}{19}
 \contentsline {paragraph}{Consumption}{19}
-\contentsline {subparagraph}{Comparing to results reported in the literature}{20}
+\contentsline {subparagraph}{How does this consumption profile compare to the literature?}{20}
 \contentsline {subsection}{\numberline {7.2}Portfolio Composition over the Life-Cycle}{21}
 \contentsline {paragraph}{Wealth Portfolio}{21}
-\contentsline {paragraph}{What does the literature say?}{21}
+\contentsline {paragraph}{What does the literature say?}{22}
 \contentsline {paragraph}{Durables}{23}
 \contentsline {subsection}{\numberline {7.3}Life-Cycle profiles in the data and theoretical literature}{24}
 \contentsline {subsubsection}{\numberline {7.3.1}Consumption smoothing}{25}
