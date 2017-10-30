@@ -39,19 +39,19 @@
 \contentsline {paragraph}{Wealth Portfolio}{21}
 \contentsline {paragraph}{What does the literature say?}{22}
 \contentsline {subsection}{\numberline {7.3}Concluding Life-Cycle Profiles}{23}
-\contentsline {section}{\numberline {8}What features of the Wealth Distribution are explained by the model?}{24}
+\contentsline {section}{\numberline {8}What features of the Wealth Distribution are explained by the model?}{23}
 \contentsline {subsection}{\numberline {8.1}Creating a cross-section from simulated life-cycle profiles}{24}
-\contentsline {subsection}{\numberline {8.2}Model Predictions}{24}
-\contentsline {section}{\numberline {9}Relative degrees of inequality and the overall distribution}{26}
-\contentsline {section}{\numberline {10}The decomposition of determinants}{27}
-\contentsline {subsection}{\numberline {10.1}Loan-to-value ratio}{27}
-\contentsline {subsubsection}{\numberline {10.1.1}The distribution}{27}
-\contentsline {subsubsection}{\numberline {10.1.2}On the individual level}{29}
-\contentsline {subsubsection}{\numberline {10.1.3}Over the life-cycle}{29}
-\contentsline {subsection}{\numberline {10.2}The income process}{31}
-\contentsline {paragraph}{Income risk}{31}
-\contentsline {paragraph}{Experience Premium}{32}
-\contentsline {section}{\numberline {11}Conclusion}{33}
+\contentsline {subsection}{\numberline {8.2}Net-Worth distribution up to the 90th percentile}{24}
+\contentsline {subsection}{\numberline {8.3}Relative degrees of inequality and the overall distribution}{25}
+\contentsline {section}{\numberline {9}The decomposition of determinants}{26}
+\contentsline {subsection}{\numberline {9.1}Loan-to-value ratio}{27}
+\contentsline {subsubsection}{\numberline {9.1.1}The distribution}{27}
+\contentsline {subsubsection}{\numberline {9.1.2}On the individual level}{29}
+\contentsline {subsubsection}{\numberline {9.1.3}Over the life-cycle}{29}
+\contentsline {subsection}{\numberline {9.2}The income process}{30}
+\contentsline {paragraph}{Income risk}{30}
+\contentsline {paragraph}{Experience Premium}{31}
+\contentsline {section}{\numberline {10}Conclusion}{33}
 \contentsline {section}{References}{35}
 \contentsline {section}{\numberline {A}Experience Premium}{38}
 \contentsline {section}{\numberline {B}Estimation}{38}
