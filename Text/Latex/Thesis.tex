@@ -450,25 +450,8 @@ In order to proceed with the distributional analysis and to compare the model di
 
 \subsection{Net-Worth distribution up to the 90th percentile}
 
-
-\begin{figure}[!htbp]
-\caption{Average Durable Holdings over the Life-Cycle} 
-\label{wealth_distr_base}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
-\centering
-\includegraphics[scale=.6]{Figures/distribtion_10_90th_base}  % width legt Breite der Graphik fest
-
-\begin{minipage}{0.8\linewidth}
-\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
-\end{minipage}
-
-\end{figure}
-
-
-Figure \ref{wealth_distr_base} shows the net-wealth distribution for three different age groups from the 10th to the 90th percentile. The blue represents the SCF-Data from the year 2004 and the dotted orange line shows the distribution reproduced by the model. 
-Table \ref{ginis_base} shows the corresponding gini-indices. The ones for the SCF-Data are directly taken from \cite{hintermaier2011} whereas the model indices and averages are calculated from the net-wealth distribution resulting from the model simulation.\footnote{As I allow for negative net-worth holdings in the model, the gini-indices have to be normalized, as otherwise indices of a magnitude larger than 1 were possible. I hereby follow \cite{chen1982}. Note that this may slightly bias the gini-indices compared to the ones calculated without normalization. BE MORE PRECISE!!!} The evidence suggests that the model does manage to reproduce a decent representation of the wealth distribution. For the youngest age group it does uderpredict inequality, while for the other two the model does quite accurately reproduce the ginis. While one may argue about the precision it is evident, that it reproduces a known feature (AS DISCUSSED IN THE FACTS PART) of the empirical distribution, namely that while average wealth holdings increase with age, the concentration of wealth holdings decreases. 
-The means are such that the model predicts average net-worth of the younger two age groups quite accurately, however, underpredicts average worth for the oldest age group. 
-
-COMPARE RESULTS TO OTHER STUDIES! 
+\paragraph{The results}
+Table \ref{ginis_base} displays the distribution means and gini-indices up to the 90th percentile obtained from the data and simulated by the model. The SCF-data moments correspond to the ones displayed in Table \ref{facts_changes}, whereas the model indices and averages are calculated from the net-wealth distribution resulting from the model simulation.\footnote{As I allow for negative net-worth holdings in the model, the gini-indices have to be normalized, as otherwise indices of a magnitude larger than 1 were possible. I hereby follow \cite{chen1982}. POSSIBLE BIAS?} The means of the two younger age-groups are almost perfectly matched by the model, whereas the average net-worth holdings of the oldest age-group is underpredicted by the model. The simulation results in a lower within-group inequality for the youngest age group, however, quite accurately matches the concentration of wealth, when it comes to the older two age groups.  
 
 \begin{table}[!htbp]
 \centering
@@ -482,6 +465,50 @@ COMPARE RESULTS TO OTHER STUDIES!
 \begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.81\\ 0.564\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular} \\ \bottomrule
 \end{tabular}
 \end{table}
+
+Figure \ref{wealth_distr_base} shows the detailed net-wealth distribution for three different age groups up to the 90th percentile. The blue represents the SCF-Data from the year 2004 and the dotted orange line shows the distribution reproduced by the model. The detailed representation confirms the output presented in Table \ref{ginis_base} and gives more insights regarding the ability of the model to reproduced the observed pattern found in the data. \\ 
+The plotted graph shows that the distributions from the two younger age groups are matched quite precisely up the 90th percentile. Moreover, the shape of the oldest age group is matched reasonably well for the first 60 percentiles and then deviates, underpredicting the amount of net-worth by the upper percentiles, thus confirming the lower average holdings reported in Table \ref{ginis_base}. There is one second aspect of the data, that the model does not capture well. Namely, in the empirical distributions the poorest agents hold negative net-worth. This fact is most pronounced for the youngest age-group, where agents up to the 10th percentile hold negative net-worth and then decreases for older consumers, whereas the fraction of 46 to 55 years old holding negative net-worth is almost zero in the data. This does explain, why the gini-index for the youngest age group predicted by the model is much lower than the one found in the data and indices of the older age groups are matched more closely.\\ The inability of the model to capture the large negative net-worth holdings is due to the specification of the collateral constraint. The model only allows for very limited amounts of negative net-worth holdings, since borrowing has to be collaterized. The fraction, which can be collaterized by income is very close to zero and therefore short positions in liquid assets are countered by durable holdings. Resulting net-worth positions are thus almost always positive.\footnote{Remember that the minimum of net-worth is given by $-\gamma\underline{y}$, which is implied by the durable constraint set to zero and the collateral constraint. The calibration above implies that $-\gamma\underline{y} = 0.0179$ in terms of average net-labor income.} 
+
+
+\begin{figure}[!htbp]
+\caption{Net-Worth distribution up to the 90th percentile} 
+\label{wealth_distr_base}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.35]{Figures/distribution_0_90_baseline}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{The figure compares the simulated distributions to the empirical distributions. The blue line represents 2004 SCF-data form the U.S. and the red-dotted line is the distribution produced by the model. Both distributions are plotted up to the 90th percentile and net-worth is in average labor earnings.}
+\end{minipage}
+
+\end{figure}
+
+\paragraph{How do these results compare?} As discussed above, several elements in the present study are identical to \cite{hintermaier2011}. This concerns the data, the parametrization as well as the sample choice. Moreover, their study mainly differs in two aspects. Firstly, they have abstracted from durables, directly modeling net-worth as a one-period bond. Secondly, the cited authors have estimated the preference parameters by matching the simulated distribution as closely as possible to the SCF 1983 distribution and then performed an out-of-sample prediction for the 2004 distribution. The large similarities coupled with the first difference, thus invite for a comparison in the light of modeling durables in the context of net-worth.\footnote{I hereby compare the out-of-sample prediction for the SCF-2004 data to my results and not the estimation of the 1983. The reason being that their estimation strategy aimed at matching the net-worth distribution as closely as possible, directly matching percentiles. While this strategy is well suited for the out-of-sample prediction it says little about the ability of the model to match the empirical wealth cross-section, since the matched moments cannot be used to assess the model's performance. See \cite{kydland1996computational} for a discussion on calibration strategy.} \\ Table \ref{ginis_hintermaier}
+displays the obtained gini-indices and net-worth means from the out-of-sample prediction by \cite{hintermaier2011}. The first observation that can be drawn, is that the gini-indices compare to the simulated ginis in Table \ref{ginis_base}. The second observation is, that there are some differences in the averages. While the average of the intermediate group compares quite closely to the one obtained in the present simulation, their model predicts a higher net-worth average for the youngest age group and a lower net-worth average for the oldest age group. \\ 
+
+\begin{table}[!htbp]
+\centering
+\caption{Results from Table 6 \cite{hintermaier2011}}
+\label{ginis_hintermaier}
+\begin{tabular}{@{}ll@{}}
+\toprule
+                                                                                & \cite{hintermaier2011}                                                  \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}} \\0.96\\ 0.619\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 2.31\\ 0.604\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.02\\ 0.563\end{tabular}  \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+ The under representation of agents holding negative-net worth in the model leads to an underprediction of the gini index for the youngest. 
+ 
+The evidence suggests that the model does manage to reproduce a decent representation of the wealth distribution. For the youngest age group it does underpredict inequality, while for the other two the model does quite accurately reproduce the ginis. While one may argue about the precision it is evident, that it reproduces a known feature (AS DISCUSSED IN THE FACTS PART) of the empirical distribution, namely that while average wealth holdings increase with age, the concentration of wealth holdings decreases. 
+The means are such that the model predicts average net-worth of the younger two age groups quite accurately, however, underpredicts average worth for the oldest age group. 
+
+COMPARE RESULTS TO OTHER STUDIES! 
+
+
 
 \subsection{Relative degrees of inequality and the overall distribution}
 So far I have only discussed net-worth in the distribution section. However, the model does also reproduce a distribution of consumption as well as the two assets, which make up net-worth, independently. Moreover, there is the distribution of earnings, which is endogenously determined. It is well known that heterogeneous agent models of this type are able to reproduce the ordinal ranking of inequalities for consumption, income and net-worth in line with empirical evidence.\cite{aiyagari1994} shows that the model reproduces empirical plausible relative degrees of inequality, where consumption exhibits the least inequality, followed by income and capital is most unequal. 
