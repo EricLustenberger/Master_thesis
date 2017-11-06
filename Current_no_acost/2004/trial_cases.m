@@ -22,7 +22,7 @@ models_database_initial = [models_database_name_initial, '.mat'];
 
 initial = load([DISC_PATH,models_database_initial]);
 
-models_database_name_downpayment = ['downpayment08','life_cycle'];
+models_database_name_downpayment = ['downpayment0','life_cycle'];
 models_database_downpayment = [models_database_name_downpayment, '.mat'];
 
 downpayment = load([DISC_PATH,models_database_downpayment]);
