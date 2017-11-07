@@ -1,6 +1,6 @@
 %income_states = [21];
 income_states = [1 11 21];
-age =  1; 
+age =  11; 
 
 
 

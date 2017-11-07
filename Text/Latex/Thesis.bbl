@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -30,6 +30,13 @@ Truman Bewley.
 \newblock The permanent income hypothesis: A theoretical formulation.
 \newblock \emph{Journal of Economic Theory}, 16\penalty0 (2):\penalty0
   252--292, 1977.
+
+\bibitem[Bokhari et~al.(2013)Bokhari, Torous, and Wheaton]{bokhari2013did}
+Sheharyar Bokhari, Walter Torous, and William Wheaton.
+\newblock Why did household mortgage leverage rise from the mid-1980s until the
+  great recession.
+\newblock In \emph{American Economic Association 2013 Annual Meeting. San
+  Diego, California}, 2013.
 
 \bibitem[Cagetti(2003)]{cagetti2003}
 Marco Cagetti.
@@ -216,6 +223,12 @@ Finn~E Kydland and Edward~C Prescott.
 \newblock The computational experiment: an econometric tool.
 \newblock \emph{The Journal of Economic Perspectives}, 10\penalty0
   (1):\penalty0 69--85, 1996.
+
+\bibitem[Pinto(2010)]{pinto2010government}
+Edward Pinto.
+\newblock Government housing policies in the lead-up to the financial crisis: a
+  forensic study.
+\newblock 2010.
 
 \bibitem[Quadrini and R{\'\i}os-Rull(1997)]{quadrini1997understanding}
 Vincenzo Quadrini and Jos{\'e}-V{\'\i}ctor R{\'\i}os-Rull.
