@@ -46,10 +46,11 @@
 \contentsline {subsection}{\numberline {8.3}Relative degrees of inequality}{26}
 \contentsline {subsection}{\numberline {8.4}Concluding the Results}{27}
 \contentsline {section}{\numberline {9}A Counterfactual Experiment}{27}
-\contentsline {subsubsection}{\numberline {9.0.1}On the Individual Level}{28}
-\contentsline {subsubsection}{\numberline {9.0.2}The distribution}{30}
-\contentsline {subsubsection}{\numberline {9.0.3}Over the life-cycle}{30}
-\contentsline {subsection}{\numberline {9.1}Concluding the Counter Factual Experiment}{31}
+\contentsline {subsection}{\numberline {9.1}On the Individual Level}{28}
+\contentsline {subsection}{\numberline {9.2}Over the life-cycle}{30}
+\contentsline {subsection}{\numberline {9.3}The distribution}{31}
+\contentsline {subsection}{\numberline {9.4}Relative degrees of inequality}{31}
+\contentsline {subsection}{\numberline {9.5}Concluding the Counter Factual Experiment}{32}
 \contentsline {section}{\numberline {10}Conclusion}{32}
 \contentsline {section}{References}{34}
 \contentsline {section}{\numberline {A}Experience Premium}{38}

@@ -515,7 +515,7 @@ The previous discussion has shown that the model is able to reproduce a number o
 It is particularly interesting to look at different levels of the LTV as the frequency of high-leverage loans has increased significantly over the past decades. \cite{pinto2010government} shows that among purchase loans insured by the Federal Housing Administration or purchased by government-sponsored entreprises, the fraction of originations with cumulative leverage excess of 97 percent of the home values was under 5 percent in 1990 but rose to almost 40 percent in 2007. \cite{bokhari2013did} point a similar picture looking at single-family home loans purchased by Fannie Mae. These authors show that mortgages during 1986 to 1992 was skewed towards LTV ratios below 80\% where only few LTV ratios where close to 100\%. Comparing the LTV distribution to a panel for the 1983 to 2007 period, they find that the left tail shrunk, with the effect that ratios of 80\% and 100\% became more apparent. Moreover, \cite{cho2012accounting} show that different levels of the loan-to-value ratio  may account for differences in the wealth distributions between the US and Korea.\\
 In order to assess the impact of the loan-to-value ratio I will compare the results of the counter factual simulation to the baseline results discussed above. The baseline case has an LTV ratio of almost 100\%, whereas in the counter factual case it is 0\%. I first illustrate how the LTV affects the optimal consumer decision, then look at the average life-cycle profile and finally discuss the distributional consequences for the three age groups.
 
-\subsubsection{On the Individual Level}
+\subsection{On the Individual Level}
 
 Figure \ref{policy_downpayment0_age36} displays the policy functions for a 36 year old agent at three different income levels: the lowest income, blue lines, the intermediate income, purple lines, and the highest income, red lines. The solid lines represent the baseline policies and the dashed line the policies where LTV is 0\%.\\ 
 The pattern of these lines follows the one described in \cite{hintermaier2010}. Higher labor income leads to higher optimal durable and non-durable consumption. Moreover, the opposite   relation between liquid assets and income levels comes down to the persistence of the income shocks, which leads to higher expected future income of high earners today. These may therefore convert more of their current income in current consumption. Further, the collateral constraint is visible in the kinks of the policy functions. Collateral constraint consumers borrow as much as possible against additional durable collateral holdings. Financial assets are thus decreasing in net-worth. Consumers with higher net-worth holdings are not collateral constraint and chose to increase liquid assets in net-worth in addition to increases in the other endogenous variables. \\
@@ -535,9 +535,27 @@ Note, this case is representative for all age groups. (SEE APPENDIX) It abstract
 
 \end{figure}
 
+\subsection{Over the life-cycle}
+Figure \ref{downpayment_vs_baseline_lc} shows how different levels of LTV do translate into differences in the average life-cycle profiles. The blue line is the baseline case and the brown line is the case with an LTV of 0\%. \\ A lower loan-to-value ratio forces agents to  pros-pone the accumulation of durables for a few years. As in this case they cannot finance durables with short positions in liquid assets, they cannot immediately increase the durable stock but need to accumulate it step by step. Moreover, agents now hold positive amounts of liquid assets even when they are young, as they are used as main source of insurance, when durables do not have collateral value. The resulting net-worth positions are higher with a lower LTV over the whole life-cycle. As savings is higher, the peak in consumption is higher and later in life.
+Furthermore, the initial increase of liquid assets and decrease of durables is due to initial conditions. Finally, later in live agents hit the borrowing constraint to consume as much as possible. When restricted in borrowing agents cut back significantly more on durables later in life, as durables cannot be used as collateral to increase savings as much as possible. The large decumulation of durables leads to big increase of consumption late in life. 
 
 
-\subsubsection{The distribution}
+\begin{figure}[!htbp]
+\caption{Average Durable Holdings over the Life-Cycle} 
+\label{downpayment_vs_baseline_lc}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\centering
+\includegraphics[scale=.6]{Figures/downpayment_0_vs_baseline_life_cycle}  % width legt Breite der Graphik fest
+
+\begin{minipage}{0.8\linewidth}
+\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
+\end{minipage}
+
+\end{figure}
+
+\subsection{The distribution}
+Table \ref{ginis_means_LTV} displays the gini and means estimates of the baseline estimation and the counter factual experiment. A first observation is, that a lower collateral value of durables implies lower net-worth means, which corresponds to the observations made above. The relative rise is most pronounced for the youngest age group and then decreases for the older age groups. 
+The second observation is, that all of the ginis drop. Moreover, the differences across the age groups is almost gone after the rise in the LTV meaning that the gini drops more for the younger age groups. \\ These observations are in line with the discussion above. A tighter borrowing constraint affects the poor, who are most apparent in the youngest age group, who are most likely to be borrowing constraint. 
+
 
 \begin{table}[!htbp]
 \centering
@@ -545,22 +563,22 @@ Note, this case is representative for all age groups. (SEE APPENDIX) It abstract
 \label{ginis_means_LTV}
 \begin{tabular}{@{}lllll@{}}
 \toprule
-                                                                                 & Baseline ($\mu = 0.97$) & $\mu = 0.8$
+                                                                                 & Baseline ($\mu = 0.97$) & $\mu = 0$
                                                                  
                                                                                 \\ \midrule
-\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.9142\\ 0.5495\end{tabular} \\ \midrule
-\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.4976\\ 0.5447\end{tabular} \\ \midrule
-\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 4.4224\\ 0.5246\end{tabular}  \\ \bottomrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\1.3081\\ 0.4491\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  &  \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 3.0719\\ 0.4243\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 4.8433\\ 0.4425\end{tabular}  \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Figure \ref{downpayment_vs_baseline} shows the impact of such a change on the distributions. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample after a change of the LTV ratio. All three age groups seem to be affected. However, only the poorer consumers are affected. With a tighter borrowing constraint, poor agents cannot borrow as much and thus keep more net-assets. This tightening does not affect the rich, who have already accumulated enough assets to borrow at their desired rate. 
+Figure \ref{downpayment_vs_baseline} illustrates this well. It shows the impact of such a change on the distributions. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample with an LTV of 0\%. 
 
 \begin{figure}[!htbp]
 \caption{Average Durable Holdings over the Life-Cycle} 
 \label{downpayment_vs_baseline}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.4]{Figures/downpayment_vs_baseline}  % width legt Breite der Graphik fest
+\includegraphics[scale=.4]{Figures/downpayment_0_vs_baseline_distribution}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
 \footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
@@ -568,37 +586,34 @@ Figure \ref{downpayment_vs_baseline} shows the impact of such a change on the di
 
 \end{figure}
 
-Table \ref{ginis_means_LTV} displays the gini and means estimates of the baseline estimation and the ceteris paribus change of the LTV. A first observation is, that all the means across the age groups rise by an amount of a similar magnitude when lowering the loan-to-value ratio. The means of the older groups rise by a larger magnitude. The second observation is, that all of the ginis drop. Here, however, the heterogeneity is of a more important magnitude. The differences across the age groups is almost gone after the rise in the LTV meaning that the gini drops most for the youngest age group. This is in line with the observation, that tightening the borrowing constraint affects the poor, who are most likely to be borrowing constraint. The medium income is lowest for the young. Moreover, they do not yet have accumulated enough durables to relax the borrowing constraint. 
+\subsection{Relative degrees of inequality}
+Table \ref{Gini_Ranking_counter_factual} displays the gini indices for the distribution of the endogenous variables. Not surprisingly, both the concentration of liquid assets and net-worth is lower, with a lower LTV ratio. Poor hold higher positions in both, which decreases the inequality. Moreover, the holdings of durables are more concentrated, since the rise in liquid assets holdings of the borrowing constraint goes hand in hand with a fall in their durable holdings. Finally, consumption is not affected much. 
 
-
-\subsubsection{Over the life-cycle}
-Figure \ref{downpayment_vs_baseline_lc} shows how the change affects consumers over the life-cycle. A lower loan to value ratio forces agents to  pros-pone the accumulation of durables for a few years. As they now can finance a smaller part with debt, they cannot immediately  increase the durable stock but need to accumulate it step by step to be able to increase borrowing. Note that only in the very first period, consumption is affected. It does therefore not affect consumption smoothing??? This trade-off is mainly one, between durables and liquid assets. At around age 30 the durable level is the same as in the baseline case, however, the liquid assets stock stays higher for quite some time and thus net worth is affected over this period. 
-
-
-\begin{figure}[!htbp]
-\caption{Average Durable Holdings over the Life-Cycle} 
-\label{downpayment_vs_baseline_lc}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
+\begin{table}[!htbp]
 \centering
-\includegraphics[scale=.6]{Figures/downpayment_vs_baseline_lc}  % width legt Breite der Graphik fest
+\caption{Gini indices for the different distributions}
+\label{Gini_Ranking_counter_factual}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+      & Consumption & Durables & Liquid Assets & Net Worth \\ \midrule
+Baseline & 0.3492       & 0.3611   & 0.9542        & 0.6618    \\ \midrule
+Counterfactual  & 0.3468         & 0.4155     & 0.7964          & 0.5829      \\ \bottomrule
+\end{tabular}
+\end{table}
 
-\begin{minipage}{0.8\linewidth}
-\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED}
-\end{minipage}
 
-\end{figure}
-
-
-look at policies! 
-
-NOTE SIMULATE OVERBORROWING i.e. a negative downpayment
 
 \subsection{Concluding the Counter Factual Experiment}
-To some degree, this allows to incorporate changes in the financial liberalization into the model. \cite{diaz2010} simulate changes in the downpayment rate and investigate how these affect the distribution. \cite{yang2009} show how these affect the life-cycle.
-
+Different levels of the loan-to-value ratio do affect poor agents, who are borrowing constraint. A tighter borrowing constraint limits agents from accumulating durables early in life. As these also provide insurance services, agents do accumulate more net-worth. Since the poor hold higher net-worth positions the concentration of wealth becomes weaker. Finally, as on the overall, younger consumers are poorer, different levels of the LTV-ratio do adversely affect the different age groups. The youngest age groups is most exposed, whereas older richer agents are less concerned. \\
+\cite{diaz2010} do proceed with a similar counter factual experiment, showing that the distributional is not affected by the downpayment. They, however look at the full distribution, which (DO INCLUDE THIS IN THE INTRODUCTION) 
 
 \section{Conclusion}
-The life-cycle model with durables and endogenous borrowing constraints calibrated to match micro-level household data in the US in 2004 is able to match a number of features in the data. It is quite successful in reproducing important features of the wealth distribution, predicting an increase of the average net-worth holding over the life-cycle accompanied by a decreasing inequality in net worth. Moreover, it matches the wealth distribution for the working age population between 26 and 45 quite well. Furthermore, it can replicate the portfolio composition as well as the consumption expenditure along the life-cycle. The endogenous borrowing constraint with durables serving as collateral helps to explain the surge in durable consumption early in live and the increase of liquid assets later in life. Finally, the model can also predict the relative ranking of inequalities. \\
-However, I also found that such a parsimonious model has its limits. Namely it under predicts the accumulation of wealth of the oldest age group. These results are rather similar to \cite{hintermaier2011}, who analyse the out of sample prediction of a simpler model specification, without durables, using the same particularization. Calibrating the model to match the 1983 US wealth distribution, they find, that their model manages to predict changes of the younger two age groups. However, they fail to predict the sharp increase in average wealth of the oldest age group. This suggests that the effect reported by \citep{FV&K2011}, where durables increase the dispersion of net-worth between high- and low-earners, is not enough to explain the large increase in average wealth for the last age group. \cite{hintermaier2011} have argued that this may be due to measurement problems for pension wealth in the SCF-data. Alternatively, this may be due to the abstraction from additional features such as a richer heterogeneity in the earnings process. \cite{guvenen2015data} shows that the log-normality assumption does not hold for higher-oder moments of the individual earnings shocks. They display strong negative skweness and a very high kurtosis, implying that most individuals experience very small shocks and a very small number experiences very high shocks. Moreover, he shows that shocks display very high heterogeneities along the life-cycle. (((COPY PASTE: the authors highlight that earnins changes display substantial negative skewness and kurtosis and that the conditional moments of earnings changes display substantial variation by age and previous earnings level.))) Finally, some heterogeneity in the rates of return may be able to explain the large net-worth holdings for the 46 to 55 years old. Namely, rising rates of returns in wealth. \cite{fagereng_wp} show evidence for heterogeneities in returns, which are attributed to wealth-holdings but also on an individual level. 
+The life-cycle model with durables and endogenous borrowing constraints calibrated to match micro-level household data in the US in 2004 is able to match a number of features in the data. It is quite successful in reproducing important features of the wealth distribution, predicting an increase of the average net-worth holding over the life-cycle accompanied by a decreasing inequality in net worth. Moreover, it matches the wealth distribution for the working age population between 26 and 45 quite well. Furthermore, it can replicate the portfolio composition as well as the shape of average consumption along the life-cycle. The endogenous borrowing constraint with durables serving as collateral helps to explain the surge in durable consumption early in live and the increase of liquid assets later in life. Finally, the model can also predict the relative ranking of inequalities. \\
+However, I also found that such a parsimonious model has its limits. Namely it under predicts the accumulation of wealth of the oldest age group. This suggests that the effect reported by \citep{FV&K2011}, where durables increase the dispersion of net-worth between high- and low-earners, is not enough to explain the large increase in average wealth for the last age group. \cite{hintermaier2011} have argued that this may be due to measurement problems for pension wealth in the SCF-data. Moreover, these results are rather similar to \cite{hintermaier2011}, who analyse the out of sample prediction of a simpler model specification, without durables, using the same particularization. Calibrating the model to match the 1983 US wealth distribution, they find, that their model manages to predict changes of the younger two age groups. However, they fail to predict the sharp increase in average wealth of the oldest age group. 
+
+
+
+ Alternatively, this may be due to the abstraction from additional features such as a richer heterogeneity in the earnings process. \cite{guvenen2015data} shows that the log-normality assumption does not hold for higher-oder moments of the individual earnings shocks. They display strong negative skweness and a very high kurtosis, implying that most individuals experience very small shocks and a very small number experiences very high shocks. Moreover, he shows that shocks display very high heterogeneities along the life-cycle. (((COPY PASTE: the authors highlight that earnins changes display substantial negative skewness and kurtosis and that the conditional moments of earnings changes display substantial variation by age and previous earnings level.))) Finally, some heterogeneity in the rates of return may be able to explain the large net-worth holdings for the 46 to 55 years old. Namely, rising rates of returns in wealth. \cite{fagereng_wp} show evidence for heterogeneities in returns, which are attributed to wealth-holdings but also on an individual level. 
 
 as reported by \cite{benhabib2011distribution} heterogeneity in rates of returns might account for the sharper increase in net-worth. Finally, the bequest motive may have some influence. \cite{denardi2014}. It may be interesting to include such features. 
 
