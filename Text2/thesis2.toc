@@ -57,11 +57,3 @@
 \contentsline {section}{\numberline {B}Estimation}{I}
 \contentsline {section}{\numberline {C}Data}{II}
 \contentsline {section}{\numberline {D}Initial Conditions}{III}
-\contentsline {section}{\numberline {E}The full distribution and the issue with the tails of the distribution}{IV}
-\contentsline {paragraph}{The richest}{V}
-\contentsline {paragraph}{The poorest}{VI}
-\contentsline {section}{\numberline {F}Alternative Section 8.2 How do these results compare?}{VI}
-\contentsline {section}{\numberline {G}The income process}{VIII}
-\contentsline {paragraph}{Income risk}{VIII}
-\contentsline {paragraph}{Experience Premium}{IX}
-\contentsline {section}{\numberline {H}How do these results compare?}{XI}
