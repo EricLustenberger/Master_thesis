@@ -1140,7 +1140,7 @@ gen weight_age_2325 = x42001/sum_weight_age_2325;
 
 sort age weight_age_2325 durable_adj netfinworth_adj totworth_adj;  /* make sure that output always sorted in the same way */
 list weight_age_2325 durable_adj netfinworth_adj totworth_adj if age >=23 & age <=25;
-export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using "initial_cond_adj" if age >=23 & age <=25, replace;
+export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using "initial_cond_adj_2" if age >=23 & age <=25, replace;
 
 /*
 /* Do adjustment in Matlab. More flexible in calibration of growth-factor */

@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis2.aux
+The style file: econometrica_my_version.bst
+Database file #1: bib_thesis.bib
+Warning--empty journal in gruber2003precautionary
+Warning--empty journal in kuhn2017income
+Warning--empty journal in pinto2010government
+Done.
+You've used 38 entries,
+            2327 wiz_defined-function locations,
+            744 strings with 9553 characters,
+and the built_in function-call counts, 18831 in all, are:
+= -- 1851
+> -- 1077
+< -- 1
++ -- 362
+- -- 314
+* -- 1759
+:= -- 3619
+add.period$ -- 38
+call.type$ -- 38
+change.case$ -- 233
+chr.to.int$ -- 38
+cite$ -- 41
+duplicate$ -- 634
+empty$ -- 1147
+format.name$ -- 370
+if$ -- 3597
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 34
+newline$ -- 126
+num.names$ -- 228
+pop$ -- 180
+preamble$ -- 1
+purify$ -- 231
+quote$ -- 0
+skip$ -- 597
+stack$ -- 0
+substring$ -- 1105
+swap$ -- 108
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 418
+warning$ -- 3
+while$ -- 221
+width$ -- 0
+write$ -- 457
+(There were 3 warnings)

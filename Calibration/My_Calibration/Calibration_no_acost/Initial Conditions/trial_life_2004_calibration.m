@@ -24,8 +24,8 @@ b_age3  =  .0002342;
 b_age4  = -1.41e-06;
 
 % variance of the residuals obtained from the estimation
-%var_z_2004 = 0.607;
-var_z_2004 = 0.624; % average SCF 2001, 2004, 2007
+var_z_2004 = 0.607;
+%var_z_2004 = 0.624; % average SCF 2001, 2004, 2007
 var_z = var_z_2004;
 
 
