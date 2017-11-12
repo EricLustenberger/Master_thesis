@@ -660,8 +660,6 @@ gen othnfin= x4022+x4026+x4030 -othfina +x4018; /* other durables like gold, jew
 
 /* durables and non-financial wealth */
 /**************************************************/
-gen non_finworth      = vehicl + primres + othres + othnres + othnfin +buseq ;
-/* vehicles + homes + other durables + non-residential property + business assets*/
 gen durable           = vehicl + primres + othres + othnres; /* durables according to H&K 2010 (value of homes, residential and non-residential property and vehicles*/
 
 /* Change gross financial worth to fit the definition of H&K 2010 */
@@ -839,7 +837,6 @@ gen totworth                = netfinworth + durable;
 
 /* normalize by net-labor earnings of prime-age consumers and household size adjustment*/
 replace finworth                = finworth    /(mean_earn_trans*hhsize);
-replace non_finworth            = non_finworth/(mean_earn_trans*hhsize);
 replace durable                 = durable/(mean_earn_trans*hhsize);
 replace totdebt                 = totdebt/(mean_earn_trans*hhsize);
 replace netfinworth             = netfinworth/(mean_earn_trans*hhsize);
@@ -879,7 +876,6 @@ gen factor_re = 1/mean_earn_trans_re;
 
 replace labearn_trans           = labearn_trans*factor_re;
 replace finworth                = finworth*factor_re;
-replace non_finworth            = non_finworth*factor_re;
 replace durable                 = durable*factor_re;
 replace totdebt                 = totdebt*factor_re;
 replace netfinworth             = netfinworth*factor_re;

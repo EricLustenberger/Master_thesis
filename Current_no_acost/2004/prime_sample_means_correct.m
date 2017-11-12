@@ -1,4 +1,4 @@
-function [mean_prime_90th] = prime_sample_means(cs_prime,cs_prime_d)
+function [mean_prime_90th] = prime_sample_means_correct(cs_prime,cs_prime_d)
 
 cs_prime_sorted = sort(cs_prime);
 

@@ -74,7 +74,7 @@ this_model_.numb_markov_states_  = numb_markov_states_ ;
 this_model_.numb_a_gridpoints  = numb_a_gridpoints    ;
 
 % %sim_sample % the size of the simulated sample
-% this_model_.sim_sample = sim_sample;
+this_model_.sim_sample = sim_sample;
 
 % this_run_time
 %this_model_.this_run_time  = this_run_time     ;

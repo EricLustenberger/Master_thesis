@@ -13,7 +13,7 @@ Total Debt (totdebt) = mortgage and housing debt (morthel) + other lines of cred
 
 Durables (durable) = value of homes (primres) +residential property (othres) + non-residential property (othnres) + vehicles (vehicl)
 
-Total wealth = Net financial wealth (netfinworth_eric) + Durables (durable)
+Total wealth = Net financial wealth (netfinworth) + Durables (durable)
 
 
 Sample Selection 

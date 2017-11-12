@@ -7,45 +7,45 @@ Warning--empty journal in gruber2003precautionary
 Warning--empty journal in kuhn2017income
 Warning--empty journal in pinto2010government
 Done.
-You've used 38 entries,
+You've used 36 entries,
             2327 wiz_defined-function locations,
-            744 strings with 9553 characters,
-and the built_in function-call counts, 18831 in all, are:
-= -- 1851
-> -- 1077
-< -- 1
-+ -- 362
-- -- 314
-* -- 1759
-:= -- 3619
-add.period$ -- 38
-call.type$ -- 38
-change.case$ -- 233
-chr.to.int$ -- 38
-cite$ -- 41
-duplicate$ -- 634
-empty$ -- 1147
-format.name$ -- 370
-if$ -- 3597
+            732 strings with 9130 characters,
+and the built_in function-call counts, 17678 in all, are:
+= -- 1739
+> -- 990
+< -- 0
++ -- 334
+- -- 286
+* -- 1639
+:= -- 3405
+add.period$ -- 37
+call.type$ -- 36
+change.case$ -- 218
+chr.to.int$ -- 36
+cite$ -- 39
+duplicate$ -- 602
+empty$ -- 1088
+format.name$ -- 346
+if$ -- 3378
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 34
-newline$ -- 126
-num.names$ -- 228
-pop$ -- 180
+newline$ -- 120
+num.names$ -- 216
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 231
+purify$ -- 216
 quote$ -- 0
-skip$ -- 597
+skip$ -- 567
 stack$ -- 0
-substring$ -- 1105
-swap$ -- 108
-text.length$ -- 1
+substring$ -- 1037
+swap$ -- 101
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 418
+type$ -- 393
 warning$ -- 3
-while$ -- 221
+while$ -- 210
 width$ -- 0
-write$ -- 457
+write$ -- 432
 (There were 3 warnings)

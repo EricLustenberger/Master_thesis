@@ -93,13 +93,6 @@
   Estimation of Markov Models of Asset Prices,'' \emph{Econometrica}, 61(4),
   929--952.
 
-\harvarditem[Fagereng, Guiso, Malacrino, and Pistaferri]{Fagereng, Guiso,
-  Malacrino, and Pistaferri}{2016}{fagereng_wp}
-\textsc{Fagereng, A., L.~Guiso, D.~Malacrino,  {\small and} L.~Pistaferri}
-  (2016): ``{Heterogeneity and Persistence in Returns to Wealth},'' EIEF
-  Working Papers Series 1615, Einaudi Institute for Economics and Finance
-  (EIEF).
-
 \harvarditem[Fella and De~Nardi]{Fella and De~Nardi}{2017}{denardi2017}
 \textsc{Fella, G.,  {\small and} M.~De~Nardi}  (2017): ``Saving and Wealth
   Inequality,'' \emph{Review of Economic Dynamics}.
@@ -136,12 +129,6 @@
 \textsc{Guvenen, F., F.~Karahan, S.~Ozkan,  {\small and} J.~Song}  (2015):
   ``What do data on millions of US workers reveal about life-cycle earnings
   risk?,'' Discussion paper, National Bureau of Economic Research.
-
-\harvarditem[Heathcote, Storesletten, and Violante]{Heathcote, Storesletten,
-  and Violante}{2009}{heathcote2009quantitative}
-\textsc{Heathcote, J., K.~Storesletten,  {\small and} G.~L. Violante}  (2009):
-  ``Quantitative macroeconomics with heterogeneous households,'' \emph{Annu.
-  Rev. Econ.}, 1(1), 319--354.
 
 \harvarditem[Heer and Maussner]{Heer and Maussner}{2004}{heer2004dge}
 \textsc{Heer, B.,  {\small and} A.~Maussner}  (2004): ``DGE Models.
@@ -188,11 +175,10 @@
 \textsc{Kuhn, M., M.~Schularick,  {\small and} U.~Steins}  (2017): ``Income and
   Wealth Inequality in America, 1949-2013,'' .
 
-\harvarditem[Kydland and Prescott]{Kydland and
-  Prescott}{1996}{kydland1996computational}
-\textsc{Kydland, F.~E.,  {\small and} E.~C. Prescott}  (1996): ``The
-  computational experiment: an econometric tool,'' \emph{The Journal of
-  Economic Perspectives}, 10(1), 69--85.
+\harvarditem[Ljungqvist and Sargent]{Ljungqvist and
+  Sargent}{2012}{ljungqvist2012recursive}
+\textsc{Ljungqvist, L.,  {\small and} T.~J. Sargent}  (2012): \emph{Recursive
+  macroeconomic theory}. MIT press.
 
 \harvarditem[Pinto]{Pinto}{2010}{pinto2010government}
 \textsc{Pinto, E.}  (2010): ``Government housing policies in the lead-up to the
