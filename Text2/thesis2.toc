@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {2}Modeling the Wealth Distribution}{2}
-\contentsline {subsection}{\numberline {2.1}The Standard Incomplete Markets Model}{3}
+\contentsline {subsection}{\numberline {2.1}The Standard Incomplete Markets Model}{2}
 \contentsline {subsection}{\numberline {2.2}The Life-Cycle Feature}{3}
 \contentsline {subsection}{\numberline {2.3}Wealth Distribution Literature}{4}
 \contentsline {subsection}{\numberline {2.4}Durables and the Net-Worth Literature}{5}
@@ -50,6 +50,9 @@
 \contentsline {section}{\numberline {10}Conclusion}{31}
 \contentsline {section}{References}{33}
 \contentsline {section}{\numberline {A}Experience Premium}{I}
-\contentsline {section}{\numberline {B}Estimation}{I}
+\contentsline {section}{\numberline {B}Simulated Method of Moments}{I}
 \contentsline {section}{\numberline {C}Data}{II}
 \contentsline {section}{\numberline {D}Initial Conditions}{III}
+\contentsline {section}{\numberline {E}Gini-Index}{IV}
+\contentsline {subsection}{\numberline {E.1}Conventional Gini}{IV}
+\contentsline {subsection}{\numberline {E.2}Normalized Gini}{V}

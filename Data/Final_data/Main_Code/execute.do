@@ -902,7 +902,7 @@ gen netfinworth_adj			 = netfinworth		   *1.015^(age-20);
 
 /* LIST of initial conditions */
 /******************************/
-
+/*
 count if age>=23 & age <=25;
 
 /* Net-worth distribution of 23-25 year olds as initial distribution */
@@ -916,10 +916,10 @@ gen weight_age_2325 = x42001/sum_weight_age_2325;
 sort age weight_age_2325 durable_adj netfinworth_adj totworth_adj;  /* make sure that output always sorted in the same way */
 list weight_age_2325 durable_adj netfinworth_adj totworth_adj if age >=23 & age <=25;
 export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using "initial_cond_adj_2" if age >=23 & age <=25, replace;
-
+*/
 
 /********ERIC STATISTICS********/
-/*list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
+list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
 
 
 
@@ -933,7 +933,7 @@ export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using 
   save wealth_means_primeage_90th_2004_ERIC, replace;  
 
 
-*/
+
 
 /*
 list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;

@@ -44,7 +44,11 @@ DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_f
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095','beta0971_theta070085_sigma15','steps_005','my_initial_cond','with_dropping_values']; % baseline with dropping values 
 %models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09850995_theta07550765_sigma15','steps_001','my_initial_cond','with_dropping_values']; % baseline with dropping values
 %models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09930995_theta07480750_sigma15','initial_conditions_assets_correct','001']; %assets with dropping values 
-models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09890993_theta07580762_sigma15','initial_conditions_durables_correct','001']; %assets with dropping values 
+
+%%% THREE SOLUTIONS! WITH CORRECT MEAN OF DURABLES!%%%%
+%models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09890993_theta07580762_sigma15','initial_conditions_durables_correct','001']; %durables with dropping values 
+%models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09930996_theta07500755_sigma15','initial_conditions_assets_correct','001']; % initial assets with dropping values
+models_database_name_ = [ '2004_Data', 'LIFE', 'rho095', 'beta09890993_theta07610765_sigma15','initial_conditions_durables_correct','001'] % initial durables with dropping values
 
 models_database_ = [models_database_name_, '.mat']; 
 % USER: if several databases get merged before it might be simpler to adjust the following line
@@ -94,7 +98,7 @@ for iprepcase = 1:tot_cases;
         this_model_ = models_(iprepcase);
 %         simM_26_55(:,iprepcase) = this_model_.a_perc;
          sim_Wealth(iprepcase)   = prime_sample_means(this_model_.cs_x_prime);
-         sim_Durables(iprepcase) = prime_sample_means(this_model_.cs_d_prime);
+         sim_Durables(iprepcase) = prime_sample_means_correct(this_model_.cs_x_prime,this_model_.cs_d_prime);
         %sel_simM(:,iprepcase) = prime_sample_means(this_model_.cs_x_prime, this_model_.cs_d_prime);
 %         simM_26_35(:,iprepcase) = this_model_.a_perc_26_35;
 %         simM_36_45(:,iprepcase) = this_model_.a_perc_36_45;

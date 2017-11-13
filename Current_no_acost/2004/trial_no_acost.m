@@ -26,7 +26,7 @@ dos(['md ' DISC_PATH]);
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = ['downpayment0485','life_cycle'];
+models_database_name_ = ['baseline_correct_match','life_cycle'];
 models_database_ = [models_database_name_, '.mat']; 
 
 
@@ -43,11 +43,11 @@ model_parameters_no_acost
 % estimated parameters 
 
 % thus far best match with sigma 1.5
-%theta = 0.761;
-%beta_ = 0.991;
-theta = 0.8;
-beta_ = 0.9845;
-sigma_ = 1.08;
+theta = 0.764;
+beta_ = 0.991;
+% theta = 0.8;
+% beta_ = 0.9845;
+% sigma_ = 1.08;
 
 % Create the grid on the state space
 % % ==================================
