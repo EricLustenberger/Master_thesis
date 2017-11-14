@@ -3,7 +3,6 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis2.aux
 The style file: econometrica_my_version.bst
 Database file #1: bib_thesis.bib
-Warning--I didn't find a database entry for ""
 Warning--empty journal in gruber2003precautionary
 Warning--empty journal in kuhn2017income
 Warning--empty journal in pinto2010government
@@ -49,4 +48,4 @@ warning$ -- 3
 while$ -- 203
 width$ -- 0
 write$ -- 420
-(There were 4 warnings)
+(There were 3 warnings)
