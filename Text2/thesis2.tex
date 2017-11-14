@@ -13,8 +13,9 @@
 \usepackage{graphicx}           % Ermoeglicht das Einbinden von Bildern in allen Formaten
 \usepackage{longtable}          % zum erstellen von Tabellen ber mehrere Seiten
 \usepackage{multirow}           % zum Verbinden von Zeilen innerhalb einer Tabelle
+\usepackage{siunitx}
 %\usepackage{mathptmx}
-\usepackage{booktabs}			% für tablegenerator
+\usepackage{booktabs, caption}			% für tablegenerator
 \usepackage{threeparttable, booktabs} 
 \usepackage{setspace}
 %\usepackage{pictexwd}           % PicTex, ein Graphikpaket
@@ -116,7 +117,8 @@ Matriculation Number: 2849851
 	    SIM   & Standard Incomplete Markets Model \\ \\
 	    LTV   & Loan-to-Value Ratio \\ \\
 	    SCF	  & Survey of Consumer Finances \\ \\
-	    CEX	  & Consumer Expenditure Survey \\
+	    CEX	  & Consumer Expenditure Survey \\ \\
+	    SMM   & Simulated Method of Moments
 	    \end{tabular}%
 	\end{flushleft}
 	\end{table}%
@@ -132,7 +134,7 @@ Matriculation Number: 2849851
 \section{Introduction}
 \label{Introduction}
 
-A big majority of wealth is owned by very few. Moreover, there is a substantial widening of wealth disparities since the 1970s in the U.S. \citep{kuhn2017income}. Causes and implications of these facts are rigorously debated in both academics and politics. In order to promote a more vigorous discussion of the wealth inequality and its evolution over time, it is important to understand which models can be applied to study the issue at hand and to what extend they may explain certain facts observed in the data.\\
+A big majority of wealth is owned by very few. Moreover, there is a substantial widening of wealth disparities since the 1970s in the U.S.\footnote{See for example \citet{kuhn2017income}} Causes and implications of these facts are rigorously debated in both academics and politics. In order to promote a more vigorous discussion of the wealth inequality and its evolution over time, it is important to understand which models can be applied to study the issue at hand and to what extend they may explain certain relations observed in the data.\\
 
 The main goal of my thesis is to contribute to the net-worth literature by investigating to what extend a life-cycle model incorporating durables can match features of the net-worth cross-section in the U.S. While it is quite well established within the net-worth literature, which features of the net-worth distribution can be accounted for by a plausible parametrised version of the standard incomplete market model (SIM), most of these models abstract from durable goods. As \cite{FV&K2011}  indicate, this abstraction may not be well founded. The authors show that modeling durables is important to reproduce the non-durable consumption life-cycle profile observed in the data. Moreover, they point out, that durables help to explain why households with higher life-cycle income save proportionally more than poor households.\\
 The model in question is a life-cycle version of the incomplete markes model with durables in \cite{hintermaier2010} with life-cycle parametrisations based on \cite{hintermaier2011}. In such a model, the restricted asset-choice set available to consumers of different ages experiencing different histories of labor income shocks, implies an endogenous wealth distribution across these consumers. \\
@@ -182,7 +184,7 @@ There are substantial differences in the net-worth distribution across different
 
 \begin{table}[!htbp]
 \centering
-\caption{Facts: Means and Ginis}
+\caption{Facts: Means and Ginis of the Net-Worth distribution}
 \label{facts_changes}
 \begin{tabular}{@{}llll@{}}
 \toprule
@@ -193,10 +195,12 @@ Gini coefficient     & 0.824     & 0.765     & 0.765     \\
 \textbf{Sample $\leq$ 90th pctile} &           &           &           \\
 Mean                 & 0.80      & 2.36      & 4.81      \\
 Gini coefficient     & 0.713     & 0.596     & 0.564     \\ \bottomrule
+\multicolumn{4}{l}{%
+  \begin{minipage}{10.5cm}%
+    \small Net-worth is measured in units of average population net labor-earnings, which is adjusted by the household size using the equivalent scale introduced by  \cite{fernandez2007consumption}. Source: \cite{hintermaier2011} Table 2}
+  \end{minipage}%
+\\
 \end{tabular}
-\begin{center}
-Net-worth is measured in units of average population net labor earnings, which is adjusted by the household size using the equivalent scale introduced by \cite{fernandez2007consumption}.
-\end{center}
 \end{table}
 
 The average wealth holding is more than $2$ times larger with each age group, for both the full distribution and the distribution up to the 90th percentile. Mean wealth thus increases substantially across age groups. While average wealth is increasing, the gini-index indicates that the within-age group inequality tends to be decreasing. The only exception is the stagnation between the older age groups for the full distribution. \cite{hintermaier2011} show that this pattern holds true for eight surveys from 1983 to 2007, with the exception that inequality tends to  increase between the last two age-groups for the whole sample.\footnote{See Table 2 in their paper.} \\
@@ -347,20 +351,24 @@ U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c
 
 where I assume $\epsilon_{d} > 0$, which is a number small enough to be irrelevant for the quantitative exercise at hand but nonetheless larger than zero. The CRRA utility function with the Cobb-Douglas specification of the consumption index, thus allows for zero consumption of durables, while the Inada-Condition ensures that people always consume some non-durables. Intuitively this means that consumers cannot survive without food, but are allowed to survive without houses and cars.\footnote{Since in such a formulation of the problem durables are not "naturally" bounded below by the Inada-Conditions, when solving the recursive problem one has to take into account $d' = d_{min}$ as additional constraint.}
 
-The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author, I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holdings and average durable holdings of the prime age population up to the 90th percentile, respectively. The data moments in terms of the average labor-earnings equivalent are 2.95 for the durable holdings and 2.39 for the net-worth  holdings. Since these data moments are not available in \cite{hintermaier2011} or any literature for that matter, I calculated these with Stata-Codes from \cite{hintermaier2016}. Appendix \ref{data} provides further information on this data. To calibrate the two parameters I solved the model for economical plausible combinations of $\beta \in [0.96,1]$ and $\theta \in [0.65,1]$ to calculate the equivalent model moments, starting with differences of 0.05 between parameter values and then reducing them to 0.01 for a smaller grid of parameter values.\footnote{Note that unlike in infinite-horizon models, the life-cycle version does not demand a $\beta < 1$ to keep life-time utility finite \cite[p. 360]{heer2004dge}.} The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample. Both the population
+The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author, I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holdings and average durable holdings of the prime age population up to the 90th percentile, respectively. The data moments in terms of the average labor-earnings equivalent are 2.95 for the durable holdings and 2.39 for the net-worth  holdings. Since these data moments are not available in \cite{hintermaier2011} or any literature for that matter, I calculated these with Stata-Codes from \cite{hintermaier2016}. Appendix \ref{data} provides further information on this data. To calibrate the two parameters I solved the model for economical plausible combinations of $\beta \in [0.96,1]$ and $\theta \in [0.65,0.85]$ to calculate the equivalent model moments, starting with differences of 0.05 between parameter values and then reducing them to 0.01 for a smaller grid of parameter values.\footnote{Note that unlike in infinite-horizon models, the life-cycle version does not demand a $\beta < 1$ to keep life-time utility finite \cite[p. 360]{heer2004dge}.} The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample. Both the population
 above 55 years of age and above the 90th percentile hold more wealth on average than
 in the prime age sample. The matching of the moments is explained in more detail in Appendix \ref{estimation_procedure}. \\
-Table \ref{estimates} displays the parameter values that best match the two moments. Moreover, it features the simulated moments, which match the empirical moments with an accuracy of $10^{-2}$.
+Table \ref{estimates} displays the parameter values that best match the two moments. Moreover, it features the simulated moments, which match the empirical moments with an accuracy of $10^{-1}$.
 
 \begin{table}[!htbp]
 \centering
-\caption{This table depicts the parameter estimates matching the average durable holdings and average total worth of the prime age population in the data.}
+\caption{Calibration Results}
 \label{estimates}
 \begin{tabular}{llllll}
 \hline
 \multicolumn{2}{l}{Estimations} & $\beta$ & $\theta$ & Av.Durables & Av.Net-Worth\\ \hline
-\multicolumn{2}{l}{Durables}             & 0.991    & 0.761  & 2.9491 & 2.3886      \\
-  
+\multicolumn{2}{l}{Durables}             & 0.991    & 0.764  & 2.9560 & 2.3886      \\ \hline \hline
+\multicolumn{1}{l}{%
+  \begin{minipage}{10.5cm}%
+    \small This table depicts the parameter estimates matching the average durable holdings and average net-worth of the prime age population up to the 90th percentile found in the data. The unit of means is average net-labor earnings.   
+  \end{minipage}%
+}\\
 \end{tabular}
 \end{table}
 
@@ -602,9 +610,9 @@ Counterfactual  & 0.3468         & 0.4155     & 0.7964          & 0.5829      \\
 
 \section{Conclusion}
 \label{conclusion}
-The life-cycle model with durables and endogenous borrowing constraints calibrated to match micro-level household data in the U.S. in 2004 is able to match a number of features in the data. \\ The model is successful in reproducing important features of the wealth distribution for consumers of ages 26 to 55 and with net-worth holdings up to the 90th percentile of the net-worth distribution. It correctly predicts that average net-worth holdings increase in age, while net-worth inequality decreases in age. Moreover, it matches the wealth distribution for the working age population between 26 and 45 quite accurately. Furthermore, the model reproduces the observed shapes of the average consumption life-cycle profile and the average portfolio composition up to retirement. The endogenous borrowing constraint with durables serving as collateral helps to explain the surge in durable consumption early in life and the increase of liquid assets later in life. Finally, the model can also predict the relative ranking of inequalities, with respect to durables, liquid assets and net-worth. \\
+The life-cycle model with durables and endogenous borrowing constraints calibrated to match micro-level household data in the U.S. in 2004 is able to match a number of features in the data. The model is successful in reproducing important features of the wealth distribution for consumers of ages 26 to 55 and with net-worth holdings up to the 90th percentile of the net-worth distribution. It correctly predicts that average net-worth holdings increase in age, while net-worth inequality decreases in age. Moreover, it matches the wealth distribution for the working age population between 26 and 45 quite accurately. Furthermore, the model reproduces the observed shapes of the average consumption life-cycle profile and the average portfolio composition up to retirement. The endogenous borrowing constraint with durables serving as collateral helps to explain the surge in durable consumption early in life and the increase of liquid assets later in life. Finally, the model can also predict the relative ranking of inequalities, with respect to durables, liquid assets and net-worth. \\
+As is to be expected from such a parsimonious model, it has some limits. Firstly, it underpredicts the accumulation of wealth of the oldest age group and secondly, the model is not able to capture substantial negative net-worth positions of households early in life. Enriching the model with features such as for example, additional savings motives later in live \citep{de2004wealth} or modeling heterogenous rates of returns \citep{benhabib2011distribution} may improve the models prediction in this regard. The relatively higher net-worth positions of young consumers in the model compared to the data, comes down to the borrowing constraint. As the counterfactual experiment shows, these consumers may be strongly affected by the specification of the borrowing constraint. The assumption of full collateralization is to rigid in this respect. \cite{FV&K2011} allow for relatively more borrowing. In their model, households to borrow up to the point at which, for all possible realizations of next period's labor-income shock, consumers  have an incentive to repay their debt rather than to default. When defaulting, consumers would loose all their debt, but also their consumer durables.
 
-As is to be expected from such a parsimonious model, it has some limits. Firstly, it underpredicts the accumulation of wealth of the oldest age group and secondly, the model is not able to capture substantial negative net-worth positions of households early in life. Enriching the model with additional savings motives later in live \citep{de2004wealth} or modeling heterogenous rates of returns \citep{benhabib2011distribution} may improve the models prediction in this regard. The relatively higher net-worth positions of young consumers in the model compared to the data, comes down to the borrowing constraint. As the counterfactual experiment shows, these consumers may be strongly affected by the specification of the borrowing constraint. The assumption of full collateralization is to rigid in this respect. \cite{FV&K2011} allow for relatively more borrowing. In their model, households to borrow up to the point at which, for all possible realizations of next period's labor-income shock, consumers  have an incentive to repay their debt rather than to default. When defaulting, consumers would loose all their debt, but also their consumer durables. 
 
 %_________________ ENDE DES HAUPTTEILS_________________%
 
@@ -648,31 +656,12 @@ Age \textendash  26:& 10 years                & 2.60\% \\
 
 \section{Simulated Method of Moments}
 \label{estimation_procedure}
-In the present appendix I briefly explain how I calibrate the discount factor $\beta$ and the non-durable consumption weight $\theta$. The calibration is based on a simulated method of moments (SMM) approach. As explained above, I simulate the model for different combinations of economical plausible values of these parameters. I then look for the simulated moments, which produces the best match of the empirical moments. The moments chosen are the average of net-worth holdings and the average of durable holdings for prime-age consumers, up to the 90\% percentile 
+In order to calibrate the discount factor and the non-durable consumption weight I follow the simulated methods of moments (SMM) approach. I simulate the model for different combinations of economical plausible values of these parameters looking for the pair that produces simulated moments, which best match these same moments observed in the data.\footnote{Note, since I only look at the wealth distribution up to the 90th percentile, the calibrated parameters do not suffer from the bias put forward by \cite{cagetti2003}. This author showed that estimating preference parameters by matching means results in a bias due to the extreme concentration of wealth at the right tail of the distribution.} I thus look for a vector $\hat{\Theta}$ containing the optimal parameter values $\hat{\beta}$ and $\hat{\theta}$ such that: 
 
+\[ \widehat{\Theta} = \operatorname{arg\,min}[(m(\Theta )-\nu)'I(m(\Theta )-\nu)] \],
 
-This appendix illustrates, how I calibrate 
-Since I calibrate the model for the prime age sample and exclude the top 10\% richest the means calibration does not suffer from the bias \cite{cagetti2003} puts forward. \\  
-
-The moment condition holds for both moments: 
-
-\[ E(d_{i} -  D(\beta_{0},\theta_{0})) = 0 \]
-\[ E(d_{i} -  X(\beta_{0},\theta_{0})) = 0 \]
-
-where D and X are the average of durable stock and net worth holdings of the prime age population respectively. As a consequence, the simulated method of moments can be applied \citep{duffie1993}.\\
-
-Therefore I look for 
-
-\[ \widehat{\Theta} = \operatorname{arg\,min}[(m(\Theta )-\nu)'I(m(\Theta )-\nu)] \]
-
-where $\Theta$ is a vector containing $\beta$ and $\theta$, $m$ contains the simulated moments for a specific $\Theta$ and $\nu = [2.95,2.39]$ the empirical counterpart. 
-
-$\hat{\beta}$ and $\hat{\theta}$ that 
-
-
-
-
-Heathcote et al. (2010): (COPY PASTE: As Christiano and Eichenbaum argue, the exact identification strategy allows for a clear separation between what the model is restricted to match and what it is designed to explain. The exactly identified strategy amounts to a weighting matrix that sets positive and equal weight only on certain moments, based on the investigator's prior about the (first-order) dimensions of the data that the model should fit.)
+where $\Theta$ is a vector of vector containing $\beta$ and $\theta$, $m$ contains the simulated moments for a specific $\Theta$ and $\nu$ is the empirical counterpart. 
+Since I follow an exact identified strategy, the simulated moments are weighted by the identity matrix. 
 
 \section{Data}
 \label{data}
@@ -735,33 +724,34 @@ The assumption, that all positive initial net-worth is durable wealth, would be 
 
 \end{figure}
 
-\section{Gini-Index}
+\newpage
 
+\section{Gini Coefficient}
+This appendix shows the Gini-specifications, which are used above. 
 \subsection{Conventional Gini}
 For a population uniform on the values $y_{i}, i=1$ to $n$, indexed in non-decreasing order $(y_{i} \leq y_{i+1})$ the gini can be expressed as follows: 
 
-\begin{equation}
+\begin{equation*}
 G = \frac{1}{n} \left(n+1-2 \left( \frac{\sum_{i=1}^n (n+1-i)y_{i}}{\sum_{i=1}^n y_{i}}\right)\right)
-\end{equation}
+\end{equation*}
 
 and in its simplified version: 
 
-\begin{equation}
+\begin{equation*}
 G = \frac{2\sum_{i=1}^n iy_{i}}{n \sum_{i=1}^n y_{i}} - \frac{n+1}{n}
-\end{equation}
+\end{equation*}
 
 \subsection{Normalized Gini}
 The normalized Gini proposed by \cite{chen1982}. 
 
-\begin{equation}
+\begin{equation*}
 G^{*} = \frac{1+\frac{2}{n}\sum_{j=1}^k jy_{j} - \frac{1}{n}\sum_{k+1}^n y_{j}(1+2(n-j))}{1+\frac{2}{n}\sum_{j=1}^k jy_{j}}
-\end{equation}
+\end{equation*}
 
-where $k$ is defined such that $\sum_{j=1}^k y_{j}$.
-
-\newpage
+where $k$ is defined such that $\sum_{j=1}^k y_{j} = 0$.
 
 \newpage
+
 
 
 \section*{Statement of Authorship}

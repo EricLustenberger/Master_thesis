@@ -26,8 +26,8 @@ dos(['md ' DISC_PATH]);
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = ['baseline_correct_match','life_cycle'];
-models_database_ = [models_database_name_, '.mat']; 
+%models_database_name_ = ['baseline_correct_match','life_cycle'];
+models_database_name_initial = ['baseline_without_NaN','life_cycle'];
 
 
 

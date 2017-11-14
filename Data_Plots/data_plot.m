@@ -151,21 +151,21 @@ figure(2)
 subplot(1,3,1)
 plot(SCF_agedetail_pctiles(1:90,1),SCF_agedetail_pctiles(1:90,2),'b',SCF_agedetail_pctiles(:,1),SCF_agedetail_pctiles(:,2),'b--','LineWidth',3), xlabel('Percentile','fontsize',12), ylabel('Av. labor-earnings eqv.','fontsize',12);
 title('Age 26-35','fontsize',14);
-legend('up to 90%','top 10%','Location','NorthWest')
+legend('up to 90%ile','top 10%iles','Location','NorthWest')
 set(gca,'XTick',10:10:100)
 set(gca,'XTickLabel',{'','20','','40','','60','','80','','100'})
 axis([1,100,-1,200]);
 subplot(1,3,2);
 plot(SCF_agedetail_pctiles(1:90,1),SCF_agedetail_pctiles(1:90,3),'b',SCF_agedetail_pctiles(:,1),SCF_agedetail_pctiles(:,3),'b--','LineWidth',3), xlabel('Percentile','fontsize',12), ylabel('Av. labor-earnings eqv.','fontsize',12);
 title('Age 36-45','fontsize',14);
-legend('up to 90%','top 10%','Location','NorthWest')
+legend('up to 90%ile','top 10%iles','Location','NorthWest')
 set(gca,'XTick',10:10:100)
 set(gca,'XTickLabel',{'','20','','40','','60','','80','','100'})
 axis([1,100,-1,200]);
 subplot(1,3,3);
 plot(SCF_agedetail_pctiles(1:90,1),SCF_agedetail_pctiles(1:90,4),'b',SCF_agedetail_pctiles(:,1),SCF_agedetail_pctiles(:,4),'b--','LineWidth',3), xlabel('Percentile','fontsize',12), ylabel('Av. labor-earnings eqv.','fontsize',12);
 title('Age 46-55','fontsize',14);
-legend('up to 90%','top 10%','Location','NorthWest')
+legend('up to 90%ile','top 10%iles','Location','NorthWest')
 set(gca,'XTick',10:10:100)
 set(gca,'XTickLabel',{'','20','','40','','60','','80','','100'})
 axis([1,100,-1,200]);

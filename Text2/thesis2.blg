@@ -3,49 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis2.aux
 The style file: econometrica_my_version.bst
 Database file #1: bib_thesis.bib
+Warning--I didn't find a database entry for ""
 Warning--empty journal in gruber2003precautionary
 Warning--empty journal in kuhn2017income
 Warning--empty journal in pinto2010government
 Done.
-You've used 36 entries,
+You've used 35 entries,
             2327 wiz_defined-function locations,
-            732 strings with 9130 characters,
-and the built_in function-call counts, 17678 in all, are:
-= -- 1739
-> -- 990
+            727 strings with 9009 characters,
+and the built_in function-call counts, 17139 in all, are:
+= -- 1685
+> -- 960
 < -- 0
-+ -- 334
-- -- 286
-* -- 1639
-:= -- 3405
-add.period$ -- 37
-call.type$ -- 36
-change.case$ -- 218
-chr.to.int$ -- 36
-cite$ -- 39
-duplicate$ -- 602
-empty$ -- 1088
-format.name$ -- 346
-if$ -- 3378
++ -- 324
+- -- 278
+* -- 1587
+:= -- 3302
+add.period$ -- 36
+call.type$ -- 35
+change.case$ -- 212
+chr.to.int$ -- 35
+cite$ -- 38
+duplicate$ -- 585
+empty$ -- 1055
+format.name$ -- 334
+if$ -- 3274
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 34
-newline$ -- 120
-num.names$ -- 216
-pop$ -- 173
+missing$ -- 33
+newline$ -- 117
+num.names$ -- 210
+pop$ -- 169
 preamble$ -- 1
-purify$ -- 216
+purify$ -- 210
 quote$ -- 0
-skip$ -- 567
+skip$ -- 550
 stack$ -- 0
-substring$ -- 1037
-swap$ -- 101
+substring$ -- 1001
+swap$ -- 98
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 393
+type$ -- 382
 warning$ -- 3
-while$ -- 210
+while$ -- 203
 width$ -- 0
-write$ -- 432
-(There were 3 warnings)
+write$ -- 420
+(There were 4 warnings)
