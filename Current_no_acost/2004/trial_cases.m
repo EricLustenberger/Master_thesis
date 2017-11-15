@@ -17,12 +17,12 @@ x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),
 
 
 DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Current_no_acost/2004/output/';
-models_database_name_initial = ['baseline_without_NaN','life_cycle'];
+models_database_name_initial = ['baseline_correct_match_cut_NaN','life_cycle'];
 models_database_initial = [models_database_name_initial, '.mat'];
 
 initial = load([DISC_PATH,models_database_initial]);
 
-models_database_name_downpayment = ['downpayment0','life_cycle'];
+models_database_name_downpayment = ['downpayment0_correct_match_cut_NaN','life_cycle'];
 models_database_downpayment = [models_database_name_downpayment, '.mat'];
 
 downpayment = load([DISC_PATH,models_database_downpayment]);

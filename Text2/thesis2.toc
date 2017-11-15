@@ -9,23 +9,23 @@
 \contentsline {subsubsection}{\numberline {3.0.2}Portfolio Composition and the Importance of Durables}{7}
 \contentsline {section}{\numberline {4}The Model}{8}
 \contentsline {subsection}{\numberline {4.1}Demographics}{8}
-\contentsline {subsection}{\numberline {4.2}Consumer's Problem}{9}
-\contentsline {paragraph}{Consumption savings decision}{9}
+\contentsline {subsection}{\numberline {4.2}Consumer's Problem}{8}
+\contentsline {paragraph}{Consumption savings decision}{8}
 \contentsline {paragraph}{Income Process}{9}
-\contentsline {paragraph}{Collateral Constraint}{10}
+\contentsline {paragraph}{Collateral Constraint}{9}
 \contentsline {paragraph}{Net-Worth in the Model}{10}
 \contentsline {subsection}{\numberline {4.3}The Recursive Formulation of the Household Problem}{10}
 \contentsline {paragraph}{Prior to Retirement}{10}
 \contentsline {paragraph}{Post Retirement}{11}
 \contentsline {subsection}{\numberline {4.4}Equilibrium Concept}{11}
 \contentsline {subsection}{\numberline {4.5}The Determinants of Savings}{11}
-\contentsline {paragraph}{Income Risk}{12}
+\contentsline {paragraph}{Income Risk}{11}
 \contentsline {paragraph}{Income Growth}{12}
 \contentsline {paragraph}{Borrowing Constraint}{12}
 \contentsline {paragraph}{The Relative Price of Durables}{13}
 \contentsline {section}{\numberline {5}Calibration}{13}
-\contentsline {subsection}{\numberline {5.1}The Income Process}{14}
-\contentsline {subsection}{\numberline {5.2}Utility Parameters}{15}
+\contentsline {subsection}{\numberline {5.1}The Income Process}{13}
+\contentsline {subsection}{\numberline {5.2}Utility Parameters}{14}
 \contentsline {subsection}{\numberline {5.3}Initial Conditions}{16}
 \contentsline {subsection}{\numberline {5.4}Further Inputs}{17}
 \contentsline {section}{\numberline {6}Numerical Algorithm}{17}
@@ -41,12 +41,12 @@
 \contentsline {subsection}{\numberline {8.1}Creating a Cross-Section from Simulated Life-Cycle Profiles}{23}
 \contentsline {subsection}{\numberline {8.2}Net-Worth Distribution up to the 90th Percentile}{24}
 \contentsline {paragraph}{The Results}{24}
-\contentsline {subsection}{\numberline {8.3}Relative Degrees of Inequality}{25}
+\contentsline {subsection}{\numberline {8.3}Relative Degrees of Inequality}{26}
 \contentsline {section}{\numberline {9}A Counterfactual Experiment}{27}
-\contentsline {subsection}{\numberline {9.1}On the Individual Level}{27}
+\contentsline {subsection}{\numberline {9.1}On the Individual Level}{28}
 \contentsline {subsection}{\numberline {9.2}Over the Life-Cycle}{29}
 \contentsline {subsection}{\numberline {9.3}The Distribution}{30}
-\contentsline {subsection}{\numberline {9.4}Relative Degrees of Inequality}{30}
+\contentsline {subsection}{\numberline {9.4}Inequality of Different Distributions}{31}
 \contentsline {section}{\numberline {10}Conclusion}{31}
 \contentsline {section}{References}{33}
 \contentsline {section}{\numberline {A}Experience Premium}{I}
