@@ -47,10 +47,10 @@
 \contentsline {subsection}{\numberline {9.2}Over the Life-Cycle}{29}
 \contentsline {subsection}{\numberline {9.3}The Distribution}{30}
 \contentsline {subsection}{\numberline {9.4}Inequality of Different Distributions}{31}
-\contentsline {section}{\numberline {10}Conclusion}{31}
+\contentsline {section}{\numberline {10}Conclusion}{32}
 \contentsline {section}{References}{33}
 \contentsline {section}{\numberline {A}Experience Premium}{I}
-\contentsline {section}{\numberline {B}Simulated Method of Moments}{I}
+\contentsline {section}{\numberline {B}Calibration Method}{I}
 \contentsline {section}{\numberline {C}Data}{I}
 \contentsline {section}{\numberline {D}Initial Conditions}{III}
 \contentsline {section}{\numberline {E}Gini Coefficient}{V}

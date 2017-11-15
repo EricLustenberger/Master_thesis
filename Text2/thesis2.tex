@@ -534,22 +534,21 @@ In order to assess the impact of the LTV, I will compare the results of the coun
 
 \subsection{On the Individual Level}
 
-Figure \ref{policy_downpayment0_age36} displays the policy functions for a 36 year old agent at three different income levels: the lowest income, blue lines, the intermediate income, purple lines, and the highest income, red lines. The solid lines represent the baseline policies and the dashed line the policies where durables do not have collateral value.\\ 
+Figure \ref{policy_downpayment0_age36} displays the policy functions for a 36 year old agent at three different income levels: the lowest income, blue lines, the intermediate income, green lines, and the highest income, red lines.\footnote{Note that the pattern displayed in Figure \ref{policy_downpayment0_age36} is representative for the other ages of the prime age population.} The solid lines represent the baseline policies and the dashed line the policies where durables do not have collateral value.\\ 
 The pattern of these lines follows the one described in \cite{hintermaier2010}. Higher labor income leads to higher optimal durable and non-durable consumption. Moreover, the opposite relation between liquid assets and income levels comes down to the persistence of the income shocks, which leads to higher expected future income of high earners today. These may therefore convert more of their current income in current consumption. Further, the collateral constraint is visible in the kinks of the policy functions. Collateral constraint consumers borrow as much as possible against additional durable collateral holdings. Financial assets are thus decreasing in net-worth. Consumers with higher net-worth holdings are not collateral constraint and chose to increase liquid assets in net-worth in addition to increases in the other endogenous variables.
 \begin{figure}[!htbp]
-\caption{Change of the LTV to $0$} 
+\caption{Individual Policies for different LTVs} 
 \label{policy_downpayment0_age36}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.4]{Figures/age_36_low_wealth}  % width legt Breite der Graphik fest
+\includegraphics[scale=.4]{Figures2/policies_36}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
-\footnotesize{The figure displays the different policy functions for the baseline case, solid-lines vs. the case with a reduced loan-to-value ratio, dashed-lines. The different colors display different wage levels. The blue lines illustrate the highest income, the purple lines are the intermediate income level and the orange lines the lowest income level.}
+\footnotesize{The figure displays the different policy functions for the baseline case, solid-lines vs. the case with a reduced loan-to-value ratio, dashed-lines of 36 years old. The different colors display different wage levels. The blue lines illustrate the highest income, the green lines are the intermediate income level and the orange/red lines the lowest income level. Thus income states, 21,11 and 1 respectively. Note, for illustrative purposes I excluded the other income states.}
 \end{minipage}
 
 \end{figure}
 There are several interesting observations to be made with regard to the level of the LTV. Poor agents with higher income are affected more, while consumers with the lowest income are not affected.
 Low income households cannot consume much out of their current income as expected future income is low and thus do not accumulate debt in either case. The tighter collateral constraint, however, does restrict consumers with higher earnings in their ability to borrow liquid assets. These remain borrowing constraint for higher levels of net-worth and do accumulate less durables. Further, a tighter constraint implies higher net-worth holdings for the collateral constraint. As the consumers can accumulate less durables when their borrowing is limited, they have less insurance from durables. As a consequence they optimally choose a higher ratio of durable holdings to negative positions in liquid assets, which leads to a higher net-worth and lower non-durable consumption for a given level of current net-worth.
-Note, this case is representative for all age groups. (SEE APPENDIX) It abstracts from the variety of income levels for illustrative purposes.
 
 \subsection{Over the Life-Cycle}
 Figure \ref{downpayment_vs_baseline_lc} shows how different levels of LTV do translate into differences in the average life-cycle profiles. The red line is the baseline case and the dotted blue line is the case where durables do not have any collateral value. \begin{figure}[!htbp]
@@ -591,7 +590,7 @@ Moreover, one can observe that all of the ginis drop. Further, the differences a
 \end{tabular}
 \end{table}
 
-These observations are in line with the discussion above. A tighter borrowing constraint affects the poor, who are most apparent in the youngest age group and thus the younger consumers are more exposed to the LTV. Figure \ref{downpayment_vs_baseline} illustrates this well. It shows the distributions for the two different levels of the LTV. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample when durables do not have collateral value. 
+These observations are in line with the discussion above. A tighter borrowing constraint affects the poor, who are most apparent in the youngest age group and thus the younger consumers are more exposed to the LTV. Figure \ref{downpayment_vs_baseline} illustrates this well, while the whole distribution up to the 90th percentile is affected in the youngest age group, only the lower percentiles are affected for the older age groups. It shows the distributions for the two different levels of the LTV. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample when durables do not have collateral value. 
 
 \begin{figure}[!htbp]
 \caption{Net-Worth Distribution up to the 90th percentile for different LTVs} 
@@ -615,8 +614,13 @@ Table \ref{Gini_Ranking_counter_factual} displays the gini indices for the distr
 \begin{tabular}{@{}lllll@{}}
 \toprule
       & Consumption & Durables & Liquid Assets & Net Worth \\ \midrule
-Baseline & 0.3492       & 0.3611   & 0.9542        & 0.6618    \\ \midrule
-Counterfactual  & 0.3468         & 0.4155     & 0.7964          & 0.5829      \\ \bottomrule
+Baseline & 0.349       & 0.361   & 0.951        & 0.662    \\ \midrule
+Counterfactual  & 0.341         & 0.422     & 0.796          & 0.574      \\ \bottomrule
+\multicolumn{5}{l}{%
+  \begin{minipage}{12.5cm}%
+    \small Ginis coefficients for durables, liquid assets and net-worth as well as consumption for the full simulated distribution for different levels of the LTV. The gini coefficient for liquid assets is calculated with the normalized gini (see Appendix \ref{gini_defs}) based on \cite{chen1982} due to negative observations. 
+  \end{minipage}%
+}\\
 \end{tabular}
 \end{table}
 
@@ -670,7 +674,7 @@ As is to be expected from such a parsimonious model, it has some limits. Firstly
 \end{tabular}
 \end{table}
 
-\section{Simulated Method of Moments}
+\section{Calibration Method}
 \label{estimation_procedure}
 In order to calibrate the discount factor and the non-durable consumption weight I follow the simulated methods of moments (SMM) approach. I simulate the model for different combinations of economical plausible values of these parameters looking for the pair that produces simulated moments, which best match these same moments observed in the data.\footnote{Note, since I only look at the wealth distribution up to the 90th percentile, the calibrated parameters do not suffer from the bias put forward by \cite{cagetti2003}. This author showed that estimating preference parameters by matching means results in a bias due to the extreme concentration of wealth at the right tail of the distribution.} I thus look for a vector $\hat{\Theta}$ containing the optimal parameter values $\hat{\beta}$ and $\hat{\theta}$ such that: 
 
