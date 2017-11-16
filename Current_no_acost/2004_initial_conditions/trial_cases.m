@@ -53,26 +53,26 @@ assets_init = load([DISC_PATH,models_database_const_risk]);
 % Figure 7 in Hintermaier2011 10th to 90th percentile 
 figure(57);
 subplot(1,3,1);
-plot((10:90),initial.this_model_.x_26_35_perc_composed(10:90),(10:90),durables_init.this_model_.x_26_35_perc_composed(10:90),'r--',(10:90),assets_init.this_model_.x_26_35_perc_composed(10:90),'k.','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+plot((1:90),initial.this_model_.x_26_35_perc_composed(1:90),(1:90),durables_init.this_model_.x_26_35_perc_composed(1:90),'r--',(1:90),assets_init.this_model_.x_26_35_perc_composed(1:90),'k.','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
 title('Age 26-35','fontsize',14);
 legend('Initial','Durables','Assets','Location','NorthWest')
 set(gca,'XTick',10:10:90)
 set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
-axis([10,90,0,18]);
+axis([1,90,0,18]);
 subplot(1,3,2);
-plot((10:90),initial.this_model_.x_36_45_perc_composed(10:90),(10:90),durables_init.this_model_.x_36_45_perc_composed(10:90),'r--',(10:90),assets_init.this_model_.x_36_45_perc_composed(10:90),'k.','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+plot((1:90),initial.this_model_.x_36_45_perc_composed(1:90),(1:90),durables_init.this_model_.x_36_45_perc_composed(1:90),'r--',(1:90),assets_init.this_model_.x_36_45_perc_composed(1:90),'k.','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
 title('Age 36-45','fontsize',14);
 legend('Initial','Durables','Assets','Location','NorthWest')
 set(gca,'XTick',10:10:90)
 set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
-axis([10,90,0,18]);
+axis([1,90,0,18]);
 subplot(1,3,3);
-plot((10:90),initial.this_model_.x_46_55_perc_composed(10:90),(10:90),durables_init.this_model_.x_46_55_perc_composed(10:90),'r--',(10:90),assets_init.this_model_.x_46_55_perc_composed(10:90),'k.','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
+plot((1:90),initial.this_model_.x_46_55_perc_composed(1:90),(1:90),durables_init.this_model_.x_46_55_perc_composed(1:90),'r--',(1:90),assets_init.this_model_.x_46_55_perc_composed(1:90),'k.','LineWidth',3), xlabel('Percentile','fontsize',14), ylabel('Net worth','fontsize',14);
 title('Age 46-55','fontsize',14);
 legend('Initial','Durables','Assets','Location','NorthWest')
 set(gca,'XTick',10:10:90)
 set(gca,'XTickLabel',{'10','','30','','50','','70','','90'})
-axis([10,90,0,18]);
+axis([1,90,0,18]);
                                                  
 % % Full distribtion
 % figure(58);

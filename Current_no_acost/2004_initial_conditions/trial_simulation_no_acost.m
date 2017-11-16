@@ -42,48 +42,49 @@ d_i_j(:,1)  = d_initial;
 
         end; % of for in simulation over t
 
-% % %% Plotting lifetime behavior of mean agent 
-% 
-% % Drop all simulated observations which are extrapolated off the grid and set to ext_val
-% % ======================================================================================
-% 
-% ind_non_NAN = (~isnan(a_i_j) & ~isnan(d_i_j));
-% total_drops = sum(sum(isnan(a_i_j) & isnan(d_i_j))); 
-% 
-% ind_non_NAN_colm = ~(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
-% agents_drops = sum(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
-% 
-% c_i_j    =    c_i_j(ind_non_NAN_colm,:);
-% x_i_j    =    x_i_j(ind_non_NAN_colm,:);
-% a_i_j    =    a_i_j(ind_non_NAN_colm,:);
-% d_i_j    =    d_i_j(ind_non_NAN_colm,:);
-% invd_i_j = invd_i_j(ind_non_NAN_colm,:);
-% 
-% % c_t    =    c_t(1:end-1); % use choice variables only until one period before states are above the upper bound of the grid
-% % invd_t = invd_t(1:end-1);
-% % ac_t   =   ac_t(1:end-1);
-% 
-% 
-% if agents_drops > 10000;
-%  display('Too many observations dropped:');  
-%  display('Widen grid range or reduce drop_obs');
-%  pause;
-% end; % of if for number of observations below the upper bound of the grid
-% 
-% sim_sample = pop_size-agents_drops;
-% 
-% display(sprintf('Size of simulation sample:%5.0d ', sim_sample ));
-% 
+% %% Plotting lifetime behavior of mean agent 
+
+% Drop all simulated observations which are extrapolated off the grid and set to ext_val
+% ======================================================================================
+
+ind_non_NAN = (~isnan(a_i_j) & ~isnan(d_i_j));
+total_drops = sum(sum(isnan(a_i_j) & isnan(d_i_j))); 
+
+ind_non_NAN_colm = ~(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
+agents_drops = sum(any(isnan(a_i_j),2) & any(isnan(d_i_j),2));
+
+c_i_j    =    c_i_j(ind_non_NAN_colm,:);
+x_i_j    =    x_i_j(ind_non_NAN_colm,:);
+a_i_j    =    a_i_j(ind_non_NAN_colm,:);
+d_i_j    =    d_i_j(ind_non_NAN_colm,:);
+invd_i_j = invd_i_j(ind_non_NAN_colm,:);
+
+% c_t    =    c_t(1:end-1); % use choice variables only until one period before states are above the upper bound of the grid
+% invd_t = invd_t(1:end-1);
+% ac_t   =   ac_t(1:end-1);
+
+
+if agents_drops > 10000;
+ display('Too many observations dropped:');  
+ display('Widen grid range or reduce drop_obs');
+ pause;
+end; % of if for number of observations below the upper bound of the grid
+
+sim_sample = pop_size-agents_drops;
+
+display(sprintf('Size of simulation sample:%5.0d ', sim_sample ));
+
 plot_j = (1:size(Y_ms_j,2));  % selection of time period for simulation-series plots
 
 % calculating means 
-
-mean_a_j = mean(a_i_j,1);
-mean_d_j = mean(d_i_j,1);
-mean_c_j = mean(c_i_j,1);
-mean_invd_j = mean(invd_i_j,1);
-mean_x_j = mean(x_i_j,1);
 mean_y_j = mean(Y_i_t,1);
+labor_mean = mean(mean_y_j);
+mean_a_j = mean(a_i_j,1)/labor_mean;
+mean_d_j = mean(d_i_j,1)/labor_mean;
+mean_c_j = mean(c_i_j,1)/labor_mean;
+mean_invd_j = mean(invd_i_j,1);
+mean_x_j = mean(x_i_j,1)/labor_mean;
+
 
 figure(51);
 subplot(3,2,1);

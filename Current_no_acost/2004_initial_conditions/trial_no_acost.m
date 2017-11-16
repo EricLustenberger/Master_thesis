@@ -43,7 +43,7 @@ model_parameters_no_acost
 % estimated parameters 
 
 % thus far best match with sigma 1.5
-theta = 0.749;
+theta = 0.752;
 beta_ = 0.994;
 
 

@@ -353,7 +353,7 @@ U(c,d)=\frac{\psi(c,d)^{1-\sigma}-1}{1-\sigma} \ \ \textnormal{where} \ \ \psi(c
 
 where I assume $\epsilon_{d} > 0$, which is a number small enough to be irrelevant for the quantitative exercise at hand but nonetheless larger than zero. The CRRA utility function with the Cobb-Douglas specification of the consumption index, thus allows for zero consumption of durables, while the Inada-Condition ensures that people always consume some non-durables. Intuitively this means that consumers cannot survive without food, but are allowed to survive without houses and cars.\footnote{Since in such a formulation of the problem durables are not "naturally" bounded below by the Inada-Conditions, when solving the recursive problem one has to take into account $d' = d_{min}$ as additional constraint.}
 
-The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author, I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holdings and average durable holdings of the prime age population up to the 90th percentile, respectively. The data moments in terms of the average labor-earnings equivalent are 2.95 for the durable holdings and 2.39 for the net-worth  holdings. Since these data moments are not available in \cite{hintermaier2011} or any literature for that matter, I calculated these with Stata-Codes from \cite{hintermaier2016}. Appendix \ref{data} provides further information on this data. To calibrate the two parameters I solved the model for economical plausible combinations of $\beta \in [0.96,1]$ and $\theta \in [0.65,0.85]$ to calculate the equivalent model moments, starting with differences of 0.05 between parameter values and then reducing them to 0.01 for a smaller grid of parameter values.\footnote{Note that unlike in infinite-horizon models, the life-cycle version does not demand a $\beta < 1$ to keep life-time utility finite \cite[p. 360]{heer2004dge}.} The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample. Both the population
+The risk-aversion $\sigma$ typically takes values from 1-5 in the literature \citep{yang2009}. Following the aforementioned author, I use $\sigma = 1.5$ as estimated by \cite{attanasio1999} and \cite{Gourinchas&Parker2002} from consumption data. The discount factor $\beta$ and the weight on non-durable consumption $\theta$ are calibrated to match the average net-worth holdings and average durable holdings of the prime age population up to the 90th percentile, respectively. The data moments in terms of the average labor-earnings equivalent are 2.95 for the durable holdings and 2.39 for the net-worth  holdings. Since these data moments are not available in \cite{hintermaier2011} or any literature for that matter, I calculated these with Stata-Codes from \cite{hintermaier2016}. Appendix \ref{data} provides further information on this data. To calibrate the two parameters I solved the model for economical plausible combinations of $\beta \in [0.96,1]$ and $\theta \in [0.65,0.90]$ to calculate the equivalent model moments, starting with differences of 0.05 between parameter values and then reducing them to 0.01 for a smaller grid of parameter values.\footnote{Note that unlike in infinite-horizon models, the life-cycle version does not demand a $\beta < 1$ to keep life-time utility finite \cite[p. 360]{heer2004dge}.} The choice to match the 90th percentile and the population from 26 to 55 years old is motivated by the fact that calibrating the model for the whole data-set would lead to overestimating the net-worth holdings of the prime sample. Both the population
 above 55 years of age and above the 90th percentile hold more wealth on average than
 in the prime age sample. The matching of the moments is explained in more detail in Appendix \ref{estimation_procedure}. \\
 Table \ref{estimates} displays the parameter values that best match the two moments. Moreover, it features the simulated moments, which match the empirical moments with an accuracy of $10^{-1}$.
@@ -368,7 +368,7 @@ Table \ref{estimates} displays the parameter values that best match the two mome
 0.991 \ \ \ \   & 0.764 \ \ \ \ & \ \ \ \ 2.9560 & \ \ \ \ 2.3886  \\ \bottomrule
 \multicolumn{4}{l}{%
   \begin{minipage}{9.5cm}%
-    \small This table depicts the parameter estimates matching the average durable holdings and average net-worth of the prime age population up to the 90th percentile found in the data. The unit of means is average net labor-earnings.   
+    \small This table depicts the parameter estimates matching the average durable holdings and average net-worth of the prime age population up to the 90th percentile of the net-worth distribution found in the data and the simulated moments.  
   \end{minipage}%
 }\\
 \end{tabular}
@@ -378,8 +378,8 @@ These results are well in the range of the estimates of other authors with simil
 The calibration for $\beta$ is quite close to \cite{hintermaier2011}, who estimate the discount factor to be $0.9845$ for the same sample and 1983 data. 
 
 \subsection{Initial Conditions}
-In order to properly estimate the model, the specification of the initial conditions is important in a life-cycle model. \cite{hintermaier2011} provide detailed net-worth data. However, these initial conditions do not contain any information about the portfolio composition. I thus construct the consumers' initial portfolio from the distributions of consumers between ages 23 and 25 in the SCF 2004 and correcting for average growth rates, following \cite{hintermaier2011}.\footnote{As for the data moments needed for the calibration, I use the Stata-Codes provided by \cite{hintermaier2016}. Appendix \ref{data} discusses this data in more detail.} In the following I will refer to the calibration with these initial conditions as baseline case.\\
-To test the importance of the initial conditions, I re-calibrate the model for different specifications of the initial conditions using the conditions provided by \cite{hintermaier2011}, which only indicate net-worth. In a first estimation I assign all net-worth to durables and in a second estimation I assume that the net-worth positions are entirely held in liquid assets. The results are displayed in Appendix \ref{initial_conditions} and indicate that the simulated net-worth distribution from the baseline case does produce the best match for the empirical distribution. However, the simulation assuming that 23-25 years old hold the entirety of their net-worth in durables, does produce results that are almost as good. This, should however not be surprising. As discussed in Section \ref{facts}, young consumers hold almost their entire wealth in durables. When assigning the net-worth to financial assets, however, the match for the empirical distribution of the 26 to 35 years old, deteriorates substantially.    
+In order to properly estimate the model, the specification of the initial conditions is important in a life-cycle model. \cite{hintermaier2011} provide detailed net-worth data. However, these initial conditions do not contain any information about the portfolio composition. I thus construct the consumers' initial portfolio from the distributions of consumers between ages 23 and 25 in the SCF 2004 and correcting for average growth rates, following \cite{hintermaier2011}.\footnote{As for the data moments needed for the calibration, I use the Stata-Codes provided by \cite{hintermaier2016}. Appendix \ref{data} discusses this data in more detail.} In the following I will refer to the calibration with these initial conditions as baseline case. It is also the calibration I use for the discussion of the main results further below.\\
+To test the importance of the initial conditions, I re-calibrate the model for different specifications of the initial conditions using the conditions provided by \cite{hintermaier2011}, which only indicate net-worth. In a first estimation I assign all net-worth to durables and in a second estimation I assume that the net-worth positions are entirely held in liquid assets. The results are displayed in Appendix \ref{initial_conditions} and indicate that the simulated net-worth distribution from the baseline case and the simulation assuming that 23-25 years old hold the entirety of their net-worth in durables, do produce almost identical results. This, should however not be surprising. As discussed in Section \ref{facts}, young consumers hold almost their entire wealth in durables. When assigning the net-worth to financial assets, however, the match for the empirical distribution of the 26 to 35 years old, deteriorates substantially.    
 
 
 \subsection{Further Inputs}
@@ -398,11 +398,10 @@ Finally, since income is deterministic during retirement period, the transition 
 
 Although the model is not calibrated to match life-cycle profiles it is interesting to see how well it reproduces the observed life-cylce patterns in the data. Moreover, this is particularly interesting in the context of durables as different authors have argued the importance of modeling durables in life-cycle models to match the empirical profiles \--- non-durable consumption in the case of \cite{FV&K2011} and the portfolio composition in \cite{yang2009}. \\
 In the following section I will compare the average over the simulated life-cycle profiles to the data cited in other work. I first discuss the profile of consumption and income and then take a closer look at the simulated portfolio profiles. 
-The units of measurement of the endogenous vairables is the mean of net labor-earnings equivalent.
 
 \subsection{Income and Consumption}
 
-\myparagraph{Income} Figure \ref{consumption_life_cycle} shows the hump of the income profile arising by construction as the process is determined exogenously. Note that this hump shaped profile arises from the experience premium captured by the estimated age polynomial as well as economic growth, up to age 65. Consumers earnings rise until the age of 49, when they reach the maximum log net-income equivalent of 2.313. Afterwards the experience premium decreases, as the experience factor is dominated by a decrease in productivity to the age of 65, where consumers earn 2.083, thus around 10\% less than when they are at their top. At this point the average income decreases sharply, as every consumer retires after the age of 65 and receives deterministic retirement benefits from then on, with an average of 1.097.\footnote{Following \cite{hintermaier2011} the growth adjustment is neglected for the retirement period, therefore the curve does not increase for ages 66 to 90.} 
+\myparagraph{Income} Figure \ref{consumption_life_cycle} shows the hump of the income profile arising by construction as the process is determined exogenously. Note that this hump shaped profile arises from the experience premium captured by the estimated age polynomial as well as economic growth, up to age 65. Consumers earnings rise until the age of 49, when their deterministic income peaks. Afterwards the experience premium decreases, as the experience factor is dominated by a decrease in productivity to the age of 65, where consumers earn around 10\% less than when they are at their top. At this point the average income almost halves itself as every consumer retires after the age of 65 and receives deterministic retirement benefits from then on.\footnote{Following \cite{hintermaier2011} the growth adjustment is neglected for the retirement period, therefore the curve does not increase for ages 66 to 90.} 
 
 \begin{figure}[!htbp]
 \caption{Average Income and Consumption over the Life-Cycle} 
@@ -411,12 +410,12 @@ The units of measurement of the endogenous vairables is the mean of net labor-ea
 \includegraphics[scale=.4]{Figures2/life_cycle_consumption_income}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
-\footnotesize{This figure displays the averages over the simulated life-cycle profiles. The red line displays average deterministic income over the life-cycle resulting form the calibration. The blue line shows the average consumption over the life-cycle. The unit of measurement for consumption is the average net labor-earnings equivalent.}
+\footnotesize{This figure displays the averages over the simulated life-cycle profiles. The red line displays average deterministic income over the life-cycle resulting form the calibration. The blue line shows the average consumption over the life-cycle.}
 \end{minipage}
 
 \end{figure}
 
-\myparagraph{Consumption} As income consumption is hump shaped and seems to follow the behavior of income with a slight time lag and smoother decrease. Non-durable consumption peaks on average at the age of 73. At that point agents consume 1.999 in terms of the average net labor-earnings equivalent, which is almost four times as much as at the age of 27, when their non-durable consumption is lowest.\footnote{Note this first fall of consumption is due to adaptation from initiating durables and net worth.} \\
+\myparagraph{Consumption} As income consumption is hump shaped and seems to follow the behavior of income with a slight time lag and smoother decrease. Non-durable consumption peaks on average at the age of 73. At that point agents consume almost four times as much as at the age of 27, when their non-durable consumption is lowest.\footnote{Note this first fall of consumption is due to adaptation from initiating durables and net worth.} \\
 Clearly, agents do not achieve perfect consumption smoothing over their life-cycle. As in \cite{FV&K2011}, the double role of durables, which provide consumption services that are non-separable from non-durable consumption and may be utilized to substitute wealth across periods, contributes to a large extend to the hump shape of consumption.\\
 Durables contribute to initially low non-durable consumption in two ways. Firstly, as the initial durable stock is low, borrowing constraints are tight. As a consequence, the consumers' ability to substitute expected higher future income for lower present income is limited leading consumption to track income quite closely. Secondly, 
 due to their collateral value, consumers seek to accumulate durables as quickly as possible and thus substitute a part of their non-durable consumption with durable services. \\
@@ -424,7 +423,7 @@ This initial surge of the durable stock can be observed in Figure \ref{asset_hol
 Finally, later in life, when death becomes more likely and utility is discounted to a larger extent, consumption decreases again.\footnote{The late rise in consumption is due to life-time uncertainty. As consumers are never entirely sure at what point they will die, they hold a small buffer even when retired and subject to deterministic income. In the last period, they die with certainty and thus sell all of their assets increasing consumption.} 
 
 \myparagraph{How Does the Consumption Profile Compare to the Literature?} \cite{FV&K2011} and \cite{yang2009} have looked at life-cycle profiles using very similar models accompagnied by an overview of the empirical profiles.\footnote{Note that these studies use the same household equivalent from \cite{fernandez2007consumption} to control for family size, when looking at the data, as \cite{hintermaier2011} and are thus suitable for comparison.} They both find similar shapes, however, differing in the size and period of the peak.\\
-Using data from the Consumer Expenditure Survey (CEX) for the years 1980-2001 \cite{FV&K2011} show that the average household spends around 25\% more in their early 50s, when controlling for family size. Yang uses CEX 1984-2000 data for homeowners and reports a peak of 1,54 at age 51. Both profiles display low initial consumption, a steady rise and then a fall mirroring the rise in early years. \\
+Using data from the Consumer Expenditure Survey (CEX) for the years 1980-2001 \cite{FV&K2011} show that the average household spends around 25\% more in their early 50s, when controlling for family size. Yang uses CEX 1984-2000 data for homeowners and reports a peak of 1,56 times larger at age 51 compared to average consumption at age 20. Both profiles display low initial consumption, a steady rise and then a fall mirroring the rise in early years. \\
 Their models are able to match these findings quite accurately, reproducing a peak  at age 45, which is 40\% higher compared to the level at age 20 in the case of \cite{FV&K2011} and a peak at age 60, 90\% higher than at age 25 for home-owners in the case of \cite{yang2009}. 
 \\ \\
 While the present model does reproduce the hump-shape of consumption reported in the data and by the two authors cited above, the size and moment of the peak diverge quite significantly from these results. \\
@@ -441,7 +440,7 @@ As discussed in the previous section, average non-durable consumption over the l
 \includegraphics[scale=.4]{Figures2/life_cycle_assets}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
-\footnotesize{This figure displays the averages over the simulated life-cycle profiles. The blue line displays average net-worth holdings over the life-cycle. The green line shows the average liquid asset holdings over the life-cycle and the purple line the average of durable holdings over the life-cycle. The unit of measurement is the average net labor-earnings equivalent.}
+\footnotesize{This figure displays the averages over the simulated life-cycle profiles. The blue line displays average net-worth holdings over the life-cycle. The green line shows the average liquid asset holdings over the life-cycle and the purple line the average of durable holdings over the life-cycle.}
 \end{minipage}
 
 \end{figure}
@@ -499,7 +498,7 @@ The plotted graph shows that the distributions from the two younger age groups a
 
 \end{figure}
 
-The inability of the model to capture the large negative net-worth holdings is due to the specification of the collateral constraint. The model only allows for very limited amounts of negative net-worth holdings, since borrowing has to be collateralized. The fraction, which can be collateralized by income is very close to zero and therefore short positions in liquid assets are countered by durable holdings. Resulting net-worth positions are thus almost always positive.\footnote{As discussed above the minimum of net-worth is given by $-\gamma\underline{y}$, which is implied by the durable constraint set to zero and the collateral constraint. The calibration above implies that $-\gamma\underline{y} = 0.0179$ in terms of average net labor-earnings.} 
+The inability of the model to capture the large negative net-worth holdings is due to the specification of the collateral constraint. The model only allows for very limited amounts of negative net-worth holdings, since borrowing has to be collateralized. The fraction, which can be collateralized by income is very close to zero and therefore short positions in liquid assets are countered by durable holdings. Resulting net-worth positions are thus almost always positive.\footnote{As discussed above the minimum of net-worth is given by $-\gamma\underline{y}$, which is implied by the durable constraint set to zero and the collateral constraint. The calibration above implies that $-\gamma\underline{y} = 0.0179$ and thus is larger than zero.} 
 
 \subsection{Relative Degrees of Inequality}
 So far I have only discussed net-worth in the distribution section. However, the model does also generate a distribution of consumption as well as different distributions for liquid assets and durables. Other authors have shown that infinite-horizon models with durables do manage to reproduce the relative ranking of inequalities observed in the data (see for example \cite{hintermaier2010} or \cite{diaz2010}). I find similar results for the present life-cycle model specification.
@@ -507,7 +506,7 @@ So far I have only discussed net-worth in the distribution section. However, the
 
 \begin{table}[!htbp]
 \centering
-\caption{Gini indices for the different distributions}
+\caption{Gini Indices of Different Distributions}
 \label{Gini_Ranking}
 \begin{tabular}{@{}lllll@{}}
 \toprule
@@ -558,7 +557,7 @@ Figure \ref{downpayment_vs_baseline_lc} shows how different levels of LTV do tra
 \includegraphics[scale=.4]{Figures2/life_cycle_LTV}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
-\footnotesize{This figure displays the averages over the simulated life-cycle profiles. The red line displays the baseline case, where the LTV is set to 0.97. The dotted blue line shows the profiles for an LTV of 0. The unit of measurement is the average net labor-earnings equivalent.}
+\footnotesize{This figure displays the averages over the simulated life-cycle profiles. The red line displays the baseline case, where the LTV is set to 0.97. The dotted blue line shows the profiles for an LTV of 0.}
 \end{minipage}
 
 \end{figure}A lower loan-to-value ratio forces agents to  postpone the accumulation of durables for a few years. As in this case they cannot finance durables with short positions in liquid assets, they cannot immediately increase the durable stock but need to accumulate it step by step. Moreover, agents now hold positive amounts of liquid assets even when they are young, as they are used as main source of insurance, when durables do not have collateral value. The resulting net-worth positions are higher with a lower LTV over the whole life-cycle. As savings is higher, the peak in consumption is higher and appears later in life.
@@ -572,7 +571,7 @@ Moreover, one can observe that all of the ginis drop. Further, the differences a
 
 \begin{table}[!htbp]
 \centering
-\caption{Means and Ginis for different LTVs}
+\caption{Means and Ginis for Different LTVs}
 \label{ginis_means_LTV}
 \begin{tabular}{@{}lllll@{}}
 \toprule
@@ -584,7 +583,7 @@ Moreover, one can observe that all of the ginis drop. Further, the differences a
 \begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ \ \ \ \ \  4.28\\ \ \ \ \ \ 0.546\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ \  \ 5.28\\ \ \ 0.432\end{tabular}  \\ \bottomrule
 \multicolumn{5}{l}{%
   \begin{minipage}{9.5cm}%
-    \small This table shows the gini coefficients and means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the baseline simulation and the simulation with an LTV of 0. The unit of the means is the average labor-earnings equivalent. 
+    \small This table shows the gini coefficients and means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the baseline simulation and the simulation with an LTV of 0. 
   \end{minipage}%
 }\\
 \end{tabular}
@@ -593,7 +592,7 @@ Moreover, one can observe that all of the ginis drop. Further, the differences a
 These observations are in line with the discussion above. A tighter borrowing constraint affects the poor, who are most apparent in the youngest age group and thus the younger consumers are more exposed to the LTV. Figure \ref{downpayment_vs_baseline} illustrates this well, while the whole distribution up to the 90th percentile is affected in the youngest age group, only the lower percentiles are affected for the older age groups. It shows the distributions for the two different levels of the LTV. The red line represents the results obtained from the baseline calibration and the dotted blue line the steady state distribution for the prime age sample when durables do not have collateral value. 
 
 \begin{figure}[!htbp]
-\caption{Net-Worth Distribution up to the 90th percentile for different LTVs} 
+\caption{Net-Worth Distribution up to the 90th Percentile for Different LTVs} 
 \label{downpayment_vs_baseline}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
 \includegraphics[scale=.4]{Figures2/distribution_LTV}  % width legt Breite der Graphik fest
@@ -703,43 +702,51 @@ Table \ref{estimates_initial_cond} depicts the estimation results for the prefer
 
 \begin{table}[!htbp]
 \centering
-\caption{This table depicts the parameter estimates matching the average durable holdings and average total worth of the prime age population in the data.}
+\caption{Calibration Results for Different Initial Conditions}
 \label{estimates_initial_cond}
 \begin{tabular}{llllll}
 \hline
-\multicolumn{2}{l}{Estimations} & $\beta$ & $\theta$ & Av.Durables & Av.Net-Worth\\ \hline
-\multicolumn{2}{l}{Durables}             & 0.991    & 0.759  & 2.9527 & 2.3906      \\
-\multicolumn{2}{l}{Assets}            & 0.994   & 0.749   & 2.9455 & 2.3851    
+\multicolumn{2}{l}{Init. Cond} & \ \ \ \ $\beta$ & \ \ \ \ $\theta$ & Av.Durables & Av.Net-Worth\\ \hline
+\multicolumn{2}{l}{Durables}             & \ \ 0.991    & \ \ 0.763  & \ \ \ \ 2.9465 & \ \ \ \ 2.3910      \\
+\multicolumn{2}{l}{Assets}            & \ \ 0.994   & \ \ 0.752   & \ \ \ \ 2.9530 & \ \ \ \ 2.3875\\ \bottomrule
+\multicolumn{6}{l}{%
+  \begin{minipage}{11.5cm}%
+    \small This table depicts the parameter estimates matching the average durable holdings and average net-worth of the prime age population up to the 90th percentile of the net-worth distribution found in the data for different specifications of the initial conditions. Moreover, the simulated means of net-worth holdings and the durable stock for the prime age population and up to the 90th percentile of the net-worth distribution.
+  \end{minipage}%
+}\\    
 \end{tabular}
 \end{table}
 
-Table \ref{ginis_means_init} shows prime age moments for the three different estimations as well as for the data. Attributing the initial net worth entirely to assets produces results that are way off for the youngest age group. The results for the middle age group are matched reasonably well and for the oldest age group they are matched rather badly. Interestingly, when attributing all initial wealth to durables the results are almost the same as for the baseline case. This, however, is not surprising as young households hold almost the entirety of their wealth in durables. Moreover, when performing the different estimations, I abstracted almost from all negative balances of net worth. 
-The assumption, that all positive initial net-worth is durable wealth, would be a sufficient one, for the present model specification. 
+Table \ref{ginis_means_init} shows prime age moments for the three different estimations as well as for the data. Attributing the initial net worth entirely to assets produces results that are way off for the youngest age group. The results for the middle age group are matched reasonably well and for the oldest age group they are matched rather badly. Interestingly, when attributing all initial wealth to durables the results are almost the same as for the baseline case. This, however, is not surprising as young households hold almost the entirety of their wealth in durables. Moreover, as discussed above, the specification of the borrowing constraint, does only allow for little negative net-worth. Positive net-worth may therefore well be interpreted as durable holdings. Finally, the assumption, that all positive initial net-worth is durable wealth, would be a sufficient one, for the present model specification. 
 
 \begin{table}[!htbp]
 \centering
-\caption{As in Table \ref{ginis_base} this Table shows the Gini and Means for the distribution of different age groups up to and with the 90th percentile of the net-worth distribution for the different estimates.}
+\caption{Ginis and Means for Different Initial Conditions}
 \label{ginis_means_init}
 \begin{tabular}{@{}lllll@{}}
 \toprule
                                                                                 & Data & Baseline & Durables
                                                                  & Assets
                                                                                 \\ \midrule
-\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}} \\0.80\\ 0.713\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.8137\\ 0.6273\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.8170\\ 0.6281\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.6433\\ 0.6696\end{tabular}\\ \midrule
-\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 2.36\\ 0.596\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.3609\\ 0.5850\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.3628\\ 0.5843\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.3705\\ 0.5845\end{tabular} \\ \midrule
-\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.81\\ 0.564\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.2821\\ 0.5464\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 4.2810\\ 0.5456\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.4958\\ 0.5388\end{tabular}\\ \bottomrule
+\begin{tabular}[c]{@{}l@{}}Age 26-35 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}} \\0.80\\ 0.713\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\\ \ \ 0.81\\ \ \ \ 0.627\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ \ \ \ 0.82\\ \ \ \ 0.628\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\0.65\\ 0.669\end{tabular}\\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 36-45 \\ Mean\\ Gini coefficient\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ 2.36\\ 0.596\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ \ \ \ 2.36\\ \ \ \ 0.585\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ \ \ \ 2.36\\ \ \ \ 0.584\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 2.37\\ 0.584\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Age 46-55 \\ Mean \\ Gini coefficient\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.81\\ 0.564\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ \ \ \ 4.28\\ \ \ \ 0.546\end{tabular}  & \begin{tabular}[c]{@{}l@{}}\\ \ \ \ 4.28\\ \ \ \ 0.546\end{tabular} & \begin{tabular}[c]{@{}l@{}}\\ 4.50\\ 0.539\end{tabular}\\ \bottomrule
+\multicolumn{5}{l}{%
+  \begin{minipage}{10.5cm}%
+    \small This table shows the gini coefficients and means for the distribution of different age groups up to and with the 90th percentile of the simulated net-worth distribution for calibrations differing in the specification of the initial condition. The first column displays the data moments. Columns 2 to three show the simulated moments for the three different calibrations. The baseline uses initial conditions that are separable in liquid assets and durables. The third Column shows the case, where the initial conditions in net-worth provided by \cite{hintermaier2011} are entirely attributed to durables. Finally, the last column shows the resulting distribution, when these initial conditions in net-worth are attributed to liquid assets. 
+  \end{minipage}%
+}\\    
 \end{tabular}
 \end{table}
 
-
 \begin{figure}[!htbp]
-\caption{Distribution with different initial conditions} 
+\caption{Distribution with Different Initial Conditions} 
 \label{initial_conditions_dist}	%label, um spaeter auf die Graphiknummer zugreifen zu koennen
 \centering
-\includegraphics[scale=.4]{Figures/initial_conditions_distribution}  % width legt Breite der Graphik fest
+\includegraphics[scale=.4]{Figures2/distribution_init_cond}  % width legt Breite der Graphik fest
 
 \begin{minipage}{0.8\linewidth}
-\footnotesize{CHANGE THE BLOODY COLOURS!!!! IT IS THE SAME AS IN HINTERMAIERS! NEED TO INDICATE THE MEASURES. JUST VERY STANDARD! NEEDS TO BE UPDATED. NOTE THAT THE LOWEST PART OF THE DISTRIBUTION IS NOT VISIBLE!}
+\footnotesize{The Figure shows the different simulated net-worth distributions up to the 90th percentile. The blue line shows the baseline distribution with initial conditions that are separable in liquid assets and durables. The red line shows the case, where the initial conditions in net-worth provided by \cite{hintermaier2011} are entirely attributed to durables. Finally, the dotted line shows the resulting distribution, when these initial conditions in net-worth are attributed to liquid assets.}
 \end{minipage}
 
 \end{figure}
@@ -748,9 +755,8 @@ The assumption, that all positive initial net-worth is durable wealth, would be 
 
 \section{Gini Coefficient}
 \label{gini_defs}
-This appendix shows the Gini-specifications, which are used above. 
+This appendix shows the gini specifications, which are used above. For a population uniform on the values $y_{i}, i=1$ to $n$, indexed in non-decreasing order $(y_{i} \leq y_{i+1})$ the gini can be expressed as follows.  
 \subsection{Conventional Gini}
-For a population uniform on the values $y_{i}, i=1$ to $n$, indexed in non-decreasing order $(y_{i} \leq y_{i+1})$ the gini can be expressed as follows: 
 
 \begin{equation*}
 G = \frac{1}{n} \left(n+1-2 \left( \frac{\sum_{i=1}^n (n+1-i)y_{i}}{\sum_{i=1}^n y_{i}}\right)\right)
@@ -766,10 +772,10 @@ G = \frac{2\sum_{i=1}^n iy_{i}}{n \sum_{i=1}^n y_{i}} - \frac{n+1}{n}
 The normalized Gini proposed by \cite{chen1982}. 
 
 \begin{equation*}
-G^{*} = \frac{1+\frac{2}{n}\sum_{j=1}^k jy_{j} - \frac{1}{n}\sum_{k+1}^n y_{j}(1+2(n-j))}{1+\frac{2}{n}\sum_{j=1}^k jy_{j}}
+G^{*} = \frac{1+\frac{2}{n}\sum_{i=1}^k iy_{i} - \frac{1}{n}\sum_{k+1}^n y_{i}(1+2(n-i))}{1+\frac{2}{n}\sum_{i=1}^k iy_{i}}
 \end{equation*}
 
-where $k$ is defined such that $\sum_{j=1}^k y_{j} = 0$.
+where $k$ is defined such that $\sum_{i=1}^k y_{i} = 0$.
 
 \newpage
 

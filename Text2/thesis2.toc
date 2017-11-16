@@ -30,8 +30,8 @@
 \contentsline {subsection}{\numberline {5.4}Further Inputs}{17}
 \contentsline {section}{\numberline {6}Numerical Algorithm}{17}
 \contentsline {section}{\numberline {7}Life-Cycle Profiles}{18}
-\contentsline {subsection}{\numberline {7.1}Income and Consumption}{19}
-\contentsline {paragraph}{Income}{19}
+\contentsline {subsection}{\numberline {7.1}Income and Consumption}{18}
+\contentsline {paragraph}{Income}{18}
 \contentsline {paragraph}{Consumption}{19}
 \contentsline {paragraph}{How Does the Consumption Profile Compare to the Literature?}{20}
 \contentsline {subsection}{\numberline {7.2}Portfolio Composition over the Life-Cycle}{21}
@@ -43,11 +43,11 @@
 \contentsline {paragraph}{The Results}{24}
 \contentsline {subsection}{\numberline {8.3}Relative Degrees of Inequality}{26}
 \contentsline {section}{\numberline {9}A Counterfactual Experiment}{27}
-\contentsline {subsection}{\numberline {9.1}On the Individual Level}{28}
+\contentsline {subsection}{\numberline {9.1}On the Individual Level}{27}
 \contentsline {subsection}{\numberline {9.2}Over the Life-Cycle}{29}
 \contentsline {subsection}{\numberline {9.3}The Distribution}{30}
-\contentsline {subsection}{\numberline {9.4}Inequality of Different Distributions}{31}
-\contentsline {section}{\numberline {10}Conclusion}{32}
+\contentsline {subsection}{\numberline {9.4}Inequality of Different Distributions}{30}
+\contentsline {section}{\numberline {10}Conclusion}{31}
 \contentsline {section}{References}{33}
 \contentsline {section}{\numberline {A}Experience Premium}{I}
 \contentsline {section}{\numberline {B}Calibration Method}{I}

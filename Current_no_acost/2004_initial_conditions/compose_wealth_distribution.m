@@ -91,15 +91,15 @@ axis([1,99,-20,20]);
 
 %% Gini with my_gini
 
-gini_d2 = my_gini(cs_d);
-gini_c2 = my_gini(cs_c);
-gini_y2 = my_gini(cs_y);
-gini_x2 = my_gini(cs_x);
+gini_d2 = standard_gini(cs_d);
+gini_c2 = standard_gini(cs_c);
+gini_y2 = standard_gini(cs_y);
+gini_x2 = standard_gini(cs_x);
 gini_a2 = my_gini(cs_a);
 
-gini_x_26_35 = my_gini(cs_x_26_35);
-gini_x_36_45 = my_gini(cs_x_36_45);
-gini_x_46_55 = my_gini(cs_x_46_55);
+gini_x_26_35 = standard_gini(cs_x_26_35);
+gini_x_36_45 = standard_gini(cs_x_36_45);
+gini_x_46_55 = standard_gini(cs_x_46_55);
 
 %% Means
 % Mean of full distribution
@@ -120,9 +120,9 @@ averages.mean_x_36_45_90th = mean(cs_x_36_45(I_x_36_45_90th));
 averages.mean_x_46_55_90th = mean(cs_x_46_55(I_x_46_55_90th));
 
 % Gini up to 90th percentile 
-averages.gini_x_26_35_90th = my_gini(cs_x_26_35(I_x_26_35_90th));
-averages.gini_x_36_45_90th = my_gini(cs_x_36_45(I_x_36_45_90th));
-averages.gini_x_46_55_90th = my_gini(cs_x_46_55(I_x_46_55_90th));
+averages.gini_x_26_35_90th = standard_gini(cs_x_26_35(I_x_26_35_90th));
+averages.gini_x_36_45_90th = standard_gini(cs_x_36_45(I_x_36_45_90th));
+averages.gini_x_46_55_90th = standard_gini(cs_x_46_55(I_x_46_55_90th));
 
 %% Ginis on Distribution
 % gini_SCF_26_35 = my_gini(SCF_agedetail_pctiles(:,2));
