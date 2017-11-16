@@ -54,5 +54,5 @@
 \contentsline {section}{\numberline {C}Data}{I}
 \contentsline {section}{\numberline {D}Initial Conditions}{III}
 \contentsline {section}{\numberline {E}Gini Coefficient}{V}
-\contentsline {subsection}{\numberline {E.1}Conventional Gini}{V}
-\contentsline {subsection}{\numberline {E.2}Normalized Gini}{V}
+\contentsline {subsection}{\numberline {E.1}Conventional Gini Coefficient}{V}
+\contentsline {subsection}{\numberline {E.2}Normalized Gini Coefficient}{V}
