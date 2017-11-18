@@ -1,0 +1,57 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Modeling the Wealth Distribution}{2}
+\contentsline {subsection}{\numberline {2.1}The Standard Incomplete Markets Model}{3}
+\contentsline {subsection}{\numberline {2.2}The Life-Cycle Feature}{3}
+\contentsline {subsection}{\numberline {2.3}Wealth Distribution Literature}{4}
+\contentsline {subsection}{\numberline {2.4}Durables and the Net-Worth Literature}{5}
+\contentsline {section}{\numberline {3}Facts about the Net-Worth Distribution}{6}
+\contentsline {subsection}{\numberline {3.1}Net-Worth and Changes across Age-Groups}{6}
+\contentsline {subsection}{\numberline {3.2}Portfolio Composition and the Importance of Durables}{7}
+\contentsline {section}{\numberline {4}The Model}{8}
+\contentsline {subsection}{\numberline {4.1}Demographics}{8}
+\contentsline {subsection}{\numberline {4.2}Consumer's Problem}{8}
+\contentsline {paragraph}{Consumption savings decision}{8}
+\contentsline {paragraph}{Income Process}{9}
+\contentsline {paragraph}{Collateral Constraint}{9}
+\contentsline {paragraph}{Net-Worth in the Model}{10}
+\contentsline {subsection}{\numberline {4.3}The Recursive Formulation of the Household Problem}{10}
+\contentsline {paragraph}{Prior to Retirement}{10}
+\contentsline {paragraph}{Post Retirement}{11}
+\contentsline {subsection}{\numberline {4.4}Equilibrium Concept}{11}
+\contentsline {subsection}{\numberline {4.5}The Determinants of Savings}{11}
+\contentsline {paragraph}{Income Risk}{11}
+\contentsline {paragraph}{Income Growth}{12}
+\contentsline {paragraph}{Borrowing Constraint}{12}
+\contentsline {paragraph}{The Relative Price of Durables}{13}
+\contentsline {section}{\numberline {5}Calibration}{13}
+\contentsline {subsection}{\numberline {5.1}The Income Process}{13}
+\contentsline {subsection}{\numberline {5.2}Utility Parameters}{14}
+\contentsline {subsection}{\numberline {5.3}Initial Conditions}{16}
+\contentsline {subsection}{\numberline {5.4}Further Inputs}{17}
+\contentsline {section}{\numberline {6}Numerical Algorithm}{17}
+\contentsline {section}{\numberline {7}Life-Cycle Profiles}{18}
+\contentsline {subsection}{\numberline {7.1}Income and Consumption}{18}
+\contentsline {paragraph}{Income}{18}
+\contentsline {paragraph}{Consumption}{19}
+\contentsline {paragraph}{How Does the Consumption Profile Compare to the Literature?}{20}
+\contentsline {subsection}{\numberline {7.2}Portfolio Composition over the Life-Cycle}{21}
+\contentsline {paragraph}{Wealth Portfolio}{21}
+\contentsline {paragraph}{What does the Literature say?}{22}
+\contentsline {section}{\numberline {8}What Features of the Wealth Distribution are Explained by the Model?}{23}
+\contentsline {subsection}{\numberline {8.1}Creating a Cross-Section from Simulated Life-Cycle Profiles}{23}
+\contentsline {subsection}{\numberline {8.2}Net-Worth Distribution up to the 90th Percentile}{24}
+\contentsline {subsection}{\numberline {8.3}Relative Degrees of Inequality}{26}
+\contentsline {section}{\numberline {9}A Counterfactual Experiment}{27}
+\contentsline {subsection}{\numberline {9.1}On the Individual Level}{27}
+\contentsline {subsection}{\numberline {9.2}Over the Life-Cycle}{29}
+\contentsline {subsection}{\numberline {9.3}The Distribution}{30}
+\contentsline {subsection}{\numberline {9.4}Inequality of Different Distributions}{30}
+\contentsline {section}{\numberline {10}Conclusion}{31}
+\contentsline {section}{References}{33}
+\contentsline {section}{\numberline {A}Experience Premium}{I}
+\contentsline {section}{\numberline {B}Calibration Method}{I}
+\contentsline {section}{\numberline {C}Data}{I}
+\contentsline {section}{\numberline {D}Initial Conditions}{III}
+\contentsline {section}{\numberline {E}Gini Coefficient}{V}
+\contentsline {subsection}{\numberline {E.1}Conventional Gini Coefficient}{V}
+\contentsline {subsection}{\numberline {E.2}Normalized Gini Coefficient}{V}
