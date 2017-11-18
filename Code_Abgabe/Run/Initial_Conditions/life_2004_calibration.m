@@ -174,8 +174,8 @@ end;
 % disp('average replacement rate');
 % rr_average = sum(f_star .* (ret_benefit_ms./gross_Y_ms_j(:,T_ret)))
 
-disp('replacement rate at median income');
-rr_medinc = ret_benefit_ms(round(nz/2))/gross_Y_ms_j(round(nz/2),T_ret)
+% disp('replacement rate at median income');
+% rr_medinc = ret_benefit_ms(round(nz/2))/gross_Y_ms_j(round(nz/2),T_ret)
 
 % Survival probabilities according to Table 1 of the U.S. Decennial Life Tables for 1999-2001
 % published by the National Center for Health Statistics (NCHS)

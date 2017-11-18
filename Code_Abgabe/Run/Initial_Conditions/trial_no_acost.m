@@ -17,43 +17,43 @@
 % November 19, 2009
 % ===============================================
 
+%% Algorithm parameters
+% ====================
 clear all;
 
 
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Current_no_acost/2004_initial_conditions/output/';
+DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Run/Initial_conditions/output/';
 
 dos(['md ' DISC_PATH]);
 
-% USER: specify the right database name
-% Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = ['initial_assets','life_cycle'];
-models_database_ = [models_database_name_, '.mat']; 
+% USER: specify, whether the initial conditions in net-worth are attributed
+% to durables or liquid assets. IMPORTANT!
+% default:
+init_cond_ = 'liquid_assets_init'; % alternatively set to 'liquid_assets_init';
 
+% Note, the name of the database changes automatically 
+models_database_ = [init_cond_, '.mat'];
 
+% beta and theta take the calibrated values according to the specification
+% in question: 
 
-%% Call Calibration 
+if strcmp(init_cond_,'durables_init');
+    beta_ = 0.991;
+    theta = 0.763;
+elseif strcmp(init_cond_,'liquid_assets_init')
+    beta_ = 0.994;
+    theta = 0.752;
+end
+
+% Call calibration
 life_2004_calibration
 
-%% Algorithm parameters
-% ====================
-
-% parameters from literature
+% Call parameters which taken from the literature
 model_parameters_no_acost
-
-% estimated parameters 
-
-% thus far best match with sigma 1.5
-theta = 0.763;
-beta_ = 0.991;
-
 
 % Create the grid on the state space
 % % ==================================
 % % state space: x, d, markov_state
-
-% min y changes every period, due to the deterministic factor of the income
-% growth 
-% y_gam_j = gamma_*min(Y_ms_j,[],1);  % seizable income
 
 % min y has to be the same across all periods, the lowest income there is! 
 y_gam_j = gamma_*min(Y_ms_j(:));
@@ -62,15 +62,14 @@ y_gam_j = gamma_*min(Y_ms_j(:));
 % d is durable holdings
 d_min =   0.0;
 d_max =   250;
-% d_max =   40;
 numb_d_gridpoints = 100;
 
 % x is an endogenous state variable, x = (1 + r)*a + (1 - delta_)*d
 x_min = -y_gam_j + (1 - miu)*(1 - delta_)*d_min;
 x_max =  300;
-% x_max =  60;
 numb_x_gridpoints = 225;
 
+% Make sure that regions of the policy function with higher curvature, for low values of the endogenous states, contain more grid-points
 x_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(x_max - x_min+1)+1)+1)+1),numb_x_gridpoints))-1)-1)-1)-1+x_min)';  % set up quadruple exponential grid
 d_grid_ = (exp(exp(exp(exp(linspace(0,log(log(log(log(d_max - d_min+1)+1)+1)+1),numb_d_gridpoints))-1)-1)-1)-1+d_min)';  % set up quadruple exponential grid
 % x_grid_ = (exp(exp(exp(linspace(0,log(log(log(x_max - x_min+1)+1)+1),numb_x_gridpoints))-1)-1)-1+x_min)';  % set up triple exponential grid
@@ -105,13 +104,11 @@ policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,
 
 % save first policy for period (size(Y_ms_j,2)) i.e. period T
 policies(size(Y_ms_j,2)).c_pol = c_pol;
+
 % assumption that in the last period all agents sell their assets 
 policies(size(Y_ms_j,2)).a_prime = zeros(size(c_pol));
 policies(size(Y_ms_j,2)).x_prime = zeros(size(c_pol));
 policies(size(Y_ms_j,2)).d_prime = zeros(size(c_pol));
-
-% % for trial_simulation3
-% policies = repmat(struct('c_pol',init_mat,'a_prime',init_mat,'x_prime',init_mat,'d_prime',init_mat,'a_prime_sel',init_mat,'d_prime_sel',init_mat),size(Y_ms_j,2)-1,1); % initialize array to store policies
 
 for jage = (size(Y_ms_j,2)-1):-1:1;
 

@@ -59,8 +59,8 @@ sim_Durables = NaN*zeros(1,tot_cases);
 
 for iprepcase = 1:tot_cases;
         this_model_ = models_(iprepcase);
-        sim_Wealth(iprepcase)   = prime_sample_means_correct(this_model_.cs_x_prime,this_model_.cs_x_prime);
-        sim_Durables(iprepcase) = prime_sample_means_correct(this_model_.cs_x_prime,this_model_.cs_d_prime);
+        sim_Wealth(iprepcase)   = prime_sample_means(this_model_.cs_x_prime,this_model_.cs_x_prime);
+        sim_Durables(iprepcase) = prime_sample_means(this_model_.cs_x_prime,this_model_.cs_d_prime);
 end; % of for writing percentiles from all cases
 
 
