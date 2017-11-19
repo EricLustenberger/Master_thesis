@@ -30,7 +30,7 @@ clear all;
 life_2004_calibration
 
 % Call parameters which taken from the literature
-model_parameters_no_acost
+model_parameters
 
 for i = 1: 2;
         

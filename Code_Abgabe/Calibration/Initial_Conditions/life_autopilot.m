@@ -13,8 +13,7 @@ clear all;
 global models_database_ models_database_name_
 global beta_ theta 
 
-% USER: Make absolutely sure to specify DISC_PATH correctly,
-% and to - further down - define an appropriate database in "models_database_name_ ",
+% USER:  define an appropriate database in "models_database_name_ ",
 % this is essential for the smooth interplay of all components:
 % computing of solution over sub-sets of parameter space, distributed over several machines,
 % merging databases later, saving policy functions, saving simulations etc.
@@ -25,7 +24,11 @@ models_database_name_ = [ 'Durables', 'beta0961_theta06509','steps_005','with_dr
 models_database_ = [models_database_name_, '.mat']; 
 
 % USER: specify, whether the initial conditions in net-worth are attributed
-% to durables or liquid assets. IMPORTANT! 
+% to durables or liquid assets. 
+% init_cond_ can either be set to 'durables_init' or 'liquid_assets_init'
+% if one wants to attribute the initial conditions in net-worth to durables
+% or liquid assets respectively. 
+
 % default: 
 init_cond_ = 'durables_init'; % alternatively set to 'liquid_assets_init';
 
@@ -34,6 +37,10 @@ good_file_   = 0;% filename ('timestamp') for already computed case, 0 if none
 
 % This calls the script for the calibration of life-cycle and income parameters
 life_2004_calibration;
+
+% Call parameters which taken from the literature
+model_parameters_no_acost
+
 % NOTE: This also defines the interest rates and other parameters.
   
 % Define parameters for different specifications
@@ -42,9 +49,11 @@ life_2004_calibration;
 
 % USER: FIRST grid layer for parameter space. Compute solutions for a SECOND finer
 % grid-layer around the estimates found on the coarser first grid layer.
-% Then merge databases for the first and second grid layer.
-beta_VEC  = 0.96:0.005:1;
-theta_VEC = 0.65:0.005:0.90;
+
+%beta_VEC  = 0.96:0.005:1;
+%theta_VEC = 0.65:0.005:0.90;
+beta_VEC  = 0.990:0.001:0.992;
+theta_VEC = 0.762:0.001:0.764;
 
 ifillall = 1;
 pilot_mat = NaN*zeros(max(size(beta_VEC))*max(size(theta_VEC)),2);

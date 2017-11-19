@@ -1,6 +1,7 @@
 /* File content:
 produce SCF statistics for the SCF 2004
 by Thomas Hintermaier and Winfried Koeniger
+and modified by Eric Lustenberger 
 */
 
 
@@ -15,7 +16,9 @@ drop _all;			/* drops any data in memory */
 set matsize 500;
 
 
-gl base "/Users/Eric/Desktop/Uni/MSc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Data/Final_data/Main_Code";
+* USER: specify directory*
+gl base "/Users/Eric/Desktop/Uni/MSc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Data/Main_Code"
+
 cd "${base}";
 
 
@@ -467,13 +470,6 @@ drop x4022c x4026c x4030c;
 gen finworth     = liqasset + cdep +mfunds + stocks + bonds + penacc + thrift + futpen + currpen
 	          + savbonds + cvallife + manfunds + othfina;
 
-/* Gross financial assets in H&K 2010: money in checking accounts (checking) + saving accounts (savings) + money-market accounts (mmacc) + money-market mutual funds (mmfunds) + call accounts in brokerages (cacc)
-+ certificates of deposit (cdep) + bonds  (bonds) + account-type pension plans (penacc + currpen + futpen) + thrift accounts (thrift) + current value of life insurance (cvallife) + savings bonds (savbonds) + other managed funds (manfunds) + other financial assets (othfina)
-+ stock (stocks) + mutual funds (mfunds) + owned non-financial business assets + jewelry, antiques or small durables */
-
-/*liqasset= checking + savings + mmacc + mmfunds + cacc;*/
-
-/* missing from the above definition: ownded non-financial business assets + jewelry, antiques or small durables */
 
 /***************** NON-FINANCIAL WORTH *****************/
 
@@ -660,9 +656,9 @@ gen othnfin= x4022+x4026+x4030 -othfina +x4018; /* other durables like gold, jew
 
 /* durables and non-financial wealth */
 /**************************************************/
-gen durable           = vehicl + primres + othres + othnres; /* durables according to H&K 2010 (value of homes, residential and non-residential property and vehicles*/
+gen durable           = vehicl + primres + othres + othnres; /* durables defined as value of homes, residential and non-residential property and vehicles*/
 
-/* Change gross financial worth to fit the definition of H&K 2010 */
+/* Change gross financial worth to fit the definition of durables */
 replace finworth = finworth + othnfin + buseq;
 
 /********** TOTAL DEBT ***************/
@@ -820,8 +816,7 @@ drop penloan1  penloan2 penloan3 penloan4 penloan5 penloan6 x4010c x4032c marglo
 
 /* debt */
 /********/
-gen totdebt           = morthel + othloc + othresnresdebt + otherdebt + ccbal + install + odebt +busdebt;/* Debt in H&K 2011: mortgage and housing debt (morthel) + other lines of credit (othloc) and debt on residential (otherdebt) and non-residential property (othresnresdebt) + debt on non-financial business assets (busdebt)
-+ credit-card debt (ccbal) + installment loans (install) + pension loans and margin loans (odebt) */
+gen totdebt           = morthel + othloc + othresnresdebt + otherdebt + ccbal + install + odebt +busdebt;
 
 /* generate remaining variables */
 /*********************************/
@@ -890,8 +885,7 @@ sum totworth [fweight=x42001] if age>=26 & age<=55, detail;
 scalar tw_90 = r(p90);
 
 
-/* Adjust for growth in the life-cycle profile: SCF data show that average equivalized net-labor earnings grow by 1% per annum */
-/* Note: higher in 2011 Paper, thus 1.015*/
+/* Adjust for growth in the life-cycle profile for initial conditions: SCF data show that average equivalized net-labor earnings grow by 1.15% per annum */
 
 gen totworth_adj             = totworth            *1.015^(age-20); 
 gen totworth_np_adj          = totworth_np         *1.015^(age-20);
@@ -900,9 +894,13 @@ gen durable_adj				 = durable 			   *1.015^(age-20);
 gen netfinworth_adj			 = netfinworth		   *1.015^(age-20);
 
 
+
+/****** The following two sections can be used to calculate the relevant data for the thesis. ******/ 
+/* USER: uncomment for calculation.*/
+
 /* LIST of initial conditions */
 /******************************/
-/*
+
 count if age>=23 & age <=25;
 
 /* Net-worth distribution of 23-25 year olds as initial distribution */
@@ -915,42 +913,19 @@ gen weight_age_2325 = x42001/sum_weight_age_2325;
 
 sort age weight_age_2325 durable_adj netfinworth_adj totworth_adj;  /* make sure that output always sorted in the same way */
 list weight_age_2325 durable_adj netfinworth_adj totworth_adj if age >=23 & age <=25;
-export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using "initial_cond_adj_2" if age >=23 & age <=25, replace;
-*/
-
-/********ERIC STATISTICS********/
-list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
+export excel age weight_age_2325 durable_adj netfinworth_adj totworth_adj using "initial_cond_adj" if age >=23 & age <=25, replace;
 
 
-
-
-
-   collapse       age totworth totworth_adj 
-					  totworth_np totworth_np_adj labearn_trans_adj labearn_trans durable_adj durable
-					  netfinworth netfinworth_adj [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
-  
-  gen year = 2004;
-  save wealth_means_primeage_90th_2004_ERIC, replace;  
-
-
-
-
+/* Calculate the empirical moments needed for the calibration*/
+/*************************************************************/
 /*
-list  age bankrupt bankrupt_per_person  netfinworth_primres durable_primres a_s_primres unsec_debt_primres a_u_pos_primres dur_equity_primres oth_equity_primres;
-
-collapse       age totworth totworth_adj 
-					   totworth_np totworth_np_adj labearn_trans_adj labearn_trans durable_adj durable
-					   netfinworth netfinworth_adj [fweight=x42001] if age>=26 & age<=55;
+  collapse       totworth durable netfinworth  [fweight=x42001] if totworth<=tw_90 & age>=26 & age<=55;
   
   gen year = 2004;
-  save wealth_means_primeage_2004_ERIC, replace;  
+  save wealth_means_primeage_90th_2004, replace;  
 
 
 */
-
-
-
-/********* END ERIC **********/ 
 
 
 

@@ -23,8 +23,8 @@ if init_cond_ == 'durables_init'
     d_i_j(:,1)  = a_initial;
 
 elseif init_cond_ == 'liquid_assets_init'
-    a_i_j(:,1) = d_initial; 
-    d_i_j(:,1)  = a_initial;
+    a_i_j(:,1) = a_initial;
+    d_i_j(:,1)  = d_initial;
     
 end % over attribution initial net-worth to either liquid assets or durables
 

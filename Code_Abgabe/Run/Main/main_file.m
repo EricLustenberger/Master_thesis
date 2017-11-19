@@ -33,7 +33,7 @@ theta = 0.764;
 my_life_2004_calibration
 
 % Call parameters which taken from the literature
-model_parameters_no_acost
+model_parameters
 
 
 for i = 1:size(miu_grid,2)

@@ -20,9 +20,6 @@
 %% Algorithm parameters
 % ====================
 
-% Call parameters which taken from the literature
-model_parameters_no_acost
-
 % Create the grid on the state space
 % % ==================================
 % % state space: x, d, markov_state

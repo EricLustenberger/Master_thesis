@@ -1,6 +1,5 @@
-% This program solves a life-cycle model with precautionary savings.
-% It allows for a spread in the interest rate
-% on financial wealth, according to the sign of holdings.
+% This program solves a life-cycle model with precautionary savings and 
+% durables.
 %
 % Thomas Hintermaier, hinterma@uni-bonn.de and
 % Winfried Koeniger,  w.koeniger@qmul.ac.uk
@@ -13,22 +12,17 @@ clear all;
 global models_database_ models_database_name_
 global  beta_ theta 
 
-% USER: Make absolutely sure to specify DISC_PATH correctly,
-% and to - further down - define an appropriate database in "models_database_name_ ",
-% this is essential for the smooth interplay of all components:
-% computing of solution over sub-sets of parameter space, distributed over several machines,
-% merging databases later, saving policy functions, saving simulations etc.
-
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
 models_database_name_ = [ 'Baseline', 'beta0961_theta06509','steps_005','with_dropping_values'];
 models_database_ = [models_database_name_, '.mat']; 
 
-good_file_   = 0;                       % filename ('timestamp') for already computed case, 0 if none
+good_file_   = 0; % filename ('timestamp') for already computed case, 0 if none
 
 % This calls the script for the calibration of life-cycle and income parameters
 my_life_2004_calibration;
-% NOTE: This also defines the interest rates and other parameters.
+% Call parameters which taken from the literature
+model_parameters;
 
 % Define parameters for different specifications
 % one row per specification.
@@ -36,7 +30,7 @@ my_life_2004_calibration;
 
 % USER: FIRST grid layer for parameter space. Compute solutions for a SECOND finer
 % grid-layer around the estimates found on the coarser first grid layer.
-% Then merge databases for the first and second grid layer.
+
 beta_VEC  = 0.96:0.005:1;
 theta_VEC = 0.65:0.005:0.90;
 
