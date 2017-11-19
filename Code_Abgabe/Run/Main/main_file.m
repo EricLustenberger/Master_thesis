@@ -1,5 +1,5 @@
-
-% Matlab program to solve
+% Main 
+% 
 % a portfolio choice problem
 % with non-separable durable consumption,
 % which can be used for collateralized borrowing,
@@ -17,32 +17,36 @@
 
 clear all;
 
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Run/output/';
-
-% USER: specify the right database name
-% Note: for new cases and parameterizations always use a NEW name.
-models_database_name_ = ['baseline','life_cycle'];
-models_database_ = [models_database_name_, '.mat']; 
-
+% USER: specify for which LTV you would wish to solve the counterfactual. 
+% The baseline is set to 0.97. By default and as in the paper, the
+% counterfactual is set to an LTV of zero. 
+miu_grid = [0.97,0];
 
 %% Algorithm parameters
 % ====================
-
-% Specify LTV-ratio
-miu = 0.97;% loan-to-value ratio
-
 % Discount factor and non-durable consumption weight obtained from
 % calibration
 beta_ = 0.991;
 theta = 0.764;
 
 % Call calibration
-trial_life_2004_calibration
+my_life_2004_calibration
 
 % Call parameters which taken from the literature
 model_parameters_no_acost
 
 
+for i = 1:size(miu_grid,2)
+
+    miu = miu_grid(i);
+    
+    if i == 1;   
+        solving_case = 'baseline';
+    elseif i == 2;
+        solving_case = 'counterfactual';
+    end
+
+models_database_ = [solving_case, '.mat']; 
 
 % Create the grid on the state space
 % % ==================================
@@ -210,4 +214,6 @@ end; % ending the for loop on jage
 toc
 
 % simulate agents 
-trial_simulation_no_acost;
+simulation;
+
+end % loop over miu_grid

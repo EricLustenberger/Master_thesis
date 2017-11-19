@@ -29,7 +29,7 @@ dos(['md ' DISC_PATH]);
 % USER: specify, whether the initial conditions in net-worth are attributed
 % to durables or liquid assets. IMPORTANT!
 % default:
-init_cond_ = 'liquid_assets_init'; % alternatively set to 'liquid_assets_init';
+init_cond_ = 'liquid_assets_init'; % alternatively set to 'durables_init';
 
 % Note, the name of the database changes automatically 
 models_database_ = [init_cond_, '.mat'];
