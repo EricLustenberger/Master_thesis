@@ -10,7 +10,7 @@ this_model_.out_file_time = out_file_time;
 out_file_identifier = ['PIL',sprintf('%06.0f',ipilot),'BET',sprintf('%04.0f',beta_*1000),'SIG',sprintf('%04.0f',theta*100),out_file_time_only,models_database_(1:end-4)];
 this_model_.out_file_identifier = out_file_identifier;
 
-out_file = [DISC_PATH,out_file_identifier];
+out_file = out_file_identifier;
 
 disp(out_file_identifier);
 
@@ -99,10 +99,10 @@ this_model_.sim_sample = sim_sample;
 
 if this_is_the_first_case_since_starting_autopilot_on_this_machine
     
-   if exist([DISC_PATH,models_database_],'file') == 0;
+   if exist(models_database_,'file') == 0;
    models_ = this_model_;
    else
-   load([DISC_PATH,models_database_]);
+   load(models_database_);
    end; % of if on certain database with certain name already existing
            
    this_is_the_first_case_since_starting_autopilot_on_this_machine = 0;
@@ -110,4 +110,4 @@ end; % of if on first case since starting autopilot
 
 new_index = size(models_,2) + 1;
 models_(new_index) = this_model_;
-save([DISC_PATH,models_database_],'models_','-v7.3');    
+save(models_database_,'models_','-v7.3');    

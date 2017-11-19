@@ -1,6 +1,3 @@
-% import data
-trial_data_2004
-
 real_ages_of_model_periods = prime_begin:1:90;
 
 % total population
@@ -80,28 +77,28 @@ end; % of for over percentiles
                                                  
 
 %% Means
-% Mean of full distribution
-mean_x = mean(cs_x); 
-
-% Mean of full distribution according to age groups
-mean_x_26_35 = mean(cs_x_26_35);
-mean_x_36_45 = mean(cs_x_36_45);
-mean_x_46_55 = mean(cs_x_46_55);
+% % Mean of full distribution
+% mean_x = mean(cs_x); 
+% 
+% % Mean of full distribution according to age groups
+% mean_x_26_35 = mean(cs_x_26_35);
+% mean_x_36_45 = mean(cs_x_36_45);
+% mean_x_46_55 = mean(cs_x_46_55);
 
 % Mean up to 90th percentile 
 I_x_26_35_90th = find(cs_x_26_35 <= x_26_35_perc_composed(90));
 I_x_36_45_90th = find(cs_x_36_45 <= x_36_45_perc_composed(90));
 I_x_46_55_90th = find(cs_x_46_55 <= x_46_55_perc_composed(90));
 
-averages.mean_x_26_35_90th = mean(cs_x_26_35(I_x_26_35_90th));
-averages.mean_x_36_45_90th = mean(cs_x_36_45(I_x_36_45_90th));
-averages.mean_x_46_55_90th = mean(cs_x_46_55(I_x_46_55_90th));
+tables.mean_x_26_35_90th = mean(cs_x_26_35(I_x_26_35_90th));
+tables.mean_x_36_45_90th = mean(cs_x_36_45(I_x_36_45_90th));
+tables.mean_x_46_55_90th = mean(cs_x_46_55(I_x_46_55_90th));
 
 %% Gini coefficients 
 % Ginis up to 90th percentile 
-averages.gini_x_26_35_90th = standard_gini(cs_x_26_35(I_x_26_35_90th));
-averages.gini_x_36_45_90th = standard_gini(cs_x_36_45(I_x_36_45_90th));
-averages.gini_x_46_55_90th = standard_gini(cs_x_46_55(I_x_46_55_90th));
+tables.gini_x_26_35_90th = standard_gini(cs_x_26_35(I_x_26_35_90th));
+tables.gini_x_36_45_90th = standard_gini(cs_x_36_45(I_x_36_45_90th));
+tables.gini_x_46_55_90th = standard_gini(cs_x_46_55(I_x_46_55_90th));
 
 
 life_save; % save output for the counterfactual experiment

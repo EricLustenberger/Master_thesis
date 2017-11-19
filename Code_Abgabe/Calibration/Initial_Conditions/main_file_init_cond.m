@@ -189,4 +189,4 @@ end; % ending the for loop on jage
 toc
 
 % simulate agents 
-trial_simulation_no_acost;
+simulation_init_cond;

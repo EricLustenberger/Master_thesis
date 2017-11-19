@@ -10,18 +10,14 @@
 
 clear all;
 
-global DISC_PATH
 global models_database_ models_database_name_
-global  beta_ theta 
+global beta_ theta 
 
 % USER: Make absolutely sure to specify DISC_PATH correctly,
 % and to - further down - define an appropriate database in "models_database_name_ ",
 % this is essential for the smooth interplay of all components:
 % computing of solution over sub-sets of parameter space, distributed over several machines,
 % merging databases later, saving policy functions, saving simulations etc.
-
-% NOTE: a trailing slash \ is required to get results INTO the directory (and not just next to it)
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Calibration/output/';
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
@@ -70,7 +66,7 @@ for ipilot = 1:size(pilot_mat,1);
 beta_   = pilot_mat(ipilot,1);    % discount factor
 theta  = pilot_mat(ipilot,2);    % utility curvature
 
-trial_no_acost;
+main_file_init_cond;
 
 s1= sprintf('==================================================================\n');
 s2= sprintf('Share of cases computed  \n');

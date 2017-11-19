@@ -21,22 +21,29 @@
 % ====================
 clear all;
 
-
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Run/Initial_conditions/output/';
-
-dos(['md ' DISC_PATH]);
-
 % USER: specify, whether the initial conditions in net-worth are attributed
 % to durables or liquid assets. IMPORTANT!
 % default:
-init_cond_ = 'liquid_assets_init'; % alternatively set to 'durables_init';
+%grid_init_cond = ['liquid_assets_init','durables_init'];
 
-% Note, the name of the database changes automatically 
+% Call calibration
+life_2004_calibration
+
+% Call parameters which taken from the literature
+model_parameters_no_acost
+
+for i = 1: 2;
+        
+if i == 1;
+    init_cond_ = 'liquid_assets_init';
+elseif i == 2;
+    init_cond_ = 'durables_init';
+end
+    
 models_database_ = [init_cond_, '.mat'];
 
 % beta and theta take the calibrated values according to the specification
-% in question: 
-
+% in question.
 if strcmp(init_cond_,'durables_init');
     beta_ = 0.991;
     theta = 0.763;
@@ -44,12 +51,6 @@ elseif strcmp(init_cond_,'liquid_assets_init')
     beta_ = 0.994;
     theta = 0.752;
 end
-
-% Call calibration
-life_2004_calibration
-
-% Call parameters which taken from the literature
-model_parameters_no_acost
 
 % Create the grid on the state space
 % % ==================================
@@ -217,4 +218,6 @@ end; % ending the for loop on jage
 toc
 
 % simulate agents 
-trial_simulation_no_acost;
+simulation_init_cond;
+
+end

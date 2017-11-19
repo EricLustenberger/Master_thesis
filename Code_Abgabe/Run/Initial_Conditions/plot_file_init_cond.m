@@ -1,22 +1,41 @@
 %% Comparing different specifications of initial conditions 
+% This file loads the saved outputs from the three possible calibrations
+% with respect to the initial conditions. It thus loads the saved
+% 'baseline.mat' from running main_file.m in the Main folder and
+% 'durables_init.mat' as well as 'liquid_assets_init.mat' from running the
+% main_file.m in the present folder. 
+
+% The file plots the Figure 8 in the paper. The results displayed in Table
+% 9 can be found in the loaded structures. All relevant statistics are
+% stored in a strucural field called tables. 
+
+% USER: Note that you need to run both the main_file.m in the Main folder
+% and the main_file.m in the present folder first. 
 
 clear all; 
 
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Run/Initial_Conditions/output/';
-models_database_name_baseline = ['baseline','life_cycle'];
+% USER: Note that you might have to change the relative path to load
+% 'baseline.mat' or copy this matrix directly into the present folder. 
+
+currentFolder = pwd;
+
+DISC_PATH = [currentFolder,'/../Main/'];
+models_database_name_baseline = 'baseline';
 models_database_baseline = [models_database_name_baseline, '.mat'];
 
 baseline = load([DISC_PATH,models_database_baseline]);
 
-models_database_name_durables = ['durables_init'];
+% the solutions for the alternate initial conditions are directly loaded
+% from the present working folder 
+models_database_name_durables = 'durables_init';
 models_database_durables = [models_database_name_durables, '.mat'];
 
-durables_init = load([DISC_PATH,models_database_durables]);
+durables_init = load(models_database_durables);
 
-models_database_name_const_liquid_assets = ['liquid_assets_init'];
+models_database_name_const_liquid_assets = 'liquid_assets_init';
 models_database_const_liquid_assets = [models_database_name_const_liquid_assets, '.mat'];
 
-assets_init = load([DISC_PATH,models_database_const_liquid_assets]);
+assets_init = load(models_database_const_liquid_assets);
 
 
 %% Plot Figure: Figure 8 in the paper 

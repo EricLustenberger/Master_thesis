@@ -108,4 +108,4 @@ mean_y_j = mean(Y_i_t,1);
 
 toc
 
-compose_wealth_distribution_no_acost_calibration;
+compose_wealth_distribution;

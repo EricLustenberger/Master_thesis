@@ -18,9 +18,6 @@ clear all;
 % CORRESPONDS to the calibration of the cases saved in the models_database_, which is going to be loaded
 % This calls the script for the calibration of life-cycle and income parameters
 
-% USER: SELECT DISC_PATH, mind the trailing slash
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Working/Calibration/My_Calibration/Calibration_no_acost/output/';
-
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095','beta0985995_theta07550765_sigma15','steps_001','my_initial_cond']; %baseline
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta09850995_theta07450755_sigma15','initial_conditions_liquid_assets','001']; % initial conditions by hint. and set to liquid assets
 %models_database_name_ = ['2004_Data', 'LIFE', 'rho095', 'beta0987993_theta07570763_sigma15','steps_001','my_initial_cond','downpayment08']; % downpayment 08 with my initial conditions
@@ -50,7 +47,7 @@ models_database_ = [models_database_name_, '.mat'];
   sel_sampleM = [2.39; 2.95];
 % =========================================================================
 
-load([DISC_PATH,models_database_]);
+load(models_database_);
 
 tot_cases = size(models_,2);
 
@@ -59,6 +56,7 @@ sim_Durables = NaN*zeros(1,tot_cases);
 
 for iprepcase = 1:tot_cases;
         this_model_ = models_(iprepcase);
+        % obtain the relevant empirical moments for each variation 
         sim_Wealth(iprepcase)   = prime_sample_means(this_model_.cs_x_prime,this_model_.cs_x_prime);
         sim_Durables(iprepcase) = prime_sample_means(this_model_.cs_x_prime,this_model_.cs_d_prime);
 end; % of for writing percentiles from all cases

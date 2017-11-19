@@ -10,7 +10,6 @@
 
 clear all;
 
-global DISC_PATH
 global models_database_ models_database_name_
 global  beta_ theta 
 
@@ -20,9 +19,6 @@ global  beta_ theta
 % computing of solution over sub-sets of parameter space, distributed over several machines,
 % merging databases later, saving policy functions, saving simulations etc.
 
-% NOTE: a trailing slash \ is required to get results INTO the directory (and not just next to it)
-DISC_PATH = '/Users/Eric/Desktop/Uni/Msc_Economics/Master_Thesis/Codes/Working_folder/Master_thesis/Code_Abgabe/Calibration/output/';
-
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.
 models_database_name_ = [ 'Baseline', 'beta0961_theta06509','steps_005','with_dropping_values'];
@@ -31,7 +27,7 @@ models_database_ = [models_database_name_, '.mat'];
 good_file_   = 0;                       % filename ('timestamp') for already computed case, 0 if none
 
 % This calls the script for the calibration of life-cycle and income parameters
-trial_life_2004_calibration;
+my_life_2004_calibration;
 % NOTE: This also defines the interest rates and other parameters.
 
 % Define parameters for different specifications
@@ -64,7 +60,7 @@ for ipilot = 1:size(pilot_mat,1);
 beta_   = pilot_mat(ipilot,1);    % discount factor
 theta  = pilot_mat(ipilot,2);    % utility curvature
 
-trial_no_acost;
+main_file;
 
 s1= sprintf('==================================================================\n');
 s2= sprintf('Share of cases computed  \n');
