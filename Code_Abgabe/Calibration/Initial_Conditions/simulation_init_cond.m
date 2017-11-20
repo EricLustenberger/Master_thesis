@@ -18,11 +18,11 @@ invd_i_j = NaN*zeros(pop_size,size(Y_ms_j,2));
 % life_2004_calibration file
 d_initial     = d_min;
 
-if init_cond_ == 'durables_init'
+if strcmp(init_cond_,'durables_init');
     a_i_j(:,1) = d_initial; 
     d_i_j(:,1)  = a_initial;
 
-elseif init_cond_ == 'liquid_assets_init'
+elseif strcmp(init_cond_,'liquid_assets_init');
     a_i_j(:,1) = a_initial;
     d_i_j(:,1)  = d_initial;
     

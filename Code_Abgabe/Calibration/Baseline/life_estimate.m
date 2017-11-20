@@ -19,7 +19,7 @@ models_database_ = [models_database_name_, '.mat'];
 % USER: if several databases get merged before it might be simpler to adjust the following line
 %models_database_ = 'the_file_that_contains_all_merged_databases.mat';
 
-  sel_sampleM = [2.39; 2.95];
+  sel_sampleM = [2.39; 2.95]; % data moments obtained from the SCF 2004 data
 % =========================================================================
 
 load(models_database_);
