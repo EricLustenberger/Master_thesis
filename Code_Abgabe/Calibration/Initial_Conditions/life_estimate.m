@@ -1,16 +1,12 @@
-% This estimates a life-cycle model of precautionary savings,
-% The estimation is performed by the
-% simulated method of moments (SMM),
-% matching quantiles of the wealth distribution
-% as observed in the survey of consumer finances (SCF).
-%
-% Thomas Hintermaier, hinterma@uni-bonn.de and
-% Winfried Koeniger,  w.koeniger@qmul.ac.uk
-% 
-% April 24, 2010
-%
-% Note: Make sure to carefully adjust all sections marked "SELECT"
-% ================================================================
+% This finds the pair of beta and theta that produce
+% means of durable holdings and net-worth of the prime
+% age population up to the 90th percentile of the net-worth
+% distribution that best match the moments  observed
+% in the survey of consumer finances (SCF).
+
+% Note this file loads the output from main_file_init_cond.m
+% and thus is used to calibrate beta and theta for the different
+% specifications of the initial conditions.
 
 clear all;
 

@@ -1,3 +1,6 @@
+% Contains the SCF 2004 data for the net-worth distribution for the three age groups.
+% This data is based on calculations by Hintermaier & Koeniger (2011)
+
 % reading in net-worth percentiles 1 - 99
 % per age group 26-35 (column 2), 36-45 (column 3) and 46-55 (column 4) for 2004
  

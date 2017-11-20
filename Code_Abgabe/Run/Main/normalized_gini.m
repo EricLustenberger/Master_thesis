@@ -1,8 +1,10 @@
+% Calculates the normalized Gini index following Chen et. al (1982)
+% from an imput vector, Large_Y_j.
+
+
 function G_star = my_gini(Large_Y_j)
 % inputs. 
 % Large_Y_j = vector of different values
-% n = number of observations
-
 
 % Input example: 
 % Large_Y_j = [-500,-300,-300,-100,200,300,300,400,500,500];
@@ -12,8 +14,6 @@ n = size(Large_Y_j,1);
 %% calculate important parameters
 
 mu_mean = mean(Large_Y_j); % mean
-
-%% raise flag if mean is not positive!!! 
 
 Large_Y_j_sorted = sort(Large_Y_j); % sort inputs according to value
 small_y_j = Large_Y_j_sorted/(n*mu_mean); %obtain shares 

@@ -1,3 +1,7 @@
+% Converts the simulated life-cycle profiles into cross-sections needed for
+% the calibration using compose_survey and calculates the Gini coefficients
+% of the obtained distribution.
+
 real_ages_of_model_periods = prime_begin:1:90;
 
 % total population

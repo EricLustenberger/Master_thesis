@@ -1,5 +1,6 @@
-% Writing parameters and output
-% =============================
+% This file saves the relevant output into a matrix using the
+% the designated name.
+
 snow = clock;
 this_model_.snow = snow;
 

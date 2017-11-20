@@ -1,3 +1,7 @@
+% This function calculates the mean of the input distribution cs_prime_d
+% of consumers holding shares up to the 90th percentile of the cs_prime
+% distribution.
+
 function [mean_prime_90th] = prime_sample_means_correct(cs_prime,cs_prime_d)
 
 cs_prime_sorted = sort(cs_prime);

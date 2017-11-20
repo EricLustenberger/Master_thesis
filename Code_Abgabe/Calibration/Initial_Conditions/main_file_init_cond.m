@@ -1,21 +1,6 @@
-
-% egm_no_acost.m
-%
-% Matlab program to solve
-% a portfolio choice problem
-% with non-separable durable consumption,
-% which can be used for collateralized borrowing,
-% such that all debt is secured;
-% and WITHOUT adjustment costs.
-%
-% The endogenous state variables are x, the pre-determined component of cash-on-hand,
-% and d, the stock of durables.
-%
-% Thomas Hintermaier, hinterma@ihs.ac.at and
-% Winfried Koeniger,  w.koeniger@qmul.ac.uk
-% 
-% November 19, 2009
-% ===============================================
+% This file is based on the codes from Hintermaier and Koeniger (2010) (without
+% adjustment costs) and solves a life-cycle model with precautionary savings and
+% durables.
 
 %% Algorithm parameters
 % ====================

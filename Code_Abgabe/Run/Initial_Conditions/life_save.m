@@ -1,5 +1,6 @@
-% Writing parameters and output
-% =============================
+% This file saves the relevant output into a matrix using the
+% the designated name.
+
 models_database_
 this_model_.models_database_ = models_database_;
 

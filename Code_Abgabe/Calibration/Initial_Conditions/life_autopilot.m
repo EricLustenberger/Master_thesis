@@ -1,22 +1,10 @@
-% This program solves a life-cycle model with precautionary savings.
-% It allows for a spread in the interest rate
-% on financial wealth, according to the sign of holdings.
-%
-% Thomas Hintermaier, hinterma@uni-bonn.de and
-% Winfried Koeniger,  w.koeniger@qmul.ac.uk
-% 
-% April 15, 2010
-% ===============================================
+% This program solves a life-cycle model with precautionary savings and
+% durables for different combinations of beta and theta.
 
 clear all;
 
 global models_database_ models_database_name_
 global beta_ theta 
-
-% USER:  define an appropriate database in "models_database_name_ ",
-% this is essential for the smooth interplay of all components:
-% computing of solution over sub-sets of parameter space, distributed over several machines,
-% merging databases later, saving policy functions, saving simulations etc.
 
 % USER: specify the right database name
 % Note: for new cases and parameterizations always use a NEW name.

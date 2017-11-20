@@ -1,19 +1,13 @@
-% Main 
-% 
-% a portfolio choice problem
-% with non-separable durable consumption,
-% which can be used for collateralized borrowing,
-% such that all debt is secured;
-% and WITHOUT adjustment costs.
+% This file is based on the codes from Hintermaier and Koeniger (2010) (without
+% adjustment costs) and solves a life-cycle model with precautionary savings and
+% durables.
+% It contains a loop over the LTV ratio, solving the model for the baseline calibration
+% and the counterfactual case, saving both cases in a matrix with the designated names
+% to be reloaded by the plotting_file.m. Note that in order to obtaine the solutions
+% with respect to the different specifications of the initial conditions, this file
+% must be run first to obtain the 'baseline.mat', which contains the solution for
+% the baseline case and is needed for comparison.
 %
-% The endogenous state variables are x, the pre-determined component of cash-on-hand,
-% and d, the stock of durables.
-%
-% Thomas Hintermaier, hinterma@ihs.ac.at and
-% Winfried Koeniger,  w.koeniger@qmul.ac.uk
-% 
-% November 19, 2009
-% ===============================================
 
 clear all;
 

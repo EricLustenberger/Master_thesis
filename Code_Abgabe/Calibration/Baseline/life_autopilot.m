@@ -1,11 +1,5 @@
 % This program solves a life-cycle model with precautionary savings and 
-% durables.
-%
-% Thomas Hintermaier, hinterma@uni-bonn.de and
-% Winfried Koeniger,  w.koeniger@qmul.ac.uk
-% 
-% April 15, 2010
-% ===============================================
+% durables for different combinations of beta and theta.
 
 clear all;
 
@@ -31,8 +25,10 @@ model_parameters;
 % USER: FIRST grid layer for parameter space. Compute solutions for a SECOND finer
 % grid-layer around the estimates found on the coarser first grid layer.
 
-beta_VEC  = 0.96:0.005:1;
-theta_VEC = 0.65:0.005:0.90;
+% beta_VEC  = 0.96:0.005:1;
+% theta_VEC = 0.65:0.005:0.90;
+beta_VEC  = 0.990:0.001:0.992;
+theta_VEC = 0.763:0.001:0.765;
 
 ifillall = 1;
 pilot_mat = NaN*zeros(max(size(beta_VEC))*max(size(theta_VEC)),2);

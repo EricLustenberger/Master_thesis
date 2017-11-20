@@ -1,5 +1,6 @@
-% Setting up the model, parameters
-% ================================
+% Setting up the model, parameters. Contains the initial conditions, which
+% are separable in durables and liquid assets.
+% =======================================================================
 % preparatory calculations for endowment process of life-cycle model
 % 
 % The main aspects are:

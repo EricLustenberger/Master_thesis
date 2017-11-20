@@ -1,5 +1,5 @@
-% % Simulation of solution WITHOUT adjustment cost
-% 
+% % Simulation of the life-cycle profiles.
+%
 % % Note: This requires policy functions (and parameter settings)
 % % to be already available in workspace.
 

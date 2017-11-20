@@ -1,5 +1,5 @@
 % Converts the simulated life-cycle profiles into cross-sections needed for 
-% the calibration using compose_survey
+% the calibration using compose_survey.
 
 % set model periods 
 real_ages_of_model_periods = prime_begin:1:90;

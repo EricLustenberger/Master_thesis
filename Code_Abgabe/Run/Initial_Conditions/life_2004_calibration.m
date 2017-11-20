@@ -1,5 +1,5 @@
-% Setting up the model, parameters
-% ================================
+% Setting up the model, parameters as in Hintermaier and Koeniger (2011)
+% ======================================================================
 % preparatory calculations for endowment process of life-cycle model
 % 
 % The main aspects are:

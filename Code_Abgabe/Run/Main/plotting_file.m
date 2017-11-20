@@ -1,6 +1,5 @@
-% This m-file loads the solutions from the baseline case and the counterfactual
-% for plotting. The present file thus creates all the plots from Section 9
-% in the paper.
+% This m-file computes all plots from the main text. It loads the solutions
+% from the baseline case and the counterfactual, as well as the data for plotting.
 % Note: in order to produce the plots, you need to run the main_file first.
 
 clear all; 
